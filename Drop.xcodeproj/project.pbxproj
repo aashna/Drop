@@ -7,13 +7,34 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B05FA721CEE06BB00D746C9 /* musicplayer.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1B05FA711CEE06BB00D746C9 /* musicplayer.jpg */; };
+		1B05FA741CEE097500D746C9 /* UpdateProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B05FA731CEE097500D746C9 /* UpdateProfileViewController.swift */; };
 		1B8EA2AA1CE94D26007699C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8EA2A91CE94D26007699C6 /* AppDelegate.swift */; };
-		1B8EA2AC1CE94D26007699C6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8EA2AB1CE94D26007699C6 /* ViewController.swift */; };
+		1B8EA2AC1CE94D26007699C6 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8EA2AB1CE94D26007699C6 /* MapViewController.swift */; };
 		1B8EA2AF1CE94D26007699C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B8EA2AD1CE94D26007699C6 /* Main.storyboard */; };
 		1B8EA2B11CE94D26007699C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B8EA2B01CE94D26007699C6 /* Assets.xcassets */; };
 		1B8EA2B41CE94D26007699C6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B8EA2B21CE94D26007699C6 /* LaunchScreen.storyboard */; };
 		1B8EA2BF1CE94D27007699C6 /* DropTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8EA2BE1CE94D27007699C6 /* DropTests.swift */; };
 		1B8EA2CA1CE94D27007699C6 /* DropUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8EA2C91CE94D27007699C6 /* DropUITests.swift */; };
+		1B8EA2D81CE95BEA007699C6 /* AttractionAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8EA2D71CE95BEA007699C6 /* AttractionAnnotation.swift */; };
+		1B8EA2DA1CE95C10007699C6 /* AttractionAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8EA2D91CE95C10007699C6 /* AttractionAnnotationView.swift */; };
+		1B8EA2DC1CE95EC6007699C6 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8EA2DB1CE95EC6007699C6 /* Character.swift */; };
+		1B8EA2E61CE9608D007699C6 /* Huang.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1B8EA2E31CE9608D007699C6 /* Huang.plist */; };
+		1B8EA2E71CE9608D007699C6 /* Rays.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1B8EA2E41CE9608D007699C6 /* Rays.plist */; };
+		1B8EA2E81CE9608D007699C6 /* Oval.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1B8EA2E51CE9608D007699C6 /* Oval.plist */; };
+		1B8EA2F21CE9637E007699C6 /* Zones.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1B8EA2F11CE9637E007699C6 /* Zones.plist */; };
+		1B8EA2F61CE96BC9007699C6 /* arrillaga.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 1B8EA2F31CE96BC8007699C6 /* arrillaga.JPG */; };
+		1B8EA2F71CE96BC9007699C6 /* gates.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1B8EA2F41CE96BC9007699C6 /* gates.jpg */; };
+		1B8EA2F81CE96BC9007699C6 /* memorial.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1B8EA2F51CE96BC9007699C6 /* memorial.jpg */; };
+		1BA7E0B61CEA652300FAD3B9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA7E0B51CEA652300FAD3B9 /* LoginViewController.swift */; };
+		1BD2AC061CEC1D6B005036DA /* music.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1BD2AC051CEC1D6B005036DA /* music.jpg */; };
+		1BDE538A1CEBC9CD00DC02BF /* File in Resources */ = {isa = PBXBuildFile; fileRef = 1BDE53891CEBC9CD00DC02BF /* File */; };
+		1BDE538F1CEBCB7800DC02BF /* TwitterClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDE538D1CEBCB7800DC02BF /* TwitterClient.swift */; };
+		1BDE53901CEBCB7800DC02BF /* TwitterUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDE538E1CEBCB7800DC02BF /* TwitterUser.swift */; };
+		1BDE53931CEBD18000DC02BF /* AudioLocale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDE53921CEBD18000DC02BF /* AudioLocale.swift */; };
+		C745849C1CECC4DC00D0E024 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C745849A1CECC4DC00D0E024 /* FBSDKCoreKit.framework */; };
+		C745849D1CECC4DC00D0E024 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C745849B1CECC4DC00D0E024 /* FBSDKLoginKit.framework */; };
+		C74584A41CED012A00D0E024 /* user.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C74584A31CED012A00D0E024 /* user.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,9 +55,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1B05FA711CEE06BB00D746C9 /* musicplayer.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = musicplayer.jpg; sourceTree = "<group>"; };
+		1B05FA731CEE097500D746C9 /* UpdateProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UpdateProfileViewController.swift; path = ../UpdateProfileViewController.swift; sourceTree = "<group>"; };
 		1B8EA2A61CE94D26007699C6 /* Drop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Drop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B8EA2A91CE94D26007699C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1B8EA2AB1CE94D26007699C6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1B8EA2AB1CE94D26007699C6 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		1B8EA2AE1CE94D26007699C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1B8EA2B01CE94D26007699C6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1B8EA2B31CE94D26007699C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +70,25 @@
 		1B8EA2C51CE94D27007699C6 /* DropUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DropUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B8EA2C91CE94D27007699C6 /* DropUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropUITests.swift; sourceTree = "<group>"; };
 		1B8EA2CB1CE94D27007699C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1B8EA2D71CE95BEA007699C6 /* AttractionAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttractionAnnotation.swift; sourceTree = "<group>"; };
+		1B8EA2D91CE95C10007699C6 /* AttractionAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttractionAnnotationView.swift; sourceTree = "<group>"; };
+		1B8EA2DB1CE95EC6007699C6 /* Character.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
+		1B8EA2E31CE9608D007699C6 /* Huang.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Huang.plist; sourceTree = "<group>"; };
+		1B8EA2E41CE9608D007699C6 /* Rays.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Rays.plist; sourceTree = "<group>"; };
+		1B8EA2E51CE9608D007699C6 /* Oval.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Oval.plist; sourceTree = "<group>"; };
+		1B8EA2F11CE9637E007699C6 /* Zones.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Zones.plist; sourceTree = "<group>"; };
+		1B8EA2F31CE96BC8007699C6 /* arrillaga.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = arrillaga.JPG; sourceTree = "<group>"; };
+		1B8EA2F41CE96BC9007699C6 /* gates.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = gates.jpg; sourceTree = "<group>"; };
+		1B8EA2F51CE96BC9007699C6 /* memorial.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = memorial.jpg; sourceTree = "<group>"; };
+		1BA7E0B51CEA652300FAD3B9 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = ../LoginViewController.swift; sourceTree = "<group>"; };
+		1BD2AC051CEC1D6B005036DA /* music.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = music.jpg; sourceTree = "<group>"; };
+		1BDE53891CEBC9CD00DC02BF /* File */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = File; path = ../Fabric.framework/Headers/File; sourceTree = "<group>"; };
+		1BDE538D1CEBCB7800DC02BF /* TwitterClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterClient.swift; sourceTree = "<group>"; };
+		1BDE538E1CEBCB7800DC02BF /* TwitterUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterUser.swift; sourceTree = "<group>"; };
+		1BDE53921CEBD18000DC02BF /* AudioLocale.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioLocale.swift; sourceTree = "<group>"; };
+		C745849A1CECC4DC00D0E024 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		C745849B1CECC4DC00D0E024 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		C74584A31CED012A00D0E024 /* user.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = user.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,21 +96,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C745849D1CECC4DC00D0E024 /* FBSDKLoginKit.framework in Frameworks */,
+				C745849C1CECC4DC00D0E024 /* FBSDKCoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		1B8EA2B71CE94D27007699C6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
-			files = (
-			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		1B8EA2C21CE94D27007699C6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
-			files = (
-			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
@@ -77,6 +117,7 @@
 		1B8EA29D1CE94D26007699C6 = {
 			isa = PBXGroup;
 			children = (
+				1BDE53911CEBD0E600DC02BF /* Frameworks */,
 				1B8EA2A81CE94D26007699C6 /* Drop */,
 				1B8EA2BD1CE94D27007699C6 /* DropTests */,
 				1B8EA2C81CE94D27007699C6 /* DropUITests */,
@@ -97,12 +138,19 @@
 		1B8EA2A81CE94D26007699C6 /* Drop */ = {
 			isa = PBXGroup;
 			children = (
-				1B8EA2A91CE94D26007699C6 /* AppDelegate.swift */,
-				1B8EA2AB1CE94D26007699C6 /* ViewController.swift */,
+				1BDE538D1CEBCB7800DC02BF /* TwitterClient.swift */,
+				1BDE538E1CEBCB7800DC02BF /* TwitterUser.swift */,
+				1BA7E0B41CEA618F00FAD3B9 /* Supporting Files */,
+				1BA7E0B31CEA617F00FAD3B9 /* Annotation */,
+				1BA7E0B21CEA617000FAD3B9 /* Location coordinates */,
+				C74584A01CECF0C100D0E024 /* Views */,
+				1BA7E0B11CEA616700FAD3B9 /* Images */,
+				1B8EA2DB1CE95EC6007699C6 /* Character.swift */,
+				1BDE53921CEBD18000DC02BF /* AudioLocale.swift */,
+				1B8EA2AB1CE94D26007699C6 /* MapViewController.swift */,
+				1BA7E0B51CEA652300FAD3B9 /* LoginViewController.swift */,
+				1B05FA731CEE097500D746C9 /* UpdateProfileViewController.swift */,
 				1B8EA2AD1CE94D26007699C6 /* Main.storyboard */,
-				1B8EA2B01CE94D26007699C6 /* Assets.xcassets */,
-				1B8EA2B21CE94D26007699C6 /* LaunchScreen.storyboard */,
-				1B8EA2B51CE94D26007699C6 /* Info.plist */,
 			);
 			path = Drop;
 			sourceTree = "<group>";
@@ -125,6 +173,67 @@
 			path = DropUITests;
 			sourceTree = "<group>";
 		};
+		1BA7E0B11CEA616700FAD3B9 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				C74584A31CED012A00D0E024 /* user.jpg */,
+				1B8EA2F31CE96BC8007699C6 /* arrillaga.JPG */,
+				1B05FA711CEE06BB00D746C9 /* musicplayer.jpg */,
+				1BD2AC051CEC1D6B005036DA /* music.jpg */,
+				1B8EA2F41CE96BC9007699C6 /* gates.jpg */,
+				1B8EA2F51CE96BC9007699C6 /* memorial.jpg */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		1BA7E0B21CEA617000FAD3B9 /* Location coordinates */ = {
+			isa = PBXGroup;
+			children = (
+				1B8EA2E31CE9608D007699C6 /* Huang.plist */,
+				1B8EA2F11CE9637E007699C6 /* Zones.plist */,
+				1B8EA2E41CE9608D007699C6 /* Rays.plist */,
+				1B8EA2E51CE9608D007699C6 /* Oval.plist */,
+			);
+			name = "Location coordinates";
+			sourceTree = "<group>";
+		};
+		1BA7E0B31CEA617F00FAD3B9 /* Annotation */ = {
+			isa = PBXGroup;
+			children = (
+				1B8EA2D71CE95BEA007699C6 /* AttractionAnnotation.swift */,
+				1B8EA2D91CE95C10007699C6 /* AttractionAnnotationView.swift */,
+			);
+			name = Annotation;
+			sourceTree = "<group>";
+		};
+		1BA7E0B41CEA618F00FAD3B9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1BDE53891CEBC9CD00DC02BF /* File */,
+				1B8EA2A91CE94D26007699C6 /* AppDelegate.swift */,
+				1B8EA2B01CE94D26007699C6 /* Assets.xcassets */,
+				1B8EA2B21CE94D26007699C6 /* LaunchScreen.storyboard */,
+				1B8EA2B51CE94D26007699C6 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1BDE53911CEBD0E600DC02BF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C745849A1CECC4DC00D0E024 /* FBSDKCoreKit.framework */,
+				C745849B1CECC4DC00D0E024 /* FBSDKLoginKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C74584A01CECF0C100D0E024 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,6 +244,7 @@
 				1B8EA2A21CE94D26007699C6 /* Sources */,
 				1B8EA2A31CE94D26007699C6 /* Frameworks */,
 				1B8EA2A41CE94D26007699C6 /* Resources */,
+				1BA7E0B71CEA6E4300FAD3B9 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -234,7 +344,18 @@
 			files = (
 				1B8EA2B41CE94D26007699C6 /* LaunchScreen.storyboard in Resources */,
 				1B8EA2B11CE94D26007699C6 /* Assets.xcassets in Resources */,
+				1B8EA2F71CE96BC9007699C6 /* gates.jpg in Resources */,
+				1B8EA2E81CE9608D007699C6 /* Oval.plist in Resources */,
+				1B8EA2E61CE9608D007699C6 /* Huang.plist in Resources */,
+				1BD2AC061CEC1D6B005036DA /* music.jpg in Resources */,
+				1B8EA2F81CE96BC9007699C6 /* memorial.jpg in Resources */,
+				1B8EA2F21CE9637E007699C6 /* Zones.plist in Resources */,
 				1B8EA2AF1CE94D26007699C6 /* Main.storyboard in Resources */,
+				C74584A41CED012A00D0E024 /* user.jpg in Resources */,
+				1B05FA721CEE06BB00D746C9 /* musicplayer.jpg in Resources */,
+				1BDE538A1CEBC9CD00DC02BF /* File in Resources */,
+				1B8EA2E71CE9608D007699C6 /* Rays.plist in Resources */,
+				1B8EA2F61CE96BC9007699C6 /* arrillaga.JPG in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,13 +375,37 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1BA7E0B71CEA6E4300FAD3B9 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1B8EA2A21CE94D26007699C6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1B8EA2AC1CE94D26007699C6 /* ViewController.swift in Sources */,
+				1BDE538F1CEBCB7800DC02BF /* TwitterClient.swift in Sources */,
+				1B8EA2AC1CE94D26007699C6 /* MapViewController.swift in Sources */,
+				1B8EA2DA1CE95C10007699C6 /* AttractionAnnotationView.swift in Sources */,
+				1BA7E0B61CEA652300FAD3B9 /* LoginViewController.swift in Sources */,
+				1B8EA2DC1CE95EC6007699C6 /* Character.swift in Sources */,
+				1B8EA2D81CE95BEA007699C6 /* AttractionAnnotation.swift in Sources */,
+				1BDE53931CEBD18000DC02BF /* AudioLocale.swift in Sources */,
+				1B05FA741CEE097500D746C9 /* UpdateProfileViewController.swift in Sources */,
 				1B8EA2AA1CE94D26007699C6 /* AppDelegate.swift in Sources */,
+				1BDE53901CEBCB7800DC02BF /* TwitterUser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -404,6 +549,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"~/Developer/FacebookSDKs-iOS-20160412",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Drop/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.stanford.193p.aashna94.Drop;
@@ -415,6 +564,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"~/Developer/FacebookSDKs-iOS-20160412",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Drop/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.stanford.193p.aashna94.Drop;
@@ -487,6 +640,7 @@
 				1B8EA2D01CE94D27007699C6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1B8EA2D11CE94D27007699C6 /* Build configuration list for PBXNativeTarget "DropTests" */ = {
 			isa = XCConfigurationList;
@@ -495,6 +649,7 @@
 				1B8EA2D31CE94D27007699C6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1B8EA2D41CE94D27007699C6 /* Build configuration list for PBXNativeTarget "DropUITests" */ = {
 			isa = XCConfigurationList;
@@ -503,6 +658,7 @@
 				1B8EA2D61CE94D27007699C6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
