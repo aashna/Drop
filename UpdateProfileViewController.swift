@@ -18,6 +18,7 @@ protocol UpdateProfileViewControllerDelegate {
 
 class UpdateProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet weak var txtProfileTitle: UITextField!
+    @IBOutlet weak var userEmail: UITextField!
 
     
 //    @IBOutlet weak var textView: UITextView!
@@ -42,45 +43,49 @@ class UpdateProfileViewController: UIViewController, UIImagePickerControllerDele
     
     var editedProfileRecord: CKRecord!
     
+    var email = ""
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        
-        imageView.hidden = true
         btnRemoveImage.hidden = true
         viewWait.hidden = true
         
-        let swipeDownGestureRecognizer = UISwipeGestureRecognizer(target: self, action: "handleSwipeDownGestureRecognizer:")
+        let swipeDownGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(UpdateProfileViewController.handleSwipeDownGestureRecognizer(_:)))
         swipeDownGestureRecognizer.direction = UISwipeGestureRecognizerDirection.Down
         view.addGestureRecognizer(swipeDownGestureRecognizer)
         
         
         if let editedProfile = editedProfileRecord {
-            txtProfileTitle.text = editedProfile.valueForKey("ProfileTitle") as! String
+            txtProfileTitle.text = editedProfile.valueForKey("ProfileTitle") as? String
        //     textView.text = editedProfile.valueForKey("ProfileText") as! String
             let imageAsset: CKAsset = editedProfile.valueForKey("ProfileImage") as! CKAsset
             imageView.image = UIImage(contentsOfFile: imageAsset.fileURL.path!)
             imageView.contentMode = UIViewContentMode.ScaleAspectFit
             
             imageURL = imageAsset.fileURL
-            
-            imageView.hidden = false
             btnRemoveImage.hidden = false
-            btnSelectPhoto.hidden = true
         }
     }
     
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
-   //     textView.layer.cornerRadius = 10.0
+        if(imageView.accessibilityIdentifier == "mystery-man") {
+            btnRemoveImage.hidden = true
+        } else {
+            btnRemoveImage.hidden = false
+        }
         btnSelectPhoto.layer.cornerRadius = 5.0
         btnRemoveImage.layer.cornerRadius = btnRemoveImage.frame.size.width/2
         
         navigationItem.setHidesBackButton(true, animated: false)
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        userEmail.text = email
     }
     
     
@@ -112,16 +117,12 @@ class UpdateProfileViewController: UIViewController, UIImagePickerControllerDele
             
             presentViewController(imagePicker, animated: true, completion: nil)
         }
-        btnRemoveImage.hidden = false
     }
 
     @IBAction func unsetImage(sender: AnyObject) {
-        imageView.image = nil
-        
-        imageView.hidden = true
+        imageView.image = UIImage(named: "user.png")
+        imageView.accessibilityIdentifier = "mystery-man"
         btnRemoveImage.hidden = true
-        btnSelectPhoto.hidden = false
-        
         imageURL = nil
     }
     
@@ -210,6 +211,7 @@ class UpdateProfileViewController: UIViewController, UIImagePickerControllerDele
     
     
     func saveImageLocally() {
+        imageView.accessibilityIdentifier = "image"
         let imageData: NSData = UIImageJPEGRepresentation(imageView.image!, 0.8)!
         let path = documentsDirectoryPath.stringByAppendingPathComponent(tempImageName)
         imageURL = NSURL(fileURLWithPath: path)
@@ -221,15 +223,11 @@ class UpdateProfileViewController: UIViewController, UIImagePickerControllerDele
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         imageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
-        imageView.contentMode = UIViewContentMode.ScaleAspectFit
         
         saveImageLocally()
         
-        imageView.hidden = false
-        btnRemoveImage.hidden = false
-        btnSelectPhoto.hidden = true
-        
         dismissViewControllerAnimated(true, completion: nil)
+        btnRemoveImage.hidden = false
     }
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {

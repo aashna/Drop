@@ -18,6 +18,8 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate
     
     @IBOutlet weak var fbLoginButton: FBSDKLoginButton!
     
+    var email: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     
@@ -80,12 +82,27 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate
         if error == nil
         {
             print("Login complete.")
-            self.performSegueWithIdentifier("fbIdentifier", sender: self)
+            if (result.grantedPermissions.contains("email")) {
+                setEmail()
+            }
         }
         else
         {
             print(error.localizedDescription)
         }
+    }
+    
+    func setEmail() {
+        let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: ["fields":"email"])
+        graphRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
+            if ((error) != nil) {
+                // Process error
+                print("Error: \(error)")
+            } else {
+                self.email = result.valueForKey("email") as! String
+            }
+            self.performSegueWithIdentifier("profileCompletion", sender: self)
+        })
     }
     
     func loginButtonDidLogOut(loginButton: FBSDKLoginButton!)
@@ -117,9 +134,17 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate
 //        }
 //    }
 
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if case let updateProfileVC as UpdateProfileViewController  = segue.destinationViewController
+            where segue.identifier == "profileCompletion"
+        {
+            updateProfileVC.email = email
+        }
 
-        
-        
     }
+
+    
+    
+}
 
 
