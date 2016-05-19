@@ -184,6 +184,7 @@ class UpdateProfileViewController: UIViewController, UIImagePickerControllerDele
                 self.navigationController?.setNavigationBarHidden(false, animated: true)
             })
         })
+        self.performSegueWithIdentifier("mainVIew", sender: self)
     }
     
     
