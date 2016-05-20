@@ -99,7 +99,9 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate
                 // Process error
                 print("Error: \(error)")
             } else {
-                self.email = result.valueForKey("email") as! String
+                if let email = result.valueForKey("email") {
+                    self.email = email as! String
+                }
             }
             self.performSegueWithIdentifier("profileCompletion", sender: self)
         })
