@@ -25,13 +25,16 @@ var audioArr = [
 //    AudioLocale.init(filePath: NSURL( fileURLWithPath: "http://megdadhashem.wapego.ru/files/56727/tubidy_mp3_e2afc5.mp3"), coords: CLLocation.init(latitude: 37.428454, longitude: -122.170578)), //done
 //    AudioLocale.init(filePath: NSURL( fileURLWithPath: "http://megdadhashem.wapego.ru/files/56727/tubidy_mp3_e2afc5.mp3"), coords: CLLocation.init(latitude: 37.428454, longitude: -122.170578)), //done
 ]
-
+@objc protocol MusicDataDelegate: class {
+    func getMusicData(results: NSArray)
+}
 
 class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
     
     @IBOutlet weak var mapView: MKMapView!
     let locationManager = CLLocationManager()
+    weak var delegate: MusicDataDelegate?
 
     @IBAction func mapTypeChanged(sender: UISegmentedControl) {
         let mapType = MapType(rawValue: mapTypeSegmentedControl.selectedSegmentIndex)
@@ -162,8 +165,38 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         return annotationView
     }
     
+    var SoundCloud_CLIENT_ID = "14802fecba08aa53d2daa7d16434d02c"
+    var user_id1 = "228307235"
+    var musicPlaylist = [SongDetailsModel]()
     
-
-    
+    func fetchMusicDataIntoModel(){
+        let urlPath = "http://api.soundcloud.com/users/\(user_id1)/playlists?client_id=\(SoundCloud_CLIENT_ID)"//"http://itunes.apple.com/search?term=\(escapedSearchTerm)&media=software"
+        let url = NSURL(string: urlPath)
+        let session = NSURLSession.sharedSession()
+        
+        _ = session.dataTaskWithURL(url!, completionHandler: {data, response, error -> Void in
+            print("Task completed")
+            if(error != nil) {
+                // If there is an error in the web request, print it to the console
+                print(error!.localizedDescription)
+            }
+            var jsonResult: NSDictionary!
+            
+            do{
+                jsonResult = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as? NSDictionary
+            }
+            catch{
+                print(error)
+            }
+            
+            if let tracks: NSArray = jsonResult["tracks"] as? NSArray{
+                for track in tracks{
+                    if track["streamable"] == True{
+            
+            self.musicPlaylist.append(SongDetailsModel(title: track["title"], duration: track["duration"], streamURL: track["stream_url"]))
+                }
+                }
+            }
+            self.delegate?.getMusicData(self.musicPlaylist)    
 }
 

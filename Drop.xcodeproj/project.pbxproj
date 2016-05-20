@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		1B05FA741CEE097500D746C9 /* UpdateProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B05FA731CEE097500D746C9 /* UpdateProfileViewController.swift */; };
+		1B05FA761CEF724A00D746C9 /* MuisicPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B05FA751CEF724A00D746C9 /* MuisicPlayerViewController.swift */; };
+		1B05FA781CEF830F00D746C9 /* MusicPlayerTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B05FA771CEF830F00D746C9 /* MusicPlayerTableView.swift */; };
+		1B05FA7A1CEF8EA900D746C9 /* SongDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B05FA791CEF8EA900D746C9 /* SongDetailsModel.swift */; };
 		1B8EA2AA1CE94D26007699C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8EA2A91CE94D26007699C6 /* AppDelegate.swift */; };
 		1B8EA2AC1CE94D26007699C6 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8EA2AB1CE94D26007699C6 /* MapViewController.swift */; };
 		1B8EA2AF1CE94D26007699C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B8EA2AD1CE94D26007699C6 /* Main.storyboard */; };
@@ -51,6 +54,9 @@
 
 /* Begin PBXFileReference section */
 		1B05FA731CEE097500D746C9 /* UpdateProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UpdateProfileViewController.swift; path = ../UpdateProfileViewController.swift; sourceTree = "<group>"; };
+		1B05FA751CEF724A00D746C9 /* MuisicPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MuisicPlayerViewController.swift; sourceTree = "<group>"; };
+		1B05FA771CEF830F00D746C9 /* MusicPlayerTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicPlayerTableView.swift; sourceTree = "<group>"; };
+		1B05FA791CEF8EA900D746C9 /* SongDetailsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongDetailsModel.swift; sourceTree = "<group>"; };
 		1B8EA2A61CE94D26007699C6 /* Drop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Drop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B8EA2A91CE94D26007699C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1B8EA2AB1CE94D26007699C6 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -137,7 +143,10 @@
 				1BA7E0B11CEA616700FAD3B9 /* Images */,
 				1B8EA2DB1CE95EC6007699C6 /* Character.swift */,
 				1BDE53921CEBD18000DC02BF /* AudioLocale.swift */,
+				1B05FA791CEF8EA900D746C9 /* SongDetailsModel.swift */,
 				1B8EA2AB1CE94D26007699C6 /* MapViewController.swift */,
+				1B05FA751CEF724A00D746C9 /* MuisicPlayerViewController.swift */,
+				1B05FA771CEF830F00D746C9 /* MusicPlayerTableView.swift */,
 				1BA7E0B51CEA652300FAD3B9 /* LoginViewController.swift */,
 				1B05FA731CEE097500D746C9 /* UpdateProfileViewController.swift */,
 				1B8EA2AD1CE94D26007699C6 /* Main.storyboard */,
@@ -376,11 +385,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B05FA761CEF724A00D746C9 /* MuisicPlayerViewController.swift in Sources */,
 				1BDE538F1CEBCB7800DC02BF /* TwitterClient.swift in Sources */,
 				1B8EA2AC1CE94D26007699C6 /* MapViewController.swift in Sources */,
 				1B8EA2DA1CE95C10007699C6 /* AttractionAnnotationView.swift in Sources */,
 				1BA7E0B61CEA652300FAD3B9 /* LoginViewController.swift in Sources */,
 				1B8EA2DC1CE95EC6007699C6 /* Character.swift in Sources */,
+				1B05FA7A1CEF8EA900D746C9 /* SongDetailsModel.swift in Sources */,
+				1B05FA781CEF830F00D746C9 /* MusicPlayerTableView.swift in Sources */,
 				1B8EA2D81CE95BEA007699C6 /* AttractionAnnotation.swift in Sources */,
 				1BDE53931CEBD18000DC02BF /* AudioLocale.swift in Sources */,
 				1B05FA741CEE097500D746C9 /* UpdateProfileViewController.swift in Sources */,

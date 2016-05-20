@@ -11,12 +11,14 @@ import UIKit
 class SongDetailsModel: NSObject {
     var title: String
     var duration: Int
-    var streamable: Bool
+    var streamURL: String
+   //var streamable: Bool
     
-    init(title: String, duration: Int, streamable: Bool) {
+    init(title: String, duration: Int, streamURL: String) {
         self.title = title
         self.duration = duration
-        self.streamable = streamable
+        self.streamURL = streamURL
+      //  self.streamable = streamable
     }
 }
 
