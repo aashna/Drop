@@ -60,11 +60,13 @@
                     <connections>
                         <outlet property="mapTypeSegmentedControl" destination="Qve-Fk-CYp" id="Tz3-eG-oJl"/>
                         <outlet property="mapView" destination="kWY-Nv-tDs" id="yfU-NS-upg"/>
+                        <segue destination="Wkb-t3-8oR" kind="unwind" identifier="toMusicPlayer" unwindAction="unwindToMusicPlayerViewController:" id="zrg-l0-UCi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="Wkb-t3-8oR" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-207" y="404"/>
+            <point key="canvasLocation" x="307" y="417"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="YUt-oJ-gYZ">
@@ -341,7 +343,7 @@
                 <splitViewController id="BIB-Jo-yfL" sceneMemberID="viewController">
                     <connections>
                         <segue destination="eKt-Z6-m7I" kind="relationship" relationship="detailViewController" id="mNw-Gl-xuh"/>
-                        <segue destination="ysG-YK-dzz" kind="relationship" relationship="masterViewController" id="kEJ-g0-LWI"/>
+                        <segue destination="ZLF-qs-vfq" kind="relationship" relationship="masterViewController" id="kEJ-g0-LWI"/>
                     </connections>
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R61-2i-DYV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -357,7 +359,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="62F-8H-RN3">
-                            <rect key="frame" x="0.0" y="0.0" width="600" height="144"/>
+                            <rect key="frame" x="0.0" y="64" width="600" height="144"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0SJ-SN-Mim">
@@ -373,7 +375,7 @@
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="trackCellIdentifier" rowHeight="200" id="VrV-q0-hfY" userLabel="Track" customClass="MusicPlayerTableView" customModule="Drop" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="172" width="600" height="200"/>
+                                <rect key="frame" x="0.0" y="236" width="600" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VrV-q0-hfY" id="Vc4-cP-1GU">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="199.5"/>
@@ -397,6 +399,7 @@
                                         </button>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="trackDuration" destination="BXj-9L-map" id="c6d-Ra-M2K"/>
                                     <outlet property="trackTitle" destination="zFd-bZ-rV5" id="lKF-8P-XBx"/>
@@ -408,13 +411,14 @@
                             <outlet property="delegate" destination="ysG-YK-dzz" id="Q8L-nt-Cn6"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="d6b-8v-IOO"/>
                     <connections>
                         <outlet property="musicPlayerView" destination="8AY-vV-d2J" id="UKM-gm-1OY"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N4T-Pi-9E0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-968" y="-362"/>
+            <point key="canvasLocation" x="-156" y="-362"/>
         </scene>
         <!--Update Profile View Controller-->
         <scene sceneID="1hG-Cw-DzV">
@@ -556,6 +560,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0e6-AT-kjG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-951" y="404"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Jmd-Fx-nCW">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZLF-qs-vfq" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="t8C-KW-1XS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ysG-YK-dzz" kind="relationship" relationship="rootViewController" id="yfm-O9-haz"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yu5-3w-ih2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-968" y="-362"/>
         </scene>
     </scenes>
     <resources>

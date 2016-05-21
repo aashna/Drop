@@ -186,6 +186,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                 self.musicPlaylist.append(SongDetailsModel(title: tracks[0]["title"]! as! String, duration: tracks[0]["duration"]! as! Int, streamURL: tracks[0]["stream_url"]! as! String))
             }
         }
-        self.delegate?.getMusicData(self.musicPlaylist)
+         self.delegate?.getMusicData(self.musicPlaylist)
+      //  self.performSegueWithIdentifier("toMusicPlayer", sender: self)
+       
     }
 }

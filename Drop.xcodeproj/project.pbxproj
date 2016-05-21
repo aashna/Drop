@@ -11,9 +11,9 @@
 		1B05FA761CEF724A00D746C9 /* MuisicPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B05FA751CEF724A00D746C9 /* MuisicPlayerViewController.swift */; };
 		1B05FA781CEF830F00D746C9 /* MusicPlayerTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B05FA771CEF830F00D746C9 /* MusicPlayerTableView.swift */; };
 		1B05FA7A1CEF8EA900D746C9 /* SongDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B05FA791CEF8EA900D746C9 /* SongDetailsModel.swift */; };
+		1B05FA7D1CF009A900D746C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B05FA7B1CF009A900D746C9 /* Main.storyboard */; };
 		1B8EA2AA1CE94D26007699C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8EA2A91CE94D26007699C6 /* AppDelegate.swift */; };
 		1B8EA2AC1CE94D26007699C6 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8EA2AB1CE94D26007699C6 /* MapViewController.swift */; };
-		1B8EA2AF1CE94D26007699C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B8EA2AD1CE94D26007699C6 /* Main.storyboard */; };
 		1B8EA2B11CE94D26007699C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B8EA2B01CE94D26007699C6 /* Assets.xcassets */; };
 		1B8EA2B41CE94D26007699C6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B8EA2B21CE94D26007699C6 /* LaunchScreen.storyboard */; };
 		1B8EA2BF1CE94D27007699C6 /* DropTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8EA2BE1CE94D27007699C6 /* DropTests.swift */; };
@@ -57,10 +57,10 @@
 		1B05FA751CEF724A00D746C9 /* MuisicPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MuisicPlayerViewController.swift; sourceTree = "<group>"; };
 		1B05FA771CEF830F00D746C9 /* MusicPlayerTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicPlayerTableView.swift; sourceTree = "<group>"; };
 		1B05FA791CEF8EA900D746C9 /* SongDetailsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongDetailsModel.swift; sourceTree = "<group>"; };
+		1B05FA7C1CF009A900D746C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1B8EA2A61CE94D26007699C6 /* Drop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Drop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B8EA2A91CE94D26007699C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1B8EA2AB1CE94D26007699C6 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		1B8EA2AE1CE94D26007699C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1B8EA2B01CE94D26007699C6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1B8EA2B31CE94D26007699C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1B8EA2B51CE94D26007699C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -149,7 +149,7 @@
 				1B05FA771CEF830F00D746C9 /* MusicPlayerTableView.swift */,
 				1BA7E0B51CEA652300FAD3B9 /* LoginViewController.swift */,
 				1B05FA731CEE097500D746C9 /* UpdateProfileViewController.swift */,
-				1B8EA2AD1CE94D26007699C6 /* Main.storyboard */,
+				1B05FA7B1CF009A900D746C9 /* Main.storyboard */,
 			);
 			path = Drop;
 			sourceTree = "<group>";
@@ -341,8 +341,8 @@
 				1B8EA2E81CE9608D007699C6 /* Oval.plist in Resources */,
 				1B8EA2E61CE9608D007699C6 /* Huang.plist in Resources */,
 				1B8EA2F21CE9637E007699C6 /* Zones.plist in Resources */,
-				1B8EA2AF1CE94D26007699C6 /* Main.storyboard in Resources */,
 				C75BB6891CEE498700C867FF /* Media.xcassets in Resources */,
+				1B05FA7D1CF009A900D746C9 /* Main.storyboard in Resources */,
 				1BDE538A1CEBC9CD00DC02BF /* File in Resources */,
 				1B8EA2E71CE9608D007699C6 /* Rays.plist in Resources */,
 			);
@@ -433,10 +433,10 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		1B8EA2AD1CE94D26007699C6 /* Main.storyboard */ = {
+		1B05FA7B1CF009A900D746C9 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				1B8EA2AE1CE94D26007699C6 /* Base */,
+				1B05FA7C1CF009A900D746C9 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
