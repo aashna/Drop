@@ -164,7 +164,7 @@ class UpdateProfileViewController: UIViewController, UIImagePickerControllerDele
             ProfileRecord.setObject(imageAsset, forKey: "ProfileImage")
         }
         else {
-            let fileURL = NSBundle.mainBundle().URLForResource("no_image", withExtension: "png")
+            let fileURL = NSBundle.mainBundle().URLForResource("user", withExtension: "png")
             let imageAsset = CKAsset(fileURL: fileURL!)
             ProfileRecord.setObject(imageAsset, forKey: "ProfileImage")
         }

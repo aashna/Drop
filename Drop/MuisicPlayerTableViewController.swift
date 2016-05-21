@@ -8,8 +8,9 @@
 
 import UIKit
 
-class MusicPlayerViewController: UITableViewController, MusicDataDelegate{
+class MusicPlayerTableViewController: UITableViewController, MusicDataDelegate{
     
+    var musicPlaylist = [SongDetailsModel]()
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -21,6 +22,10 @@ class MusicPlayerViewController: UITableViewController, MusicDataDelegate{
         static let TrackCellIdentifier = "trackCellIdentifier"
     }
     
+    override func viewWillAppear(animated: Bool) {
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        self.musicPlaylist = appDelegate.playList
+    }
 
     @IBOutlet var musicPlayerView: UITableView!
     var tableData = [SongDetailsModel]()
@@ -37,26 +42,15 @@ class MusicPlayerViewController: UITableViewController, MusicDataDelegate{
         return 1
     }
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
-        print(tableData)
+        return self.musicPlaylist.count
         // return tableData.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(Storyboard.TrackCellIdentifier, forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier(Storyboard.TrackCellIdentifier, forIndexPath: indexPath) as! MusicPlayerTableViewCell
+        cell.trackTitle.text = self.musicPlaylist[indexPath.row].title
+        cell.trackDuration.text = String(self.musicPlaylist[indexPath.row].duration)
         
-//        if let rowData: NSDictionary = self.tableData[indexPath.row] as? NSDictionary,
-//            duration = rowData["duration"] as? String,
-//            // Download an NSData representation of the image at the URL
-//            // imgData = NSData(contentsOfURL: imgURL),
-//            // Get the track name
-//            trackTitle = rowData["title"] as? String {
-//            cell.detailTextLabel?.text = duration
-//            // Update the imageView cell to use the downloaded image data
-//            //  cell.imageView?.image = UIImage(data: imgData)
-//            // Update the textLabel text to use the trackName from the API
-//            cell.textLabel?.text = trackTitle
-//        }
         return cell
     }
     @IBAction func unwindToMusicPlayerViewController(sender: UIStoryboardSegue) {

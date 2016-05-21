@@ -168,7 +168,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     func fetchMusicDataIntoModel(){
         let urlPath = "http://api.soundcloud.com/users/\(user_id1)/playlists?client_id=\(SoundCloud_CLIENT_ID)"
         let url = NSURL(string: urlPath)
-        let session = NSURLSession.sharedSession()
         
         let data = NSData(contentsOfURL: url!)
         var jsonResult: [NSDictionary]!
@@ -186,8 +185,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                 self.musicPlaylist.append(SongDetailsModel(title: tracks[0]["title"]! as! String, duration: tracks[0]["duration"]! as! Int, streamURL: tracks[0]["stream_url"]! as! String))
             }
         }
-         self.delegate?.getMusicData(self.musicPlaylist)
-      //  self.performSegueWithIdentifier("toMusicPlayer", sender: self)
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appDelegate.playList = self.musicPlaylist
        
     }
 }

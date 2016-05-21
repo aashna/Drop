@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MusicPlayerTableView: UITableViewCell {
+class MusicPlayerTableViewCell: UITableViewCell {
 
     @IBOutlet weak var trackTitle: UILabel!
     @IBOutlet weak var trackDuration: UILabel!
