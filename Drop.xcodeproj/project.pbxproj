@@ -26,13 +26,15 @@
 		1B8EA2E81CE9608D007699C6 /* Oval.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1B8EA2E51CE9608D007699C6 /* Oval.plist */; };
 		1B8EA2F21CE9637E007699C6 /* Zones.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1B8EA2F11CE9637E007699C6 /* Zones.plist */; };
 		1BA7E0B61CEA652300FAD3B9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA7E0B51CEA652300FAD3B9 /* LoginViewController.swift */; };
-		1BDE538A1CEBC9CD00DC02BF /* File in Resources */ = {isa = PBXBuildFile; fileRef = 1BDE53891CEBC9CD00DC02BF /* File */; };
+		1BC360C901B8A1ED205571C4 /* Pods_DropUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A92C659F95B259098A852AF /* Pods_DropUITests.framework */; };
 		1BDE538F1CEBCB7800DC02BF /* TwitterClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDE538D1CEBCB7800DC02BF /* TwitterClient.swift */; };
 		1BDE53901CEBCB7800DC02BF /* TwitterUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDE538E1CEBCB7800DC02BF /* TwitterUser.swift */; };
 		1BDE53931CEBD18000DC02BF /* AudioLocale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDE53921CEBD18000DC02BF /* AudioLocale.swift */; };
+		A5E60193B1A82E6531F3D365 /* Pods_Drop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54F5B4C8E4EB64ACCDFDCEFC /* Pods_Drop.framework */; };
 		C745849C1CECC4DC00D0E024 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C745849A1CECC4DC00D0E024 /* FBSDKCoreKit.framework */; };
 		C745849D1CECC4DC00D0E024 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C745849B1CECC4DC00D0E024 /* FBSDKLoginKit.framework */; };
 		C75BB6891CEE498700C867FF /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C75BB6881CEE498700C867FF /* Media.xcassets */; };
+		EFC75269C3F4E5C3FDE0B623 /* Pods_DropTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1202F5E8DF8FD655C0C52D73 /* Pods_DropTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,11 +55,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1202F5E8DF8FD655C0C52D73 /* Pods_DropTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DropTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B05FA731CEE097500D746C9 /* UpdateProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UpdateProfileViewController.swift; path = ../UpdateProfileViewController.swift; sourceTree = "<group>"; };
 		1B05FA751CEF724A00D746C9 /* MuisicPlayerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MuisicPlayerTableViewController.swift; sourceTree = "<group>"; };
 		1B05FA771CEF830F00D746C9 /* MusicPlayerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicPlayerTableViewCell.swift; sourceTree = "<group>"; };
 		1B05FA791CEF8EA900D746C9 /* SongDetailsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongDetailsModel.swift; sourceTree = "<group>"; };
 		1B05FA7C1CF009A900D746C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1B7F19441CF0EB3500E3A759 /* Drop-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Drop-Bridging-Header.h"; sourceTree = "<group>"; };
 		1B8EA2A61CE94D26007699C6 /* Drop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Drop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B8EA2A91CE94D26007699C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1B8EA2AB1CE94D26007699C6 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -78,13 +82,20 @@
 		1B8EA2E51CE9608D007699C6 /* Oval.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Oval.plist; sourceTree = "<group>"; };
 		1B8EA2F11CE9637E007699C6 /* Zones.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Zones.plist; sourceTree = "<group>"; };
 		1BA7E0B51CEA652300FAD3B9 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = ../LoginViewController.swift; sourceTree = "<group>"; };
-		1BDE53891CEBC9CD00DC02BF /* File */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = File; path = ../Fabric.framework/Headers/File; sourceTree = "<group>"; };
 		1BDE538D1CEBCB7800DC02BF /* TwitterClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterClient.swift; sourceTree = "<group>"; };
 		1BDE538E1CEBCB7800DC02BF /* TwitterUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterUser.swift; sourceTree = "<group>"; };
 		1BDE53921CEBD18000DC02BF /* AudioLocale.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioLocale.swift; sourceTree = "<group>"; };
+		1CA5EC1D64E03FBD70BCBF88 /* Pods-DropTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DropTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DropTests/Pods-DropTests.debug.xcconfig"; sourceTree = "<group>"; };
+		26423FD86CEF41E519B0AC1B /* Pods-Drop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Drop.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Drop/Pods-Drop.debug.xcconfig"; sourceTree = "<group>"; };
+		3A92C659F95B259098A852AF /* Pods_DropUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DropUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		54F5B4C8E4EB64ACCDFDCEFC /* Pods_Drop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Drop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C4BA1D314B44244D0C8AD32 /* Pods-DropUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DropUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DropUITests/Pods-DropUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		B89864DDDD4ADD211A99645A /* Pods-DropTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DropTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DropTests/Pods-DropTests.release.xcconfig"; sourceTree = "<group>"; };
 		C745849A1CECC4DC00D0E024 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		C745849B1CECC4DC00D0E024 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		C75BB6881CEE498700C867FF /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		E2AA781A2AD778631FE9D1BE /* Pods-Drop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Drop.release.xcconfig"; path = "Pods/Target Support Files/Pods-Drop/Pods-Drop.release.xcconfig"; sourceTree = "<group>"; };
+		F9D7A94DA46246F98D0BCE10 /* Pods-DropUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DropUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DropUITests/Pods-DropUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,17 +105,24 @@
 			files = (
 				C745849D1CECC4DC00D0E024 /* FBSDKLoginKit.framework in Frameworks */,
 				C745849C1CECC4DC00D0E024 /* FBSDKCoreKit.framework in Frameworks */,
+				A5E60193B1A82E6531F3D365 /* Pods_Drop.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		1B8EA2B71CE94D27007699C6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
+			files = (
+				EFC75269C3F4E5C3FDE0B623 /* Pods_DropTests.framework in Frameworks */,
+			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		1B8EA2C21CE94D27007699C6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
+			files = (
+				1BC360C901B8A1ED205571C4 /* Pods_DropUITests.framework in Frameworks */,
+			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
@@ -118,6 +136,7 @@
 				1B8EA2BD1CE94D27007699C6 /* DropTests */,
 				1B8EA2C81CE94D27007699C6 /* DropUITests */,
 				1B8EA2A71CE94D26007699C6 /* Products */,
+				9A681EF999FDCF754A02B912 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -150,6 +169,7 @@
 				1BA7E0B51CEA652300FAD3B9 /* LoginViewController.swift */,
 				1B05FA731CEE097500D746C9 /* UpdateProfileViewController.swift */,
 				1B05FA7B1CF009A900D746C9 /* Main.storyboard */,
+				1B7F19441CF0EB3500E3A759 /* Drop-Bridging-Header.h */,
 			);
 			path = Drop;
 			sourceTree = "<group>";
@@ -203,7 +223,6 @@
 		1BA7E0B41CEA618F00FAD3B9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				1BDE53891CEBC9CD00DC02BF /* File */,
 				1B8EA2A91CE94D26007699C6 /* AppDelegate.swift */,
 				1B8EA2B01CE94D26007699C6 /* Assets.xcassets */,
 				1B8EA2B21CE94D26007699C6 /* LaunchScreen.storyboard */,
@@ -217,8 +236,24 @@
 			children = (
 				C745849A1CECC4DC00D0E024 /* FBSDKCoreKit.framework */,
 				C745849B1CECC4DC00D0E024 /* FBSDKLoginKit.framework */,
+				54F5B4C8E4EB64ACCDFDCEFC /* Pods_Drop.framework */,
+				1202F5E8DF8FD655C0C52D73 /* Pods_DropTests.framework */,
+				3A92C659F95B259098A852AF /* Pods_DropUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9A681EF999FDCF754A02B912 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				26423FD86CEF41E519B0AC1B /* Pods-Drop.debug.xcconfig */,
+				E2AA781A2AD778631FE9D1BE /* Pods-Drop.release.xcconfig */,
+				1CA5EC1D64E03FBD70BCBF88 /* Pods-DropTests.debug.xcconfig */,
+				B89864DDDD4ADD211A99645A /* Pods-DropTests.release.xcconfig */,
+				6C4BA1D314B44244D0C8AD32 /* Pods-DropUITests.debug.xcconfig */,
+				F9D7A94DA46246F98D0BCE10 /* Pods-DropUITests.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		C74584A01CECF0C100D0E024 /* Views */ = {
@@ -235,10 +270,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1B8EA2CE1CE94D27007699C6 /* Build configuration list for PBXNativeTarget "Drop" */;
 			buildPhases = (
+				893E613808C67CC38FE6D04B /* 📦 Check Pods Manifest.lock */,
 				1B8EA2A21CE94D26007699C6 /* Sources */,
 				1B8EA2A31CE94D26007699C6 /* Frameworks */,
 				1B8EA2A41CE94D26007699C6 /* Resources */,
 				1BA7E0B71CEA6E4300FAD3B9 /* ShellScript */,
+				6536C7CE5FDA7B0B468C6522 /* 📦 Embed Pods Frameworks */,
+				3A3C9A69D4971FF8CCFB12FA /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -253,9 +291,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1B8EA2D11CE94D27007699C6 /* Build configuration list for PBXNativeTarget "DropTests" */;
 			buildPhases = (
+				C231F893E201C7CABD283E37 /* 📦 Check Pods Manifest.lock */,
 				1B8EA2B61CE94D27007699C6 /* Sources */,
 				1B8EA2B71CE94D27007699C6 /* Frameworks */,
 				1B8EA2B81CE94D27007699C6 /* Resources */,
+				EA90445704C8D450C63B6297 /* 📦 Embed Pods Frameworks */,
+				AA677BFA3CE98C2DC042CAC7 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -271,9 +312,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1B8EA2D41CE94D27007699C6 /* Build configuration list for PBXNativeTarget "DropUITests" */;
 			buildPhases = (
+				617244832E742A4E021E2FAC /* 📦 Check Pods Manifest.lock */,
 				1B8EA2C11CE94D27007699C6 /* Sources */,
 				1B8EA2C21CE94D27007699C6 /* Frameworks */,
 				1B8EA2C31CE94D27007699C6 /* Resources */,
+				D0675AFCC376CEF0ECC7367E /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -343,7 +386,6 @@
 				1B8EA2F21CE9637E007699C6 /* Zones.plist in Resources */,
 				C75BB6891CEE498700C867FF /* Media.xcassets in Resources */,
 				1B05FA7D1CF009A900D746C9 /* Main.storyboard in Resources */,
-				1BDE538A1CEBC9CD00DC02BF /* File in Resources */,
 				1B8EA2E71CE9608D007699C6 /* Rays.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -377,6 +419,126 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "";
+		};
+		3A3C9A69D4971FF8CCFB12FA /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Drop/Pods-Drop-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		617244832E742A4E021E2FAC /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		6536C7CE5FDA7B0B468C6522 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Drop/Pods-Drop-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		893E613808C67CC38FE6D04B /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		AA677BFA3CE98C2DC042CAC7 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DropTests/Pods-DropTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C231F893E201C7CABD283E37 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D0675AFCC376CEF0ECC7367E /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DropUITests/Pods-DropUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EA90445704C8D450C63B6297 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DropTests/Pods-DropTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -539,40 +701,61 @@
 		};
 		1B8EA2CF1CE94D27007699C6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 26423FD86CEF41E519B0AC1B /* Pods-Drop.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"~/Developer/FacebookSDKs-iOS-20160412",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/google_signin_sdk_4_0_0",
+					"$(inherited)",
 				);
 				INFOPLIST_FILE = Drop/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(OTHER_LDFLAGS)",
+					"-ObjC",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = edu.stanford.193p.aashna94.Drop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Drop/Drop-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		1B8EA2D01CE94D27007699C6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E2AA781A2AD778631FE9D1BE /* Pods-Drop.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"~/Developer/FacebookSDKs-iOS-20160412",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/google_signin_sdk_4_0_0",
+					"$(inherited)",
 				);
 				INFOPLIST_FILE = Drop/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(OTHER_LDFLAGS)",
+					"-ObjC",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = edu.stanford.193p.aashna94.Drop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Drop/Drop-Bridging-Header.h";
 			};
 			name = Release;
 		};
 		1B8EA2D21CE94D27007699C6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1CA5EC1D64E03FBD70BCBF88 /* Pods-DropTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = DropTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.stanford.193p.aashna94.DropTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Drop.app/Drop";
@@ -581,10 +764,12 @@
 		};
 		1B8EA2D31CE94D27007699C6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B89864DDDD4ADD211A99645A /* Pods-DropTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = DropTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.stanford.193p.aashna94.DropTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Drop.app/Drop";
@@ -593,9 +778,11 @@
 		};
 		1B8EA2D51CE94D27007699C6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6C4BA1D314B44244D0C8AD32 /* Pods-DropUITests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = DropUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.stanford.193p.aashna94.DropUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_TARGET_NAME = Drop;
@@ -604,9 +791,11 @@
 		};
 		1B8EA2D61CE94D27007699C6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F9D7A94DA46246F98D0BCE10 /* Pods-DropUITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = DropUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.stanford.193p.aashna94.DropUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_TARGET_NAME = Drop;

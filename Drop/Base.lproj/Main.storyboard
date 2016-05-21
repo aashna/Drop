@@ -97,10 +97,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3VC-Du-gqx">
-                                <rect key="frame" x="316" y="236" width="91" height="30"/>
-                                <state key="normal" title="Google Login"/>
-                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cO1-ZA-pwK" userLabel="Social Login Separator">
                                 <rect key="frame" x="299" y="236" width="1" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -115,22 +111,23 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                 <state key="normal" title="FB"/>
                             </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EoX-mu-0JS" customClass="GIDSignInButton">
+                                <rect key="frame" x="308" y="236" width="62" height="30"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.74604900666163432" green="0.95199679913603552" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" red="0.67585121033440987" green="0.88657564726942029" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="8xA-3G-H4s" firstAttribute="top" secondItem="GMO-7n-Swc" secondAttribute="bottom" constant="32" id="0Bn-uj-5Mc"/>
                             <constraint firstItem="ioC-Y4-ikR" firstAttribute="centerX" secondItem="Ecv-jX-xqS" secondAttribute="centerX" id="9nS-QU-smJ"/>
-                            <constraint firstItem="3VC-Du-gqx" firstAttribute="leading" secondItem="91H-2M-W8U" secondAttribute="trailing" constant="32" id="Gde-0d-TeE"/>
                             <constraint firstItem="8xA-3G-H4s" firstAttribute="leading" secondItem="Ecv-jX-xqS" secondAttribute="leading" constant="80" id="L6Z-yW-1lX"/>
                             <constraint firstItem="cO1-ZA-pwK" firstAttribute="centerX" secondItem="Ecv-jX-xqS" secondAttribute="centerX" id="MTE-0W-mtT"/>
                             <constraint firstItem="cO1-ZA-pwK" firstAttribute="leading" secondItem="91H-2M-W8U" secondAttribute="trailing" constant="16" id="UOp-FM-gRT"/>
                             <constraint firstItem="cO1-ZA-pwK" firstAttribute="top" secondItem="ioC-Y4-ikR" secondAttribute="bottom" constant="32" id="XZf-3c-N9e"/>
-                            <constraint firstItem="3VC-Du-gqx" firstAttribute="leading" secondItem="cO1-ZA-pwK" secondAttribute="trailing" constant="16" id="Y9l-Ch-HLM"/>
                             <constraint firstItem="GMO-7n-Swc" firstAttribute="centerX" secondItem="Ecv-jX-xqS" secondAttribute="centerX" id="baK-2f-qKv"/>
                             <constraint firstItem="GMO-7n-Swc" firstAttribute="top" secondItem="DW5-93-S8v" secondAttribute="bottom" constant="100" id="hFy-rj-vOd"/>
                             <constraint firstItem="91H-2M-W8U" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Ecv-jX-xqS" secondAttribute="leading" constant="64" id="i2O-rE-LDr"/>
-                            <constraint firstItem="3VC-Du-gqx" firstAttribute="top" secondItem="ioC-Y4-ikR" secondAttribute="bottom" constant="32" id="icZ-dB-bBm"/>
                             <constraint firstAttribute="trailing" secondItem="8xA-3G-H4s" secondAttribute="trailing" constant="80" id="jMy-Ob-Sfx"/>
                             <constraint firstItem="91H-2M-W8U" firstAttribute="top" secondItem="ioC-Y4-ikR" secondAttribute="bottom" constant="32" id="jb1-ee-Vyo"/>
                             <constraint firstItem="ioC-Y4-ikR" firstAttribute="top" secondItem="8xA-3G-H4s" secondAttribute="bottom" constant="8" id="q7I-Nc-RYL"/>
@@ -141,12 +138,12 @@
                             <mask key="constraints">
                                 <exclude reference="qtx-sk-rKG"/>
                                 <exclude reference="ugg-tn-dQh"/>
-                                <exclude reference="Gde-0d-TeE"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
                         <outlet property="fbLoginButton" destination="91H-2M-W8U" id="UmJ-Lp-b3U"/>
+                        <outlet property="googleLoginButton" destination="EoX-mu-0JS" id="q80-wz-Q9g"/>
                         <segue destination="BIB-Jo-yfL" kind="presentation" identifier="" id="pSX-wg-1AK"/>
                         <segue destination="Ryy-Iv-cOw" kind="presentation" identifier="profileCompletion" modalTransitionStyle="flipHorizontal" id="vBZ-SF-zn8"/>
                     </connections>
@@ -368,7 +365,7 @@
                                 <rect key="frame" x="0.0" y="236" width="600" height="92"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VrV-q0-hfY" id="Vc4-cP-1GU">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="92"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="91.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Track Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zFd-bZ-rV5">
@@ -621,6 +618,6 @@
         <image name="user" width="135" height="135"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="cLz-DH-rWB"/>
+        <segue reference="pSX-wg-1AK"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-
 <dict>
 	<key>Auth0ClientId</key>
 	<string>LjFTugdjWLi4zQq7ows7zJiIm1Vnz4EE</string>
@@ -26,9 +25,23 @@
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>edu.stanford.193p.aashna94.Drop</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>fb1225257590820099</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>edu.stanford.193p.aashna94.Drop</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.733867161078-fs7f41440j5sfccssep3jnvufk30b64u</string>
 			</array>
 		</dict>
 	</array>

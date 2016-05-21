@@ -9,19 +9,23 @@
 import UIKit
 import FBSDKLoginKit
 import FBSDKCoreKit
-import TwitterKit
 import CloudKit
 
 
-class LoginViewController: UIViewController, FBSDKLoginButtonDelegate
+class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDelegate
 {
     
+    
+    @IBOutlet weak var googleLoginButton: GIDSignInButton!
+   
     @IBOutlet weak var fbLoginButton: FBSDKLoginButton!
     
     var email: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        GIDSignIn.sharedInstance().uiDelegate = self
     
     
         if (FBSDKAccessToken.currentAccessToken() == nil)
@@ -125,16 +129,19 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate
             }
         }
     }
-//    
-//    func signIn(signIn: GIDSignIn!, didSignInForUser user: GIDGoogleUser!,
-//                withError error: NSError!) {
-//        if (error == nil) {
-//            // Perform any operations on signed in user here.
-//            // ...
-//        } else {
-//            print("\(error.localizedDescription)")
-//        }
-//    }
+    
+    func signIn(signIn: GIDSignIn!, didSignInForUser user: GIDGoogleUser!,
+                withError error: NSError!) {
+        if (error == nil) {
+            // Perform any operations on signed in user here.
+            // ...
+            self.performSegueWithIdentifier("profileCompletion", sender: self)
+        } else {
+            print("\(error.localizedDescription)")
+            
+
+        }
+    }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if case let updateProfileVC as UpdateProfileViewController  = segue.destinationViewController
