@@ -7,33 +7,51 @@
 //
 
 import UIKit
+import AVFoundation
 
 class SongDetailsModel: NSObject {
     var title: String
     var duration: Int
     var streamURL: String
+    let audio: AVAudioPlayer
    //var streamable: Bool
     
     init(title: String, duration: Int, streamURL: String) {
         self.title = title
         self.duration = duration
         self.streamURL = streamURL
-      //  self.streamable = streamable
+        let data =  NSData(contentsOfURL:NSURL(string:streamURL)!)
+        self.audio = try! AVAudioPlayer(data: data!)
+        self.audio.prepareToPlay()
     }
+    
+    func play() {
+        //plays this audio file based on distance
+      //  self.audio.volume = self.volumeForCLLocation(location)
+        self.audio.numberOfLoops = -1
+        
+        self.audio.play()
+        
+    }
+    
+    func playing() -> Bool{
+        return self.audio.playing
+    }
+    
+    func stop() {
+        self.audio.stop();
+    }
+    func pause() {
+        self.audio.pause();
+    }
+    func audioPlayerDidFinishPlaying(player: AVAudioPlayer!, successfully flag: Bool)
+    {
+        
+    }
+  
+    
+//    func updateVolume(location:CLLocation) {
+//        //updates volume again based on distance
+//        self.audio.volume = self.volumeForCLLocation(location)
+//    }
 }
-
-
-/*
- To use this do the following in your class where you want to populate:
- 
- 1. loop through the JSON for track and fetch the title,duration and streamable value
- 2. Use the following line to populate playlist array with values
- 
-     var playlist = [SongDetailsModel]()
-     playlist.append(SongDetailsModel(title: <#T##String#>, duration: <#T##Int#>, streamable: <#T##Bool#>)
- 
- 3. Pass the values to tableviewcontroller
- 4. Now you have the array, just use each value in cellForRowAtIndexPath() as playlist[index].valueforKey("title")
- 
- 
- */

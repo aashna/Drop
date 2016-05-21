@@ -16,10 +16,10 @@ enum MapType: Int {
     case Hybrid
     case Satellite
 }
-var audioArr = [
-    
-     AudioLocale.init(filePath: NSURL(string: "http://megdadhashem.wapego.ru/files/56727/tubidy_mp3_e2afc5.mp3")!, coords: CLLocation.init(latitude: 37.428454, longitude: -122.170578)) //done
-]
+//var audioArr = [
+//    
+//     AudioLocale.init(filePath: NSURL(string: "http://megdadhashem.wapego.ru/files/56727/tubidy_mp3_e2afc5.mp3")!, coords: CLLocation.init(latitude: 37.56748454, longitude: -122.38380578)) //done
+//]
 @objc protocol MusicDataDelegate: class {
     func getMusicData(results: NSArray)
 }
@@ -90,15 +90,15 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let userLocation:CLLocation = locations[0]
-        
-        for audio in audioArr {
-            audio.updateVolume(userLocation)
-            if !audio.playing() {
-                audio.play(userLocation)
-            }
-            
-        }
+//        let userLocation:CLLocation = locations[0]
+//        
+//        for audio in audioArr {
+//            audio.updateVolume(userLocation)
+//            if !audio.playing() {
+//                audio.play(userLocation)
+//            }
+//            
+//        }
     }
     
     func addCharacterLocation() {
@@ -178,15 +178,20 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         }
         
         if let tracks = jsonResult[0]["tracks"] as? [NSDictionary]{
-            print (tracks[0]["streamable"])
-            print (tracks[0]["duration"])
-            if tracks[0]["streamable"] as! Bool == true{
+            for track in tracks{
+            print (track["streamable"])
+            print (track["duration"])
+            if track["streamable"] as! Bool == true{
+                var streamUrl  = track["stream_url"]! as! String
+                streamUrl += "?client_id=\(SoundCloud_CLIENT_ID)"
                 
-                self.musicPlaylist.append(SongDetailsModel(title: tracks[0]["title"]! as! String, duration: tracks[0]["duration"]! as! Int, streamURL: tracks[0]["stream_url"]! as! String))
+                self.musicPlaylist.append(SongDetailsModel(title: track["title"]! as! String, duration: track["duration"]! as! Int, streamURL: streamUrl ))
+//                audioArr.append(AudioLocale.init(filePath: NSURL(string: track["stream_url"]! as! String)!, coords: CLLocation.init(latitude: 37.428454, longitude: -122.170578)))
             }
+          }
         }
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         appDelegate.playList = self.musicPlaylist
-       
+     //   appDelegate.audioList = audioArr
     }
 }

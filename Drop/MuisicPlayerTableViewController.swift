@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import AVFoundation
 
-class MusicPlayerTableViewController: UITableViewController, MusicDataDelegate{
+class MusicPlayerTableViewController: UITableViewController, MusicDataDelegate, PlaySongDelegate, StopSongDelegate{
     
     var musicPlaylist = [SongDetailsModel]()
     override func viewDidLoad() {
@@ -21,10 +22,35 @@ class MusicPlayerTableViewController: UITableViewController, MusicDataDelegate{
     private struct Storyboard {
         static let TrackCellIdentifier = "trackCellIdentifier"
     }
+    @IBAction func onResume(sender: AnyObject) {
+        
+    }
     
+    @IBAction func onStop(sender: AnyObject) {
+        for index in 1...self.musicPlaylist.count-1{
+            if self.musicPlaylist[index].playing() == true{
+                self.musicPlaylist[index].stop()
+            }
+        }
+    }
+    @IBAction func onPause(sender: AnyObject) {
+        for index in 1...self.musicPlaylist.count-1{
+            if self.musicPlaylist[index].playing() == true{
+               self.musicPlaylist[index].pause()
+            }
+        }
+    }
     override func viewWillAppear(animated: Bool) {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         self.musicPlaylist = appDelegate.playList
+//        for audio in self.musicPlaylist{
+//        
+//            if !audio.playing() {
+//                audio.play()
+//            }
+//        }
+//
+//        }
     }
 
     @IBOutlet var musicPlayerView: UITableView!
@@ -50,9 +76,23 @@ class MusicPlayerTableViewController: UITableViewController, MusicDataDelegate{
         let cell = tableView.dequeueReusableCellWithIdentifier(Storyboard.TrackCellIdentifier, forIndexPath: indexPath) as! MusicPlayerTableViewCell
         cell.trackTitle.text = self.musicPlaylist[indexPath.row].title
         cell.trackDuration.text = String(self.musicPlaylist[indexPath.row].duration)
-        
         return cell
     }
+    
+    override func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+        var selectedCell:UITableViewCell = tableView.cellForRowAtIndexPath(indexPath)!
+        selectedCell.contentView.backgroundColor = UIColor.redColor()
+        
+    }
+    
+    func playSong(cell: MusicPlayerTableViewCell){
+    self.musicPlaylist[musicPlayerView.indexPathForCell(cell)!.row].play()
+    }
+    func stopSong(cell: MusicPlayerTableViewCell){
+         self.musicPlaylist[musicPlayerView.indexPathForCell(cell)!.row].stop()
+    }
+ 
+
     @IBAction func unwindToMusicPlayerViewController(sender: UIStoryboardSegue) {
     }
     
@@ -78,7 +118,7 @@ class MusicPlayerTableViewController: UITableViewController, MusicDataDelegate{
             
             // create the heart
             let heart = UIImageView()
-            heart.image = UIImage(named: "heartButton")
+            heart.image = UIImage(named: "Heart-fill")
             heart.frame = CGRectMake(0-size, yPosition, size, size)
             self.view.addSubview(heart)
             
