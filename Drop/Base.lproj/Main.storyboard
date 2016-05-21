@@ -397,13 +397,15 @@
                                         </button>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="trackDuration" destination="BXj-9L-map" id="c6d-Ra-M2K"/>
+                                    <outlet property="trackTitle" destination="zFd-bZ-rV5" id="lKF-8P-XBx"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="ysG-YK-dzz" id="fFi-7B-ol2"/>
                             <outlet property="delegate" destination="ysG-YK-dzz" id="Q8L-nt-Cn6"/>
-                            <outlet property="trackDuration" destination="BXj-9L-map" id="d6g-4o-JT4"/>
-                            <outlet property="trackTitle" destination="zFd-bZ-rV5" id="qL2-nb-EpK"/>
                         </connections>
                     </tableView>
                     <connections>

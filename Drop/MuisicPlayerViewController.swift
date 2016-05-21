@@ -52,7 +52,4 @@ class MusicPlayerViewController: UITableViewController, MusicDataDelegate{
         return cell
     }
 
-    
-    
-    
    }
