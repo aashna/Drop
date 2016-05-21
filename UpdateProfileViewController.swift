@@ -130,6 +130,7 @@ class UpdateProfileViewController: UIViewController, UIImagePickerControllerDele
         if txtProfileTitle.text == "" {//|| textView.text == "" {
             return
     }
+        
     
 
         

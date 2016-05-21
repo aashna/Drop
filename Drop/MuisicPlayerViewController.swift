@@ -21,6 +21,7 @@ class MusicPlayerViewController: UITableViewController, MusicDataDelegate{
         static let TrackCellIdentifier = "trackCellIdentifier"
     }
     
+
     @IBOutlet var musicPlayerView: UITableView!
     var tableData = [SongDetailsModel]()
     
@@ -36,9 +37,9 @@ class MusicPlayerViewController: UITableViewController, MusicDataDelegate{
         return 1
     }
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //return 10
+        return 10
         print(tableData)
-         return tableData.count
+        // return tableData.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -60,5 +61,47 @@ class MusicPlayerViewController: UITableViewController, MusicDataDelegate{
     }
     @IBAction func unwindToMusicPlayerViewController(sender: UIStoryboardSegue) {
     }
+    
+//    @IBAction func heartButtonPressed(sender: AnyObject) {
+//    }
+    @IBAction func heartButtonPressed(sender: AnyObject) {
+        // the slider value returns a float (e.g. 10.4)
+        // to work in the loop we need to round down as an Int (e.g. 10)
+        let numberOfHearts = 5
+        
+        for loopNumber in 1...numberOfHearts  {
+            
+            // set up some constants for the animation
+            let duration = 1.0
+            let options = UIViewAnimationOptions.CurveLinear
+            
+            // randomly assign a delay of 0.9 to 1s
+            let delay = NSTimeInterval(200 + arc4random_uniform(100)) / 1000
+            
+            // set up some constants for the heart
+            let size : CGFloat = CGFloat( arc4random_uniform(40))+20
+            let yPosition : CGFloat = CGFloat( arc4random_uniform(200))+20
+            
+            // create the heart
+            let heart = UIImageView()
+            heart.image = UIImage(named: "heartButton")
+            heart.frame = CGRectMake(0-size, yPosition, size, size)
+            self.view.addSubview(heart)
+            
+            // define the animation
+            UIView.animateWithDuration(duration, delay: delay, options: options, animations: {
+                
+                // move the heart
+                heart.frame = CGRectMake(320, yPosition, size, size)
+                
+                }, completion: { animationFinished in
+                    
+                    // remove the heart
+                    heart.removeFromSuperview()
+            })
+        }
+    }
+
+    
     
 }

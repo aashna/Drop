@@ -378,26 +378,54 @@
                                 <rect key="frame" x="0.0" y="236" width="600" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VrV-q0-hfY" id="Vc4-cP-1GU">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="199.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Track Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zFd-bZ-rV5">
-                                            <rect key="frame" x="0.0" y="-8" width="600" height="64"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Track Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zFd-bZ-rV5">
+                                            <rect key="frame" x="8" y="14" width="584" height="42"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Duration" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BXj-9L-map">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Duration" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BXj-9L-map">
                                             <rect key="frame" x="8" y="140" width="87" height="51"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="87" id="4G7-P3-myr"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LXx-Tz-ziF">
-                                            <rect key="frame" x="554" y="161" width="30" height="30"/>
-                                            <state key="normal" title="Like"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mtg-46-rDB">
+                                            <rect key="frame" x="529" y="157" width="78" height="34"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="78" id="t3q-Rb-BDV"/>
+                                                <constraint firstAttribute="height" constant="34" id="v5w-MK-ZJ7"/>
+                                            </constraints>
+                                            <state key="normal" image="heartButton"/>
+                                            <connections>
+                                                <action selector="heartButtonPressed:" destination="ysG-YK-dzz" eventType="touchUpInside" id="ez8-fv-TsO"/>
+                                            </connections>
                                         </button>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="zFd-bZ-rV5" firstAttribute="top" secondItem="Vc4-cP-1GU" secondAttribute="topMargin" constant="6" id="2WK-C1-V1C"/>
+                                        <constraint firstItem="mtg-46-rDB" firstAttribute="bottom" secondItem="BXj-9L-map" secondAttribute="bottom" id="3Ld-aE-mQl"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="zFd-bZ-rV5" secondAttribute="trailing" id="5Is-fz-KdJ"/>
+                                        <constraint firstItem="BXj-9L-map" firstAttribute="top" secondItem="zFd-bZ-rV5" secondAttribute="bottom" constant="84" id="9us-sa-372"/>
+                                        <constraint firstAttribute="leadingMargin" secondItem="zFd-bZ-rV5" secondAttribute="leading" id="C1t-Da-WKk"/>
+                                        <constraint firstItem="zFd-bZ-rV5" firstAttribute="top" secondItem="Vc4-cP-1GU" secondAttribute="topMargin" constant="6" id="Dcv-s3-GNh"/>
+                                        <constraint firstAttribute="leadingMargin" secondItem="BXj-9L-map" secondAttribute="leading" id="Gdf-uD-YSu"/>
+                                        <constraint firstItem="zFd-bZ-rV5" firstAttribute="top" secondItem="Vc4-cP-1GU" secondAttribute="topMargin" constant="6" id="IWD-xD-riH"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="mtg-46-rDB" secondAttribute="trailing" constant="-15" id="OHY-CU-U7V"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="zFd-bZ-rV5" secondAttribute="bottom" constant="135.5" id="Qam-9G-HlP"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="zFd-bZ-rV5" secondAttribute="bottom" constant="135.5" id="R4P-SP-nmU"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="zFd-bZ-rV5" secondAttribute="bottom" constant="135.5" id="ROo-h9-LvI"/>
+                                        <constraint firstAttribute="leadingMargin" secondItem="BXj-9L-map" secondAttribute="leading" id="ZHY-rW-m7T"/>
+                                        <constraint firstItem="zFd-bZ-rV5" firstAttribute="leading" secondItem="BXj-9L-map" secondAttribute="trailing" constant="-87" id="d0T-Mq-6z0"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="BXj-9L-map" secondAttribute="bottom" constant="0.5" id="hmI-VE-p6I"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="BXj-9L-map" secondAttribute="bottom" constant="0.5" id="pp3-jr-RrX"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -582,6 +610,7 @@
     </scenes>
     <resources>
         <image name="closeButton" width="24" height="24"/>
+        <image name="heartButton" width="32" height="32"/>
         <image name="user" width="135" height="135"/>
     </resources>
     <inferredMetricsTieBreakers>
