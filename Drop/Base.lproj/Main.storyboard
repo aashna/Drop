@@ -354,7 +354,7 @@
         <scene sceneID="WKE-Dt-GHd">
             <objects>
                 <tableViewController id="ysG-YK-dzz" customClass="MusicPlayerTableViewController" customModule="Drop" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="200" sectionHeaderHeight="28" sectionFooterHeight="28" id="8AY-vV-d2J">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="92" sectionHeaderHeight="28" sectionFooterHeight="28" id="8AY-vV-d2J">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -374,57 +374,55 @@
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="trackCellIdentifier" rowHeight="200" id="VrV-q0-hfY" userLabel="Track Cell" customClass="MusicPlayerTableViewCell" customModule="Drop" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="236" width="600" height="200"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="trackCellIdentifier" rowHeight="92" id="VrV-q0-hfY" userLabel="Track Cell" customClass="MusicPlayerTableViewCell" customModule="Drop" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="236" width="600" height="92"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VrV-q0-hfY" id="Vc4-cP-1GU">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="199.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="91.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Track Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zFd-bZ-rV5">
-                                            <rect key="frame" x="8" y="14" width="584" height="42"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <rect key="frame" x="266" y="16" width="68" height="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Duration" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BXj-9L-map">
-                                            <rect key="frame" x="8" y="140" width="87" height="51"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="87" id="4G7-P3-myr"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <rect key="frame" x="32" y="49" width="55.5" height="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mtg-46-rDB">
-                                            <rect key="frame" x="529" y="157" width="78" height="34"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mtg-46-rDB" userLabel="Favorite Button">
+                                            <rect key="frame" x="540" y="41" width="44" height="44"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="78" id="t3q-Rb-BDV"/>
-                                                <constraint firstAttribute="height" constant="34" id="v5w-MK-ZJ7"/>
+                                                <constraint firstAttribute="width" constant="44" id="t3q-Rb-BDV"/>
+                                                <constraint firstAttribute="height" constant="44" id="v5w-MK-ZJ7"/>
                                             </constraints>
-                                            <state key="normal" image="heartButton"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <connections>
                                                 <action selector="heartButtonPressed:" destination="ysG-YK-dzz" eventType="touchUpInside" id="ez8-fv-TsO"/>
                                             </connections>
                                         </button>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart-empty" highlightedImage="Heart-fill" translatesAutoresizingMaskIntoConstraints="NO" id="ctr-vG-bGL">
+                                            <rect key="frame" x="548" y="45" width="32" height="32"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="32" id="0jU-V8-YIL"/>
+                                                <constraint firstAttribute="width" constant="32" id="lQ1-ag-Cc2"/>
+                                            </constraints>
+                                        </imageView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="zFd-bZ-rV5" firstAttribute="top" secondItem="Vc4-cP-1GU" secondAttribute="topMargin" constant="6" id="2WK-C1-V1C"/>
-                                        <constraint firstItem="mtg-46-rDB" firstAttribute="bottom" secondItem="BXj-9L-map" secondAttribute="bottom" id="3Ld-aE-mQl"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="zFd-bZ-rV5" secondAttribute="trailing" id="5Is-fz-KdJ"/>
-                                        <constraint firstItem="BXj-9L-map" firstAttribute="top" secondItem="zFd-bZ-rV5" secondAttribute="bottom" constant="84" id="9us-sa-372"/>
-                                        <constraint firstAttribute="leadingMargin" secondItem="zFd-bZ-rV5" secondAttribute="leading" id="C1t-Da-WKk"/>
-                                        <constraint firstItem="zFd-bZ-rV5" firstAttribute="top" secondItem="Vc4-cP-1GU" secondAttribute="topMargin" constant="6" id="Dcv-s3-GNh"/>
-                                        <constraint firstAttribute="leadingMargin" secondItem="BXj-9L-map" secondAttribute="leading" id="Gdf-uD-YSu"/>
-                                        <constraint firstItem="zFd-bZ-rV5" firstAttribute="top" secondItem="Vc4-cP-1GU" secondAttribute="topMargin" constant="6" id="IWD-xD-riH"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="mtg-46-rDB" secondAttribute="trailing" constant="-15" id="OHY-CU-U7V"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="zFd-bZ-rV5" secondAttribute="bottom" constant="135.5" id="Qam-9G-HlP"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="zFd-bZ-rV5" secondAttribute="bottom" constant="135.5" id="R4P-SP-nmU"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="zFd-bZ-rV5" secondAttribute="bottom" constant="135.5" id="ROo-h9-LvI"/>
-                                        <constraint firstAttribute="leadingMargin" secondItem="BXj-9L-map" secondAttribute="leading" id="ZHY-rW-m7T"/>
-                                        <constraint firstItem="zFd-bZ-rV5" firstAttribute="leading" secondItem="BXj-9L-map" secondAttribute="trailing" constant="-87" id="d0T-Mq-6z0"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="BXj-9L-map" secondAttribute="bottom" constant="0.5" id="hmI-VE-p6I"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="BXj-9L-map" secondAttribute="bottom" constant="0.5" id="pp3-jr-RrX"/>
+                                        <constraint firstAttribute="trailing" secondItem="ctr-vG-bGL" secondAttribute="trailing" constant="20" id="8as-Cv-tJj"/>
+                                        <constraint firstItem="BXj-9L-map" firstAttribute="leading" secondItem="Vc4-cP-1GU" secondAttribute="leading" constant="32" id="DQC-vb-CEU"/>
+                                        <constraint firstItem="zFd-bZ-rV5" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Vc4-cP-1GU" secondAttribute="leading" constant="64" id="DTi-cp-198"/>
+                                        <constraint firstItem="BXj-9L-map" firstAttribute="top" secondItem="zFd-bZ-rV5" secondAttribute="bottom" constant="16" id="J7h-9q-iKn"/>
+                                        <constraint firstAttribute="trailing" secondItem="mtg-46-rDB" secondAttribute="trailing" constant="16" id="JPE-8d-uUV"/>
+                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="zFd-bZ-rV5" secondAttribute="trailing" constant="64" id="P4f-lF-j5v"/>
+                                        <constraint firstItem="mtg-46-rDB" firstAttribute="top" secondItem="zFd-bZ-rV5" secondAttribute="bottom" constant="8" id="Wfl-GP-CAF"/>
+                                        <constraint firstItem="zFd-bZ-rV5" firstAttribute="top" secondItem="Vc4-cP-1GU" secondAttribute="top" constant="16" id="l1f-ap-jLx"/>
+                                        <constraint firstItem="ctr-vG-bGL" firstAttribute="top" secondItem="zFd-bZ-rV5" secondAttribute="bottom" constant="12" id="wAv-h2-89p"/>
+                                        <constraint firstItem="zFd-bZ-rV5" firstAttribute="centerX" secondItem="Vc4-cP-1GU" secondAttribute="centerX" id="wea-OO-1Ae"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -609,8 +607,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Heart-fill" width="16" height="16"/>
         <image name="closeButton" width="24" height="24"/>
-        <image name="heartButton" width="32" height="32"/>
+        <image name="heart-empty" width="16" height="16"/>
         <image name="user" width="135" height="135"/>
     </resources>
     <inferredMetricsTieBreakers>
