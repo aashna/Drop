@@ -195,18 +195,7 @@ class UpdateProfileViewController: UIViewController, UIImagePickerControllerDele
         //                self.navigationController?.setNavigationBarHidden(false, animated: true)
         //            })
         //        })
-        let newUser = PFUser()
-        
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
-        dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
-
-        newUser.email = userEmail.text
-        newUser.username = userName.text
-        newUser.password = userPassword.text
-        newUser["phone"] = phoneNumber.text
-        newUser["dob"] = dateFormatter.stringFromDate(dateOfBirth.date)
-        
+    
         if(userName.text?.characters.count < 5) {
             let alert = UIAlertView(title: "Invalid", message: "Username must be greater than 5 characters", delegate: self, cancelButtonTitle: "OK")
             alert.show()
@@ -222,6 +211,17 @@ class UpdateProfileViewController: UIViewController, UIImagePickerControllerDele
             
         }
         else {
+            let newUser = PFUser()
+            
+            let dateFormatter = NSDateFormatter()
+            dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
+            dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
+            newUser["dob"] = dateFormatter.stringFromDate(dateOfBirth.date)
+            
+            newUser.email = userEmail.text
+            newUser.username = userName.text
+            newUser.password = userPassword.text
+            newUser["phone"] = phoneNumber.text
         newUser.signUpInBackgroundWithBlock({ (succeed, error) -> Void in
             
             // Stop the spinner

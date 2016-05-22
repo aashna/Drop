@@ -7,6 +7,7 @@ target 'Drop' do
 
   # Pods for Drop
   pod 'Google/SignIn'
+  pod 'Parse'
   target 'DropTests' do
     inherit! :search_paths
     # Pods for testing

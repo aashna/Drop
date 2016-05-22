@@ -8,6 +8,12 @@ target 'Drop' do
   # Pods for Drop
   pod 'Google/SignIn'
   pod 'Parse'
+#  pod 'Parse'
+   pod 'ParseUI'
+    pod 'ParseFacebookUtilsV4'
+    pod 'ParseTwitterUtils'
+    pod 'FBSDKCoreKit'
+    pod 'FBSDKLoginKit'
   target 'DropTests' do
     inherit! :search_paths
     # Pods for testing

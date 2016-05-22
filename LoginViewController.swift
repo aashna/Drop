@@ -13,7 +13,7 @@ import CloudKit
 import Parse
 
 
-class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDelegate
+class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDelegate //PFLogInViewControllerDelegate,PFSignUpViewControllerDelegate //
 {
     
 //    override func viewWillAppear(animated: Bool) {
@@ -25,6 +25,22 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignIn
 //            })
 //        }
 //    }
+//    override func viewDidAppear(animated: Bool) {
+//        super.viewDidAppear(animated)
+//        if (PFUser.currentUser() == nil) {
+//            let loginViewController = PFLogInViewController()
+//            loginViewController.delegate = self
+//            loginViewController.fields = .UsernameAndPassword | .LogInButton | .PasswordForgotten | .SignUpButton | .Facebook | .Twitter
+//            loginViewController.emailAsUsername = true
+//            loginViewController.signUpController?.delegate = self
+//            self.presentViewController(loginViewController, animated: false, completion: nil)
+//            
+//        }else {
+//            presentLoggedInAlert()
+//        }
+//        
+//    }
+
 
     @IBOutlet weak var userPassword: UITextField!
     
@@ -35,6 +51,26 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignIn
     @IBOutlet weak var fbLoginButton: FBSDKLoginButton!
     
     var email: String = ""
+    
+//    func presentLoggedInAlert() {
+//        let alertController = UIAlertController(title: "You're logged in", message: "Welcome to Vay.K", preferredStyle: .Alert)
+//        let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
+//            self.dismissViewControllerAnimated(true, completion: nil)
+//        }
+//        alertController.addAction(OKAction)
+//        self.presentViewController(alertController, animated: true, completion: nil)
+//    }
+    
+//    func logInViewController(logInController: PFLogInViewController, didLogInUser user: PFUser) {
+//        self.dismissViewControllerAnimated(true, completion: nil)
+//        presentLoggedInAlert()
+//    }
+//
+//    
+//    func signUpViewController(signUpController: PFSignUpViewController, didSignUpUser user: PFUser) {
+//        self.dismissViewControllerAnimated(true, completion: nil)
+//        presentLoggedInAlert()
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -139,9 +175,10 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignIn
         if error == nil
         {
             print("Login complete.")
-            if (result.grantedPermissions.contains("email")) {
-                setEmail()
-            }
+             self.performSegueWithIdentifier("segueToMain", sender: self)
+//            if (result.grantedPermissions.contains("email")) {
+//                setEmail()
+//            }
         }
         else
         {
@@ -160,7 +197,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignIn
                     self.email = email as! String
                 }
             }
-            self.performSegueWithIdentifier("profileCompletion", sender: self)
+            self.performSegueWithIdentifier("segueToMain", sender: self)
         })
     }
     
@@ -168,27 +205,13 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignIn
     {
         print("User logged out...")
     }
-    /// async gets iCloud record ID object of logged-in iCloud user
-    func iCloudUserIDAsync(complete: (instance: CKRecordID?, error: NSError?) -> ()) {
-        let container = CKContainer.defaultContainer()
-        container.fetchUserRecordIDWithCompletionHandler() {
-            recordID, error in
-            if error != nil {
-                print(error!.localizedDescription)
-                complete(instance: nil, error: error)
-            } else {
-                print("fetched ID \(recordID?.recordName)")
-                complete(instance: recordID, error: nil)
-            }
-        }
-    }
     
     func signIn(signIn: GIDSignIn!, didSignInForUser user: GIDGoogleUser!,
                 withError error: NSError!) {
         if (error == nil) {
             // Perform any operations on signed in user here.
             // ...
-            self.performSegueWithIdentifier("profileCompletion", sender: self)
+            self.performSegueWithIdentifier("segueToMain", sender: self)
         } else {
             print("\(error.localizedDescription)")
             
