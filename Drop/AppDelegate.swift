@@ -9,6 +9,7 @@
 import UIKit
 import FBSDKCoreKit
 import TwitterKit
+import Parse
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
@@ -37,10 +38,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     
     func application(application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Initialize sign-in
+        // Initialize Google sign-in
         GIDSignIn.sharedInstance().clientID = "733867161078-fs7f41440j5sfccssep3jnvufk30b64u.apps.googleusercontent.com"
         
         GIDSignIn.sharedInstance().delegate = self
+        
+        Parse.enableLocalDatastore()
+        
+        // Initialize Parse.
+        Parse.setApplicationId("W7Tyw7f6ISFxiU9yYu5NjXR0L58GCRLI8iWY8bXn", clientKey: "cOgN2acYpqgusYfNAADqgy3EMXyMLQpT8ozdjdcd")
+        
+        // [Optional] Track statistics around application opens.
+        PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
+
         
         return true
     }
@@ -49,12 +59,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                 withError error: NSError!) {
         if (error == nil) {
             // Perform any operations on signed in user here.
-            let userId = user.userID                  // For client-side use only!
-            let idToken = user.authentication.idToken // Safe to send to the server
-            let fullName = user.profile.name
-            let givenName = user.profile.givenName
-            let familyName = user.profile.familyName
-            let email = user.profile.email
+//            let userId = user.userID                  // For client-side use only!
+//            let idToken = user.authentication.idToken // Safe to send to the server
+//            let fullName = user.profile.name
+//            let givenName = user.profile.givenName
+//            let familyName = user.profile.familyName
+//            let email = user.profile.email
             // ...
         } else {
             print("\(error.localizedDescription)")

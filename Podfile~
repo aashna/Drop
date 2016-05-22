@@ -6,7 +6,7 @@ target 'Drop' do
   use_frameworks!
 
   # Pods for Drop
-
+  pod 'Google/SignIn'
   target 'DropTests' do
     inherit! :search_paths
     # Pods for testing

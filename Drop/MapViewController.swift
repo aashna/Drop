@@ -10,6 +10,7 @@ import UIKit
 import MapKit
 import CoreLocation
 import AVFoundation
+import Parse
 
 enum MapType: Int {
     case Standard = 0
@@ -30,6 +31,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     var user_id1 = "228307235"
     var musicPlaylist = [SongDetailsModel]()
     
+    @IBAction func logout(sender: AnyObject) {
+         PFUser.logOut()
+    }
     @IBOutlet weak var mapView: MKMapView!
     let locationManager = CLLocationManager()
     weak var delegate: MusicDataDelegate?
@@ -97,7 +101,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
 //            if !audio.playing() {
 //                audio.play(userLocation)
 //            }
-//            
+//
 //        }
     }
     
@@ -147,12 +151,12 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         let filePath = NSBundle.mainBundle().pathForResource("Zones", ofType: "plist")
         let attractions = NSArray(contentsOfFile: filePath!)
         for attraction in attractions! {
-            let point = CGPointFromString(attraction["location"] as! String)
+            let point = CGPointFromString((attraction.objectForKey("location") as? String)!)//attraction["location"] as! String)
             let coordinate = CLLocationCoordinate2DMake(CLLocationDegrees(point.x), CLLocationDegrees(point.y))
-            let title = attraction["name"] as! String
-            let typeRawValue = Int((attraction["type"] as! String))!
+            let title = attraction.objectForKey("name") as! String//attraction["name"] as! String
+            let typeRawValue = Int(attraction.objectForKey("type") as! String)! //Int((attraction["type"] as! String))!
             let type = AttractionType(rawValue: typeRawValue)!
-            let subtitle = attraction["subtitle"] as! String
+            let subtitle = attraction.objectForKey("subtitle") as! String //attraction["subtitle"] as! String
             let annotation = AttractionAnnotation(coordinate: coordinate, title: title, subtitle: subtitle, type: type)
             mapView.addAnnotation(annotation)
         }

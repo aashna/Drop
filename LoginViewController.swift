@@ -10,11 +10,25 @@ import UIKit
 import FBSDKLoginKit
 import FBSDKCoreKit
 import CloudKit
+import Parse
 
 
 class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDelegate
 {
     
+//    override func viewWillAppear(animated: Bool) {
+//        if (PFUser.currentUser() == nil) {
+//            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+//                
+//                let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Login") as! UIViewController
+//                self.presentViewController(viewController, animated: true, completion: nil)
+//            })
+//        }
+//    }
+
+    @IBOutlet weak var userPassword: UITextField!
+    
+    @IBOutlet weak var userName: UITextField!
     
     @IBOutlet weak var googleLoginButton: GIDSignInButton!
    
@@ -40,6 +54,45 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignIn
    
         fbLoginButton.readPermissions = ["public_profile", "email", "user_friends"]
         fbLoginButton.delegate = self
+    }
+    
+    @IBAction func signIn(sender: AnyObject) {
+        
+        let username = self.userName.text
+        let password = self.userPassword.text
+        
+        // Validate the text fields
+        
+        if(username?.characters.count < 5) {
+            let alert = UIAlertView(title: "Invalid", message: "Username must be greater than 5 characters", delegate: self, cancelButtonTitle: "OK")
+            alert.show()
+            
+        } else if(password?.characters.count < 8) {
+            let alert = UIAlertView(title: "Invalid", message: "Password must be greater than 8 characters", delegate: self, cancelButtonTitle: "OK")
+            alert.show()
+            
+        } else {
+            // Run a spinner to show a task in progress
+            let spinner: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(0, 0, 150, 150)) as UIActivityIndicatorView
+            spinner.startAnimating()
+            
+            // Send a request to login
+            PFUser.logInWithUsernameInBackground(username!, password: password!, block: { (user, error) -> Void in
+                
+                // Stop the spinner
+                spinner.stopAnimating()
+                
+                if ((user) != nil) {
+                    let alert = UIAlertView(title: "Success", message: "Logged In", delegate: self, cancelButtonTitle: "OK")
+                    alert.show()
+                    self.performSegueWithIdentifier("segueToMain", sender: self)
+
+                } else {
+                    let alert = UIAlertView(title: "Error", message: "\(error)", delegate: self, cancelButtonTitle: "OK")
+                    alert.show()
+                }
+            })
+        }
     }
     
 //        let logInButton = TWTRLogInButton { (session, error) in
@@ -150,6 +203,15 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignIn
             updateProfileVC.email = email
         }
 
+    }
+
+    @IBAction func signUp(sender: AnyObject) {
+        self.performSegueWithIdentifier("profileCompletion", sender: self)
+    }
+    @IBAction func resetPassword(sender: AnyObject) {
+        self.performSegueWithIdentifier("resetPassword", sender: self)
+    }
+    @IBAction func unwindToLogInScreen(segue:UIStoryboardSegue) {
     }
 
     
