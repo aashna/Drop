@@ -18,7 +18,7 @@ class SongDetailsModel: NSObject {
     
     init(title: String, duration: Int, streamURL: String) {
         self.title = title
-        self.duration = duration
+        self.duration = duration/60000
         self.streamURL = streamURL
         let data =  NSData(contentsOfURL:NSURL(string:streamURL)!)
         self.audio = try! AVAudioPlayer(data: data!)

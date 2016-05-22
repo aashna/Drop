@@ -12,9 +12,11 @@ import AVFoundation
 class MusicPlayerTableViewController: UITableViewController, MusicDataDelegate, PlaySongDelegate, StopSongDelegate{
     
     var musicPlaylist = [SongDetailsModel]()
+//    var musicPlayerCell: MusicPlayerTableViewCell = MusicPlayerTableViewCell()
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+//        musicPlayerCell.delegatePlay = self
+//        musicPlayerCell.delegateStop = self
     }
     
     // MARK: Constants
@@ -75,7 +77,9 @@ class MusicPlayerTableViewController: UITableViewController, MusicDataDelegate, 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(Storyboard.TrackCellIdentifier, forIndexPath: indexPath) as! MusicPlayerTableViewCell
         cell.trackTitle.text = self.musicPlaylist[indexPath.row].title
-        cell.trackDuration.text = String(self.musicPlaylist[indexPath.row].duration)
+        cell.trackDuration.text = String(self.musicPlaylist[indexPath.row].duration) + cell.trackDuration.text!
+        cell.delegatePlay=self
+        cell.delegateStop=self
         return cell
     }
     
@@ -98,12 +102,33 @@ class MusicPlayerTableViewController: UITableViewController, MusicDataDelegate, 
     
 //    @IBAction func heartButtonPressed(sender: AnyObject) {
 //    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue,
+                                  sender: AnyObject?) {
+        
+        if segue.identifier == "showMap" {
+                
+                let _ = (segue.destinationViewController
+                    as! UINavigationController).topViewController
+                    as! MapViewController
+            print("going to Map")
+                
+             //   controller.detailItem = urlString
+             //   controller.navigationItem.leftBarButtonItem =
+                    splitViewController?.displayModeButtonItem()
+              //  controller.navigationItem.leftItemsSupplementBackButton = true
+            
+        }
+    }
+    @IBAction func goToMap(sender: AnyObject) {
+        self.performSegueWithIdentifier("showMap", sender: self)
+    }
     @IBAction func heartButtonPressed(sender: AnyObject) {
         // the slider value returns a float (e.g. 10.4)
         // to work in the loop we need to round down as an Int (e.g. 10)
         let numberOfHearts = 5
         
-        for loopNumber in 1...numberOfHearts  {
+        for _ in 1...numberOfHearts  {
             
             // set up some constants for the animation
             let duration = 1.0

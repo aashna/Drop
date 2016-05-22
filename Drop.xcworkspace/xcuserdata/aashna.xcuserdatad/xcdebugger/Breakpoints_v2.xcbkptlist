@@ -22,26 +22,11 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Drop.ResetPasswordViewController.userEmail.getter : weak Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UITextField&gt;"
-                  moduleName = "Drop"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/aashna/Developer/Drop/Drop/ResetPasswordViewController.swift"
-                  timestampString = "485582555.226908"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "14"
-                  endingLineNumber = "14"
-                  offsetFromSymbolStart = "27">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
                   symbolName = "Drop.ResetPasswordViewController.userEmail.setter : weak Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UITextField&gt;"
                   moduleName = "Drop"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/aashna/Developer/Drop/Drop/ResetPasswordViewController.swift"
-                  timestampString = "485582555.22705"
+                  timestampString = "485640727.509356"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "14"
@@ -56,7 +41,7 @@
                   moduleName = "Drop"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/aashna/Developer/Drop/Drop/ResetPasswordViewController.swift"
-                  timestampString = "485582555.227154"
+                  timestampString = "485640727.50954"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "14"
@@ -71,7 +56,7 @@
                   moduleName = "Drop"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/aashna/Developer/Drop/Drop/ResetPasswordViewController.swift"
-                  timestampString = "485582555.227253"
+                  timestampString = "485640727.509693"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "14"
@@ -79,6 +64,54 @@
                   offsetFromSymbolStart = "28">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Drop/MuisicPlayerTableViewController.swift"
+            timestampString = "485640564.03692"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
+            landmarkName = "playSong(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Drop/MusicPlayerTableViewCell.swift"
+            timestampString = "485640433.31834"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "onPlay(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Drop/MusicPlayerTableViewCell.swift"
+            timestampString = "485640433.31834"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "onPlay(_:)"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
