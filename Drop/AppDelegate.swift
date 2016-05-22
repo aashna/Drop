@@ -10,6 +10,9 @@ import UIKit
 import FBSDKCoreKit
 import TwitterKit
 import Parse
+import ParseUI
+import ParseTwitterUtils
+import ParseFacebookUtilsV4
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
@@ -34,6 +37,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                                                     sourceApplication: options[UIApplicationOpenURLOptionsSourceApplicationKey] as? String,
                                                     annotation: options[UIApplicationOpenURLOptionsAnnotationKey])
     }
+    
+    func applicationDidBecomeActive(application: UIApplication) {
+        FBSDKAppEvents.activateApp()
+    }
 
     
     func application(application: UIApplication,
@@ -50,9 +57,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         
         // [Optional] Track statistics around application opens.
         PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
-
-        
+    
+//        
+//        PFTwitterUtils.initializeWithConsumerKey("xgtd5SUvYAHrvdVuk2H1KAh0c", consumerSecret:"jhxHZ3Ceo3qbBdigSfnvLlQHY4NrVWxUDnQIIc8dStwsN4rh9O")
+//        PFFacebookUtils.initializeFacebookWithApplicationLaunchOptions(launchOptions)
         return true
+
     }
     
     func signIn(signIn: GIDSignIn!, didSignInForUser user: GIDGoogleUser!,
@@ -84,10 +94,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 
     func applicationWillEnterForeground(application: UIApplication) {
         // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-    }
-
-    func applicationDidBecomeActive(application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     }
 
     func applicationWillTerminate(application: UIApplication) {

@@ -31,9 +31,9 @@
 		1BDE538F1CEBCB7800DC02BF /* TwitterClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDE538D1CEBCB7800DC02BF /* TwitterClient.swift */; };
 		1BDE53901CEBCB7800DC02BF /* TwitterUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDE538E1CEBCB7800DC02BF /* TwitterUser.swift */; };
 		1BDE53931CEBD18000DC02BF /* AudioLocale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDE53921CEBD18000DC02BF /* AudioLocale.swift */; };
+		1BF962511CF2184800AF9B93 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BF962501CF2184800AF9B93 /* FBSDKLoginKit.framework */; };
+		1BF962531CF2184E00AF9B93 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BF962521CF2184E00AF9B93 /* FBSDKCoreKit.framework */; };
 		A5E60193B1A82E6531F3D365 /* Pods_Drop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54F5B4C8E4EB64ACCDFDCEFC /* Pods_Drop.framework */; };
-		C745849C1CECC4DC00D0E024 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C745849A1CECC4DC00D0E024 /* FBSDKCoreKit.framework */; };
-		C745849D1CECC4DC00D0E024 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C745849B1CECC4DC00D0E024 /* FBSDKLoginKit.framework */; };
 		C75BB6891CEE498700C867FF /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C75BB6881CEE498700C867FF /* Media.xcassets */; };
 		EFC75269C3F4E5C3FDE0B623 /* Pods_DropTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1202F5E8DF8FD655C0C52D73 /* Pods_DropTests.framework */; };
 /* End PBXBuildFile section */
@@ -87,14 +87,14 @@
 		1BDE538D1CEBCB7800DC02BF /* TwitterClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterClient.swift; sourceTree = "<group>"; };
 		1BDE538E1CEBCB7800DC02BF /* TwitterUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterUser.swift; sourceTree = "<group>"; };
 		1BDE53921CEBD18000DC02BF /* AudioLocale.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioLocale.swift; sourceTree = "<group>"; };
+		1BF962501CF2184800AF9B93 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		1BF962521CF2184E00AF9B93 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		1CA5EC1D64E03FBD70BCBF88 /* Pods-DropTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DropTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DropTests/Pods-DropTests.debug.xcconfig"; sourceTree = "<group>"; };
 		26423FD86CEF41E519B0AC1B /* Pods-Drop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Drop.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Drop/Pods-Drop.debug.xcconfig"; sourceTree = "<group>"; };
 		3A92C659F95B259098A852AF /* Pods_DropUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DropUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		54F5B4C8E4EB64ACCDFDCEFC /* Pods_Drop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Drop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C4BA1D314B44244D0C8AD32 /* Pods-DropUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DropUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DropUITests/Pods-DropUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		B89864DDDD4ADD211A99645A /* Pods-DropTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DropTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DropTests/Pods-DropTests.release.xcconfig"; sourceTree = "<group>"; };
-		C745849A1CECC4DC00D0E024 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
-		C745849B1CECC4DC00D0E024 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		C75BB6881CEE498700C867FF /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		E2AA781A2AD778631FE9D1BE /* Pods-Drop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Drop.release.xcconfig"; path = "Pods/Target Support Files/Pods-Drop/Pods-Drop.release.xcconfig"; sourceTree = "<group>"; };
 		F9D7A94DA46246F98D0BCE10 /* Pods-DropUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DropUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DropUITests/Pods-DropUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -105,8 +105,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C745849D1CECC4DC00D0E024 /* FBSDKLoginKit.framework in Frameworks */,
-				C745849C1CECC4DC00D0E024 /* FBSDKCoreKit.framework in Frameworks */,
+				1BF962511CF2184800AF9B93 /* FBSDKLoginKit.framework in Frameworks */,
+				1BF962531CF2184E00AF9B93 /* FBSDKCoreKit.framework in Frameworks */,
 				A5E60193B1A82E6531F3D365 /* Pods_Drop.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -237,8 +237,8 @@
 		1BDE53911CEBD0E600DC02BF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C745849A1CECC4DC00D0E024 /* FBSDKCoreKit.framework */,
-				C745849B1CECC4DC00D0E024 /* FBSDKLoginKit.framework */,
+				1BF962521CF2184E00AF9B93 /* FBSDKCoreKit.framework */,
+				1BF962501CF2184800AF9B93 /* FBSDKLoginKit.framework */,
 				54F5B4C8E4EB64ACCDFDCEFC /* Pods_Drop.framework */,
 				1202F5E8DF8FD655C0C52D73 /* Pods_DropTests.framework */,
 				3A92C659F95B259098A852AF /* Pods_DropUITests.framework */,

@@ -641,14 +641,14 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H1y-Iw-530">
-                                            <rect key="frame" x="394" y="59" width="8" height="22"/>
+                                            <rect key="frame" x="370" y="59" width="32" height="22"/>
                                             <state key="normal" image="pauseButton"/>
                                             <connections>
                                                 <action selector="onStop:" destination="VrV-q0-hfY" eventType="touchUpInside" id="Oqj-0O-JIS"/>
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="75O-85-fPd">
-                                            <rect key="frame" x="322" y="59" width="30" height="22"/>
+                                            <rect key="frame" x="322" y="49" width="30" height="32"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="30" id="AEQ-Cz-FeX"/>
                                             </constraints>
@@ -860,8 +860,8 @@
     <resources>
         <image name="Heart-fill" width="16" height="16"/>
         <image name="closeButton" width="24" height="24"/>
-        <image name="pauseButton" width="8" height="8"/>
-        <image name="playButton" width="8" height="8"/>
+        <image name="pauseButton" width="32" height="32"/>
+        <image name="playButton" width="32" height="32"/>
         <image name="user" width="135" height="135"/>
     </resources>
     <inferredMetricsTieBreakers>
