@@ -12,6 +12,8 @@ import CoreLocation
 import AVFoundation
 import Parse
 
+let kSavedItemsKey = "savedItems"
+
 enum MapType: Int {
     case Standard = 0
     case Hybrid
@@ -25,12 +27,14 @@ enum MapType: Int {
     func getMusicData(results: NSArray)
 }
 
-class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
+class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate{
     
     var SoundCloud_CLIENT_ID = "14802fecba08aa53d2daa7d16434d02c"
     var user_id1 = "228307235"
     var musicPlaylist = [SongDetailsModel]()
+    var geonotifications = [Geonotification]()
     
+    @IBOutlet weak var profilePicture: UIImageView!
     @IBAction func logout(sender: AnyObject) {
          PFUser.logOut()
     }
@@ -51,10 +55,26 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
 
     @IBOutlet weak var mapTypeSegmentedControl: UISegmentedControl!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        locationManager.delegate = self
+        // 2
+        locationManager.requestAlwaysAuthorization()
+        // 3
+        addGeonotifications()
+      //  loadAllGeonotifications()
+        
         // Do any additional setup after loading the view, typically from a nib.
-
+        if let userPicture = PFUser.currentUser()?["imageFile"] as? PFFile {
+            userPicture.getDataInBackgroundWithBlock { (imageData: NSData?, error: NSError?) -> Void in
+                if (error == nil) {
+                    self.profilePicture.image = UIImage(data:imageData!)
+                }
+            }
+        
+        }
         
          mapView.delegate = self
         
@@ -72,8 +92,68 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             
         }
         
+        
         fetchMusicDataIntoModel()
         
+    }
+    
+    // MARK: Loading and saving functions
+    
+//    func loadAllGeonotifications() {
+//        geonotifications = []
+//        
+//        if let savedItems = NSUserDefaults.standardUserDefaults().arrayForKey(kSavedItemsKey) {
+//            for savedItem in savedItems {
+//                if let geonotification = NSKeyedUnarchiver.unarchiveObjectWithData(savedItem as! NSData) as? Geonotification {
+//                    addGeonotification(geonotification)
+//                }
+//            }
+//        }
+//    }
+    
+    func regionWithgeonotification(geonotification: Geonotification) -> CLCircularRegion {
+        // 1
+        let region = CLCircularRegion(center: geonotification.coordinate, radius: geonotification.radius, identifier: geonotification.identifier)
+        // 2
+        region.notifyOnEntry = (geonotification.eventType == .OnEntry)
+        region.notifyOnExit = !region.notifyOnEntry
+        return region
+    }
+    
+    func startMonitoringgeonotification(geonotification: Geonotification) {
+        // 1
+        if !CLLocationManager.isMonitoringAvailableForClass(CLCircularRegion) {
+            showSimpleAlertWithTitle("Error", message: "Geofencing is not supported on this device!", viewController: self)
+            return
+        }
+        // 2
+        if CLLocationManager.authorizationStatus() != .AuthorizedAlways {
+            showSimpleAlertWithTitle("Warning", message: "Your geonotification is saved but will only be activated once you grant Geotify permission to access the device location.", viewController: self)
+        }
+        // 3
+        let region = regionWithgeonotification(geonotification)
+        // 4
+        locationManager.startMonitoringForRegion(region)
+    }
+    
+    func stopMonitoringgeonotification(geonotification: Geonotification) {
+        for region in locationManager.monitoredRegions {
+            if let circularRegion = region as? CLCircularRegion {
+                if circularRegion.identifier == geonotification.identifier {
+                    locationManager.stopMonitoringForRegion(circularRegion)
+                }
+            }
+        }
+    }
+    func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        // Delete geonotification
+        let geonotification = view.annotation as! Geonotification
+        stopMonitoringgeonotification(geonotification)   // Add this statement
+        removegeonotification(geonotification)
+        saveAllGeonotifications()
+    }
+    func locationManager(manager: CLLocationManager, monitoringDidFailForRegion region: CLRegion?, withError error: NSError) {
+        print("Monitoring failed for region with identifier: \(region!.identifier)")
     }
     
     
@@ -83,6 +163,20 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         if status == .AuthorizedWhenInUse {
             manager.startUpdatingLocation()
         }
+        mapView.showsUserLocation = (status == .AuthorizedAlways)
+    }
+    func removegeonotification(geonotification: Geonotification) {
+        if let indexInArray = geonotifications.indexOf(geonotification) {
+            geonotifications.removeAtIndex(indexInArray)
+        }
+        
+        mapView.removeAnnotation(geonotification)
+        removeRadiusOverlayForgeonotification(geonotification)
+        updategeonotificationsCount()
+    }
+    
+    func updateGeonotificationsCount() {
+        title = "geonotifications (\(geonotifications.count))"
     }
  
     
@@ -91,6 +185,69 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         print("Errors: " + error.localizedDescription)
         
     }
+    
+    func removeGeonotification(geonotification: Geonotification) {
+        if let indexInArray = geonotifications.indexOf(geonotification) {
+            geonotifications.removeAtIndex(indexInArray)
+        }
+        
+        mapView.removeAnnotation(geonotification)
+        removeRadiusOverlayForgeonotification(geonotification)
+        updategeonotificationsCount()
+    }
+    
+    func updategeonotificationsCount() {
+        title = "geonotifications (\(geonotifications.count))"
+    }
+    // MARK: AddgeonotificationViewControllerDelegate
+    
+//    func addgeonotificationViewController(controller: AddgeonotificationViewController, didAddCoordinate coordinate: CLLocationCoordinate2D, radius: Double, identifier: String, note: String, eventType: EventType) {
+//        controller.dismissViewControllerAnimated(true, completion: nil)
+//        // Add geonotification
+//        let geonotification = Geonotification(coordinate: coordinate, radius: radius, identifier: identifier, note: note, eventType: eventType)
+//        addGeonotification(geonotification)
+//        saveAllGeonotifications()
+//    }
+    // MARK: Functions that update the model/associated views with geotification changes
+    
+    func addGeonotifications() {
+        let coordinate = CLLocationCoordinate2D(latitude:37.4301566, longitude:-122.175685)
+        let geonotification = Geonotification(coordinate: coordinate, radius: 1000, identifier: NSUUID().UUIDString, note: "Gates Station", eventType: EventType.OnEntry)
+        geonotifications.append(geonotification)
+        mapView.addAnnotation(geonotification)
+        addRadiusOverlayForgeonotification(geonotification)
+        updateGeonotificationsCount()
+    }
+    func saveAllGeonotifications() {
+        let items = NSMutableArray()
+        for geotification in geonotifications {
+            let item = NSKeyedArchiver.archivedDataWithRootObject(geotification)
+            items.addObject(item)
+        }
+        NSUserDefaults.standardUserDefaults().setObject(items, forKey: kSavedItemsKey)
+        NSUserDefaults.standardUserDefaults().synchronize()
+    }
+    
+    func addRadiusOverlayForgeonotification(geonotification: Geonotification) {
+        mapView?.addOverlay(MKCircle(centerCoordinate: geonotification.coordinate, radius: geonotification.radius))
+    }
+    
+    func removeRadiusOverlayForgeonotification(geonotification: Geonotification) {
+        // Find exactly one overlay which has the same coordinates & radius to remove
+        if let overlays = mapView?.overlays {
+            for overlay in overlays {
+                if let circleOverlay = overlay as? MKCircle {
+                    let coord = circleOverlay.coordinate
+                    if coord.latitude == geonotification.coordinate.latitude && coord.longitude == geonotification.coordinate.longitude && circleOverlay.radius == geonotification.radius {
+                        mapView?.removeOverlay(circleOverlay)
+                        break
+                    }
+                }
+            }
+        }
+    }
+    
+
     
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -183,8 +340,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         
         if let tracks = jsonResult[0]["tracks"] as? [NSDictionary]{
             for track in tracks{
-            print (track["streamable"])
-            print (track["duration"])
             if track["streamable"] as! Bool == true{
                 var streamUrl  = track["stream_url"]! as! String
                 streamUrl += "?client_id=\(SoundCloud_CLIENT_ID)"

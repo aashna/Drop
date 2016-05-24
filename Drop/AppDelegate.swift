@@ -13,12 +13,15 @@ import Parse
 import ParseUI
 import ParseTwitterUtils
 import ParseFacebookUtilsV4
+import Contacts
+
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
-
+class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, CLLocationManagerDelegate  {
+    var contactStore = CNContactStore()
     var window: UIWindow?
     var playList = [SongDetailsModel]()
+    let locationManager = CLLocationManager()
 
 //    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 //        // Override point for customization after application launch.
@@ -36,6 +39,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         return GIDSignIn.sharedInstance().handleURL(url,
                                                     sourceApplication: options[UIApplicationOpenURLOptionsSourceApplicationKey] as? String,
                                                     annotation: options[UIApplicationOpenURLOptionsAnnotationKey])
+    }
+    class func getAppDelegate() -> AppDelegate {
+        return UIApplication.sharedApplication().delegate as! AppDelegate
     }
     
     func applicationDidBecomeActive(application: UIApplication) {
@@ -61,8 +67,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 //        
 //        PFTwitterUtils.initializeWithConsumerKey("xgtd5SUvYAHrvdVuk2H1KAh0c", consumerSecret:"jhxHZ3Ceo3qbBdigSfnvLlQHY4NrVWxUDnQIIc8dStwsN4rh9O")
 //        PFFacebookUtils.initializeFacebookWithApplicationLaunchOptions(launchOptions)
+        
+        locationManager.delegate = self
+        locationManager.requestAlwaysAuthorization()
+        application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [.Sound, .Alert, .Badge], categories: nil))
+        UIApplication.sharedApplication().cancelAllLocalNotifications()
         return true
 
+    }
+    func handleRegionEvent(region: CLRegion!) {
+        func handleRegionEvent(region: CLRegion!) {
+            // Show an alert if application is active
+            if UIApplication.sharedApplication().applicationState == .Active {
+                if let message = notefromRegionIdentifier(region.identifier) {
+                    if let viewController = window?.rootViewController {
+                        showSimpleAlertWithTitle(nil, message: message, viewController: viewController)
+                    }
+                }
+            } else {
+                // Otherwise present a local notification
+                var notification = UILocalNotification()
+                notification.alertBody = notefromRegionIdentifier(region.identifier)
+                notification.soundName = "Default";
+                UIApplication.sharedApplication().presentLocalNotificationNow(notification)
+            }
+        }
+    }
+    func locationManager(manager: CLLocationManager!, didEnterRegion region: CLRegion!) {
+        if region is CLCircularRegion {
+            handleRegionEvent(region)
+        }
+    }
+    
+    func locationManager(manager: CLLocationManager!, didExitRegion region: CLRegion!) {
+        if region is CLCircularRegion {
+            handleRegionEvent(region)
+        }
     }
     
     func signIn(signIn: GIDSignIn!, didSignInForUser user: GIDGoogleUser!,
@@ -79,6 +119,47 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         } else {
             print("\(error.localizedDescription)")
         }
+    }
+    
+    func requestForAccess(completionHandler: (accessGranted: Bool) -> Void) {
+        let authorizationStatus = CNContactStore.authorizationStatusForEntityType(CNEntityType.Contacts)
+        
+        switch authorizationStatus {
+        case .Authorized:
+            completionHandler(accessGranted: true)
+            
+        case .Denied, .NotDetermined:
+            AppDelegate.getAppDelegate().contactStore.requestAccessForEntityType(CNEntityType.Contacts, completionHandler: { (access, accessError) -> Void in
+                if access {
+                    completionHandler(accessGranted: access)
+                }
+                else {
+                    if authorizationStatus == CNAuthorizationStatus.Denied {
+                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                            let message = "\(accessError!.localizedDescription)\n\nPlease allow the app to access your contacts through the Settings."
+                            self.showMessage(message)
+                        })
+                    }
+                }
+            })
+            
+        default:
+            completionHandler(accessGranted: false)
+        }
+    }
+    
+    func showMessage(message: String) {
+        let alertController = UIAlertController(title: "Birthdays", message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        
+        let dismissAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) { (action) -> Void in
+        }
+        
+        alertController.addAction(dismissAction)
+        
+                let pushedViewControllers = (self.window?.rootViewController as! UINavigationController).viewControllers
+                let presentedViewController = pushedViewControllers[pushedViewControllers.count - 1]
+        
+        presentedViewController.presentViewController(alertController, animated: true, completion: nil)
     }
 
 
@@ -98,6 +179,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+    func notefromRegionIdentifier(identifier: String) -> String? {
+        if let savedItems = NSUserDefaults.standardUserDefaults().arrayForKey("savedItems") {
+            for savedItem in savedItems {
+                if let geonotification = NSKeyedUnarchiver.unarchiveObjectWithData(savedItem as! NSData) as? Geonotification {
+                    if geonotification.identifier == identifier {
+                        return geonotification.note
+                    }
+                }
+            }
+        }
+        return nil
     }
 
 

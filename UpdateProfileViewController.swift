@@ -11,7 +11,6 @@ import QuartzCore
 import CloudKit
 import Parse
 
-
 protocol UpdateProfileViewControllerDelegate {
     func didSaveProfile(ProfileRecord: CKRecord, wasEditingProfile: Bool)
 }
@@ -20,7 +19,6 @@ protocol UpdateProfileViewControllerDelegate {
 class UpdateProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet weak var txtProfileTitle: UITextField!
     @IBOutlet weak var userEmail: UITextField!
-    
     
     //    @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var imageView: UIImageView!
@@ -197,18 +195,24 @@ class UpdateProfileViewController: UIViewController, UIImagePickerControllerDele
         //        })
     
         if(userName.text?.characters.count < 5) {
-            let alert = UIAlertView(title: "Invalid", message: "Username must be greater than 5 characters", delegate: self, cancelButtonTitle: "OK")
-            alert.show()
+
+            let alert = UIAlertController(title: "Invalid", message:"Username must be greater than 5 characters", preferredStyle: .Alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .Default) { _ in })
+            self.presentViewController(alert, animated: true){}
+//            let alert = UIAlertView(title: "Invalid", message: "Username must be greater than 5 characters", delegate: self, cancelButtonTitle: "OK")
+          //  alert.show()
             
         } else if(userPassword.text?.characters.count < 8) {
-            let alert = UIAlertView(title: "Invalid", message: "Password must be greater than 8 characters", delegate: self, cancelButtonTitle: "OK")
-            alert.show()
+            let alert = UIAlertController(title: "Invalid", message:"Password must be greater than 8 characters", preferredStyle: .Alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .Default) { _ in })
+            self.presentViewController(alert, animated: true){}
+           // alert.show()
             
         }
         else if(userPassword.text == confirmPassword.text) == false {
-            let alert = UIAlertView(title: "Invalid", message: "Passwords must match !", delegate: self, cancelButtonTitle: "OK")
-            alert.show()
-            
+            let alert = UIAlertController(title: "Invalid", message:"Passwords must match", preferredStyle: .Alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .Default) { _ in })
+            self.presentViewController(alert, animated: true){}
         }
         else {
             let newUser = PFUser()
@@ -227,12 +231,14 @@ class UpdateProfileViewController: UIViewController, UIImagePickerControllerDele
             // Stop the spinner
             self.spinner.stopAnimating()
             if ((error) != nil) {
-                let alert = UIAlertView(title: "Error", message: "\(error)", delegate: self, cancelButtonTitle: "OK")
-                alert.show()
+                let alert = UIAlertController(title: "Error", message: "\(error)", preferredStyle: .Alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .Default) { _ in })
+                self.presentViewController(alert, animated: true){}
                 
             } else {
-                let alert = UIAlertView(title: "Success", message: "Signed Up", delegate: self, cancelButtonTitle: "OK")
-                alert.show()
+                let alert = UIAlertController(title: "Success", message: "Signed Up", preferredStyle: .Alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .Default) { _ in })
+                self.presentViewController(alert, animated: true){}
                 self.performSegueWithIdentifier("mainVIew", sender: self)
             }
         })
@@ -271,6 +277,47 @@ class UpdateProfileViewController: UIViewController, UIImagePickerControllerDele
         imageData.writeToURL(imageURL, atomically: true)
     }
     
+    func saveImageInDatabase() {
+        
+        if imageView.image == nil {
+            //image is not included alert user
+            print("Image not uploaded")
+        }else {
+           // let newUser = PFUser.currentUser()
+            
+              let profilePic = PFObject(className: "Profile_Image")
+              //posts["imageText"] = imageText
+              profilePic["uploader"] = PFUser.currentUser()
+              profilePic.saveInBackgroundWithBlock({
+                (success: Bool, error: NSError?) -> Void in
+                
+                if error == nil {
+                    /**success saving, Now save image.***/
+                    
+                    //create an image data
+                    let imageData = UIImagePNGRepresentation(self.imageView.image!)
+                    //create a parse file to store in cloud
+                    let parseImageFile = PFFile(name: "uploaded_image.png", data: imageData!)
+                    profilePic["imageFile"] = parseImageFile
+                    profilePic.saveInBackgroundWithBlock({
+                        (success: Bool, error: NSError?) -> Void in
+                        
+                        if error == nil {
+                            //take user home
+                            print("pic uploaded")
+                          //  self.performSegueWithIdentifier("goHomeFromUpload", sender: self)
+                        }else {
+                            print(error)
+                        }
+                    })
+                }else {
+                    print(error)
+                }
+            })
+        }
+    }
+    
+    
     
     // MARK: UIImagePickerControllerDelegate method implementation
     
@@ -278,6 +325,7 @@ class UpdateProfileViewController: UIViewController, UIImagePickerControllerDele
         imageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
         
         saveImageLocally()
+        saveImageInDatabase()
         
         dismissViewControllerAnimated(true, completion: nil)
         btnRemoveImage.hidden = false

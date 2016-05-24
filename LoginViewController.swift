@@ -100,12 +100,14 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignIn
         // Validate the text fields
         
         if(username?.characters.count < 5) {
-            let alert = UIAlertView(title: "Invalid", message: "Username must be greater than 5 characters", delegate: self, cancelButtonTitle: "OK")
-            alert.show()
+            let alert = UIAlertController(title: "Invalid", message:"Username must be greater than 5 characters", preferredStyle: .Alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .Default) { _ in })
+            self.presentViewController(alert, animated: true){}
             
         } else if(password?.characters.count < 8) {
-            let alert = UIAlertView(title: "Invalid", message: "Password must be greater than 8 characters", delegate: self, cancelButtonTitle: "OK")
-            alert.show()
+            let alert = UIAlertController(title: "Invalid", message:"Password must be greater than 8 characters", preferredStyle: .Alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .Default) { _ in })
+            self.presentViewController(alert, animated: true){}
             
         } else {
             // Run a spinner to show a task in progress
@@ -237,6 +239,9 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignIn
     @IBAction func unwindToLogInScreen(segue:UIStoryboardSegue) {
     }
 
+    @IBAction func addFriends(sender: AnyObject) {
+        self.performSegueWithIdentifier("addFriend", sender: self)
+    }
     
     
 }
