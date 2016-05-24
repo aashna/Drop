@@ -33,6 +33,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     var user_id1 = "228307235"
     var musicPlaylist = [SongDetailsModel]()
     var geonotifications = [Geonotification]()
+    let defaultSession = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration())
+    var dataTask: NSURLSessionDataTask?
     
     @IBOutlet weak var profilePicture: UIImageView!
     @IBAction func logout(sender: AnyObject) {
@@ -307,8 +309,22 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         let urlPath = "http://api.soundcloud.com/users/\(user_id1)/playlists?client_id=\(SoundCloud_CLIENT_ID)"
         let url = NSURL(string: urlPath)
         
+        dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED,0))
+        {
+        
         let data = NSData(contentsOfURL: url!)
+        
+        dispatch_async(dispatch_get_main_queue()){
+        data
+        
+        
         var jsonResult: [NSDictionary]!
+        
+        if self.dataTask != nil {
+            self.dataTask?.cancel()
+        }
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+        
         do{
             jsonResult = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! [NSDictionary]
         }catch{
@@ -319,15 +335,14 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             for track in tracks{
             if track["streamable"] as! Bool == true{
                 var streamUrl  = track["stream_url"]! as! String
-                streamUrl += "?client_id=\(SoundCloud_CLIENT_ID)"
+                streamUrl += "?client_id=\(self.SoundCloud_CLIENT_ID)"
                 
                 self.musicPlaylist.append(SongDetailsModel(title: track["title"]! as! String, duration: track["duration"]! as! Int, streamURL: streamUrl ))
-//                audioArr.append(AudioLocale.init(filePath: NSURL(string: track["stream_url"]! as! String)!, coords: CLLocation.init(latitude: 37.428454, longitude: -122.170578)))
             }
           }
         }
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         appDelegate.playList = self.musicPlaylist
      //   appDelegate.audioList = audioArr
-    }
+            }}}
 }

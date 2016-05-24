@@ -30,10 +30,9 @@
 		1BA747C01CF4427800BA3EAF /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA747BF1CF4427800BA3EAF /* Utilities.swift */; };
 		1BA747C21CF4999F00BA3EAF /* TestLocations.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 1BA747C11CF4999F00BA3EAF /* TestLocations.gpx */; };
 		1BA747C41CF4CD9D00BA3EAF /* AddFriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA747C31CF4CD9D00BA3EAF /* AddFriendsTableViewCell.swift */; };
+		1BA747C61CF4DF1800BA3EAF /* TransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA747C51CF4DF1800BA3EAF /* TransitionManager.swift */; };
 		1BA7E0B61CEA652300FAD3B9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA7E0B51CEA652300FAD3B9 /* LoginViewController.swift */; };
 		1BC360C901B8A1ED205571C4 /* Pods_DropUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A92C659F95B259098A852AF /* Pods_DropUITests.framework */; };
-		1BDE538F1CEBCB7800DC02BF /* TwitterClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDE538D1CEBCB7800DC02BF /* TwitterClient.swift */; };
-		1BDE53901CEBCB7800DC02BF /* TwitterUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDE538E1CEBCB7800DC02BF /* TwitterUser.swift */; };
 		1BDE53931CEBD18000DC02BF /* AudioLocale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDE53921CEBD18000DC02BF /* AudioLocale.swift */; };
 		1BF962511CF2184800AF9B93 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BF962501CF2184800AF9B93 /* FBSDKLoginKit.framework */; };
 		1BF962531CF2184E00AF9B93 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BF962521CF2184E00AF9B93 /* FBSDKCoreKit.framework */; };
@@ -92,9 +91,8 @@
 		1BA747BF1CF4427800BA3EAF /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		1BA747C11CF4999F00BA3EAF /* TestLocations.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TestLocations.gpx; sourceTree = "<group>"; };
 		1BA747C31CF4CD9D00BA3EAF /* AddFriendsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFriendsTableViewCell.swift; sourceTree = "<group>"; };
+		1BA747C51CF4DF1800BA3EAF /* TransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionManager.swift; sourceTree = "<group>"; };
 		1BA7E0B51CEA652300FAD3B9 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = ../LoginViewController.swift; sourceTree = "<group>"; };
-		1BDE538D1CEBCB7800DC02BF /* TwitterClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterClient.swift; sourceTree = "<group>"; };
-		1BDE538E1CEBCB7800DC02BF /* TwitterUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterUser.swift; sourceTree = "<group>"; };
 		1BDE53921CEBD18000DC02BF /* AudioLocale.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioLocale.swift; sourceTree = "<group>"; };
 		1BF962501CF2184800AF9B93 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		1BF962521CF2184E00AF9B93 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
@@ -165,28 +163,17 @@
 		1B8EA2A81CE94D26007699C6 /* Drop */ = {
 			isa = PBXGroup;
 			children = (
-				1BDE538D1CEBCB7800DC02BF /* TwitterClient.swift */,
-				1BDE538E1CEBCB7800DC02BF /* TwitterUser.swift */,
 				1BA7E0B41CEA618F00FAD3B9 /* Supporting Files */,
 				1BA7E0B31CEA617F00FAD3B9 /* Annotation */,
 				1BA7E0B21CEA617000FAD3B9 /* Location coordinates */,
 				C74584A01CECF0C100D0E024 /* Views */,
 				1BA7E0B11CEA616700FAD3B9 /* Images */,
-				1B8EA2DB1CE95EC6007699C6 /* Character.swift */,
-				1BDE53921CEBD18000DC02BF /* AudioLocale.swift */,
-				1BA747BF1CF4427800BA3EAF /* Utilities.swift */,
-				1B05FA791CEF8EA900D746C9 /* SongDetailsModel.swift */,
-				1B8EA2AB1CE94D26007699C6 /* MapViewController.swift */,
-				1BA747BD1CF4321D00BA3EAF /* GeoNotification.swift */,
-				1B05FA751CEF724A00D746C9 /* MuisicPlayerTableViewController.swift */,
-				1B05FA771CEF830F00D746C9 /* MusicPlayerTableViewCell.swift */,
-				1BA747C31CF4CD9D00BA3EAF /* AddFriendsTableViewCell.swift */,
-				1BF962541CF269C200AF9B93 /* AddFriendsTableViewController.swift */,
-				1BA7E0B51CEA652300FAD3B9 /* LoginViewController.swift */,
-				1B05FA731CEE097500D746C9 /* UpdateProfileViewController.swift */,
-				1BA365911CF1632E00248D11 /* ResetPasswordViewController.swift */,
+				1BA747C71CF4E65E00BA3EAF /* Utils */,
+				1BA747C91CF4E69C00BA3EAF /* Music Player */,
+				1BA747C81CF4E69200BA3EAF /* Add Friends */,
+				1BA747CA1CF4E6A900BA3EAF /* Login/Signup */,
 				1B05FA7B1CF009A900D746C9 /* Main.storyboard */,
-				1B7F19441CF0EB3500E3A759 /* Drop-Bridging-Header.h */,
+				1B8EA2AB1CE94D26007699C6 /* MapViewController.swift */,
 			);
 			path = Drop;
 			sourceTree = "<group>";
@@ -207,6 +194,47 @@
 				1B8EA2CB1CE94D27007699C6 /* Info.plist */,
 			);
 			path = DropUITests;
+			sourceTree = "<group>";
+		};
+		1BA747C71CF4E65E00BA3EAF /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				1B8EA2DB1CE95EC6007699C6 /* Character.swift */,
+				1BA747BD1CF4321D00BA3EAF /* GeoNotification.swift */,
+				1BA747BF1CF4427800BA3EAF /* Utilities.swift */,
+				1BA747C51CF4DF1800BA3EAF /* TransitionManager.swift */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		1BA747C81CF4E69200BA3EAF /* Add Friends */ = {
+			isa = PBXGroup;
+			children = (
+				1BA747C31CF4CD9D00BA3EAF /* AddFriendsTableViewCell.swift */,
+				1BF962541CF269C200AF9B93 /* AddFriendsTableViewController.swift */,
+			);
+			name = "Add Friends";
+			sourceTree = "<group>";
+		};
+		1BA747C91CF4E69C00BA3EAF /* Music Player */ = {
+			isa = PBXGroup;
+			children = (
+				1B05FA791CEF8EA900D746C9 /* SongDetailsModel.swift */,
+				1BDE53921CEBD18000DC02BF /* AudioLocale.swift */,
+				1B05FA751CEF724A00D746C9 /* MuisicPlayerTableViewController.swift */,
+				1B05FA771CEF830F00D746C9 /* MusicPlayerTableViewCell.swift */,
+			);
+			name = "Music Player";
+			sourceTree = "<group>";
+		};
+		1BA747CA1CF4E6A900BA3EAF /* Login/Signup */ = {
+			isa = PBXGroup;
+			children = (
+				1BA7E0B51CEA652300FAD3B9 /* LoginViewController.swift */,
+				1B05FA731CEE097500D746C9 /* UpdateProfileViewController.swift */,
+				1BA365911CF1632E00248D11 /* ResetPasswordViewController.swift */,
+			);
+			name = Login/Signup;
 			sourceTree = "<group>";
 		};
 		1BA7E0B11CEA616700FAD3B9 /* Images */ = {
@@ -240,6 +268,7 @@
 		1BA7E0B41CEA618F00FAD3B9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1B7F19441CF0EB3500E3A759 /* Drop-Bridging-Header.h */,
 				1B8EA2A91CE94D26007699C6 /* AppDelegate.swift */,
 				1BA747C11CF4999F00BA3EAF /* TestLocations.gpx */,
 				1B8EA2B01CE94D26007699C6 /* Assets.xcassets */,
@@ -567,7 +596,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B05FA761CEF724A00D746C9 /* MuisicPlayerTableViewController.swift in Sources */,
-				1BDE538F1CEBCB7800DC02BF /* TwitterClient.swift in Sources */,
 				1BA747BE1CF4321D00BA3EAF /* GeoNotification.swift in Sources */,
 				1B8EA2AC1CE94D26007699C6 /* MapViewController.swift in Sources */,
 				1B8EA2DA1CE95C10007699C6 /* AttractionAnnotationView.swift in Sources */,
@@ -582,7 +610,7 @@
 				1B05FA741CEE097500D746C9 /* UpdateProfileViewController.swift in Sources */,
 				1B8EA2AA1CE94D26007699C6 /* AppDelegate.swift in Sources */,
 				1BA747C41CF4CD9D00BA3EAF /* AddFriendsTableViewCell.swift in Sources */,
-				1BDE53901CEBCB7800DC02BF /* TwitterUser.swift in Sources */,
+				1BA747C61CF4DF1800BA3EAF /* TransitionManager.swift in Sources */,
 				1BA365921CF1632E00248D11 /* ResetPasswordViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

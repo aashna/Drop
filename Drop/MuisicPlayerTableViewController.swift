@@ -12,6 +12,7 @@ import AVFoundation
 class MusicPlayerTableViewController: UITableViewController, MusicDataDelegate, PlaySongDelegate, StopSongDelegate{
     
     var musicPlaylist = [SongDetailsModel]()
+    let transitionManager = TransitionManager()
 //    var musicPlayerCell: MusicPlayerTableViewCell = MusicPlayerTableViewCell()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -108,7 +109,7 @@ class MusicPlayerTableViewController: UITableViewController, MusicDataDelegate, 
         
         if segue.identifier == "showMap" {
                 
-                let _ = (segue.destinationViewController
+                let dest = (segue.destinationViewController
                     as! UINavigationController).topViewController
                     as! MapViewController
             print("going to Map")
@@ -116,6 +117,7 @@ class MusicPlayerTableViewController: UITableViewController, MusicDataDelegate, 
              //   controller.detailItem = urlString
              //   controller.navigationItem.leftBarButtonItem =
                     splitViewController?.displayModeButtonItem()
+            dest.transitioningDelegate = self.transitionManager
               //  controller.navigationItem.leftItemsSupplementBackButton = true
             
         }

@@ -101,31 +101,29 @@ class UpdateProfileViewController: UIViewController, UIImagePickerControllerDele
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
+
     
     // MARK: IBAction method implementation
     
     @IBAction func pickPhoto(sender: AnyObject) {
+        let imagePicker = UIImagePickerController()
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.SavedPhotosAlbum) {
-            let imagePicker = UIImagePickerController()
+            
             imagePicker.delegate = self
             imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
             imagePicker.allowsEditing = false
             
             presentViewController(imagePicker, animated: true, completion: nil)
         }
-    }
+        if UIImagePickerController.availableCaptureModesForCameraDevice(.Rear) != nil {
+        imagePicker.allowsEditing = false
+        imagePicker.cameraCaptureMode = .Photo
+        imagePicker.modalPresentationStyle = .FullScreen
+        presentViewController(imagePicker,
+                              animated: true,
+                              completion: nil)
+        }
+}
     
     @IBAction func unsetImage(sender: AnyObject) {
         imageView.image = UIImage(named: "user.png")
