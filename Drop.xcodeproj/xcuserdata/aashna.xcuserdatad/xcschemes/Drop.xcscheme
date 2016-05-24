@@ -84,7 +84,7 @@
       <AdditionalOptions>
       </AdditionalOptions>
       <LocationScenarioReference
-         identifier = "../TestLocations.gpx"
+         identifier = "../Drop/TestLocations.gpx"
          referenceType = "0">
       </LocationScenarioReference>
    </LaunchAction>
