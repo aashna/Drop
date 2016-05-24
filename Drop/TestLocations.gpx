@@ -1,9 +1,43 @@
-<?xml version="1.0"?>
-<gpx version="1.1" creator="Xcode">
-    <wpt lat="37.4301566" lon="-122.175685">
-         <name>Gates</name>
+<br />
+<b>Warning</b>:  Invalid argument supplied for foreach() in <b>/var/www/vhosts/coruscantconsulting.co.uk/subdomains/labs/httpdocs/garmin/gpxgmap/load.php</b> on line <b>841</b><br />
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3" xmlns:gpxtpx="http://www.garmin.com/xmlschemas/TrackPointExtension/v1" creator="labs.coruscantconsulting.co.uk" version="1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd http://www.garmin.com/xmlschemas/GpxExtensions/v3 http://www.garmin.com/xmlschemas/GpxExtensionsv3.xsd http://www.garmin.com/xmlschemas/TrackPointExtension/v1 http://www.garmin.com/xmlschemas/TrackPointExtensionv1.xsd">
+
+    <br />
+    <b>Warning</b>:  implode(): Invalid arguments passed <br />
+    <wpt lat="37.4256661" lon="-122.1563769">
+        <name>37.4256661</name>
+        <desc></desc>
     </wpt>
-    <wpt lat="37.4289343" lon="-122.1686884">
-         <name>Memorial Auditorium</name>
+    <wpt lat="37.4301524" lon="-122.1734963">
+        <name>Gates Computer Science</name>
+        <desc>Gates Computer Science, 353 Serra Mall, Stanford, CA 94305, USA</desc>
     </wpt>
+    <rte>
+        <name>37.4256661 to Gates Computer Science</name>
+        <rtept lat="37.4256661" lon="-122.1563769">
+            <name>37.4256661</name>
+        </rtept>
+        <rtept lat="37.4256674" lon="-122.156316">
+            <name>RP001</name>
+        </rtept>
+        <rtept lat="37.4257457" lon="-122.1563571">
+            <name>RP002</name>
+        </rtept>
+        <rtept lat="37.425764" lon="-122.1564975">
+            <name>RP003</name>
+        </rtept>
+        <rtept lat="37.426398" lon="-122.157872">
+            <name>RP004</name>
+        </rtept>
+        <rtept lat="37.426337" lon="-122.1579236">
+            <name>RP005</name>
+        </rtept>
+        <rtept lat="37.4267242" lon="-122.1584641">
+            <name>RP006</name>
+        </rtept>
+        <rtept lat="37.4301524" lon="-122.1734963">
+            <name>Gates Computer Science</name>
+        </rtept>
+    </rte>
 </gpx>

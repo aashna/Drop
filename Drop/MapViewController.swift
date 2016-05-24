@@ -19,7 +19,10 @@ enum MapType: Int {
     case Hybrid
     case Satellite
 }
-
+//var audioArr = [
+//    
+//     AudioLocale.init(filePath: NSURL(string: "http://megdadhashem.wapego.ru/files/56727/tubidy_mp3_e2afc5.mp3")!, coords: CLLocation.init(latitude: 37.56748454, longitude: -122.38380578)) //done
+//]
 @objc protocol MusicDataDelegate: class {
     func getMusicData(results: NSArray)
 }
@@ -30,6 +33,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     var user_id1 = "228307235"
     var musicPlaylist = [SongDetailsModel]()
     var geonotifications = [Geonotification]()
+    let defaultSession = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration())
+    var dataTask: NSURLSessionDataTask?
     
     @IBOutlet weak var profilePicture: UIImageView!
     @IBAction func logout(sender: AnyObject) {
@@ -57,8 +62,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         super.viewDidLoad()
         
         locationManager.delegate = self
+        // 2
         locationManager.requestAlwaysAuthorization()
+        // 3
         addGeonotifications()
+      //  loadAllGeonotifications()
         
         // Do any additional setup after loading the view, typically from a nib.
         if let userPicture = PFUser.currentUser()?["imageFile"] as? PFFile {
@@ -85,10 +93,26 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             self.mapView.showsUserLocation = true
             
         }
+        
+        
         fetchMusicDataIntoModel()
         
     }
-
+    
+    // MARK: Loading and saving functions
+    
+//    func loadAllGeonotifications() {
+//        geonotifications = []
+//        
+//        if let savedItems = NSUserDefaults.standardUserDefaults().arrayForKey(kSavedItemsKey) {
+//            for savedItem in savedItems {
+//                if let geonotification = NSKeyedUnarchiver.unarchiveObjectWithData(savedItem as! NSData) as? Geonotification {
+//                    addGeonotification(geonotification)
+//                }
+//            }
+//        }
+//    }
+    
     func regionWithgeonotification(geonotification: Geonotification) -> CLCircularRegion {
         // 1
         let region = CLCircularRegion(center: geonotification.coordinate, radius: geonotification.radius, identifier: geonotification.identifier)
@@ -106,7 +130,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         }
         // 2
         if CLLocationManager.authorizationStatus() != .AuthorizedAlways {
-            showSimpleAlertWithTitle("Warning", message: "Your geonotification is saved but will only be activated once you grant Geotify permission to access the device location.", viewController: self)
+            showSimpleAlertWithTitle("Warning", message: "Your geonotification is saved but will only be activated once you grant Drop permission to access the device location.", viewController: self)
         }
         // 3
         let region = regionWithgeonotification(geonotification)
@@ -127,6 +151,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         // Delete geonotification
         let geonotification = view.annotation as! Geonotification
         stopMonitoringgeonotification(geonotification)   // Add this statement
+        saveAllGeonotifications()
     }
     func locationManager(manager: CLLocationManager, monitoringDidFailForRegion region: CLRegion?, withError error: NSError) {
         print("Monitoring failed for region with identifier: \(region!.identifier)")
@@ -141,6 +166,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         }
         mapView.showsUserLocation = (status == .AuthorizedAlways)
     }
+    
+    func updateGeonotificationsCount() {
+        title = "geonotifications (\(geonotifications.count))"
+    }
+ 
     
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError)
     {
@@ -160,9 +190,21 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     func addGeonotifications() {
         let coordinate = CLLocationCoordinate2D(latitude:37.4301566, longitude:-122.175685)
         let geonotification = Geonotification(coordinate: coordinate, radius: 200, identifier: NSUUID().UUIDString, note: "Gates Station", eventType: EventType.OnEntry)
+        startMonitoringgeonotification(geonotification)
+        
         geonotifications.append(geonotification)
         mapView.addAnnotation(geonotification)
         addRadiusOverlayForgeonotification(geonotification)
+        saveAllGeonotifications()
+    }
+    func saveAllGeonotifications() {
+        let items = NSMutableArray()
+        for geotification in geonotifications {
+            let item = NSKeyedArchiver.archivedDataWithRootObject(geotification)
+            items.addObject(item)
+        }
+        NSUserDefaults.standardUserDefaults().setObject(items, forKey: kSavedItemsKey)
+        NSUserDefaults.standardUserDefaults().synchronize()
     }
     
     func addRadiusOverlayForgeonotification(geonotification: Geonotification) {
@@ -267,8 +309,22 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         let urlPath = "http://api.soundcloud.com/users/\(user_id1)/playlists?client_id=\(SoundCloud_CLIENT_ID)"
         let url = NSURL(string: urlPath)
         
+        dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED,0))
+        {
+        
         let data = NSData(contentsOfURL: url!)
+        
+        dispatch_async(dispatch_get_main_queue()){
+        data
+        
+        
         var jsonResult: [NSDictionary]!
+        
+        if self.dataTask != nil {
+            self.dataTask?.cancel()
+        }
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+        
         do{
             jsonResult = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! [NSDictionary]
         }catch{
@@ -279,15 +335,14 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             for track in tracks{
             if track["streamable"] as! Bool == true{
                 var streamUrl  = track["stream_url"]! as! String
-                streamUrl += "?client_id=\(SoundCloud_CLIENT_ID)"
+                streamUrl += "?client_id=\(self.SoundCloud_CLIENT_ID)"
                 
                 self.musicPlaylist.append(SongDetailsModel(title: track["title"]! as! String, duration: track["duration"]! as! Int, streamURL: streamUrl ))
-//                audioArr.append(AudioLocale.init(filePath: NSURL(string: track["stream_url"]! as! String)!, coords: CLLocation.init(latitude: 37.428454, longitude: -122.170578)))
             }
           }
         }
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         appDelegate.playList = self.musicPlaylist
      //   appDelegate.audioList = audioArr
-    }
+            }}}
 }

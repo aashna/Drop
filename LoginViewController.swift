@@ -9,12 +9,12 @@
 import UIKit
 import FBSDKLoginKit
 import FBSDKCoreKit
-import CloudKit
 import Parse
 
 
 class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDelegate //PFLogInViewControllerDelegate,PFSignUpViewControllerDelegate //
 {
+    let transitionManager = TransitionManager()
     
 //    override func viewWillAppear(animated: Bool) {
 //        if (PFUser.currentUser() == nil) {
@@ -251,6 +251,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignIn
             where segue.identifier == "profileCompletion"
         {
             updateProfileVC.email = email
+            updateProfileVC.transitioningDelegate = self.transitionManager
         }
 
     }
