@@ -188,12 +188,6 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignIn
 //    }
 
     func performSegueToMainView() {
-        if let loaderView = NSBundle.mainBundle().loadNibNamed("LoaderView", owner: self, options: nil).first as? LoaderView {
-            loaderView.frame = UIScreen.mainScreen().bounds
-            loaderView.animateLoader()
-            loaderView.tag = 22
-            self.view.addSubview(loaderView)
-        }
         self.performSegueWithIdentifier("segueToMain", sender: self)
     }
     

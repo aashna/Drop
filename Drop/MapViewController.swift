@@ -94,9 +94,14 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             
         }
         
-        
+        if let loaderView = NSBundle.mainBundle().loadNibNamed("LoaderView", owner: self, options: nil).first as? LoaderView {
+            loaderView.frame = UIScreen.mainScreen().bounds
+            loaderView.animateLoader()
+            loaderView.tag = 22
+            self.view.addSubview(loaderView)
+        }
         fetchMusicDataIntoModel()
-        
+  //
     }
     
     // MARK: Loading and saving functions
@@ -312,37 +317,37 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED,0))
         {
         
-        let data = NSData(contentsOfURL: url!)
-        
-        dispatch_async(dispatch_get_main_queue()){
-        data
-        
-        
-        var jsonResult: [NSDictionary]!
-        
-        if self.dataTask != nil {
-            self.dataTask?.cancel()
-        }
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
-        
-        do{
-            jsonResult = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! [NSDictionary]
-        }catch{
-            print(error)
-        }
-        
-        if let tracks = jsonResult[0]["tracks"] as? [NSDictionary]{
-            for track in tracks{
-            if track["streamable"] as! Bool == true{
-                var streamUrl  = track["stream_url"]! as! String
-                streamUrl += "?client_id=\(self.SoundCloud_CLIENT_ID)"
+            let data = NSData(contentsOfURL: url!)
+            
+            dispatch_async(dispatch_get_main_queue()) {
+                var jsonResult: [NSDictionary]!
                 
-                self.musicPlaylist.append(SongDetailsModel(title: track["title"]! as! String, duration: track["duration"]! as! Int, streamURL: streamUrl ))
-            }
-          }
+                if self.dataTask != nil {
+                    self.dataTask?.cancel()
+                }
+                UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+            
+                do{
+                    jsonResult = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! [NSDictionary]
+                }catch{
+                    print(error)
+                }
+                
+                if let tracks = jsonResult[0]["tracks"] as? [NSDictionary]{
+                    for track in tracks{
+                    if track["streamable"] as! Bool == true{
+                        var streamUrl  = track["stream_url"]! as! String
+                        streamUrl += "?client_id=\(self.SoundCloud_CLIENT_ID)"
+                        
+                        self.musicPlaylist.append(SongDetailsModel(title: track["title"]! as! String, duration: track["duration"]! as! Int, streamURL: streamUrl ))
+                    }
+                  }
+                }
+                let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                appDelegate.playList = self.musicPlaylist
+             //   appDelegate.audioList = audioArr
+                self.view.viewWithTag(22)?.removeFromSuperview()
+           }
         }
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        appDelegate.playList = self.musicPlaylist
-     //   appDelegate.audioList = audioArr
-            }}}
+    }
 }
