@@ -92,6 +92,16 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignIn
         fbLoginButton.delegate = self
     }
     
+    func vibrateForInvalidInput() -> CAKeyframeAnimation {
+        let animation = CAKeyframeAnimation.init(keyPath: "position.x")
+        animation.values = [0, 10, -10, 10, 0]
+        animation.keyTimes = [0, (1/6.0), (3/6.0), (5/6.0), 1]
+        animation.duration = 0.4
+        animation.additive = true
+        
+        return animation
+    }
+    
     @IBAction func signIn(sender: AnyObject) {
         
         let username = self.userName.text
@@ -100,11 +110,13 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignIn
         // Validate the text fields
         
         if(username?.characters.count < 5) {
+            self.userName.layer.addAnimation(vibrateForInvalidInput(), forKey: "basic")
             let alert = UIAlertController(title: "Invalid", message:"Username must be greater than 5 characters", preferredStyle: .Alert)
             alert.addAction(UIAlertAction(title: "OK", style: .Default) { _ in })
             self.presentViewController(alert, animated: true){}
             
         } else if(password?.characters.count < 8) {
+            self.userPassword.layer.addAnimation(vibrateForInvalidInput(), forKey: "basic")
             let alert = UIAlertController(title: "Invalid", message:"Password must be greater than 8 characters", preferredStyle: .Alert)
             alert.addAction(UIAlertAction(title: "OK", style: .Default) { _ in })
             self.presentViewController(alert, animated: true){}
@@ -119,15 +131,20 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignIn
                 
                 // Stop the spinner
                 spinner.stopAnimating()
-                
                 if ((user) != nil) {
-                    let alert = UIAlertView(title: "Success", message: "Logged In", delegate: self, cancelButtonTitle: "OK")
-                    alert.show()
-                    self.performSegueWithIdentifier("segueToMain", sender: self)
-
+                    self.performSegueToMainView()
                 } else {
-                    let alert = UIAlertView(title: "Error", message: "\(error)", delegate: self, cancelButtonTitle: "OK")
-                    alert.show()
+                    if(error?.code == 101) {
+                        self.userName.layer.addAnimation(self.vibrateForInvalidInput(), forKey: "basic")
+                        self.userPassword.layer.addAnimation(self.vibrateForInvalidInput(), forKey: "basic")
+                        let alert = UIAlertController(title: "Invalid Credentials", message:"Username or Password Wrong", preferredStyle: .Alert)
+                        alert.addAction(UIAlertAction(title: "OK", style: .Default) { _ in })
+                        self.presentViewController(alert, animated: true){}
+                    } else {
+                        let alert = UIAlertController(title: "Error", message:"\(error)", preferredStyle: .Alert)
+                        alert.addAction(UIAlertAction(title: "OK", style: .Default) { _ in })
+                        self.presentViewController(alert, animated: true){}
+                    }
                 }
             })
         }
@@ -170,14 +187,22 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignIn
 //        
 //    }
 
-
+    func performSegueToMainView() {
+        if let loaderView = NSBundle.mainBundle().loadNibNamed("LoaderView", owner: self, options: nil).first as? LoaderView {
+            loaderView.frame = UIScreen.mainScreen().bounds
+            loaderView.animateLoader()
+            loaderView.tag = 22
+            self.view.addSubview(loaderView)
+        }
+        self.performSegueWithIdentifier("segueToMain", sender: self)
+    }
     
     func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!)
     {
         if error == nil
         {
             print("Login complete.")
-             self.performSegueWithIdentifier("segueToMain", sender: self)
+             performSegueToMainView()
 //            if (result.grantedPermissions.contains("email")) {
 //                setEmail()
 //            }
@@ -199,7 +224,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignIn
                     self.email = email as! String
                 }
             }
-            self.performSegueWithIdentifier("segueToMain", sender: self)
+            self.performSegueToMainView()
         })
     }
     
