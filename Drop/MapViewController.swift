@@ -19,10 +19,7 @@ enum MapType: Int {
     case Hybrid
     case Satellite
 }
-//var audioArr = [
-//    
-//     AudioLocale.init(filePath: NSURL(string: "http://megdadhashem.wapego.ru/files/56727/tubidy_mp3_e2afc5.mp3")!, coords: CLLocation.init(latitude: 37.56748454, longitude: -122.38380578)) //done
-//]
+
 @objc protocol MusicDataDelegate: class {
     func getMusicData(results: NSArray)
 }
@@ -60,11 +57,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         super.viewDidLoad()
         
         locationManager.delegate = self
-        // 2
         locationManager.requestAlwaysAuthorization()
-        // 3
         addGeonotifications()
-      //  loadAllGeonotifications()
         
         // Do any additional setup after loading the view, typically from a nib.
         if let userPicture = PFUser.currentUser()?["imageFile"] as? PFFile {
@@ -91,26 +85,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             self.mapView.showsUserLocation = true
             
         }
-        
-        
         fetchMusicDataIntoModel()
         
     }
-    
-    // MARK: Loading and saving functions
-    
-//    func loadAllGeonotifications() {
-//        geonotifications = []
-//        
-//        if let savedItems = NSUserDefaults.standardUserDefaults().arrayForKey(kSavedItemsKey) {
-//            for savedItem in savedItems {
-//                if let geonotification = NSKeyedUnarchiver.unarchiveObjectWithData(savedItem as! NSData) as? Geonotification {
-//                    addGeonotification(geonotification)
-//                }
-//            }
-//        }
-//    }
-    
+
     func regionWithgeonotification(geonotification: Geonotification) -> CLCircularRegion {
         // 1
         let region = CLCircularRegion(center: geonotification.coordinate, radius: geonotification.radius, identifier: geonotification.identifier)
@@ -149,8 +127,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         // Delete geonotification
         let geonotification = view.annotation as! Geonotification
         stopMonitoringgeonotification(geonotification)   // Add this statement
-        removegeonotification(geonotification)
-        saveAllGeonotifications()
     }
     func locationManager(manager: CLLocationManager, monitoringDidFailForRegion region: CLRegion?, withError error: NSError) {
         print("Monitoring failed for region with identifier: \(region!.identifier)")
@@ -165,20 +141,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         }
         mapView.showsUserLocation = (status == .AuthorizedAlways)
     }
-    func removegeonotification(geonotification: Geonotification) {
-        if let indexInArray = geonotifications.indexOf(geonotification) {
-            geonotifications.removeAtIndex(indexInArray)
-        }
-        
-        mapView.removeAnnotation(geonotification)
-        removeRadiusOverlayForgeonotification(geonotification)
-        updategeonotificationsCount()
-    }
-    
-    func updateGeonotificationsCount() {
-        title = "geonotifications (\(geonotifications.count))"
-    }
- 
     
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError)
     {
@@ -193,39 +155,14 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         
         mapView.removeAnnotation(geonotification)
         removeRadiusOverlayForgeonotification(geonotification)
-        updategeonotificationsCount()
     }
-    
-    func updategeonotificationsCount() {
-        title = "geonotifications (\(geonotifications.count))"
-    }
-    // MARK: AddgeonotificationViewControllerDelegate
-    
-//    func addgeonotificationViewController(controller: AddgeonotificationViewController, didAddCoordinate coordinate: CLLocationCoordinate2D, radius: Double, identifier: String, note: String, eventType: EventType) {
-//        controller.dismissViewControllerAnimated(true, completion: nil)
-//        // Add geonotification
-//        let geonotification = Geonotification(coordinate: coordinate, radius: radius, identifier: identifier, note: note, eventType: eventType)
-//        addGeonotification(geonotification)
-//        saveAllGeonotifications()
-//    }
-    // MARK: Functions that update the model/associated views with geotification changes
     
     func addGeonotifications() {
         let coordinate = CLLocationCoordinate2D(latitude:37.4301566, longitude:-122.175685)
-        let geonotification = Geonotification(coordinate: coordinate, radius: 1000, identifier: NSUUID().UUIDString, note: "Gates Station", eventType: EventType.OnEntry)
+        let geonotification = Geonotification(coordinate: coordinate, radius: 200, identifier: NSUUID().UUIDString, note: "Gates Station", eventType: EventType.OnEntry)
         geonotifications.append(geonotification)
         mapView.addAnnotation(geonotification)
         addRadiusOverlayForgeonotification(geonotification)
-        updateGeonotificationsCount()
-    }
-    func saveAllGeonotifications() {
-        let items = NSMutableArray()
-        for geotification in geonotifications {
-            let item = NSKeyedArchiver.archivedDataWithRootObject(geotification)
-            items.addObject(item)
-        }
-        NSUserDefaults.standardUserDefaults().setObject(items, forKey: kSavedItemsKey)
-        NSUserDefaults.standardUserDefaults().synchronize()
     }
     
     func addRadiusOverlayForgeonotification(geonotification: Geonotification) {
@@ -317,7 +254,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             let annotation = AttractionAnnotation(coordinate: coordinate, title: title, subtitle: subtitle, type: type)
             mapView.addAnnotation(annotation)
         }
-        mapView.setRegion(MKCoordinateRegion(center:CLLocationCoordinate2D(latitude: 37.7735546, longitude: -122.4234522), span: MKCoordinateSpanMake(0.01, 0.01)), animated: false)
+//        mapView.setRegion(MKCoordinateRegion(center:CLLocationCoordinate2D(latitude: 37.7735546, longitude: -122.4234522), span: MKCoordinateSpanMake(0.01, 0.01)), animated: false)
         mapView.setUserTrackingMode(MKUserTrackingMode.FollowWithHeading, animated: false)
     }
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
