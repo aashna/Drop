@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="bWM-OQ-ARq">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="bWM-OQ-ARq">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -18,18 +18,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a7s-aA-alw">
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a7s-aA-alw">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="rYo-cL-P3y"/>
+                                </constraints>
                                 <items>
                                     <navigationItem id="kaI-Ys-JXj">
                                         <nil key="title"/>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="kWY-Nv-tDs">
-                                <rect key="frame" x="0.0" y="600" width="600" height="0.0"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="kWY-Nv-tDs">
+                                <rect key="frame" x="0.0" y="64" width="600" height="491"/>
                             </mapView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YGF-9r-Afo" userLabel="ProfilePic"/>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rZp-zw-QEK">
                                 <rect key="frame" x="0.0" y="555" width="600" height="45"/>
                                 <subviews>
@@ -93,26 +95,29 @@
                                     <constraint firstItem="URF-72-DV4" firstAttribute="centerY" secondItem="o7l-WB-t59" secondAttribute="centerY" id="wXX-uS-Oz8"/>
                                 </constraints>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YGF-9r-Afo" userLabel="ProfilePic">
+                                <rect key="frame" x="0.0" y="64" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="a1Y-sB-7Vg"/>
+                                    <constraint firstAttribute="width" constant="44" id="fTe-aF-Rye"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="rZp-zw-QEK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="1f0-hh-gex"/>
+                            <constraint firstItem="kWY-Nv-tDs" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="4xF-Ej-zac"/>
                             <constraint firstAttribute="trailing" secondItem="rZp-zw-QEK" secondAttribute="trailing" id="8wj-Je-CVU"/>
-                            <constraint firstItem="rZp-zw-QEK" firstAttribute="trailing" secondItem="kWY-Nv-tDs" secondAttribute="trailing" id="9rt-6q-3hs"/>
-                            <constraint firstItem="rZp-zw-QEK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="CUg-PZ-npS"/>
-                            <constraint firstItem="rZp-zw-QEK" firstAttribute="leading" secondItem="a7s-aA-alw" secondAttribute="leading" id="RCZ-OH-IuO"/>
-                            <constraint firstItem="rZp-zw-QEK" firstAttribute="leading" secondItem="kWY-Nv-tDs" secondAttribute="leading" id="W8d-nl-svw"/>
+                            <constraint firstAttribute="trailing" secondItem="a7s-aA-alw" secondAttribute="trailing" id="9cc-Vd-eBU"/>
+                            <constraint firstAttribute="trailing" secondItem="kWY-Nv-tDs" secondAttribute="trailing" id="CcX-Xa-H4E"/>
+                            <constraint firstItem="YGF-9r-Afo" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="EeV-5L-XZ7"/>
+                            <constraint firstItem="a7s-aA-alw" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Nvr-IH-TfG"/>
+                            <constraint firstItem="kWY-Nv-tDs" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="aRB-kC-vEn"/>
+                            <constraint firstItem="a7s-aA-alw" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="aTG-CB-5LU"/>
                             <constraint firstItem="rZp-zw-QEK" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="ciQ-sM-Ah6"/>
-                            <constraint firstItem="rZp-zw-QEK" firstAttribute="trailing" secondItem="a7s-aA-alw" secondAttribute="trailing" id="vKe-ZF-nPO"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="rZp-zw-QEK" secondAttribute="trailing" id="wDS-xB-uNW"/>
-                            <constraint firstItem="rZp-zw-QEK" firstAttribute="bottom" secondItem="kWY-Nv-tDs" secondAttribute="bottom" id="zjZ-3E-hu8"/>
+                            <constraint firstItem="rZp-zw-QEK" firstAttribute="top" secondItem="kWY-Nv-tDs" secondAttribute="bottom" id="xd1-pi-Jdi"/>
+                            <constraint firstItem="YGF-9r-Afo" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ykm-Lt-3pY"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="CUg-PZ-npS"/>
-                                <exclude reference="wDS-xB-uNW"/>
-                            </mask>
-                        </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Location" id="ViI-jP-jfq"/>
                     <navigationItem key="navigationItem" id="V05-An-BLX">
@@ -919,6 +924,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="pSX-wg-1AK"/>
         <segue reference="afa-3o-wzc"/>
-        <segue reference="vp4-zH-xrt"/>
+        <segue reference="mNw-Gl-xuh"/>
     </inferredMetricsTieBreakers>
 </document>
