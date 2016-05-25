@@ -109,5 +109,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UILaunchImageFile</key>
+	<string>Drop-logo-screen.png</string>
 </dict>
 </plist>

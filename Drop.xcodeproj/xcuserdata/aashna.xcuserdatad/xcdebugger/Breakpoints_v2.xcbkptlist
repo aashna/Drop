@@ -58,12 +58,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Drop/MapViewController.swift"
-            timestampString = "485810904.123361"
+            timestampString = "485831634.716971"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "302"
-            endingLineNumber = "302"
-            landmarkName = "mapView(_:viewForAnnotation:)"
+            startingLineNumber = "315"
+            endingLineNumber = "315"
+            landmarkName = "addAttractionPins()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

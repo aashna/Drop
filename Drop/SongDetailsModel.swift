@@ -32,6 +32,7 @@ class SongDetailsModel: NSObject {
         
         self.audio.play()
         
+        
     }
     
     func playing() -> Bool{

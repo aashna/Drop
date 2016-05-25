@@ -36,6 +36,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     let defaultSession = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration())
     var dataTask: NSURLSessionDataTask?
     
+    @IBOutlet weak var currentSong: UILabel!
+    
+    @IBOutlet weak var heartButton: UIButton!
     @IBOutlet weak var profilePicture: UIImageView!
     @IBAction func logout(sender: AnyObject) {
          PFUser.logOut()
@@ -60,6 +63,16 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        if appDelegate.currentSong == nil{
+            currentSong.text = "No song currently playing"
+        }
+        else{
+             currentSong.text = appDelegate.currentSong.title
+            startBlinking(currentSong)
+        }
         
         locationManager.delegate = self
         // 2
@@ -309,7 +322,68 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         annotationView.canShowCallout = true
         return annotationView
     }
+    @IBAction func heartButtonPressed(sender: AnyObject) {
+        // the slider value returns a float (e.g. 10.4)
+        // to work in the loop we need to round down as an Int (e.g. 10)
+        let numberOfHearts = 5
+        
+        for _ in 1...numberOfHearts  {
+            
+            // set up some constants for the animation
+            let duration = 1.0
+            let options = UIViewAnimationOptions.CurveLinear
+            
+            // randomly assign a delay of 0.9 to 1s
+            let delay = NSTimeInterval(200 + arc4random_uniform(100)) / 1000
+            
+            // set up some constants for the heart
+            let size : CGFloat = CGFloat( arc4random_uniform(40))+20
+            let yPosition : CGFloat = CGFloat( arc4random_uniform(200))+20
+            
+            // create the heart
+            let heart = UIImageView()
+            heart.image = UIImage(named: "Heart-fill")
+            heart.frame = CGRectMake(0-size, yPosition, size, size)
+            self.view.addSubview(heart)
+            
+            // define the animation
+            UIView.animateWithDuration(duration, delay: delay, options: options, animations: {
+                
+                // move the heart
+                heart.frame = CGRectMake(320, yPosition, size, size)
+                
+                }, completion: { animationFinished in
+                    
+                    // remove the heart
+                    heart.removeFromSuperview()
+            })
+        }
+    }
+
     
+    @IBAction func playSong(sender: AnyObject) {
+        
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appDelegate.currentSong.play()
+    }
+    @IBAction func stopSong(sender: AnyObject){
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appDelegate.currentSong.stop()
+    }
+    func startBlinking(label: UIView) {
+        let options : UIViewAnimationOptions = [.Repeat , .Autoreverse]
+        UIView.animateWithDuration(0.25, delay:0.0, options:options, animations: {
+            0.0
+            }, completion: nil)
+    }
+    
+    /**
+     Tells the label to stop blinking.
+     */
+//    func stopBlinking() {
+//        alpha = 1
+//        layer.removeAllAnimations()
+//    }
     func fetchMusicDataIntoModel(){
         let urlPath = "http://api.soundcloud.com/users/\(user_id1)/playlists?client_id=\(SoundCloud_CLIENT_ID)"
         let url = NSURL(string: urlPath)
@@ -321,10 +395,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             
             dispatch_async(dispatch_get_main_queue()) {
                 var jsonResult: [NSDictionary]!
-                
-                if self.dataTask != nil {
-                    self.dataTask?.cancel()
-                }
+  
                 UIApplication.sharedApplication().networkActivityIndicatorVisible = true
             
                 do{

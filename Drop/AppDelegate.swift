@@ -14,6 +14,7 @@ import ParseUI
 import ParseTwitterUtils
 import ParseFacebookUtilsV4
 import Contacts
+import AVFoundation
 
 
 @UIApplicationMain
@@ -22,6 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, CLLoca
     var window: UIWindow?
     var playList = [SongDetailsModel]()
     let locationManager = CLLocationManager()
+    var currentSong: SongDetailsModel!
+    
 
 //    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 //        // Override point for customization after application launch.

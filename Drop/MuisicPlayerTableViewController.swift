@@ -17,7 +17,7 @@ class MusicPlayerTableViewController: UITableViewController, MusicDataDelegate, 
     override func viewDidLoad() {
         super.viewDidLoad()
 //        musicPlayerCell.delegatePlay = self
-//        musicPlayerCell.delegateStop = self
+//        varicPlayerCell.delegateStop = self
     }
     
     // MARK: Constants
@@ -91,12 +91,15 @@ class MusicPlayerTableViewController: UITableViewController, MusicDataDelegate, 
     }
     
     func playSong(cell: MusicPlayerTableViewCell){
-    self.musicPlaylist[musicPlayerView.indexPathForCell(cell)!.row].play()
+        self.musicPlaylist[musicPlayerView.indexPathForCell(cell)!.row].play()
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appDelegate.currentSong = self.musicPlaylist[musicPlayerView.indexPathForCell(cell)!.row]
     }
+    
     func stopSong(cell: MusicPlayerTableViewCell){
-         self.musicPlaylist[musicPlayerView.indexPathForCell(cell)!.row].stop()
+        self.musicPlaylist[musicPlayerView.indexPathForCell(cell)!.row].stop()
     }
- 
+    
 
     @IBAction func unwindToMusicPlayerViewController(sender: UIStoryboardSegue) {
     }

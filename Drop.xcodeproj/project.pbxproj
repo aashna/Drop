@@ -31,6 +31,9 @@
 		1BA747C21CF4999F00BA3EAF /* TestLocations.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 1BA747C11CF4999F00BA3EAF /* TestLocations.gpx */; };
 		1BA747C41CF4CD9D00BA3EAF /* AddFriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA747C31CF4CD9D00BA3EAF /* AddFriendsTableViewCell.swift */; };
 		1BA747C61CF4DF1800BA3EAF /* TransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA747C51CF4DF1800BA3EAF /* TransitionManager.swift */; };
+		1BA747CC1CF5385E00BA3EAF /* Drop-logo-screen.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BA747CB1CF5385E00BA3EAF /* Drop-logo-screen.png */; };
+		1BA747CE1CF538F300BA3EAF /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA747CD1CF538F300BA3EAF /* SplashScreenViewController.swift */; };
+		1BA747D01CF5398000BA3EAF /* Drop-app-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BA747CF1CF5398000BA3EAF /* Drop-app-icon.png */; };
 		1BA7E0B61CEA652300FAD3B9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA7E0B51CEA652300FAD3B9 /* LoginViewController.swift */; };
 		1BC360C901B8A1ED205571C4 /* Pods_DropUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A92C659F95B259098A852AF /* Pods_DropUITests.framework */; };
 		1BDE53931CEBD18000DC02BF /* AudioLocale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDE53921CEBD18000DC02BF /* AudioLocale.swift */; };
@@ -94,6 +97,9 @@
 		1BA747C11CF4999F00BA3EAF /* TestLocations.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TestLocations.gpx; sourceTree = "<group>"; };
 		1BA747C31CF4CD9D00BA3EAF /* AddFriendsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFriendsTableViewCell.swift; sourceTree = "<group>"; };
 		1BA747C51CF4DF1800BA3EAF /* TransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionManager.swift; sourceTree = "<group>"; };
+		1BA747CB1CF5385E00BA3EAF /* Drop-logo-screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Drop-logo-screen.png"; sourceTree = "<group>"; };
+		1BA747CD1CF538F300BA3EAF /* SplashScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
+		1BA747CF1CF5398000BA3EAF /* Drop-app-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Drop-app-icon.png"; sourceTree = "<group>"; };
 		1BA7E0B51CEA652300FAD3B9 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = ../LoginViewController.swift; sourceTree = "<group>"; };
 		1BDE53921CEBD18000DC02BF /* AudioLocale.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioLocale.swift; sourceTree = "<group>"; };
 		1BF962501CF2184800AF9B93 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
@@ -225,6 +231,7 @@
 			children = (
 				1B05FA791CEF8EA900D746C9 /* SongDetailsModel.swift */,
 				1BDE53921CEBD18000DC02BF /* AudioLocale.swift */,
+				1BA747CD1CF538F300BA3EAF /* SplashScreenViewController.swift */,
 				1B05FA751CEF724A00D746C9 /* MuisicPlayerTableViewController.swift */,
 				1B05FA771CEF830F00D746C9 /* MusicPlayerTableViewCell.swift */,
 			);
@@ -245,6 +252,8 @@
 			isa = PBXGroup;
 			children = (
 				C75BB6881CEE498700C867FF /* Media.xcassets */,
+				1BA747CB1CF5385E00BA3EAF /* Drop-logo-screen.png */,
+				1BA747CF1CF5398000BA3EAF /* Drop-app-icon.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -433,6 +442,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B8EA2B41CE94D26007699C6 /* LaunchScreen.storyboard in Resources */,
+				1BA747D01CF5398000BA3EAF /* Drop-app-icon.png in Resources */,
+				1BA747CC1CF5385E00BA3EAF /* Drop-logo-screen.png in Resources */,
 				1B8EA2B11CE94D26007699C6 /* Assets.xcassets in Resources */,
 				1B8EA2E81CE9608D007699C6 /* Oval.plist in Resources */,
 				1B8EA2E61CE9608D007699C6 /* Huang.plist in Resources */,
@@ -613,6 +624,7 @@
 				1B05FA7A1CEF8EA900D746C9 /* SongDetailsModel.swift in Sources */,
 				1B05FA781CEF830F00D746C9 /* MusicPlayerTableViewCell.swift in Sources */,
 				1BA747C01CF4427800BA3EAF /* Utilities.swift in Sources */,
+				1BA747CE1CF538F300BA3EAF /* SplashScreenViewController.swift in Sources */,
 				1B8EA2D81CE95BEA007699C6 /* AttractionAnnotation.swift in Sources */,
 				1BDE53931CEBD18000DC02BF /* AudioLocale.swift in Sources */,
 				1B05FA741CEE097500D746C9 /* UpdateProfileViewController.swift in Sources */,

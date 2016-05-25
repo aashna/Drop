@@ -73,11 +73,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Drop/MuisicPlayerTableViewController.swift"
-            timestampString = "485810469.861053"
+            timestampString = "485829516.01312"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "94"
-            endingLineNumber = "94"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
             landmarkName = "playSong(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -185,11 +185,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Drop/MapViewController.swift"
-            timestampString = "485810904.123361"
+            timestampString = "485831634.716971"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "195"
-            endingLineNumber = "195"
+            startingLineNumber = "208"
+            endingLineNumber = "208"
             landmarkName = "addGeonotifications()"
             landmarkType = "5">
          </BreakpointContent>
@@ -201,13 +201,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Drop/MapViewController.swift"
-            timestampString = "485810904.123361"
+            timestampString = "485831634.716971"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "120"
-            endingLineNumber = "120"
-            landmarkName = "regionWithgeonotification(_:)"
-            landmarkType = "5">
+            startingLineNumber = "133"
+            endingLineNumber = "133"
+            landmarkName = "MapViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -217,12 +217,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Drop/MapViewController.swift"
-            timestampString = "485810904.123361"
+            timestampString = "485831634.716971"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "203"
-            endingLineNumber = "203"
-            landmarkName = "saveAllGeonotifications()"
+            startingLineNumber = "216"
+            endingLineNumber = "216"
+            landmarkName = "addGeonotifications()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -233,11 +233,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Drop/AppDelegate.swift"
-            timestampString = "485799973.16939"
+            timestampString = "485829516.01312"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "187"
-            endingLineNumber = "187"
+            startingLineNumber = "190"
+            endingLineNumber = "190"
             landmarkName = "notefromRegionIdentifier(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -249,12 +249,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Drop/MapViewController.swift"
-            timestampString = "485810904.123361"
+            timestampString = "485831634.716971"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "128"
-            endingLineNumber = "128"
-            landmarkName = "startMonitoringgeonotification(_:)"
+            startingLineNumber = "141"
+            endingLineNumber = "141"
+            landmarkName = "regionWithgeonotification(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -265,11 +265,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Drop/MapViewController.swift"
-            timestampString = "485810904.123361"
+            timestampString = "485831634.716971"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "133"
-            endingLineNumber = "133"
+            startingLineNumber = "146"
+            endingLineNumber = "146"
             landmarkName = "startMonitoringgeonotification(_:)"
             landmarkType = "5">
          </BreakpointContent>
