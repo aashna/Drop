@@ -33,8 +33,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     var SoundCloud_CLIENT_ID = "14802fecba08aa53d2daa7d16434d02c"
     var user_id1 = "228307235"
+    var user_id2 = "174400130"
+    var user_id3 = "12061020"
     var musicPlaylist = [SongDetailsModel]()
     var geonotifications = [Geonotification]()
+    
     let locationManager = CLLocationManager()
     weak var delegate: MusicDataDelegate?
 //    let defaultSession = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration())
@@ -71,7 +74,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     func setCurrentSong(){
         if AppDelegate.getAppDelegate().currentSong == nil{
-            currentSong.text = "No song currently playing"
+          //  currentSong.text = "No song currently playing"
         }
         else{
             currentSong.text = AppDelegate.getAppDelegate().currentSong.title
@@ -106,7 +109,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.splitViewController!.preferredDisplayMode = UISplitViewControllerDisplayMode.AllVisible
+  //      self.splitViewController!.preferredDisplayMode = UISplitViewControllerDisplayMode.AllVisible
         
         setCurrentSong()
         setProfilePicture()
@@ -117,9 +120,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         locationManager.requestAlwaysAuthorization()
         if CLLocationManager.locationServicesEnabled() {
             self.locationManager.delegate = self
-          //  self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
-          //  self.locationManager.startUpdatingLocation()
-            self.mapView.showsUserLocation = true
+            self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            self.locationManager.startUpdatingLocation()
+     //       self.mapView.showsUserLocation = true
         }
         addGeonotifications()
         
@@ -128,7 +131,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
 //        self.mapView.showAnnotations(self.mapView.annotations, animated: true)
 
 //        addAttractionPins()
-        fetchMusicDataIntoModel()
+    //    fetchMusicDataIntoModel()
   
     }
     
@@ -263,7 +266,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
 //        let mcFarland = Location(centerCoordinate:mcFarlandCenterCoordinate, radius:mcFarlandRadius)
        // mapView.addOverlay(gates)
        // mapView.addOverlay(mcFarland)
-        
         let geonotification1 = Geonotification(coordinate: CLLocationCoordinate2D(latitude:37.43015659999997, longitude: -122.175685), radius: 500, identifier: NSUUID().UUIDString, note: "Gates Station", eventType: EventType.OnEntry)
         let geonotification11 = Geonotification(coordinate: CLLocationCoordinate2D(latitude:37.43015659999997, longitude: -122.175685), radius: 500, identifier: NSUUID().UUIDString, note: "Gates Station", eventType: EventType.OnExit)
         let geonotification2 = Geonotification(coordinate: CLLocationCoordinate2D(latitude:37.4264022, longitude:-122.1600607), radius: 500, identifier: NSUUID().UUIDString, note: "McFarland Station", eventType: EventType.OnEntry)
@@ -327,6 +329,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
 //    
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let userLocation:CLLocation = locations[0]
+//        if(locations[0] == CLLocation(latitude: geonotifications[0].coordinate.latitude,longitude: geonotifications[0].coordinate.longitude)){
+//           fetchMusicDataIntoModel("http://api.soundcloud.com/users/\(user_id2)/playlists?client_id=\(SoundCloud_CLIENT_ID)")
+//        }
+//        
         
 //        if let masterViewController = self.delegate as? MusicPlayerViewController {
 //            splitViewController?.showMa showDetailViewController(MapViewController, sender: nil)
@@ -425,8 +431,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     //        alpha = 1
     //        layer.removeAllAnimations()
     //    }
-    func fetchMusicDataIntoModel(){
-        let urlPath = "http://api.soundcloud.com/users/\(user_id1)/playlists?client_id=\(SoundCloud_CLIENT_ID)"
+    func fetchMusicDataIntoModel(urlPath: String){
+        
         let url = NSURL(string: urlPath)
         
         dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED,0))

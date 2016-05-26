@@ -26,6 +26,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, CLLoca
     var currentSong: SongDetailsModel!
     var loaded = true
     var mapVC = MapViewController()
+    var SoundCloud_CLIENT_ID = "14802fecba08aa53d2daa7d16434d02c"
+    var user_id1 = "228307235"
+    var user_id2 = "174400130"
+    var user_id3 = "12061020"
    
     
 
@@ -202,6 +206,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, CLLoca
             for savedItem in savedItems {
                 if let geonotification = NSKeyedUnarchiver.unarchiveObjectWithData(savedItem as! NSData) as? Geonotification {
                     if geonotification.identifier == identifier {
+                        mapVC.fetchMusicDataIntoModel("http://api.soundcloud.com/users/\(user_id1)/playlists?client_id=\(SoundCloud_CLIENT_ID)")
                         return geonotification.note
                     }
                 }
