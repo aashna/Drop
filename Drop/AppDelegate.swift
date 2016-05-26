@@ -86,45 +86,45 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, CLLoca
         return true
 
     }
-    func handleRegionEvent(region: CLRegion!) {
-            // Show an alert if application is active
-            if UIApplication.sharedApplication().applicationState == .Active {
-                if let message = notefromRegionIdentifier(region.identifier) {
-                    var alert = UIAlertController(title: "Welcome to Station", message: message, preferredStyle: .Alert)
-                    var topVC = UIApplication.sharedApplication().keyWindow?.rootViewController
-                    while ((topVC!.presentedViewController) != nil) {
-                        topVC = topVC!.presentedViewController;
-                    }
-                   // self.presentViewController(alert, animated: true, completion: nil)
-                   // let importAlert: UIAlertController = UIAlertController(title: "Action Sheet", message: message, preferredStyle: .ActionSheet)
-                    //self.window?.rootViewController?.presentViewController(alert, animated: true, completion: nil)
-//                    if let viewController = window?.rootViewController?.presentViewController {
-                        showSimpleAlertWithTitle(nil, message: message, viewController: topVC!)
+//    func handleRegionEvent(region: CLRegion!) {
+//            // Show an alert if application is active
+//            if UIApplication.sharedApplication().applicationState == .Active {
+//                if let message = notefromRegionIdentifier(region.identifier) {
+//                    var alert = UIAlertController(title: "Welcome to Station", message: message, preferredStyle: .Alert)
+//                    var topVC = UIApplication.sharedApplication().keyWindow?.rootViewController
+//                    while ((topVC!.presentedViewController) != nil) {
+//                        topVC = topVC!.presentedViewController;
 //                    }
-                }
-            } else {
-                // Otherwise present a local notification
-                let notification = UILocalNotification()
-                notification.alertBody = notefromRegionIdentifier(region.identifier)
-                notification.soundName = "Default";
-                UIApplication.sharedApplication().presentLocalNotificationNow(notification)
-            }
-    }
-    func locationManager(manager: CLLocationManager, didEnterRegion region: CLRegion) {
-        if region is CLCircularRegion {
-            print("REGION ENTERED")
-            mapVC.bombButton(true)
-            handleRegionEvent(region)
-        }
-    }
-    
-    func locationManager(manager: CLLocationManager, didExitRegion region: CLRegion) {
-        if region is CLCircularRegion {
-            print("REGION EXITED")
-            handleRegionEvent(region)
-            mapVC.bombButton(false)
-        }
-    }
+//                   // self.presentViewController(alert, animated: true, completion: nil)
+//                   // let importAlert: UIAlertController = UIAlertController(title: "Action Sheet", message: message, preferredStyle: .ActionSheet)
+//                    //self.window?.rootViewController?.presentViewController(alert, animated: true, completion: nil)
+////                    if let viewController = window?.rootViewController?.presentViewController {
+//                        showSimpleAlertWithTitle(nil, message: message, viewController: topVC!)
+////                    }
+//                }
+//            } else {
+//                // Otherwise present a local notification
+//                let notification = UILocalNotification()
+//                notification.alertBody = notefromRegionIdentifier(region.identifier)
+//                notification.soundName = "Default";
+//                UIApplication.sharedApplication().presentLocalNotificationNow(notification)
+//            }
+//    }
+//    func locationManager(manager: CLLocationManager, didEnterRegion region: CLRegion) {
+//        if region is CLCircularRegion {
+//            print("REGION ENTERED")
+//            mapVC.bombButton(true)
+//            handleRegionEvent(region)
+//        }
+//    }
+//    
+//    func locationManager(manager: CLLocationManager, didExitRegion region: CLRegion) {
+//        if region is CLCircularRegion {
+//            print("REGION EXITED")
+//            handleRegionEvent(region)
+//            mapVC.bombButton(false)
+//        }
+//    }
     
     func signIn(signIn: GIDSignIn!, didSignInForUser user: GIDGoogleUser!,
                 withError error: NSError!) {
@@ -200,21 +200,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, CLLoca
 
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-    }
-    func notefromRegionIdentifier(identifier: String) -> String? {
-        if let savedItems = NSUserDefaults.standardUserDefaults().arrayForKey("savedItems") {
-            for savedItem in savedItems {
-                if let geonotification = NSKeyedUnarchiver.unarchiveObjectWithData(savedItem as! NSData) as? Geonotification {
-                    if geonotification.identifier == identifier {
-                        mapVC.fetchMusicDataIntoModel("http://api.soundcloud.com/users/\(user_id1)/playlists?client_id=\(SoundCloud_CLIENT_ID)")
-                        return geonotification.note
-                    }
-                }
-            }
-        }
-        return nil
-    }
+//    }
+//    func notefromRegionIdentifier(identifier: String) -> String? {
+//        if let savedItems = NSUserDefaults.standardUserDefaults().arrayForKey("savedItems") {
+//            for savedItem in savedItems {
+//                if let geonotification = NSKeyedUnarchiver.unarchiveObjectWithData(savedItem as! NSData) as? Geonotification {
+//                    if geonotification.identifier == identifier {
+//                    //    print("MUSIC LOADED")
+//                    //    mapVC.fetchMusicDataIntoModel("http://api.soundcloud.com/users/\(user_id1)/playlists?client_id=\(SoundCloud_CLIENT_ID)")
+//                        return geonotification.note
+//                    }
+//                }
+//            }
+//        }
+//        return nil
+//    }
 
 
+    }
 }
 

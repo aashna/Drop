@@ -13,7 +13,6 @@ import AVFoundation
 import Parse
 
 let kSavedItemsKey = "savedItems"
-
 enum MapType: Int {
     case Standard = 0
     case Hybrid
@@ -37,6 +36,12 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     var user_id3 = "12061020"
     var musicPlaylist = [SongDetailsModel]()
     var geonotifications = [Geonotification]()
+    var dictionary : [(String):String]=[
+      "Stanford Station": "http://api.soundcloud.com/users/174400130/playlists?client_id=14802fecba08aa53d2daa7d16434d02c",
+       "McFarland Station":"http://api.soundcloud.com/users/12061020/playlists?client_id=14802fecba08aa53d2daa7d16434d02c"
+    ]
+    var locationName = ""
+
     
     let locationManager = CLLocationManager()
     weak var delegate: MusicDataDelegate?
@@ -47,6 +52,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var mapTypeSegmentedControl: UISegmentedControl!
     @IBOutlet weak var heartButton: UIButton!
+    
     @IBOutlet weak var profilePicture: UIImageView!
     @IBAction func logout(sender: AnyObject) {
          PFUser.logOut()
@@ -107,8 +113,12 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
          AppDelegate.getAppDelegate().loaded = true
     }
     
+
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+      //  heartButton.enabled = false
   //      self.splitViewController!.preferredDisplayMode = UISplitViewControllerDisplayMode.AllVisible
         
         setCurrentSong()
@@ -120,9 +130,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         locationManager.requestAlwaysAuthorization()
         if CLLocationManager.locationServicesEnabled() {
             self.locationManager.delegate = self
-            self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
-            self.locationManager.startUpdatingLocation()
-     //       self.mapView.showsUserLocation = true
+          //  self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+           // self.locationManager.startUpdatingLocation()
+            self.mapView.showsUserLocation = true
         }
         addGeonotifications()
         
@@ -266,8 +276,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
 //        let mcFarland = Location(centerCoordinate:mcFarlandCenterCoordinate, radius:mcFarlandRadius)
        // mapView.addOverlay(gates)
        // mapView.addOverlay(mcFarland)
-        let geonotification1 = Geonotification(coordinate: CLLocationCoordinate2D(latitude:37.43015659999997, longitude: -122.175685), radius: 500, identifier: NSUUID().UUIDString, note: "Gates Station", eventType: EventType.OnEntry)
-        let geonotification11 = Geonotification(coordinate: CLLocationCoordinate2D(latitude:37.43015659999997, longitude: -122.175685), radius: 500, identifier: NSUUID().UUIDString, note: "Gates Station", eventType: EventType.OnExit)
+        let geonotification1 = Geonotification(coordinate: CLLocationCoordinate2D(latitude:37.4262789, longitude: -122.1721211), radius: 500, identifier: NSUUID().UUIDString, note: "Stanford Station", eventType: EventType.OnEntry)
+            let geonotification11 = Geonotification(coordinate: CLLocationCoordinate2D(latitude:37.4262789, longitude: -122.1721211), radius: 500, identifier: NSUUID().UUIDString, note: "Stanford Station", eventType: EventType.OnExit)
+//        let geonotification11 = Geonotification(coordinate: CLLocationCoordinate2D(latitude:37.43015659999997, longitude: -122.175685), radius: 500, identifier: NSUUID().UUIDString, note: "Gates Station", eventType: EventType.OnExit)
         let geonotification2 = Geonotification(coordinate: CLLocationCoordinate2D(latitude:37.4264022, longitude:-122.1600607), radius: 500, identifier: NSUUID().UUIDString, note: "McFarland Station", eventType: EventType.OnEntry)
         let geonotification22 = Geonotification(coordinate: CLLocationCoordinate2D(latitude:37.4264022, longitude:-122.1600607), radius: 500, identifier: NSUUID().UUIDString, note: "McFarland Station", eventType: EventType.OnExit)
         
@@ -282,14 +293,14 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         startMonitoringgeonotification(geonotification1)
         startMonitoringgeonotification(geonotification2)
         
-        addRadiusOverlayForgeonotification(geonotification11)
-        addRadiusOverlayForgeonotification(geonotification22)
+       // addRadiusOverlayForgeonotification(geonotification11)
+       // addRadiusOverlayForgeonotification(geonotification22)
         geonotifications.append(geonotification11)
         geonotifications.append(geonotification22)
         
         mapView.addAnnotation(geonotification11)
         mapView.addAnnotation(geonotification22)
-        //  addRadiusOverlayForgeonotification(geonotification)
+       // addRadiusOverlayForgeonotification(geonotification)
         startMonitoringgeonotification(geonotification11)
         startMonitoringgeonotification(geonotification22)
         saveAllGeonotifications()
@@ -327,12 +338,84 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
 //
 //    
 //    
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let userLocation:CLLocation = locations[0]
+//    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+//        let userLocation:CLLocation = locations[0]
 //        if(locations[0] == CLLocation(latitude: geonotifications[0].coordinate.latitude,longitude: geonotifications[0].coordinate.longitude)){
 //           fetchMusicDataIntoModel("http://api.soundcloud.com/users/\(user_id2)/playlists?client_id=\(SoundCloud_CLIENT_ID)")
+//        }}
+    
+    func notefromRegionIdentifier(identifier: String) -> String? {
+        if let savedItems = NSUserDefaults.standardUserDefaults().arrayForKey("savedItems") {
+            for savedItem in savedItems {
+                if let geonotification = NSKeyedUnarchiver.unarchiveObjectWithData(savedItem as! NSData) as? Geonotification {
+                    if geonotification.identifier == identifier {
+                        //    print("MUSIC LOADED")
+                        //    mapVC.fetchMusicDataIntoModel("http://api.soundcloud.com/users/\(user_id1)/playlists?client_id=\(SoundCloud_CLIENT_ID)")
+                        return geonotification.note
+                    }
+                }
+            }
+        }
+        return nil
+    }
+    
+    func handleRegionEvent(region: CLRegion!) {
+        // Show an alert if application is active
+        if UIApplication.sharedApplication().applicationState == .Active {
+            if let message = notefromRegionIdentifier(region.identifier) {
+                var alertController = UIAlertController(title: "Welcome to Station", message: message, preferredStyle: .Alert)
+                self.locationName = message
+                
+                alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default,handler: nil))
+                
+                self.presentViewController(alertController, animated: true, completion: nil)
+            }
+        } else {
+            // Otherwise present a local notification
+            let notification = UILocalNotification()
+            notification.alertBody = notefromRegionIdentifier(region.identifier)
+            notification.soundName = "Default";
+            UIApplication.sharedApplication().presentLocalNotificationNow(notification)
+        }
+    }
+    func locationManager(manager: CLLocationManager, didEnterRegion region: CLRegion) {
+        if region is CLCircularRegion {
+            print("REGION ENTERED \(region)")
+            //bombButton(true)
+//            let r = region as!  CLCircularRegion
+//            print(r.center)
+             heartButton.enabled = true
+            print("MUSIC LOADED")
+            if let name = notefromRegionIdentifier(region.identifier){
+                print(name)
+                if let msg  = dictionary[name]{
+                    print(msg)
+                 fetchMusicDataIntoModel(msg)
+                }
+            }
+          
+//            fetchMusicDataIntoModel("http://api.soundcloud.com/users/\(user_id1)/playlists?client_id=\(SoundCloud_CLIENT_ID)")
+            handleRegionEvent(region)
+        }
+    }
+    
+    func locationManager(manager: CLLocationManager, didExitRegion region: CLRegion) {
+        if region is CLCircularRegion {
+            print("REGION EXITED \(region)")
+            handleRegionEvent(region)
+             heartButton.enabled = false
+            bombButton(false)
+        }
+    }
+
+
+    
+
+    
+//        func locationManager(manager: CLLocationManager, didExitRegion region: CLRegion) {
+//            NSLog("Exit region")
 //        }
-//        
+//
         
 //        if let masterViewController = self.delegate as? MusicPlayerViewController {
 //            splitViewController?.showMa showDetailViewController(MapViewController, sender: nil)
@@ -345,7 +428,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
 //            }
 //
 //        }
-    }
+    
 //
     
 //
@@ -432,15 +515,15 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     //        layer.removeAllAnimations()
     //    }
     func fetchMusicDataIntoModel(urlPath: String){
-        
+        addLoadingScreen()
         let url = NSURL(string: urlPath)
         
-        dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED,0))
-        {
-            
+//        dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED,0))
+//        {
+        
             let data = NSData(contentsOfURL: url!)
             
-            dispatch_async(dispatch_get_main_queue()) {
+//            dispatch_async(dispatch_get_main_queue()) {
                 var jsonResult: [NSDictionary]!
                 
                 // UIApplication.sharedApplication().networkActivityIndicatorVisible = true
@@ -454,6 +537,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                 if let tracks = jsonResult[0]["tracks"] as? [NSDictionary]{
                     for track in tracks{
                         if track["streamable"] as! Bool == true{
+                            print(track["title"])
                             var streamUrl  = track["stream_url"]! as! String
                             streamUrl += "?client_id=\(self.SoundCloud_CLIENT_ID)"
                             
@@ -465,6 +549,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                 appDelegate.playList = self.musicPlaylist
                 self.view.viewWithTag(22)?.removeFromSuperview()
             }
-        }
-    }
+//        }
+//    }
 }

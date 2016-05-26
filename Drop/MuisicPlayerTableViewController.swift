@@ -46,6 +46,7 @@ class MusicPlayerTableViewController: UITableViewController, MusicDataDelegate, 
     override func viewWillAppear(animated: Bool) {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         self.musicPlaylist = appDelegate.playList
+
 //        for audio in self.musicPlaylist{
 //        
 //            if !audio.playing() {
