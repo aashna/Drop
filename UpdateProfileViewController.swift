@@ -15,6 +15,21 @@ protocol UpdateProfileViewControllerDelegate {
     func didSaveProfile(ProfileRecord: CKRecord, wasEditingProfile: Bool)
 }
 
+extension UIView {
+    func addBackgroundtoSignUp() {
+        
+        let width = UIScreen.mainScreen().bounds.size.width
+        let height = UIScreen.mainScreen().bounds.size.height
+        
+        let imageViewBackground = UIImageView(frame: CGRectMake(0, 0, width, height))
+        imageViewBackground.image = UIImage(named: "drop-sign-up-screen.png")
+        // you can change the content mode:
+        imageViewBackground.contentMode = UIViewContentMode.ScaleAspectFill
+        
+        self.addSubview(imageViewBackground)
+        self.sendSubviewToBack(imageViewBackground)
+    }}
+
 
 class UpdateProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet weak var txtProfileTitle: UITextField!
@@ -56,6 +71,8 @@ class UpdateProfileViewController: UIViewController, UIImagePickerControllerDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.addBackgroundtoSignUp()
+     //   self.view.backgroundColor = UIColor(patternImage: UIImage(named: "drop-sign-up-screen.png")!)
         
         // Do any additional setup after loading the view.
         btnRemoveImage.hidden = true
@@ -237,6 +254,7 @@ class UpdateProfileViewController: UIViewController, UIImagePickerControllerDele
                 let alert = UIAlertController(title: "Success", message: "Signed Up", preferredStyle: .Alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .Default) { _ in })
                 self.presentViewController(alert, animated: true){}
+                AppDelegate.getAppDelegate().loaded = false
                 self.performSegueWithIdentifier("mainVIew", sender: self)
             }
         })

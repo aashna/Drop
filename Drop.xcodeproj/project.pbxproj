@@ -12,6 +12,11 @@
 		1B05FA781CEF830F00D746C9 /* MusicPlayerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B05FA771CEF830F00D746C9 /* MusicPlayerTableViewCell.swift */; };
 		1B05FA7A1CEF8EA900D746C9 /* SongDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B05FA791CEF8EA900D746C9 /* SongDetailsModel.swift */; };
 		1B05FA7D1CF009A900D746C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B05FA7B1CF009A900D746C9 /* Main.storyboard */; };
+		1B6E6DFE1CF6062E000E6390 /* drop-login-screen.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B6E6DFD1CF6062E000E6390 /* drop-login-screen.png */; };
+		1B6E6E001CF60649000E6390 /* drop-sign-up-screen.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B6E6DFF1CF60649000E6390 /* drop-sign-up-screen.png */; };
+		1B6E6E021CF6066B000E6390 /* drop-reset-screen.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B6E6E011CF6066B000E6390 /* drop-reset-screen.png */; };
+		1B6E6E041CF611F4000E6390 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B6E6E031CF611F4000E6390 /* MapKit.framework */; };
+		1B6E6E061CF611FE000E6390 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B6E6E051CF611FE000E6390 /* CoreLocation.framework */; };
 		1B8EA2AA1CE94D26007699C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8EA2A91CE94D26007699C6 /* AppDelegate.swift */; };
 		1B8EA2AC1CE94D26007699C6 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8EA2AB1CE94D26007699C6 /* MapViewController.swift */; };
 		1B8EA2B11CE94D26007699C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B8EA2B01CE94D26007699C6 /* Assets.xcassets */; };
@@ -20,7 +25,7 @@
 		1B8EA2CA1CE94D27007699C6 /* DropUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8EA2C91CE94D27007699C6 /* DropUITests.swift */; };
 		1B8EA2D81CE95BEA007699C6 /* AttractionAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8EA2D71CE95BEA007699C6 /* AttractionAnnotation.swift */; };
 		1B8EA2DA1CE95C10007699C6 /* AttractionAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8EA2D91CE95C10007699C6 /* AttractionAnnotationView.swift */; };
-		1B8EA2DC1CE95EC6007699C6 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8EA2DB1CE95EC6007699C6 /* Character.swift */; };
+		1B8EA2DC1CE95EC6007699C6 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8EA2DB1CE95EC6007699C6 /* Location.swift */; };
 		1B8EA2E61CE9608D007699C6 /* Huang.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1B8EA2E31CE9608D007699C6 /* Huang.plist */; };
 		1B8EA2E71CE9608D007699C6 /* Rays.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1B8EA2E41CE9608D007699C6 /* Rays.plist */; };
 		1B8EA2E81CE9608D007699C6 /* Oval.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1B8EA2E51CE9608D007699C6 /* Oval.plist */; };
@@ -71,6 +76,11 @@
 		1B05FA771CEF830F00D746C9 /* MusicPlayerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicPlayerTableViewCell.swift; sourceTree = "<group>"; };
 		1B05FA791CEF8EA900D746C9 /* SongDetailsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongDetailsModel.swift; sourceTree = "<group>"; };
 		1B05FA7C1CF009A900D746C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1B6E6DFD1CF6062E000E6390 /* drop-login-screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "drop-login-screen.png"; sourceTree = "<group>"; };
+		1B6E6DFF1CF60649000E6390 /* drop-sign-up-screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "drop-sign-up-screen.png"; sourceTree = "<group>"; };
+		1B6E6E011CF6066B000E6390 /* drop-reset-screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "drop-reset-screen.png"; sourceTree = "<group>"; };
+		1B6E6E031CF611F4000E6390 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		1B6E6E051CF611FE000E6390 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		1B7F19441CF0EB3500E3A759 /* Drop-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Drop-Bridging-Header.h"; sourceTree = "<group>"; };
 		1B8EA2A61CE94D26007699C6 /* Drop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Drop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B8EA2A91CE94D26007699C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -86,7 +96,7 @@
 		1B8EA2CB1CE94D27007699C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1B8EA2D71CE95BEA007699C6 /* AttractionAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttractionAnnotation.swift; sourceTree = "<group>"; };
 		1B8EA2D91CE95C10007699C6 /* AttractionAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttractionAnnotationView.swift; sourceTree = "<group>"; };
-		1B8EA2DB1CE95EC6007699C6 /* Character.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
+		1B8EA2DB1CE95EC6007699C6 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		1B8EA2E31CE9608D007699C6 /* Huang.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Huang.plist; sourceTree = "<group>"; };
 		1B8EA2E41CE9608D007699C6 /* Rays.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Rays.plist; sourceTree = "<group>"; };
 		1B8EA2E51CE9608D007699C6 /* Oval.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Oval.plist; sourceTree = "<group>"; };
@@ -123,6 +133,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B6E6E061CF611FE000E6390 /* CoreLocation.framework in Frameworks */,
+				1B6E6E041CF611F4000E6390 /* MapKit.framework in Frameworks */,
 				1BF962511CF2184800AF9B93 /* FBSDKLoginKit.framework in Frameworks */,
 				1BF962531CF2184E00AF9B93 /* FBSDKCoreKit.framework in Frameworks */,
 				A5E60193B1A82E6531F3D365 /* Pods_Drop.framework in Frameworks */,
@@ -209,7 +221,7 @@
 		1BA747C71CF4E65E00BA3EAF /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				1B8EA2DB1CE95EC6007699C6 /* Character.swift */,
+				1B8EA2DB1CE95EC6007699C6 /* Location.swift */,
 				1BA747BD1CF4321D00BA3EAF /* GeoNotification.swift */,
 				1BA747BF1CF4427800BA3EAF /* Utilities.swift */,
 				1BA747C51CF4DF1800BA3EAF /* TransitionManager.swift */,
@@ -253,6 +265,9 @@
 			children = (
 				C75BB6881CEE498700C867FF /* Media.xcassets */,
 				1BA747CB1CF5385E00BA3EAF /* Drop-logo-screen.png */,
+				1B6E6DFF1CF60649000E6390 /* drop-sign-up-screen.png */,
+				1B6E6DFD1CF6062E000E6390 /* drop-login-screen.png */,
+				1B6E6E011CF6066B000E6390 /* drop-reset-screen.png */,
 				1BA747CF1CF5398000BA3EAF /* Drop-app-icon.png */,
 			);
 			name = Images;
@@ -294,6 +309,8 @@
 		1BDE53911CEBD0E600DC02BF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1B6E6E051CF611FE000E6390 /* CoreLocation.framework */,
+				1B6E6E031CF611F4000E6390 /* MapKit.framework */,
 				1BF962521CF2184E00AF9B93 /* FBSDKCoreKit.framework */,
 				1BF962501CF2184800AF9B93 /* FBSDKLoginKit.framework */,
 				54F5B4C8E4EB64ACCDFDCEFC /* Pods_Drop.framework */,
@@ -443,6 +460,7 @@
 			files = (
 				1B8EA2B41CE94D26007699C6 /* LaunchScreen.storyboard in Resources */,
 				1BA747D01CF5398000BA3EAF /* Drop-app-icon.png in Resources */,
+				1B6E6E001CF60649000E6390 /* drop-sign-up-screen.png in Resources */,
 				1BA747CC1CF5385E00BA3EAF /* Drop-logo-screen.png in Resources */,
 				1B8EA2B11CE94D26007699C6 /* Assets.xcassets in Resources */,
 				1B8EA2E81CE9608D007699C6 /* Oval.plist in Resources */,
@@ -451,8 +469,10 @@
 				C77CB93B1CF4D6320069CEAF /* LoaderView.xib in Resources */,
 				C75BB6891CEE498700C867FF /* Media.xcassets in Resources */,
 				1B05FA7D1CF009A900D746C9 /* Main.storyboard in Resources */,
+				1B6E6DFE1CF6062E000E6390 /* drop-login-screen.png in Resources */,
 				1BA747C21CF4999F00BA3EAF /* TestLocations.gpx in Resources */,
 				1B8EA2E71CE9608D007699C6 /* Rays.plist in Resources */,
+				1B6E6E021CF6066B000E6390 /* drop-reset-screen.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -619,7 +639,7 @@
 				1B8EA2AC1CE94D26007699C6 /* MapViewController.swift in Sources */,
 				1B8EA2DA1CE95C10007699C6 /* AttractionAnnotationView.swift in Sources */,
 				1BA7E0B61CEA652300FAD3B9 /* LoginViewController.swift in Sources */,
-				1B8EA2DC1CE95EC6007699C6 /* Character.swift in Sources */,
+				1B8EA2DC1CE95EC6007699C6 /* Location.swift in Sources */,
 				1BF962551CF269C200AF9B93 /* AddFriendsTableViewController.swift in Sources */,
 				1B05FA7A1CEF8EA900D746C9 /* SongDetailsModel.swift in Sources */,
 				1B05FA781CEF830F00D746C9 /* MusicPlayerTableViewCell.swift in Sources */,

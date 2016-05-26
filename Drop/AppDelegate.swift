@@ -24,6 +24,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, CLLoca
     var playList = [SongDetailsModel]()
     let locationManager = CLLocationManager()
     var currentSong: SongDetailsModel!
+    var loaded = true
+    var mapVC = MapViewController()
+   
     
 
 //    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
@@ -66,6 +69,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, CLLoca
         
         // [Optional] Track statistics around application opens.
         PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
+        
     
 //        
 //        PFTwitterUtils.initializeWithConsumerKey("xgtd5SUvYAHrvdVuk2H1KAh0c", consumerSecret:"jhxHZ3Ceo3qbBdigSfnvLlQHY4NrVWxUDnQIIc8dStwsN4rh9O")
@@ -79,32 +83,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, CLLoca
 
     }
     func handleRegionEvent(region: CLRegion!) {
-        func handleRegionEvent(region: CLRegion!) {
             // Show an alert if application is active
             if UIApplication.sharedApplication().applicationState == .Active {
                 if let message = notefromRegionIdentifier(region.identifier) {
-                    if let viewController = window?.rootViewController {
-                        showSimpleAlertWithTitle(nil, message: message, viewController: viewController)
+                    var alert = UIAlertController(title: "Welcome to Station", message: message, preferredStyle: .Alert)
+                    var topVC = UIApplication.sharedApplication().keyWindow?.rootViewController
+                    while ((topVC!.presentedViewController) != nil) {
+                        topVC = topVC!.presentedViewController;
                     }
+                   // self.presentViewController(alert, animated: true, completion: nil)
+                   // let importAlert: UIAlertController = UIAlertController(title: "Action Sheet", message: message, preferredStyle: .ActionSheet)
+                    //self.window?.rootViewController?.presentViewController(alert, animated: true, completion: nil)
+//                    if let viewController = window?.rootViewController?.presentViewController {
+                        showSimpleAlertWithTitle(nil, message: message, viewController: topVC!)
+//                    }
                 }
             } else {
                 // Otherwise present a local notification
-                var notification = UILocalNotification()
+                let notification = UILocalNotification()
                 notification.alertBody = notefromRegionIdentifier(region.identifier)
                 notification.soundName = "Default";
                 UIApplication.sharedApplication().presentLocalNotificationNow(notification)
             }
-        }
     }
-    func locationManager(manager: CLLocationManager!, didEnterRegion region: CLRegion!) {
+    func locationManager(manager: CLLocationManager, didEnterRegion region: CLRegion) {
         if region is CLCircularRegion {
+            print("REGION ENTERED")
+            mapVC.bombButton(true)
             handleRegionEvent(region)
         }
     }
     
-    func locationManager(manager: CLLocationManager!, didExitRegion region: CLRegion!) {
+    func locationManager(manager: CLLocationManager, didExitRegion region: CLRegion) {
         if region is CLCircularRegion {
+            print("REGION EXITED")
             handleRegionEvent(region)
+            mapVC.bombButton(false)
         }
     }
     

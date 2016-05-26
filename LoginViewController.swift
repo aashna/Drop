@@ -11,6 +11,21 @@ import FBSDKLoginKit
 import FBSDKCoreKit
 import Parse
 
+extension UIView {
+    func addBackground() {
+        
+        let width = UIScreen.mainScreen().bounds.size.width
+        let height = UIScreen.mainScreen().bounds.size.height
+        
+        let imageViewBackground = UIImageView(frame: CGRectMake(0, 0, width, height))
+        imageViewBackground.image = UIImage(named: "drop-login-screen.png")
+        // you can change the content mode:
+        imageViewBackground.contentMode = UIViewContentMode.ScaleAspectFill
+        
+        self.addSubview(imageViewBackground)
+        self.sendSubviewToBack(imageViewBackground)
+    }}
+
 
 class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDelegate //PFLogInViewControllerDelegate,PFSignUpViewControllerDelegate //
 {
@@ -72,8 +87,14 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignIn
 //        presentLoggedInAlert()
 //    }
     
+  
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.addBackground()
+        
+       
+        //self.view.backgroundColor = UIColor(patternImage: UIImage(named: "drop-login-screen.png")!)
         
         GIDSignIn.sharedInstance().uiDelegate = self
     
@@ -188,6 +209,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignIn
 //    }
 
     func performSegueToMainView() {
+        AppDelegate.getAppDelegate().loaded = false
         self.performSegueWithIdentifier("segueToMain", sender: self)
     }
     

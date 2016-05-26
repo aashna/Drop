@@ -1,5 +1,5 @@
 //
-//  Character.swift
+//  Location.swift
 //  Drop
 //
 //  Created by Aashna Garg on 5/15/16.
@@ -10,7 +10,7 @@
 import UIKit
 import MapKit
 
-class Character: MKCircle{
+class Location: MKCircle{
     
     var name: String?
     var color: UIColor?

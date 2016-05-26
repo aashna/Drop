@@ -9,9 +9,30 @@
 import UIKit
 import Parse
 
+extension UIView {
+    func addBackgroundToReset() {
+        
+        let width = UIScreen.mainScreen().bounds.size.width
+        let height = UIScreen.mainScreen().bounds.size.height
+        
+        let imageViewBackground = UIImageView(frame: CGRectMake(0, 0, width, height))
+        imageViewBackground.image = UIImage(named: "drop-reset-screen.png")
+        // you can change the content mode:
+        imageViewBackground.contentMode = UIViewContentMode.ScaleAspectFill
+        
+        self.addSubview(imageViewBackground)
+        self.sendSubviewToBack(imageViewBackground)
+    }}
+
 class ResetPasswordViewController: UIViewController {
     
     @IBOutlet weak var userEmail: UITextField!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.view.addBackgroundToReset()
+      //  self.view.backgroundColor = UIColor(patternImage: UIImage(named: "drop-reset-screen.png")!)
+    }
 
     @IBAction func resetPassword(sender: AnyObject) {
         let email = self.userEmail.text

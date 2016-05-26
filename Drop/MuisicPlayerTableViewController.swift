@@ -148,21 +148,63 @@ class MusicPlayerTableViewController: UITableViewController, MusicDataDelegate, 
             
             // create the heart
             let heart = UIImageView()
-            heart.image = UIImage(named: "Heart-fill")
-            heart.frame = CGRectMake(0-size, yPosition, size, size)
+            heart.image = UIImage(named: "bomb-icon")
+            heart.frame = CGRectMake(UIScreen.mainScreen().bounds.width-size,0-size, size, size)
             self.view.addSubview(heart)
             
             // define the animation
             UIView.animateWithDuration(duration, delay: delay, options: options, animations: {
                 
                 // move the heart
-                heart.frame = CGRectMake(320, yPosition, size, size)
+                heart.frame = CGRectMake(UIScreen.mainScreen().bounds.width-size, UIScreen.mainScreen().bounds.height, size, size)
+              //  heart.transform = CGAffineTransformMakeScale(3, 3)
+               // NSTimer.scheduledTimerWithTimeInterval(0.20, target: self, selector: "shake",userInfo: nil, repeats: false)
+               
+           
+                
                 
                 }, completion: { animationFinished in
                     
                     // remove the heart
-                    heart.removeFromSuperview()
+                 //   heart.removeFromSuperview()
             })
+            
+          //   define the animation
+            UIView.animateWithDuration(0.5, delay: 0.5, options: options, animations: {
+                
+                // move the heart
+                heart.transform = CGAffineTransformMakeScale(3, 3)
+                // NSTimer.scheduledTimerWithTimeInterval(0.20, target: self, selector: "shake",userInfo: nil, repeats: false)
+                }, completion: { animationFinished in
+                    
+                    // remove the heart
+                heart.removeFromSuperview()
+            })
+            // define the animation
+//            UIView.animateWithDuration(0.07, delay: 1.0, options: [.Autoreverse, .Repeat], animations: {
+//                
+//                // move the heart
+////                let animation = CABasicAnimation(keyPath: "position")
+////                animation.repeatCount = 4
+////                animation.autoreverses = true
+//                heart.transform = CGAffineTransformMakeScale(heart.center.x - 5, heart.center.y)
+//                heart.transform = CGAffineTransformMakeScale(heart.center.x + 5, heart.center.y)
+//
+//
+//          //      animation.fromValue = NSValue(CGPoint: CGPointMake(heart.center.x - 5, heart.center.y))
+//            //    animation.toValue = NSValue(CGPoint: CGPointMake(heart.center.x + 5, heart.center.y))
+//             //   heart.layer.addAnimation(animation, forKey: "position")
+//
+//                // NSTimer.scheduledTimerWithTimeInterval(0.20, target: self, selector: "shake",userInfo: nil, repeats: false)
+//                }, completion: { animationFinished in
+//                    
+//                    // remove the heart
+//                    heart.removeFromSuperview()
+//            })
+
+            
+            
+            
         }
     }
 
