@@ -9,13 +9,25 @@
 import UIKit
 import AVFoundation
 
-class MusicPlayerTableViewController: UITableViewController, MusicDataDelegate, PlaySongDelegate, StopSongDelegate{
+extension MusicPlayerTableViewController: UISearchResultsUpdating {
+    func updateSearchResultsForSearchController(searchController: UISearchController) {
+        showFilteredSongs(searchController.searchBar.text!)
+    }
+}
+
+class MusicPlayerTableViewController: UITableViewController, MusicDataDelegate, PlaySongDelegate, StopSongDelegate {
     
     var musicPlaylist = [SongDetailsModel]()
     let transitionManager = TransitionManager()
+    let searchBarController = UISearchController(searchResultsController: nil)
+    var searchedResults = [SongDetailsModel]()
 //    var musicPlayerCell: MusicPlayerTableViewCell = MusicPlayerTableViewCell()
     override func viewDidLoad() {
         super.viewDidLoad()
+        searchBarController.searchResultsUpdater = self
+        searchBarController.dimsBackgroundDuringPresentation = false
+        definesPresentationContext = true
+        tableView.tableHeaderView = searchBarController.searchBar
 //        musicPlayerCell.delegatePlay = self
 //        varicPlayerCell.delegateStop = self
     }
@@ -57,6 +69,13 @@ class MusicPlayerTableViewController: UITableViewController, MusicDataDelegate, 
 //        }
     }
 
+    func showFilteredSongs(text : String, scope: String = "All") {
+        searchedResults = musicPlaylist.filter { song in
+            return song.title.lowercaseString.containsString(text.lowercaseString)
+        }
+        tableView.reloadData()
+    }
+    
     @IBOutlet var musicPlayerView: UITableView!
     var tableData = [SongDetailsModel]()
     
@@ -71,22 +90,31 @@ class MusicPlayerTableViewController: UITableViewController, MusicDataDelegate, 
         // Return the number of sections.
         return 1
     }
+    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if searchBarController.active && searchBarController.searchBar.text != "" {
+            return searchedResults.count
+        }
         return self.musicPlaylist.count
-        // return tableData.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(Storyboard.TrackCellIdentifier, forIndexPath: indexPath) as! MusicPlayerTableViewCell
-        cell.trackTitle.text = self.musicPlaylist[indexPath.row].title
-        cell.trackDuration.text = String(self.musicPlaylist[indexPath.row].duration) + cell.trackDuration.text!
+        let songDetails : SongDetailsModel
+        if searchBarController.active && searchBarController.searchBar.text != "" {
+            songDetails = self.searchedResults[indexPath.row]
+        } else {
+            songDetails = self.musicPlaylist[indexPath.row]
+        }
+        cell.trackTitle.text = songDetails.title
+        cell.trackDuration.text = String(songDetails.duration) + cell.trackDuration.text!
         cell.delegatePlay=self
         cell.delegateStop=self
         return cell
     }
     
     override func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
-        var selectedCell:UITableViewCell = tableView.cellForRowAtIndexPath(indexPath)!
+        let selectedCell:UITableViewCell = tableView.cellForRowAtIndexPath(indexPath)!
         selectedCell.contentView.backgroundColor = UIColor.redColor()
         
     }
@@ -147,7 +175,7 @@ class MusicPlayerTableViewController: UITableViewController, MusicDataDelegate, 
             
             // set up some constants for the heart
             let size : CGFloat = CGFloat( arc4random_uniform(40))+20
-            let yPosition : CGFloat = CGFloat( arc4random_uniform(200))+20
+            _ = CGFloat( arc4random_uniform(200))+20
             
             // create the heart
             let heart = UIImageView()

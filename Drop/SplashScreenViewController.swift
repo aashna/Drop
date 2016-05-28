@@ -19,8 +19,8 @@ class SplashScreenViewController: UIViewController {
         addLogo()
         
         // Show the home screen after a bit. Calls the show() function.
-        let timer = NSTimer.scheduledTimerWithTimeInterval(
-            2.5, target: self, selector: Selector("show"), userInfo: nil, repeats: false
+        _ = NSTimer.scheduledTimerWithTimeInterval(
+            2.5, target: self, selector: #selector(SplashScreenViewController.show), userInfo: nil, repeats: false
         )
     }
     
@@ -84,8 +84,8 @@ class SplashViewController: UIViewController {
         addLogo()
         
         // Show the home screen after a bit. Calls the show() function.
-        let timer = NSTimer.scheduledTimerWithTimeInterval(
-            2.5, target: self, selector: Selector("show"), userInfo: nil, repeats: false
+        _ = NSTimer.scheduledTimerWithTimeInterval(
+            2.5, target: self, selector: #selector(SplashScreenViewController.show), userInfo: nil, repeats: false
         )
     }
     

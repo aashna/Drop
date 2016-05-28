@@ -12,9 +12,6 @@
 		1B05FA781CEF830F00D746C9 /* MusicPlayerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B05FA771CEF830F00D746C9 /* MusicPlayerTableViewCell.swift */; };
 		1B05FA7A1CEF8EA900D746C9 /* SongDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B05FA791CEF8EA900D746C9 /* SongDetailsModel.swift */; };
 		1B05FA7D1CF009A900D746C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B05FA7B1CF009A900D746C9 /* Main.storyboard */; };
-		1B6E6DFE1CF6062E000E6390 /* drop-login-screen.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B6E6DFD1CF6062E000E6390 /* drop-login-screen.png */; };
-		1B6E6E001CF60649000E6390 /* drop-sign-up-screen.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B6E6DFF1CF60649000E6390 /* drop-sign-up-screen.png */; };
-		1B6E6E021CF6066B000E6390 /* drop-reset-screen.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B6E6E011CF6066B000E6390 /* drop-reset-screen.png */; };
 		1B6E6E041CF611F4000E6390 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B6E6E031CF611F4000E6390 /* MapKit.framework */; };
 		1B6E6E061CF611FE000E6390 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B6E6E051CF611FE000E6390 /* CoreLocation.framework */; };
 		1B8EA2AA1CE94D26007699C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8EA2A91CE94D26007699C6 /* AppDelegate.swift */; };
@@ -36,9 +33,7 @@
 		1BA747C21CF4999F00BA3EAF /* TestLocations.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 1BA747C11CF4999F00BA3EAF /* TestLocations.gpx */; };
 		1BA747C41CF4CD9D00BA3EAF /* AddFriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA747C31CF4CD9D00BA3EAF /* AddFriendsTableViewCell.swift */; };
 		1BA747C61CF4DF1800BA3EAF /* TransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA747C51CF4DF1800BA3EAF /* TransitionManager.swift */; };
-		1BA747CC1CF5385E00BA3EAF /* Drop-logo-screen.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BA747CB1CF5385E00BA3EAF /* Drop-logo-screen.png */; };
 		1BA747CE1CF538F300BA3EAF /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA747CD1CF538F300BA3EAF /* SplashScreenViewController.swift */; };
-		1BA747D01CF5398000BA3EAF /* Drop-app-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BA747CF1CF5398000BA3EAF /* Drop-app-icon.png */; };
 		1BA7E0B61CEA652300FAD3B9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA7E0B51CEA652300FAD3B9 /* LoginViewController.swift */; };
 		1BB438AF1CF759F600B761D1 /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB438AE1CF759F600B761D1 /* LoaderView.swift */; };
 		1BC360C901B8A1ED205571C4 /* Pods_DropUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A92C659F95B259098A852AF /* Pods_DropUITests.framework */; };
@@ -76,9 +71,6 @@
 		1B05FA771CEF830F00D746C9 /* MusicPlayerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicPlayerTableViewCell.swift; sourceTree = "<group>"; };
 		1B05FA791CEF8EA900D746C9 /* SongDetailsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongDetailsModel.swift; sourceTree = "<group>"; };
 		1B05FA7C1CF009A900D746C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		1B6E6DFD1CF6062E000E6390 /* drop-login-screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "drop-login-screen.png"; sourceTree = "<group>"; };
-		1B6E6DFF1CF60649000E6390 /* drop-sign-up-screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "drop-sign-up-screen.png"; sourceTree = "<group>"; };
-		1B6E6E011CF6066B000E6390 /* drop-reset-screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "drop-reset-screen.png"; sourceTree = "<group>"; };
 		1B6E6E031CF611F4000E6390 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		1B6E6E051CF611FE000E6390 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		1B7F19441CF0EB3500E3A759 /* Drop-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Drop-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -107,9 +99,7 @@
 		1BA747C11CF4999F00BA3EAF /* TestLocations.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TestLocations.gpx; sourceTree = "<group>"; };
 		1BA747C31CF4CD9D00BA3EAF /* AddFriendsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFriendsTableViewCell.swift; sourceTree = "<group>"; };
 		1BA747C51CF4DF1800BA3EAF /* TransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionManager.swift; sourceTree = "<group>"; };
-		1BA747CB1CF5385E00BA3EAF /* Drop-logo-screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Drop-logo-screen.png"; sourceTree = "<group>"; };
 		1BA747CD1CF538F300BA3EAF /* SplashScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
-		1BA747CF1CF5398000BA3EAF /* Drop-app-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Drop-app-icon.png"; sourceTree = "<group>"; };
 		1BA7E0B51CEA652300FAD3B9 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = ../LoginViewController.swift; sourceTree = "<group>"; };
 		1BB438AE1CF759F600B761D1 /* LoaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
 		1BDE53921CEBD18000DC02BF /* AudioLocale.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioLocale.swift; sourceTree = "<group>"; };
@@ -264,11 +254,6 @@
 			isa = PBXGroup;
 			children = (
 				C75BB6881CEE498700C867FF /* Media.xcassets */,
-				1BA747CB1CF5385E00BA3EAF /* Drop-logo-screen.png */,
-				1B6E6DFF1CF60649000E6390 /* drop-sign-up-screen.png */,
-				1B6E6DFD1CF6062E000E6390 /* drop-login-screen.png */,
-				1B6E6E011CF6066B000E6390 /* drop-reset-screen.png */,
-				1BA747CF1CF5398000BA3EAF /* Drop-app-icon.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -459,9 +444,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B8EA2B41CE94D26007699C6 /* LaunchScreen.storyboard in Resources */,
-				1BA747D01CF5398000BA3EAF /* Drop-app-icon.png in Resources */,
-				1B6E6E001CF60649000E6390 /* drop-sign-up-screen.png in Resources */,
-				1BA747CC1CF5385E00BA3EAF /* Drop-logo-screen.png in Resources */,
 				1B8EA2B11CE94D26007699C6 /* Assets.xcassets in Resources */,
 				1B8EA2E81CE9608D007699C6 /* Oval.plist in Resources */,
 				1B8EA2E61CE9608D007699C6 /* Huang.plist in Resources */,
@@ -469,10 +451,8 @@
 				C77CB93B1CF4D6320069CEAF /* LoaderView.xib in Resources */,
 				C75BB6891CEE498700C867FF /* Media.xcassets in Resources */,
 				1B05FA7D1CF009A900D746C9 /* Main.storyboard in Resources */,
-				1B6E6DFE1CF6062E000E6390 /* drop-login-screen.png in Resources */,
 				1BA747C21CF4999F00BA3EAF /* TestLocations.gpx in Resources */,
 				1B8EA2E71CE9608D007699C6 /* Rays.plist in Resources */,
-				1B6E6E021CF6066B000E6390 /* drop-reset-screen.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

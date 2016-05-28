@@ -365,7 +365,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         // Show an alert if application is active
         if UIApplication.sharedApplication().applicationState == .Active {
             if let message = notefromRegionIdentifier(region.identifier) {
-                var alertController = UIAlertController(title: "Welcome to Station", message: message, preferredStyle: .Alert)
+                let alertController = UIAlertController(title: "Welcome to Station", message: message, preferredStyle: .Alert)
                 self.locationName = message
                 
                 alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default,handler: nil))
@@ -472,7 +472,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             
             // set up some constants for the heart
             let size : CGFloat = CGFloat( arc4random_uniform(40))+20
-            let yPosition : CGFloat = CGFloat( arc4random_uniform(200))+20
+            _ = CGFloat( arc4random_uniform(200))+20
             
             // create the heart
             let heart = UIImageView()

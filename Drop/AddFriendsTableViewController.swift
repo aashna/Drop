@@ -13,8 +13,31 @@ import Parse
 
 
 class AddFriendsTableViewController: UITableViewController {
-            var friends: [String] = [String]()
-            var dataParse:NSMutableArray = NSMutableArray()
+    var friends: [String] = [String]()
+    var dataParse:NSMutableArray = NSMutableArray()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.tableView.contentInset = UIEdgeInsets(top: 28, left: 0, bottom: 0, right: 0)
+        self.tableView.allowsMultipleSelection = true
+        print("INSIDE HERE")
+        let contacts = fetchContactsFromAddressBook()
+        fetchContactsFromParse(contacts)
+        
+        self.dataParse.addObject("abc")
+        self.dataParse.addObject("def")
+        self.dataParse.addObject("ghi")
+        self.dataParse.addObject("xyz")
+        
+        //  print("Friends = \(friendsList)")
+        
+        let barBack = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(AddFriendsTableViewController.backButtonPressed))
+        self.navigationItem.leftBarButtonItem = barBack
+    }
+    
+    func backButtonPressed() {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
     
     func fetchContactsFromAddressBook() -> [CNContact] {
         var contacts: [CNContact]! = []
@@ -32,12 +55,12 @@ class AddFriendsTableViewController: UITableViewController {
                 
                 do {
                     contacts = try contactsStore.unifiedContactsMatchingPredicate(predicate, keysToFetch: keysToFetch)// [CNContact]
-                }catch {
+                } catch {
                     
                 }
                 for contact in contacts {
-                    var phoneStr = ""
-                    var nameStr = ""
+                    var phoneStr : String
+                    var nameStr : String
                     var number: CNPhoneNumber!
                     if contact.phoneNumbers.count > 0 {
                         number = contact.phoneNumbers[0].value as! CNPhoneNumber
@@ -53,7 +76,9 @@ class AddFriendsTableViewController: UITableViewController {
 //                        self.friendArr.append(friend)
 //                    }
                     
-                }}}
+                }
+            }
+        }
 
           return contacts   }
     
@@ -61,11 +86,13 @@ class AddFriendsTableViewController: UITableViewController {
         var queries = [PFQuery]()
 
         for contact in contacts{
-            var phoneStr = ""
-            var nameStr = ""
+            var phoneStr : String
+            var nameStr : String
             var number: CNPhoneNumber!
             if contact.phoneNumbers.count > 0 {
                 phoneStr = (contact.phoneNumbers[0].value as! CNPhoneNumber).valueForKey("digits") as! String
+            } else {
+                phoneStr = ""
             }
             nameStr = contact.familyName + contact.givenName
            // print(nameStr)
@@ -76,7 +103,7 @@ class AddFriendsTableViewController: UITableViewController {
 //            }
          
             
-            var query = PFQuery(className: "_User")
+            let query = PFQuery(className: "_User")
              queries.append(query.whereKey("phone",equalTo: "\(phoneStr)"))
             }
             var query = PFQuery(className: "_User")
@@ -86,7 +113,7 @@ class AddFriendsTableViewController: UITableViewController {
             query.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
                 if error == nil {
                     print("Successfully retrieved: \(objects)")
-                    if let objects = objects as? [PFObject]! {
+                    if let objects = objects as [PFObject]! {
                         for object in objects {
                             //For each object in the class object, append it to myArray
                             //self.friends.append(object.objectForKey("username") as! String)
@@ -110,26 +137,22 @@ class AddFriendsTableViewController: UITableViewController {
         
     }
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int
-    {
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
-    {
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.dataParse.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-
-        
-          let cell = tableView.dequeueReusableCellWithIdentifier("friend", forIndexPath: indexPath) as! AddFriendsTableViewCell
-        
-        let cellDataParse:PFObject = self.dataParse.objectAtIndex(indexPath.row) as! PFObject
-        cell.friendName.text =   cellDataParse.objectForKey("username") as? String
-        
-         return cell
+        let cell = tableView.dequeueReusableCellWithIdentifier("friend", forIndexPath: indexPath) as! AddFriendsTableViewCell
+//        let cellDataParse:PFObject = self.dataParse.objectAtIndex(indexPath.row) as! PFObject
+//        cell.friendName.text =   cellDataParse.objectForKey("username") as? String
+        let cellDataParse: String = self.dataParse.objectAtIndex(indexPath.row) as! String
+        cell.friendName.text = cellDataParse
+        return cell
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -140,15 +163,16 @@ class AddFriendsTableViewController: UITableViewController {
         tableView.cellForRowAtIndexPath(indexPath)?.accessoryType = UITableViewCellAccessoryType.None
     }
     
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        self.tableView.allowsMultipleSelection = true
-        print("INSIDE HERE")
-       let contacts = fetchContactsFromAddressBook()
-        fetchContactsFromParse(contacts)
-             //  print("Friends = \(friendsList)")
-
-}
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if (editingStyle == UITableViewCellEditingStyle.Delete) {
+            // handle delete (by removing the data from your array and updating the tableview)
+            self.dataParse.removeObjectAtIndex(indexPath.row)
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+        }
+    }
+    
 }
