@@ -123,6 +123,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignIn
         return animation
     }
     
+     /* referred from http://www.appcoda.com/login-signup-parse-swift/ */
     @IBAction func signIn(sender: AnyObject) {
         
         let username = self.userName.text

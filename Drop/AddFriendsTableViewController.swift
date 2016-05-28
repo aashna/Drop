@@ -101,12 +101,12 @@ class AddFriendsTableViewController: UITableViewController {
                     
                 }
             }
-        let array:NSArray = self.dataParse.reverseObjectEnumerator().allObjects
-        self.dataParse = array as! NSMutableArray
+        //let array:NSArray = self.dataParse.reverseObjectEnumerator().allObjects
+        //self.dataParse = array as NSArray as! [String]
         
-        self.tableView.reloadData()
+      //  self.tableView.reloadData()
 
-   //    return friends
+//        return self.dataParse
         
     }
     
@@ -124,20 +124,31 @@ class AddFriendsTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("friends", forIndexPath: indexPath) as! AddFriendsTableViewCell
+          let cell = tableView.dequeueReusableCellWithIdentifier("friend", forIndexPath: indexPath) as! AddFriendsTableViewCell
         
         let cellDataParse:PFObject = self.dataParse.objectAtIndex(indexPath.row) as! PFObject
+        cell.friendName.text =   cellDataParse.objectForKey("username") as? String
         
          return cell
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.cellForRowAtIndexPath(indexPath)?.accessoryType = UITableViewCellAccessoryType.Checkmark
+    }
+    
+    override func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.cellForRowAtIndexPath(indexPath)?.accessoryType = UITableViewCellAccessoryType.None
     }
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.tableView.allowsMultipleSelection = true
         print("INSIDE HERE")
        let contacts = fetchContactsFromAddressBook()
-        let friendsList  = fetchContactsFromParse(contacts)
-               print("Friends = \(friendsList)")
+        fetchContactsFromParse(contacts)
+             //  print("Friends = \(friendsList)")
 
 }
 }

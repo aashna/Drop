@@ -33,6 +33,8 @@ class ResetPasswordViewController: UIViewController {
         self.view.addBackgroundToReset()
       //  self.view.backgroundColor = UIColor(patternImage: UIImage(named: "drop-reset-screen.png")!)
     }
+    
+     /* referred from http://www.appcoda.com/login-signup-parse-swift/ */
 
     @IBAction func resetPassword(sender: AnyObject) {
         let email = self.userEmail.text

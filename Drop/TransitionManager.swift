@@ -7,6 +7,8 @@
 //
 
 
+/* Referred from http://mathewsanders.com/animated-transitions-in-swift/ */
+
 
 import UIKit
 

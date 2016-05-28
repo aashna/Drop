@@ -1,19 +1,9 @@
-//
-//  GeoNotification.swift
-//  Drop
-//
+
 //  Created by Aashna Garg on 5/23/16.
 //  Copyright © 2016 Aashna Garg. All rights reserved.
 //
 
-//
-//  geonotification.swift
-//  Geotify
-//
-//  Created by Ken Toh on 24/1/15.
-//  Copyright (c) 2015 Ken Toh. All rights reserved.
-//
-
+/*  Referred from https://www.raywenderlich.com/95014/geofencing-ios-swift  */
 import UIKit
 import MapKit
 import CoreLocation

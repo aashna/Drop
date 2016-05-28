@@ -149,6 +149,8 @@ class UpdateProfileViewController: UIViewController, UIImagePickerControllerDele
         imageURL = nil
     }
     
+    /* referred from http://www.appcoda.com/login-signup-parse-swift/ */
+    
     @IBAction func saveProfile(sender: AnyObject) {
         if txtProfileTitle.text == "" {//|| textView.text == "" {
             return
@@ -160,55 +162,7 @@ class UpdateProfileViewController: UIViewController, UIImagePickerControllerDele
         viewWait.hidden = false
         view.bringSubviewToFront(viewWait)
         navigationController?.setNavigationBarHidden(true, animated: true)
-        
-//        var ProfileRecord: CKRecord!
-//        var isEditingProfile: Bool!
-//        
-//        if let editedProfile = editedProfileRecord {
-//            ProfileRecord = editedProfile
-//            isEditingProfile = true
-//        }
-//        else {
-//            let timestampAsString = String(format: "%f", NSDate.timeIntervalSinceReferenceDate())
-//            let timestampParts = timestampAsString.componentsSeparatedByString(".")
-//            let ProfileID = CKRecordID(recordName: timestampParts[0])
-//            
-//            ProfileRecord = CKRecord(recordType: "Profiles", recordID: ProfileID)
-//            
-//            isEditingProfile = false
-//        }
-//        
-//        ProfileRecord.setObject(txtProfileTitle.text, forKey: "ProfileTitle")
-//        //     ProfileRecord.setObject(textView.text, forKey: "ProfileText")
-//        ProfileRecord.setObject(NSDate(), forKey: "ProfileEditedDate")
-//        
-//        if let url = imageURL {
-//            let imageAsset = CKAsset(fileURL: url)
-//            ProfileRecord.setObject(imageAsset, forKey: "ProfileImage")
-//        }
-//        else {
-//            let fileURL = NSBundle.mainBundle().URLForResource("user", withExtension: "png")
-//            let imageAsset = CKAsset(fileURL: fileURL!)
-//            ProfileRecord.setObject(imageAsset, forKey: "ProfileImage")
-//        }
-        
-        //        let container = CKContainer.defaultContainer()
-        //        let privateDatabase = container.privateCloudDatabase
-        //
-        //        privateDatabase.saveRecord(ProfileRecord, completionHandler: { (record, error) -> Void in
-        //            if (error != nil) {
-        //                print(error)
-        //            }
-        //            else {
-        //                self.delegate.didSaveProfile(ProfileRecord, wasEditingProfile: isEditingProfile)
-        //            }
-        //
-        //            NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
-        //                self.viewWait.hidden = true
-        //                self.navigationController?.setNavigationBarHidden(false, animated: true)
-        //            })
-        //        })
-    
+
         if(userName.text?.characters.count < 5) {
 
             let alert = UIAlertController(title: "Invalid", message:"Username must be greater than 5 characters", preferredStyle: .Alert)

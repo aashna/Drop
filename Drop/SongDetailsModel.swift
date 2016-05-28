@@ -2,7 +2,7 @@
 //  SongDetailsModel.swift
 //  Drop
 //
-//  Created by Ayush Gupta on 5/20/16.
+//  Created by Aashna Garg on 5/20/16.
 //  Copyright © 2016 Aashna Garg. All rights reserved.
 //
 

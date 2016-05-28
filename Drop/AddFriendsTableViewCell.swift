@@ -10,6 +10,6 @@ import UIKit
 
 class AddFriendsTableViewCell: UITableViewCell {
 
- 
+    @IBOutlet weak var friendName: UILabel!
 
 }

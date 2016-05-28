@@ -24,6 +24,7 @@ class SplashScreenViewController: UIViewController {
         )
     }
     
+  /* Referred from  http://www.codetrench.com/ios-swift-splash-screen/ */
     /*
      * Gets rid of the status bar
      */

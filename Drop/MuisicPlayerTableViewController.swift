@@ -129,6 +129,8 @@ class MusicPlayerTableViewController: UITableViewController, MusicDataDelegate, 
     @IBAction func goToMap(sender: AnyObject) {
         self.performSegueWithIdentifier("showMap", sender: self)
     }
+    
+    /* Referred from http://mathewsanders.com/animations-in-swift-part-two/  */
     @IBAction func heartButtonPressed(sender: AnyObject) {
         // the slider value returns a float (e.g. 10.4)
         // to work in the loop we need to round down as an Int (e.g. 10)

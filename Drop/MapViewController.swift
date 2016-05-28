@@ -18,10 +18,7 @@ enum MapType: Int {
     case Hybrid
     case Satellite
 }
-//var audioArr = [
-//    
-//     AudioLocale.init(filePath: NSURL(string: "http://megdadhashem.wapego.ru/files/56727/tubidy_mp3_e2afc5.mp3")!, coords: CLLocation.init(latitude: 37.56748454, longitude: -122.38380578)) //done
-//]
+
 @objc protocol MusicDataDelegate: class {
     func getMusicData(results: NSArray)
 }
@@ -37,7 +34,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     var musicPlaylist = [SongDetailsModel]()
     var geonotifications = [Geonotification]()
     var dictionary : [(String):String]=[
-      "Stanford Station": "http://api.soundcloud.com/users/174400130/playlists?client_id=14802fecba08aa53d2daa7d16434d02c",
+      "Gates Station": "http://api.soundcloud.com/users/228307235/playlists?client_id=14802fecba08aa53d2daa7d16434d02c",
        "McFarland Station":"http://api.soundcloud.com/users/12061020/playlists?client_id=14802fecba08aa53d2daa7d16434d02c"
     ]
     var locationName = ""
@@ -195,7 +192,12 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
 ////            }
 ////        }
 ////    }
+    
 //    
+    
+    
+    
+    /* Referred from https://www.raywenderlich.com/95014/geofencing-ios-swift  */
     func regionWithgeonotification(geonotification: Geonotification) -> CLCircularRegion {
         // 1
         let region = CLCircularRegion(center: geonotification.coordinate, radius: geonotification.radius, identifier: geonotification.identifier)
@@ -276,8 +278,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
 //        let mcFarland = Location(centerCoordinate:mcFarlandCenterCoordinate, radius:mcFarlandRadius)
        // mapView.addOverlay(gates)
        // mapView.addOverlay(mcFarland)
-        let geonotification1 = Geonotification(coordinate: CLLocationCoordinate2D(latitude:37.4262789, longitude: -122.1721211), radius: 500, identifier: NSUUID().UUIDString, note: "Stanford Station", eventType: EventType.OnEntry)
-            let geonotification11 = Geonotification(coordinate: CLLocationCoordinate2D(latitude:37.4262789, longitude: -122.1721211), radius: 500, identifier: NSUUID().UUIDString, note: "Stanford Station", eventType: EventType.OnExit)
+        let geonotification1 = Geonotification(coordinate: CLLocationCoordinate2D(latitude:37.4301566, longitude: -122.175685), radius: 500, identifier: NSUUID().UUIDString, note: "Gates Station", eventType: EventType.OnEntry)
+            let geonotification11 = Geonotification(coordinate: CLLocationCoordinate2D(latitude:37.4262789, longitude: -122.1721211), radius: 500, identifier: NSUUID().UUIDString, note: "GatesStation", eventType: EventType.OnExit)
 //        let geonotification11 = Geonotification(coordinate: CLLocationCoordinate2D(latitude:37.43015659999997, longitude: -122.175685), radius: 500, identifier: NSUUID().UUIDString, note: "Gates Station", eventType: EventType.OnExit)
         let geonotification2 = Geonotification(coordinate: CLLocationCoordinate2D(latitude:37.4264022, longitude:-122.1600607), radius: 500, identifier: NSUUID().UUIDString, note: "McFarland Station", eventType: EventType.OnEntry)
         let geonotification22 = Geonotification(coordinate: CLLocationCoordinate2D(latitude:37.4264022, longitude:-122.1600607), radius: 500, identifier: NSUUID().UUIDString, note: "McFarland Station", eventType: EventType.OnExit)
