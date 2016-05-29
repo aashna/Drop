@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="bWM-OQ-ARq">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="bWM-OQ-ARq">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -870,27 +870,41 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="friend" id="hir-3S-ReE" customClass="AddFriendsTableViewCell" customModule="Drop" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="friend" id="hir-3S-ReE" customClass="AddFriendsTableViewCell" customModule="Drop" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="50" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hir-3S-ReE" id="sMf-y3-sRw">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="561" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friend" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zbV-eK-8GI">
-                                            <rect key="frame" x="16" y="11" width="48.5" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friend" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zbV-eK-8GI">
+                                            <rect key="frame" x="16" y="11" width="141" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="141" id="eWa-1J-SO5"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="18"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="highlightedColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hhP-TZ-2Mp">
+                                            <rect key="frame" x="380" y="8" width="115" height="28"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="zbV-eK-8GI" firstAttribute="leading" secondItem="sMf-y3-sRw" secondAttribute="leading" constant="16" id="MPP-ow-yEU"/>
-                                        <constraint firstItem="zbV-eK-8GI" firstAttribute="centerY" secondItem="sMf-y3-sRw" secondAttribute="centerY" id="ttG-Iw-7Sw"/>
+                                        <constraint firstItem="zbV-eK-8GI" firstAttribute="centerY" secondItem="hhP-TZ-2Mp" secondAttribute="centerY" id="ZH7-8v-DmR"/>
+                                        <constraint firstItem="zbV-eK-8GI" firstAttribute="centerY" secondItem="sMf-y3-sRw" secondAttribute="centerY" id="aOm-Kk-8cv"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="hhP-TZ-2Mp" secondAttribute="trailing" constant="58" id="fjc-C3-92f"/>
+                                        <constraint firstItem="hhP-TZ-2Mp" firstAttribute="top" secondItem="sMf-y3-sRw" secondAttribute="topMargin" id="pgt-lw-vYF"/>
+                                        <constraint firstItem="zbV-eK-8GI" firstAttribute="leading" secondItem="sMf-y3-sRw" secondAttribute="leadingMargin" constant="8" id="ttc-bA-50Z"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.67585121029999995" green="0.88657564730000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="friendName" destination="zbV-eK-8GI" id="xNI-v7-lyf"/>
+                                    <outlet property="friendPhone" destination="hhP-TZ-2Mp" id="ltL-vv-ueA"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -903,10 +917,41 @@
                     <navigationItem key="navigationItem" id="vfw-fx-8T5"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <segue destination="HP9-nn-jPp" kind="show" identifier="showFriends" id="Ew5-sU-4eJ"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IWc-Aq-ddH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-352" y="-1662"/>
+        </scene>
+        <!--Show Friends Table View Controller-->
+        <scene sceneID="ttW-ZR-z5R">
+            <objects>
+                <tableViewController id="HP9-nn-jPp" customClass="ShowFriendsTableViewController" customModule="Drop" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="qDH-tR-8Tz">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="AH0-vs-cJ7" customClass="ShowFriendsTableViewCell" customModule="Drop" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="122" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AH0-vs-cJ7" id="WGW-lR-gUj">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="HP9-nn-jPp" id="tWH-rn-7Ru"/>
+                            <outlet property="delegate" destination="HP9-nn-jPp" id="sz2-kY-bQF"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Alk-wB-Qmt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="358" y="-1661"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Jmd-Fx-nCW">

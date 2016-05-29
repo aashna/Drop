@@ -12,4 +12,5 @@ class AddFriendsTableViewCell: UITableViewCell {
 
     @IBOutlet weak var friendName: UILabel!
 
+    @IBOutlet weak var friendPhone: UILabel!
 }

@@ -365,7 +365,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         // Show an alert if application is active
         if UIApplication.sharedApplication().applicationState == .Active {
             if let message = notefromRegionIdentifier(region.identifier) {
-                let alertController = UIAlertController(title: "Welcome to Station", message: message, preferredStyle: .Alert)
+                let alertController = UIAlertController(title: "Welcome", message: message, preferredStyle: .Alert)
                 self.locationName = message
                 
                 alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default,handler: nil))

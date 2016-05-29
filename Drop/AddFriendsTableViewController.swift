@@ -22,18 +22,20 @@ class AddFriendsTableViewController: UITableViewController {
         self.tableView.allowsMultipleSelection = true
         print("INSIDE HERE")
         let contacts = fetchContactsFromAddressBook()
-        fetchContactsFromParse(contacts)
+        self.dataParse = fetchContactsFromParse(contacts)
+       
         
-        self.dataParse.addObject("abc")
-        self.dataParse.addObject("def")
-        self.dataParse.addObject("ghi")
-        self.dataParse.addObject("xyz")
+//        self.dataParse.addObject("abc")
+//        self.dataParse.addObject("def")
+//        self.dataParse.addObject("ghi")
+//        self.dataParse.addObject("xyz")
         
         //  print("Friends = \(friendsList)")
         
         let barBack = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(AddFriendsTableViewController.backButtonPressed))
         self.navigationItem.leftBarButtonItem = barBack
     }
+
     
     func backButtonPressed() {
         self.dismissViewControllerAnimated(true, completion: nil)
@@ -82,7 +84,7 @@ class AddFriendsTableViewController: UITableViewController {
 
           return contacts   }
     
-    func fetchContactsFromParse(contacts:[CNContact]) -> Void{
+    func fetchContactsFromParse(contacts:[CNContact]) -> NSMutableArray{
         var queries = [PFQuery]()
 
         for contact in contacts{
@@ -97,7 +99,7 @@ class AddFriendsTableViewController: UITableViewController {
             nameStr = contact.familyName + contact.givenName
            // print(nameStr)
            
-            print(phoneStr)
+           // print(phoneStr)
 //            if(phoneStr == "9868460133"){
 //              print("YES!!!")
 //            }
@@ -112,12 +114,13 @@ class AddFriendsTableViewController: UITableViewController {
            
             query.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
                 if error == nil {
-                    print("Successfully retrieved: \(objects)")
+                    print("Successfully retrieved:")
                     if let objects = objects as [PFObject]! {
                         for object in objects {
                             //For each object in the class object, append it to myArray
                             //self.friends.append(object.objectForKey("username") as! String)
-                        self.dataParse.addObject(object)
+                        self.dataParse.addObject(object.objectForKey("username") as! String)
+                        self.tableView.reloadData()
                             
                         }
                         
@@ -132,8 +135,8 @@ class AddFriendsTableViewController: UITableViewController {
         //self.dataParse = array as NSArray as! [String]
         
       //  self.tableView.reloadData()
-
-//        return self.dataParse
+        print("dataparse = \(dataParse)")
+        return self.dataParse
         
     }
     

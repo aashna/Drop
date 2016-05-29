@@ -10,11 +10,75 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Drop/AddFriendsTableViewController.swift"
-            timestampString = "486095125.000526"
+            timestampString = "486187287.254132"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "93"
-            endingLineNumber = "93"
+            startingLineNumber = "135"
+            endingLineNumber = "135"
+            landmarkName = "fetchContactsFromParse(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Drop/AddFriendsTableViewController.swift"
+            timestampString = "486187287.254132"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "133"
+            endingLineNumber = "133"
+            landmarkName = "fetchContactsFromParse(_:)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Drop.AddFriendsTableViewController.fetchContactsFromParse (Swift.Array&lt;__ObjC.CNContact&gt;) -&gt; ()"
+                  moduleName = "Drop"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aashna/Developer/drop/Drop/AddFriendsTableViewController.swift"
+                  timestampString = "486186471.077235"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "130"
+                  endingLineNumber = "130"
+                  offsetFromSymbolStart = "2792">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Drop.AddFriendsTableViewController.(fetchContactsFromParse (Swift.Array&lt;__ObjC.CNContact&gt;) -&gt; ()).(closure #1)"
+                  moduleName = "Drop"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aashna/Developer/drop/Drop/AddFriendsTableViewController.swift"
+                  timestampString = "486186471.077494"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "130"
+                  endingLineNumber = "130"
+                  offsetFromSymbolStart = "2316">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Drop/AddFriendsTableViewController.swift"
+            timestampString = "486187287.254132"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "124"
+            endingLineNumber = "124"
             landmarkName = "fetchContactsFromParse(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -26,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Drop/AddFriendsTableViewController.swift"
-            timestampString = "486095133.194109"
+            timestampString = "486187287.254132"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "95"
-            endingLineNumber = "95"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
             landmarkName = "fetchContactsFromParse(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -42,11 +106,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Drop/AddFriendsTableViewController.swift"
-            timestampString = "486095137.567452"
+            timestampString = "486187287.254132"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "107"
-            endingLineNumber = "107"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
             landmarkName = "fetchContactsFromParse(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -58,12 +122,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Drop/AddFriendsTableViewController.swift"
-            timestampString = "486095144.328613"
+            timestampString = "486187287.254132"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "132"
-            endingLineNumber = "132"
-            landmarkName = "tableView(_:cellForRowAtIndexPath:)"
+            startingLineNumber = "120"
+            endingLineNumber = "120"
+            landmarkName = "fetchContactsFromParse(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -74,13 +138,77 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Drop/AddFriendsTableViewController.swift"
-            timestampString = "486095147.396536"
+            timestampString = "486187287.254132"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "130"
-            endingLineNumber = "130"
-            landmarkName = "tableView(_:cellForRowAtIndexPath:)"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
+            landmarkName = "fetchContactsFromParse(_:)"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Drop/AddFriendsTableViewController.swift"
+            timestampString = "486187287.254132"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
+            landmarkName = "fetchContactsFromParse(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Drop/AddFriendsTableViewController.swift"
+            timestampString = "486187287.254132"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
+            landmarkName = "fetchContactsFromParse(_:)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Drop.AddFriendsTableViewController.(fetchContactsFromParse (Swift.Array&lt;__ObjC.CNContact&gt;) -&gt; __ObjC.NSMutableArray).(closure #1)"
+                  moduleName = "Drop"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aashna/Developer/drop/Drop/AddFriendsTableViewController.swift"
+                  timestampString = "486187771.203865"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "118"
+                  endingLineNumber = "118"
+                  offsetFromSymbolStart = "346">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Drop.AddFriendsTableViewController.(fetchContactsFromParse (Swift.Array&lt;__ObjC.CNContact&gt;) -&gt; __ObjC.NSMutableArray).(closure #1)"
+                  moduleName = "Drop"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aashna/Developer/drop/Drop/AddFriendsTableViewController.swift"
+                  timestampString = "486187771.204007"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "118"
+                  endingLineNumber = "118"
+                  offsetFromSymbolStart = "407">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
