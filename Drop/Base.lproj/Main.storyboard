@@ -264,6 +264,14 @@
                                 <rect key="frame" x="299" y="329" width="1" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ON2-hp-eE8" userLabel="Social Login Separator">
+                                <rect key="frame" x="299" y="495" width="1" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="1" id="Suc-y6-T3e"/>
+                                    <constraint firstAttribute="height" constant="30" id="f0f-dx-QME"/>
+                                </constraints>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EoX-mu-0JS" customClass="GIDSignInButton">
                                 <rect key="frame" x="312" y="332" width="24" height="24"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -312,15 +320,6 @@
                                     <action selector="resetPassword:" destination="Qw8-NE-Wt3" eventType="touchUpInside" id="nGO-ZF-2HV"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XTA-Jj-yx6">
-                                <rect key="frame" x="258" y="495" width="83" height="30"/>
-                                <state key="normal" title="Add Friends">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="addFriends:" destination="Qw8-NE-Wt3" eventType="touchUpInside" id="rQW-LU-SwZ"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dvr-6k-Qcv">
                                 <rect key="frame" x="178" y="384" width="242" height="36"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -336,12 +335,33 @@
                                 <rect key="frame" x="247" y="332" width="30" height="23"/>
                                 <color key="backgroundColor" red="0.69803921568627447" green="0.94117647058823528" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="9"/>
-                                <state key="normal" title="FB"/>
+                                <state key="normal" title="FB">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7OB-2n-rmi">
+                                <rect key="frame" x="311.5" y="495" width="133" height="30"/>
+                                <state key="normal" title="Liked Us? Share Us">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="shareButtonPressed:" destination="Qw8-NE-Wt3" eventType="touchUpInside" id="yiN-nx-Ubg"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XTA-Jj-yx6">
+                                <rect key="frame" x="203" y="495" width="83" height="30"/>
+                                <state key="normal" title="Add Friends">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="addFriends:" destination="Qw8-NE-Wt3" eventType="touchUpInside" id="rQW-LU-SwZ"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.74604900666163432" green="0.95199679913603552" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" red="0.67585121033440987" green="0.88657564726942029" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="ON2-hp-eE8" firstAttribute="top" secondItem="751-8w-sfv" secondAttribute="bottom" constant="26" id="0hC-1e-Hfn"/>
                             <constraint firstItem="91H-2M-W8U" firstAttribute="top" secondItem="ioC-Y4-ikR" secondAttribute="bottom" constant="11" id="11Z-vW-efe"/>
                             <constraint firstItem="cO1-ZA-pwK" firstAttribute="leading" secondItem="91H-2M-W8U" secondAttribute="trailing" constant="22" id="4xr-wq-tFk"/>
                             <constraint firstItem="EoX-mu-0JS" firstAttribute="leading" secondItem="cO1-ZA-pwK" secondAttribute="trailing" constant="12" id="9Ss-iP-6if"/>
@@ -349,9 +369,8 @@
                             <constraint firstItem="cO1-ZA-pwK" firstAttribute="top" secondItem="ioC-Y4-ikR" secondAttribute="bottom" constant="8" symbolic="YES" id="Atx-vH-ffc"/>
                             <constraint firstItem="OF1-4f-Iwl" firstAttribute="top" secondItem="XTA-Jj-yx6" secondAttribute="bottom" constant="75" id="BBV-cA-OaH"/>
                             <constraint firstItem="ESJ-7e-4di" firstAttribute="leading" secondItem="znk-xJ-YXz" secondAttribute="leading" id="Cf4-c8-9he"/>
-                            <constraint firstItem="CTL-eJ-l4f" firstAttribute="leading" secondItem="Ecv-jX-xqS" secondAttribute="leadingMargin" constant="158" id="ErO-h4-9tM"/>
                             <constraint firstItem="751-8w-sfv" firstAttribute="top" secondItem="dvr-6k-Qcv" secondAttribute="bottom" constant="19" id="Iee-Ru-jr5"/>
-                            <constraint firstItem="OF1-4f-Iwl" firstAttribute="top" secondItem="EoX-mu-0JS" secondAttribute="bottom" constant="334" id="MDG-J4-rCF"/>
+                            <constraint firstItem="7OB-2n-rmi" firstAttribute="top" secondItem="751-8w-sfv" secondAttribute="bottom" constant="26" id="JRi-9H-krY"/>
                             <constraint firstItem="znk-xJ-YXz" firstAttribute="centerX" secondItem="CTL-eJ-l4f" secondAttribute="centerX" id="MlZ-KN-h2u"/>
                             <constraint firstItem="XTA-Jj-yx6" firstAttribute="top" secondItem="751-8w-sfv" secondAttribute="bottom" constant="26" id="Npi-vh-xzT"/>
                             <constraint firstItem="91H-2M-W8U" firstAttribute="centerY" secondItem="cO1-ZA-pwK" secondAttribute="centerY" id="Nv9-kO-oCa"/>
@@ -359,26 +378,20 @@
                             <constraint firstItem="91H-2M-W8U" firstAttribute="leading" secondItem="Ecv-jX-xqS" secondAttribute="leading" constant="247" id="UoE-Iu-cOg"/>
                             <constraint firstItem="ESJ-7e-4di" firstAttribute="centerX" secondItem="Ecv-jX-xqS" secondAttribute="centerX" id="WWS-WQ-RhA"/>
                             <constraint firstItem="CTL-eJ-l4f" firstAttribute="centerX" secondItem="ioC-Y4-ikR" secondAttribute="centerX" id="ZrJ-Oz-9MG"/>
-                            <constraint firstItem="CTL-eJ-l4f" firstAttribute="centerX" secondItem="cO1-ZA-pwK" secondAttribute="centerX" id="cBm-4e-Uug"/>
                             <constraint firstItem="ESJ-7e-4di" firstAttribute="trailing" secondItem="znk-xJ-YXz" secondAttribute="trailing" id="ccb-2C-mhu"/>
                             <constraint firstItem="cO1-ZA-pwK" firstAttribute="centerX" secondItem="dvr-6k-Qcv" secondAttribute="centerX" id="eDw-5L-UIg"/>
                             <constraint firstItem="znk-xJ-YXz" firstAttribute="top" secondItem="ESJ-7e-4di" secondAttribute="bottom" constant="16" id="egR-Qc-lcS"/>
-                            <constraint firstItem="cO1-ZA-pwK" firstAttribute="centerX" secondItem="XTA-Jj-yx6" secondAttribute="centerX" id="gAE-Jw-D9K"/>
                             <constraint firstItem="ioC-Y4-ikR" firstAttribute="trailing" secondItem="EoX-mu-0JS" secondAttribute="trailing" id="gvW-bn-AoV"/>
+                            <constraint firstItem="ON2-hp-eE8" firstAttribute="leading" secondItem="XTA-Jj-yx6" secondAttribute="trailing" constant="13" id="gyG-Ae-j9v"/>
                             <constraint firstItem="91H-2M-W8U" firstAttribute="top" secondItem="EoX-mu-0JS" secondAttribute="top" id="hxB-Ty-pbc"/>
+                            <constraint firstItem="ON2-hp-eE8" firstAttribute="centerX" secondItem="Ecv-jX-xqS" secondAttribute="centerX" id="lEh-6i-To5"/>
+                            <constraint firstItem="751-8w-sfv" firstAttribute="centerX" secondItem="Ecv-jX-xqS" secondAttribute="centerX" id="lhV-Ag-bsE"/>
                             <constraint firstItem="CTL-eJ-l4f" firstAttribute="trailing" secondItem="dvr-6k-Qcv" secondAttribute="trailing" id="ofV-qI-EDy"/>
                             <constraint firstItem="dvr-6k-Qcv" firstAttribute="top" secondItem="EoX-mu-0JS" secondAttribute="bottom" constant="28" id="ppH-hh-Qpy"/>
-                            <constraint firstItem="751-8w-sfv" firstAttribute="centerX" secondItem="XTA-Jj-yx6" secondAttribute="centerX" id="szE-R4-YPb"/>
+                            <constraint firstItem="7OB-2n-rmi" firstAttribute="leading" secondItem="ON2-hp-eE8" secondAttribute="trailing" constant="11" id="uyK-m2-ver"/>
                             <constraint firstItem="cO1-ZA-pwK" firstAttribute="centerY" secondItem="EoX-mu-0JS" secondAttribute="centerY" id="xa9-x7-aIy"/>
                             <constraint firstItem="ioC-Y4-ikR" firstAttribute="centerX" secondItem="cO1-ZA-pwK" secondAttribute="centerX" id="z45-Ak-IIj"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="ErO-h4-9tM"/>
-                                <exclude reference="cBm-4e-Uug"/>
-                                <exclude reference="MDG-J4-rCF"/>
-                            </mask>
-                        </variation>
                     </view>
                     <connections>
                         <outlet property="fbLoginButton" destination="91H-2M-W8U" id="UmJ-Lp-b3U"/>
@@ -955,7 +968,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="vp4-zH-xrt"/>
-        <segue reference="cLz-DH-rWB"/>
-        <segue reference="nNe-jP-wuX"/>
+        <segue reference="pSX-wg-1AK"/>
+        <segue reference="afa-3o-wzc"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -44,6 +44,7 @@
 		A5E60193B1A82E6531F3D365 /* Pods_Drop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54F5B4C8E4EB64ACCDFDCEFC /* Pods_Drop.framework */; };
 		C75BB6891CEE498700C867FF /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C75BB6881CEE498700C867FF /* Media.xcassets */; };
 		C77CB93B1CF4D6320069CEAF /* LoaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C77CB93A1CF4D6320069CEAF /* LoaderView.xib */; };
+		C77D6E4E1CFB0778007FC96D /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C77D6E4D1CFB0778007FC96D /* Social.framework */; };
 		EFC75269C3F4E5C3FDE0B623 /* Pods_DropTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1202F5E8DF8FD655C0C52D73 /* Pods_DropTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -114,6 +115,7 @@
 		B89864DDDD4ADD211A99645A /* Pods-DropTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DropTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DropTests/Pods-DropTests.release.xcconfig"; sourceTree = "<group>"; };
 		C75BB6881CEE498700C867FF /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		C77CB93A1CF4D6320069CEAF /* LoaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoaderView.xib; sourceTree = "<group>"; };
+		C77D6E4D1CFB0778007FC96D /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		E2AA781A2AD778631FE9D1BE /* Pods-Drop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Drop.release.xcconfig"; path = "Pods/Target Support Files/Pods-Drop/Pods-Drop.release.xcconfig"; sourceTree = "<group>"; };
 		F9D7A94DA46246F98D0BCE10 /* Pods-DropUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DropUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DropUITests/Pods-DropUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -123,6 +125,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C77D6E4E1CFB0778007FC96D /* Social.framework in Frameworks */,
 				1B6E6E061CF611FE000E6390 /* CoreLocation.framework in Frameworks */,
 				1B6E6E041CF611F4000E6390 /* MapKit.framework in Frameworks */,
 				1BF962511CF2184800AF9B93 /* FBSDKLoginKit.framework in Frameworks */,
@@ -294,6 +297,7 @@
 		1BDE53911CEBD0E600DC02BF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C77D6E4D1CFB0778007FC96D /* Social.framework */,
 				1B6E6E051CF611FE000E6390 /* CoreLocation.framework */,
 				1B6E6E031CF611F4000E6390 /* MapKit.framework */,
 				1BF962521CF2184E00AF9B93 /* FBSDKCoreKit.framework */,

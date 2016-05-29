@@ -10,6 +10,7 @@ import UIKit
 import FBSDKLoginKit
 import FBSDKCoreKit
 import Parse
+import Social
 
 extension UIView {
     func addBackground() {
@@ -286,6 +287,64 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignIn
         self.performSegueWithIdentifier("addFriend", sender: self)
     }
     
+    
+    //http://www.appcoda.com/social-framework-introduction/
+    @IBAction func shareButtonPressed(sender: AnyObject) {
+        let shareAlert = UIAlertController(title: "", message: "Share Us", preferredStyle: UIAlertControllerStyle.ActionSheet)
+        // Configure a new action for sharing the note in Twitter.
+        let twitter = UIAlertAction(title: "Share on Twitter", style: UIAlertActionStyle.Default) { (action) -> Void in
+            // Check if sharing to Twitter is possible.
+            if SLComposeViewController.isAvailableForServiceType(SLServiceTypeTwitter) {
+                // Initialize the default view controller for sharing the post.
+                let twitterComposeVC = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
+                twitterComposeVC.setInitialText("Hey check out this wonderful App 'Drop'")
+                // Display the compose view controller.
+                self.presentViewController(twitterComposeVC, animated: true, completion: nil)
+            }
+            else {
+                self.showAlertMessage("You are not logged in to your Twitter account.")
+            }
+        }
+
+        let facebook = UIAlertAction(title: "Share on Facebook", style: UIAlertActionStyle.Default) { (action) -> Void in
+            if SLComposeViewController.isAvailableForServiceType(SLServiceTypeFacebook) {
+                let facebookComposeVC = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
+                
+                facebookComposeVC.setInitialText("Hey check out this wonderful App 'Drop'")
+                
+                self.presentViewController(facebookComposeVC, animated: true, completion: nil)
+            }
+            else {
+                self.showAlertMessage("You are not connected to your Facebook account.")
+            }
+        }
+        
+        // Configure a new action to show the UIActivityViewController
+        let more = UIAlertAction(title: "More", style: UIAlertActionStyle.Default) { (action) -> Void in
+            let activityViewController = UIActivityViewController(activityItems: ["Hey check out this wonderful App 'Drop'"], applicationActivities: nil)
+            
+            self.presentViewController(activityViewController, animated: true, completion: nil)
+        }
+        
+        
+        let dismiss = UIAlertAction(title: "Close", style: UIAlertActionStyle.Cancel) { (action) -> Void in
+            
+        }
+        
+        
+        shareAlert.addAction(twitter)
+        shareAlert.addAction(facebook)
+        shareAlert.addAction(more)
+        shareAlert.addAction(dismiss)
+        
+        presentViewController(shareAlert, animated: true, completion: nil)
+    }
+    
+    func showAlertMessage( message: String!) {
+        let alertController = UIAlertController(title: "Drop", message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "Share", style: UIAlertActionStyle.Default, handler: nil))
+        presentViewController(alertController, animated: true, completion: nil)
+    }
     
 }
 
