@@ -28,6 +28,7 @@ class MusicPlayerTableViewController: UITableViewController, MusicDataDelegate, 
         searchBarController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
         tableView.tableHeaderView = searchBarController.searchBar
+
 //        musicPlayerCell.delegatePlay = self
 //        varicPlayerCell.delegateStop = self
     }
@@ -58,15 +59,7 @@ class MusicPlayerTableViewController: UITableViewController, MusicDataDelegate, 
     override func viewWillAppear(animated: Bool) {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         self.musicPlaylist = appDelegate.playList
-
-//        for audio in self.musicPlaylist{
-//        
-//            if !audio.playing() {
-//                audio.play()
-//            }
-//        }
-//
-//        }
+        self.tableView.reloadData()
     }
 
     func showFilteredSongs(text : String, scope: String = "All") {
@@ -107,7 +100,7 @@ class MusicPlayerTableViewController: UITableViewController, MusicDataDelegate, 
             songDetails = self.musicPlaylist[indexPath.row]
         }
         cell.trackTitle.text = songDetails.title
-        cell.trackDuration.text = String(songDetails.duration) + cell.trackDuration.text!
+        cell.trackDuration.text = String(songDetails.duration) + "min"
         cell.delegatePlay=self
         cell.delegateStop=self
         return cell
@@ -120,13 +113,21 @@ class MusicPlayerTableViewController: UITableViewController, MusicDataDelegate, 
     }
     
     func playSong(cell: MusicPlayerTableViewCell){
-        self.musicPlaylist[musicPlayerView.indexPathForCell(cell)!.row].play()
+        if searchBarController.active && searchBarController.searchBar.text != "" {
+            self.searchedResults[musicPlayerView.indexPathForCell(cell)!.row].play()
+        } else {
+            self.musicPlaylist[musicPlayerView.indexPathForCell(cell)!.row].play()
+        }
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         appDelegate.currentSong = self.musicPlaylist[musicPlayerView.indexPathForCell(cell)!.row]
     }
     
     func stopSong(cell: MusicPlayerTableViewCell){
-        self.musicPlaylist[musicPlayerView.indexPathForCell(cell)!.row].stop()
+               if searchBarController.active && searchBarController.searchBar.text != "" {
+            self.searchedResults[musicPlayerView.indexPathForCell(cell)!.row].stop()
+        } else {
+            self.musicPlaylist[musicPlayerView.indexPathForCell(cell)!.row].stop()
+        }
     }
     
 

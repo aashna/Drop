@@ -99,15 +99,16 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
     
     func addLoadingScreen(){
-        if(AppDelegate.getAppDelegate().loaded == false){
+//        if(AppDelegate.getAppDelegate().loaded == false){
             if let loaderView = NSBundle.mainBundle().loadNibNamed("LoaderView", owner: self, options: nil).first as? LoaderView {
                 loaderView.frame = UIScreen.mainScreen().bounds
                 loaderView.animateLoader()
                 loaderView.tag = 22
                 self.view.addSubview(loaderView)
-            }
+          //  }
         }
-         AppDelegate.getAppDelegate().loaded = true
+        var x = 9
+         //AppDelegate.getAppDelegate().loaded = true
     }
     
 

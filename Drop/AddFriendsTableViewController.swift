@@ -165,17 +165,22 @@ class AddFriendsTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.cellForRowAtIndexPath(indexPath)?.accessoryType = UITableViewCellAccessoryType.None
     }
+
     
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
-    }
-    
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if (editingStyle == UITableViewCellEditingStyle.Delete) {
-            // handle delete (by removing the data from your array and updating the tableview)
-            self.dataParse.removeObjectAtIndex(indexPath.row)
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if case let showFriendsVC as ShowFriendsTableViewController  = segue.destinationViewController
+            where segue.identifier == "showFriends"
+        {
+            
+            for row in 0...self.dataParse.count{
+                let indexPath = NSIndexPath(forRow: row, inSection: 0)
+                if(tableView.cellForRowAtIndexPath(indexPath)?.accessoryType == UITableViewCellAccessoryType.Checkmark){
+                    friends.append(self.dataParse[indexPath.row] as! String)
+                }  
+            }
+             showFriendsVC.friends = self.friends//self.dataParse as NSArray as! [String]
         }
+        
     }
     
 }
