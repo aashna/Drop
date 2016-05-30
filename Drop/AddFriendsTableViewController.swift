@@ -60,15 +60,15 @@ class AddFriendsTableViewController: UITableViewController {
                 } catch {
                     
                 }
-                for contact in contacts {
-                    var phoneStr : String
-                    var nameStr : String
-                    var number: CNPhoneNumber!
-                    if contact.phoneNumbers.count > 0 {
-                        number = contact.phoneNumbers[0].value as! CNPhoneNumber
-                        phoneStr = number.stringValue.stringByReplacingOccurrencesOfString("-", withString: "")
-                    }
-                    nameStr = contact.familyName + contact.givenName
+//                for contact in contacts {
+//                    var phoneStr : String
+//                    var nameStr : String
+//                    var number: CNPhoneNumber!
+//                    if contact.phoneNumbers.count > 0 {
+//                        number = contact.phoneNumbers[0].value as! CNPhoneNumber
+//                        phoneStr = number.stringValue.stringByReplacingOccurrencesOfString("-", withString: "")
+//                    }
+//                    nameStr = contact.familyName + contact.givenName
 //                    print(nameStr)
 //                    print(phoneStr)
 //                    if !nameStr.isEmpty && !phoneStr.isEmpty {
@@ -78,7 +78,7 @@ class AddFriendsTableViewController: UITableViewController {
 //                        self.friendArr.append(friend)
 //                    }
                     
-                }
+//                }
             }
         }
 
@@ -89,14 +89,14 @@ class AddFriendsTableViewController: UITableViewController {
 
         for contact in contacts{
             var phoneStr : String
-            var nameStr : String
-            var number: CNPhoneNumber!
+//            var nameStr : String
+//            var number: CNPhoneNumber!
             if contact.phoneNumbers.count > 0 {
                 phoneStr = (contact.phoneNumbers[0].value as! CNPhoneNumber).valueForKey("digits") as! String
             } else {
                 phoneStr = ""
             }
-            nameStr = contact.familyName + contact.givenName
+//            nameStr = contact.familyName + contact.givenName
            // print(nameStr)
            
            // print(phoneStr)

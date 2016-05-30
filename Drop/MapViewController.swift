@@ -107,7 +107,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                 self.view.addSubview(loaderView)
           //  }
         }
-        var x = 9
          //AppDelegate.getAppDelegate().loaded = true
     }
     

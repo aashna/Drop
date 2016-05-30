@@ -93,7 +93,7 @@ class ShowFriendsTableViewController: UITableViewController, UIPopoverPresentati
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "friendDetails" {
-            let friendDetailsVC = segue.destinationViewController as! FriendDetailsViewController, index = self.tableView.indexPathForSelectedRow
+            let friendDetailsVC = segue.destinationViewController as! FriendDetailsViewController, _ = self.tableView.indexPathForSelectedRow
             
             friendDetailsVC.modalPresentationStyle = UIModalPresentationStyle.Popover
             friendDetailsVC.popoverPresentationController!.delegate = self
