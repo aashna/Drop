@@ -38,6 +38,7 @@
 		1BB438AF1CF759F600B761D1 /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB438AE1CF759F600B761D1 /* LoaderView.swift */; };
 		1BB438B11CFAC03100B761D1 /* ShowFriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB438B01CFAC03100B761D1 /* ShowFriendsTableViewController.swift */; };
 		1BB438B31CFB5CCC00B761D1 /* ShowFriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB438B21CFB5CCC00B761D1 /* ShowFriendsTableViewCell.swift */; };
+		1BB438B51CFBA52400B761D1 /* FriendDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB438B41CFBA52400B761D1 /* FriendDetailsViewController.swift */; };
 		1BC360C901B8A1ED205571C4 /* Pods_DropUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A92C659F95B259098A852AF /* Pods_DropUITests.framework */; };
 		1BDE53931CEBD18000DC02BF /* AudioLocale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDE53921CEBD18000DC02BF /* AudioLocale.swift */; };
 		1BF962511CF2184800AF9B93 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BF962501CF2184800AF9B93 /* FBSDKLoginKit.framework */; };
@@ -107,6 +108,7 @@
 		1BB438AE1CF759F600B761D1 /* LoaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
 		1BB438B01CFAC03100B761D1 /* ShowFriendsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowFriendsTableViewController.swift; sourceTree = "<group>"; };
 		1BB438B21CFB5CCC00B761D1 /* ShowFriendsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowFriendsTableViewCell.swift; sourceTree = "<group>"; };
+		1BB438B41CFBA52400B761D1 /* FriendDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendDetailsViewController.swift; sourceTree = "<group>"; };
 		1BDE53921CEBD18000DC02BF /* AudioLocale.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioLocale.swift; sourceTree = "<group>"; };
 		1BF962501CF2184800AF9B93 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		1BF962521CF2184E00AF9B93 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
@@ -233,6 +235,7 @@
 				1BF962541CF269C200AF9B93 /* AddFriendsTableViewController.swift */,
 				1BB438B01CFAC03100B761D1 /* ShowFriendsTableViewController.swift */,
 				1BB438B21CFB5CCC00B761D1 /* ShowFriendsTableViewCell.swift */,
+				1BB438B41CFBA52400B761D1 /* FriendDetailsViewController.swift */,
 			);
 			name = "Add Friends";
 			sourceTree = "<group>";
@@ -640,6 +643,7 @@
 				1B8EA2D81CE95BEA007699C6 /* AttractionAnnotation.swift in Sources */,
 				1BDE53931CEBD18000DC02BF /* AudioLocale.swift in Sources */,
 				1B05FA741CEE097500D746C9 /* UpdateProfileViewController.swift in Sources */,
+				1BB438B51CFBA52400B761D1 /* FriendDetailsViewController.swift in Sources */,
 				1B8EA2AA1CE94D26007699C6 /* AppDelegate.swift in Sources */,
 				1BA747C41CF4CD9D00BA3EAF /* AddFriendsTableViewCell.swift in Sources */,
 				1BA747C61CF4DF1800BA3EAF /* TransitionManager.swift in Sources */,

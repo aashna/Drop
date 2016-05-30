@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ShowFriendsTableViewController: UITableViewController {
+class ShowFriendsTableViewController: UITableViewController, UIPopoverPresentationControllerDelegate {
     
     var friends: [String] = [String]()
     
@@ -90,5 +90,21 @@ class ShowFriendsTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "friendDetails" {
+            let friendDetailsVC = segue.destinationViewController as! FriendDetailsViewController, index = self.tableView.indexPathForSelectedRow
+            
+            friendDetailsVC.modalPresentationStyle = UIModalPresentationStyle.Popover
+            friendDetailsVC.popoverPresentationController!.delegate = self
+            
+          
+            }
+        }
+    }
+    
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
+        return UIModalPresentationStyle.None
+    }
 
-}
+
