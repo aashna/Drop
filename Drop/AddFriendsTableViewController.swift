@@ -14,7 +14,7 @@ import Parse
 
 class AddFriendsTableViewController: UITableViewController {
     var friends: [String] = [String]()
-    var dataParse:NSMutableArray = NSMutableArray()
+    var dataParse: [(name: String, number: String)] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,13 +22,22 @@ class AddFriendsTableViewController: UITableViewController {
         self.tableView.allowsMultipleSelection = true
         print("INSIDE HERE")
         let contacts = fetchContactsFromAddressBook()
-        self.dataParse = fetchContactsFromParse(contacts)
+//        self.dataParse = fetchContactsFromParse(contacts)
        
         
-//        self.dataParse.addObject("abc")
-//        self.dataParse.addObject("def")
-//        self.dataParse.addObject("ghi")
-//        self.dataParse.addObject("xyz")
+        self.dataParse.append((name:"Barbara Mori", number:"+1 415 888 3214"))
+        self.dataParse.append((name:"Maria Duke", number:"+1 418 188 3314"))
+        self.dataParse.append((name:"Ronaldo", number:"+1 415 168 3213"))
+        self.dataParse.append((name:"Ayush Gupta", number:"+91 918 221 3894"))
+        self.dataParse.append((name:"Jonhy Bravo", number:"+1 422 344 3244"))
+        self.dataParse.append((name:"Katrina Heard", number:"+1 435 765 9814"))
+        self.dataParse.append((name:"Rockstar", number:"+1 415 888 1234"))
+        self.dataParse.append((name:"Narimaa De", number:"+1 418 188 4535"))
+        self.dataParse.append((name:"Bellachio", number:"+1 415 168 7446"))
+        self.dataParse.append((name:"Aashna Gupta", number:"+91 918 434 3894"))
+        self.dataParse.append((name:"Belly Fernando", number:"+1 745 356 8668"))
+        self.dataParse.append((name:"Manta Blow", number:"+1 635 115 1114"))
+
         
         //  print("Friends = \(friendsList)")
         
@@ -84,61 +93,61 @@ class AddFriendsTableViewController: UITableViewController {
 
           return contacts   }
     
-    func fetchContactsFromParse(contacts:[CNContact]) -> NSMutableArray{
-        var queries = [PFQuery]()
-
-        for contact in contacts{
-            var phoneStr : String
-//            var nameStr : String
-//            var number: CNPhoneNumber!
-            if contact.phoneNumbers.count > 0 {
-                phoneStr = (contact.phoneNumbers[0].value as! CNPhoneNumber).valueForKey("digits") as! String
-            } else {
-                phoneStr = ""
-            }
-//            nameStr = contact.familyName + contact.givenName
-           // print(nameStr)
-           
-           // print(phoneStr)
-//            if(phoneStr == "9868460133"){
-//              print("YES!!!")
+//    func fetchContactsFromParse(contacts:[CNContact]) -> NSMutableArray{
+//        var queries = [PFQuery]()
+//
+//        for contact in contacts{
+//            var phoneStr : String
+////            var nameStr : String
+////            var number: CNPhoneNumber!
+//            if contact.phoneNumbers.count > 0 {
+//                phoneStr = (contact.phoneNumbers[0].value as! CNPhoneNumber).valueForKey("digits") as! String
+//            } else {
+//                phoneStr = ""
 //            }
-         
-            
-            let query = PFQuery(className: "_User")
-             queries.append(query.whereKey("phone",equalTo: "\(phoneStr)"))
-            }
-            var query = PFQuery(className: "_User")
-            query = PFQuery.orQueryWithSubqueries(queries)
-            
-           
-            query.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
-                if error == nil {
-                    print("Successfully retrieved:")
-                    if let objects = objects as [PFObject]! {
-                        for object in objects {
-                            //For each object in the class object, append it to myArray
-                            //self.friends.append(object.objectForKey("username") as! String)
-                        self.dataParse.addObject(object.objectForKey("username") as! String)
-                        self.tableView.reloadData()
-                            
-                        }
-                        
-                    }
-                    
-                } else {
-                    print("Error: \(error) \(error!.userInfo)")
-                    
-                }
-            }
-        //let array:NSArray = self.dataParse.reverseObjectEnumerator().allObjects
-        //self.dataParse = array as NSArray as! [String]
-        
-      //  self.tableView.reloadData()
-        print("dataparse = \(dataParse)")
-        return self.dataParse
-        
-    }
+////            nameStr = contact.familyName + contact.givenName
+//           // print(nameStr)
+//           
+//           // print(phoneStr)
+////            if(phoneStr == "9868460133"){
+////              print("YES!!!")
+////            }
+//         
+//            
+//            let query = PFQuery(className: "_User")
+//             queries.append(query.whereKey("phone",equalTo: "\(phoneStr)"))
+//            }
+//            var query = PFQuery(className: "_User")
+//            query = PFQuery.orQueryWithSubqueries(queries)
+//            
+//           
+//            query.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
+//                if error == nil {
+//                    print("Successfully retrieved:")
+//                    if let objects = objects as [PFObject]! {
+//                        for object in objects {
+//                            //For each object in the class object, append it to myArray
+//                            //self.friends.append(object.objectForKey("username") as! String)
+//                        self.dataParse.addObject(object.objectForKey("username") as! String)
+//                        self.tableView.reloadData()
+//                            
+//                        }
+//                        
+//                    }
+//                    
+//                } else {
+//                    print("Error: \(error) \(error!.userInfo)")
+//                    
+//                }
+//            }
+//        //let array:NSArray = self.dataParse.reverseObjectEnumerator().allObjects
+//        //self.dataParse = array as NSArray as! [String]
+//        
+//      //  self.tableView.reloadData()
+//        print("dataparse = \(dataParse)")
+//        return self.dataParse
+//        
+//    }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -153,8 +162,10 @@ class AddFriendsTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("friend", forIndexPath: indexPath) as! AddFriendsTableViewCell
 //        let cellDataParse:PFObject = self.dataParse.objectAtIndex(indexPath.row) as! PFObject
 //        cell.friendName.text =   cellDataParse.objectForKey("username") as? String
-        let cellDataParse: String = self.dataParse.objectAtIndex(indexPath.row) as! String
-        cell.friendName.text = cellDataParse
+        let cellDataParse = self.dataParse.removeAtIndex(indexPath.row)
+        self.dataParse.insert(cellDataParse, atIndex: indexPath.row)
+        cell.friendName.text = cellDataParse.name
+        cell.friendPhone.text = cellDataParse.number
         return cell
     }
     
@@ -175,7 +186,9 @@ class AddFriendsTableViewController: UITableViewController {
             for row in 0...self.dataParse.count{
                 let indexPath = NSIndexPath(forRow: row, inSection: 0)
                 if(tableView.cellForRowAtIndexPath(indexPath)?.accessoryType == UITableViewCellAccessoryType.Checkmark){
-                    friends.append(self.dataParse[indexPath.row] as! String)
+                    let cellDataParse = self.dataParse.removeAtIndex(indexPath.row)
+                    self.dataParse.insert(cellDataParse, atIndex: indexPath.row)
+                    friends.append(cellDataParse.name)
                 }  
             }
              showFriendsVC.friends = self.friends//self.dataParse as NSArray as! [String]
