@@ -97,21 +97,21 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignIn
        
         //self.view.backgroundColor = UIColor(patternImage: UIImage(named: "drop-login-screen.png")!)
         
-        GIDSignIn.sharedInstance().uiDelegate = self
-    
-    
-        if (FBSDKAccessToken.currentAccessToken() == nil)
-        {
-            print("Not logged in..")
-        }
-        else
-        {
-            print("Logged in..")
-        }
-        
-   
-        fbLoginButton.readPermissions = ["public_profile", "email", "user_friends"]
-        fbLoginButton.delegate = self
+//        GIDSignIn.sharedInstance().uiDelegate = self
+//    
+//    
+//        if (FBSDKAccessToken.currentAccessToken() == nil)
+//        {
+//            print("Not logged in..")
+//        }
+//        else
+//        {
+//            print("Logged in..")
+//        }
+//        
+//   
+//        fbLoginButton.readPermissions = ["public_profile", "email", "user_friends"]
+//        fbLoginButton.delegate = self
     }
     
     func vibrateForInvalidInput() -> CAKeyframeAnimation {
