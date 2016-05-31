@@ -946,9 +946,9 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="highlightedColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hhP-TZ-2Mp">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Phone Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hhP-TZ-2Mp">
                                             <rect key="frame" x="419" y="8" width="115" height="28"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -956,7 +956,7 @@
                                     <constraints>
                                         <constraint firstItem="zbV-eK-8GI" firstAttribute="centerY" secondItem="hhP-TZ-2Mp" secondAttribute="centerY" id="ZH7-8v-DmR"/>
                                         <constraint firstItem="zbV-eK-8GI" firstAttribute="centerY" secondItem="sMf-y3-sRw" secondAttribute="centerY" id="aOm-Kk-8cv"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="hhP-TZ-2Mp" secondAttribute="trailing" constant="58" id="fjc-C3-92f"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="hhP-TZ-2Mp" secondAttribute="trailing" constant="44" id="fjc-C3-92f"/>
                                         <constraint firstItem="hhP-TZ-2Mp" firstAttribute="top" secondItem="sMf-y3-sRw" secondAttribute="topMargin" id="pgt-lw-vYF"/>
                                         <constraint firstItem="zbV-eK-8GI" firstAttribute="leading" secondItem="sMf-y3-sRw" secondAttribute="leadingMargin" constant="8" id="ttc-bA-50Z"/>
                                     </constraints>
@@ -996,20 +996,6 @@
                             <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NOK-gr-vN4">
-                                    <rect key="frame" x="554" y="6" width="46" height="32"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="46" id="6UP-Rb-jag"/>
-                                    </constraints>
-                                    <size key="titleShadowOffset" width="1" height="1"/>
-                                    <state key="normal" title="Edit">
-                                        <color key="titleColor" red="0.58022284599999996" green="0.8849153394" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <color key="titleShadowColor" red="0.62374118300000003" green="0.87286326999999997" blue="1" alpha="0.72041223399999998" colorSpace="calibratedRGB"/>
-                                    </state>
-                                    <connections>
-                                        <action selector="editButtonPressed:" destination="HP9-nn-jPp" eventType="touchUpInside" id="jKp-H9-Jap"/>
-                                    </connections>
-                                </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your friends" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SEi-qx-HPz">
                                     <rect key="frame" x="211" y="0.0" width="178" height="44"/>
                                     <color key="backgroundColor" red="0.92941176469999998" green="0.26274509800000001" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -1017,6 +1003,25 @@
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NOK-gr-vN4">
+                                    <rect key="frame" x="554" y="6" width="46" height="32"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="46" id="6UP-Rb-jag"/>
+                                    </constraints>
+                                    <color key="tintColor" red="0.61960784310000006" green="0.85490196080000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <size key="titleShadowOffset" width="1" height="1"/>
+                                    <state key="normal" title="Edit">
+                                        <color key="titleColor" red="0.58022284599999996" green="0.8849153394" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="titleShadowColor" red="0.62374118300000003" green="0.87286326999999997" blue="1" alpha="0.72041223399999998" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <state key="selected" title="Done">
+                                        <color key="titleShadowColor" red="0.62374118300000003" green="0.87286326999999997" blue="1" alpha="0.72041223399999998" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <state key="highlighted" title="Done"/>
+                                    <connections>
+                                        <action selector="editButtonPressed:" destination="HP9-nn-jPp" eventType="touchUpInside" id="jKp-H9-Jap"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" red="0.92941176469999998" green="0.26274509800000001" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
@@ -1063,6 +1068,9 @@
                             <outlet property="delegate" destination="HP9-nn-jPp" id="sz2-kY-bQF"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="editButton" destination="NOK-gr-vN4" id="KVG-tt-fwd"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Alk-wB-Qmt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

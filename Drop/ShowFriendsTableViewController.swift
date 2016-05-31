@@ -12,7 +12,8 @@ class ShowFriendsTableViewController: UITableViewController, UIPopoverPresentati
     
     var friends: [String] = [String]()
     let popoverVc = FriendDetailsViewController()
-
+    @IBOutlet weak var editButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,6 +33,7 @@ class ShowFriendsTableViewController: UITableViewController, UIPopoverPresentati
 
     @IBAction func editButtonPressed(sender: AnyObject) {
         self.editing = !self.editing
+        editButton.selected = !editButton.selected
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
