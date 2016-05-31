@@ -11,11 +11,13 @@ import UIKit
 class ShowFriendsTableViewController: UITableViewController, UIPopoverPresentationControllerDelegate {
     
     var friends: [String] = [String]()
-    
+    let popoverVc = FriendDetailsViewController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        popoverVc.modalPresentationStyle = .Popover
+        popoverVc.preferredContentSize = CGSizeMake(50, 100)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -27,6 +29,23 @@ class ShowFriendsTableViewController: UITableViewController, UIPopoverPresentati
         return 1
     }
     
+
+    @IBAction func editButtonPressed(sender: AnyObject) {
+     //   self.editing = !self.editing
+        let popoverMenuViewController = popoverVc.popoverPresentationController
+        popoverMenuViewController?.permittedArrowDirections = .Any
+        popoverMenuViewController?.delegate = self
+        popoverMenuViewController?.sourceView = sender as? UIView
+        popoverMenuViewController?.sourceRect = CGRect(
+            x: 100,
+            y: 100,
+            width: 1,
+            height: 1)
+        presentViewController(
+            popoverVc,
+            animated: true,
+            completion: nil)
+    }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.friends.count
@@ -41,17 +60,32 @@ class ShowFriendsTableViewController: UITableViewController, UIPopoverPresentati
     }
     
     
-        override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-            return true
-        }
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
     
-        override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-            if (editingStyle == UITableViewCellEditingStyle.Delete) {
-                // handle delete (by removing the data from your array and updating the tableview)
-                self.friends.removeAtIndex(indexPath.row)
-                tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-            }
-        }
+//    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+//        if (editingStyle == UITableViewCellEditingStyle.Delete) {
+//            // handle delete (by removing the data from your array and updating the tableview)
+//            self.friends.removeAtIndex(indexPath.row)
+//            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+//        }
+//    }
+//    
+    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
+        let itemToMove = self.friends[fromIndexPath.row]
+        self.friends.removeAtIndex(fromIndexPath.row)
+        self.friends.insert(itemToMove, atIndex: toIndexPath.row)
+    }
+    
+//        override func setEditing(editing: Bool, animated: Bool) {
+//            super.setEditing(editing, animated: animated)
+//            tableView.reloadData()
+//        }
 
 
     /*
@@ -97,8 +131,6 @@ class ShowFriendsTableViewController: UITableViewController, UIPopoverPresentati
             
             friendDetailsVC.modalPresentationStyle = UIModalPresentationStyle.Popover
             friendDetailsVC.popoverPresentationController!.delegate = self
-            
-          
             }
         }
     }
