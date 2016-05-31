@@ -31,20 +31,7 @@ class ShowFriendsTableViewController: UITableViewController, UIPopoverPresentati
     
 
     @IBAction func editButtonPressed(sender: AnyObject) {
-     //   self.editing = !self.editing
-        let popoverMenuViewController = popoverVc.popoverPresentationController
-        popoverMenuViewController?.permittedArrowDirections = .Any
-        popoverMenuViewController?.delegate = self
-        popoverMenuViewController?.sourceView = sender as? UIView
-        popoverMenuViewController?.sourceRect = CGRect(
-            x: 100,
-            y: 100,
-            width: 1,
-            height: 1)
-        presentViewController(
-            popoverVc,
-            animated: true,
-            completion: nil)
+        self.editing = !self.editing
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -64,14 +51,14 @@ class ShowFriendsTableViewController: UITableViewController, UIPopoverPresentati
         return true
     }
     
-//    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-//        if (editingStyle == UITableViewCellEditingStyle.Delete) {
-//            // handle delete (by removing the data from your array and updating the tableview)
-//            self.friends.removeAtIndex(indexPath.row)
-//            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-//        }
-//    }
-//    
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if (editingStyle == UITableViewCellEditingStyle.Delete) {
+            // handle delete (by removing the data from your array and updating the tableview)
+            self.friends.removeAtIndex(indexPath.row)
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+        }
+    }
+    
     override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
     }
