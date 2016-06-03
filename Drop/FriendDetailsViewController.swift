@@ -7,12 +7,33 @@
 //
 
 import UIKit
+import Parse
 
 class FriendDetailsViewController: UIViewController {
 
     @IBOutlet weak var userName: UILabel!
+    @IBOutlet weak var email: UILabel!
+    @IBOutlet weak var dob: UILabel!
+    @IBOutlet weak var phone: UILabel!
+    @IBOutlet weak var joined: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let userEmail = PFUser.currentUser()!["email"] as? String {
+            email.text = userEmail
+        }
+        if let username = PFUser.currentUser()!["username"] as? String {
+            userName.text = username
+        }
+        if let userDob = PFUser.currentUser()!["dob"] as? String {
+            dob.text = userDob
+        }
+        if let userPhone = PFUser.currentUser()!["phone"] as? String {
+            phone.text = userPhone
+        }
+        if let userJoined = PFUser.currentUser()!["createdAt"] as? String {
+            joined.text = userJoined
+        }
 
         // Do any additional setup after loading the view.
     }
@@ -32,5 +53,6 @@ class FriendDetailsViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+   
 
 }

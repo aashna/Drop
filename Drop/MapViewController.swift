@@ -23,7 +23,7 @@ enum MapType: Int {
     func getMusicData(results: NSArray)
 }
 
-class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate{
+class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate,UIPopoverPresentationControllerDelegate {
     
     
     
@@ -553,4 +553,16 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             }
 //        }
 //    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showProfile" {
+            let friendDetailsVC = segue.destinationViewController as! FriendDetailsViewController
+            
+            friendDetailsVC.modalPresentationStyle = UIModalPresentationStyle.Popover
+            friendDetailsVC.popoverPresentationController!.delegate = self
+        }
+    }
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
+        return UIModalPresentationStyle.None
+    }
 }
