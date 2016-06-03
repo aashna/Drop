@@ -832,6 +832,17 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="d6b-8v-IOO">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="noi-S3-wdW">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Uyg-tk-f6O">
+                                <rect key="frame" x="20" y="7" width="80" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="Logout"/>
+                                <connections>
+                                    <action selector="logoutPressed:" destination="ysG-YK-dzz" eventType="touchUpInside" id="UiD-9I-6Gc"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Map -&gt;" id="gAr-qe-o4l">
                             <connections>
                                 <action selector="goToMap:" destination="ysG-YK-dzz" id="2mT-vC-LCb"/>

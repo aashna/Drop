@@ -56,6 +56,11 @@ class MusicPlayerTableViewController: UITableViewController, MusicDataDelegate, 
             }
         }
     }
+    
+    @IBAction func logoutPressed(sender: UIButton) {
+        //Logout here
+        
+    }
     override func viewWillAppear(animated: Bool) {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         self.musicPlaylist = appDelegate.playList
