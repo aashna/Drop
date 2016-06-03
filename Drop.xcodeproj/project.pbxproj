@@ -41,8 +41,6 @@
 		1BB438B51CFBA52400B761D1 /* FriendDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB438B41CFBA52400B761D1 /* FriendDetailsViewController.swift */; };
 		1BC360C901B8A1ED205571C4 /* Pods_DropUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A92C659F95B259098A852AF /* Pods_DropUITests.framework */; };
 		1BDE53931CEBD18000DC02BF /* AudioLocale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDE53921CEBD18000DC02BF /* AudioLocale.swift */; };
-		1BF962511CF2184800AF9B93 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BF962501CF2184800AF9B93 /* FBSDKLoginKit.framework */; };
-		1BF962531CF2184E00AF9B93 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BF962521CF2184E00AF9B93 /* FBSDKCoreKit.framework */; };
 		1BF962551CF269C200AF9B93 /* AddFriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF962541CF269C200AF9B93 /* AddFriendsTableViewController.swift */; };
 		A5E60193B1A82E6531F3D365 /* Pods_Drop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54F5B4C8E4EB64ACCDFDCEFC /* Pods_Drop.framework */; };
 		C75BB6891CEE498700C867FF /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C75BB6881CEE498700C867FF /* Media.xcassets */; };
@@ -134,8 +132,6 @@
 				C77D6E4E1CFB0778007FC96D /* Social.framework in Frameworks */,
 				1B6E6E061CF611FE000E6390 /* CoreLocation.framework in Frameworks */,
 				1B6E6E041CF611F4000E6390 /* MapKit.framework in Frameworks */,
-				1BF962511CF2184800AF9B93 /* FBSDKLoginKit.framework in Frameworks */,
-				1BF962531CF2184E00AF9B93 /* FBSDKCoreKit.framework in Frameworks */,
 				A5E60193B1A82E6531F3D365 /* Pods_Drop.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -794,7 +790,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
-					"~/Developer/FacebookSDKs-iOS-20160412",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/google_signin_sdk_4_0_0",
 					"$(inherited)",
@@ -819,7 +814,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
-					"~/Developer/FacebookSDKs-iOS-20160412",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/google_signin_sdk_4_0_0",
 					"$(inherited)",
