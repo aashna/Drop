@@ -210,7 +210,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         // 2
         region.notifyOnEntry = (geonotification.eventType == .OnEntry)
         region.notifyOnExit = !region.notifyOnEntry
-        fetchMusicDataIntoModel("http://api.soundcloud.com/users/228307235/playlists?client_id=14802fecba08aa53d2daa7d16434d02c")
         return region
     }
 
