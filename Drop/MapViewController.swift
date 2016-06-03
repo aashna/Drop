@@ -37,6 +37,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
       "Gates Station": "http://api.soundcloud.com/users/228307235/playlists?client_id=14802fecba08aa53d2daa7d16434d02c",
        "McFarland Station":"http://api.soundcloud.com/users/12061020/playlists?client_id=14802fecba08aa53d2daa7d16434d02c"
     ]
+    var locationCoordinates =  [String: CLLocationCoordinate2D]()
     var locationName = ""
 
     
@@ -120,6 +121,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         
         setCurrentSong()
         setProfilePicture()
+        setCoordinates()
      //   addLoadingScreen()
      //   addLocations()
       //  loadAllGeonotifications()
@@ -142,6 +144,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
   
     }
     
+    func setCoordinates() {
+        locationCoordinates["Gates Station"] = CLLocationCoordinate2D(latitude:37.4301566, longitude: -122.175685)
+        locationCoordinates["McFarland Station"] = CLLocationCoordinate2D(latitude:37.4264022, longitude:-122.1600607)
+    }
 //    func addLocations() {
 //        let huangFilePath = NSBundle.mainBundle().pathForResource("Huang", ofType: "plist")
 //        let huangLocations = NSArray(contentsOfFile: huangFilePath!)
@@ -204,6 +210,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         // 2
         region.notifyOnEntry = (geonotification.eventType == .OnEntry)
         region.notifyOnExit = !region.notifyOnEntry
+        fetchMusicDataIntoModel("http://api.soundcloud.com/users/228307235/playlists?client_id=14802fecba08aa53d2daa7d16434d02c")
         return region
     }
 
@@ -278,11 +285,12 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
 //        let mcFarland = Location(centerCoordinate:mcFarlandCenterCoordinate, radius:mcFarlandRadius)
        // mapView.addOverlay(gates)
        // mapView.addOverlay(mcFarland)
-        let geonotification1 = Geonotification(coordinate: CLLocationCoordinate2D(latitude:37.4301566, longitude: -122.175685), radius: 500, identifier: NSUUID().UUIDString, note: "Gates Station", eventType: EventType.OnEntry)
-            let geonotification11 = Geonotification(coordinate: CLLocationCoordinate2D(latitude:37.4262789, longitude: -122.1721211), radius: 500, identifier: NSUUID().UUIDString, note: "GatesStation", eventType: EventType.OnExit)
+        
+        let geonotification1 = Geonotification(coordinate: locationCoordinates["Gates Station"]!, radius: 500, identifier: NSUUID().UUIDString, note: "Gates Station", eventType: EventType.OnEntry)
+            let geonotification11 = Geonotification(coordinate: locationCoordinates["Gates Station"]!, radius: 500, identifier: NSUUID().UUIDString, note: "Gates Station", eventType: EventType.OnExit)
 //        let geonotification11 = Geonotification(coordinate: CLLocationCoordinate2D(latitude:37.43015659999997, longitude: -122.175685), radius: 500, identifier: NSUUID().UUIDString, note: "Gates Station", eventType: EventType.OnExit)
-        let geonotification2 = Geonotification(coordinate: CLLocationCoordinate2D(latitude:37.4264022, longitude:-122.1600607), radius: 500, identifier: NSUUID().UUIDString, note: "McFarland Station", eventType: EventType.OnEntry)
-        let geonotification22 = Geonotification(coordinate: CLLocationCoordinate2D(latitude:37.4264022, longitude:-122.1600607), radius: 500, identifier: NSUUID().UUIDString, note: "McFarland Station", eventType: EventType.OnExit)
+        let geonotification2 = Geonotification(coordinate: locationCoordinates["McFarland Station"]!, radius: 500, identifier: NSUUID().UUIDString, note: "McFarland Station", eventType: EventType.OnEntry)
+        let geonotification22 = Geonotification(coordinate: locationCoordinates["McFarland Station"]!, radius: 500, identifier: NSUUID().UUIDString, note: "McFarland Station", eventType: EventType.OnExit)
         
         addRadiusOverlayForgeonotification(geonotification1)
         addRadiusOverlayForgeonotification(geonotification2)

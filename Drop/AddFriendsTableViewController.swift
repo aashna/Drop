@@ -21,7 +21,7 @@ class AddFriendsTableViewController: UITableViewController {
         self.tableView.contentInset = UIEdgeInsets(top: 28, left: 0, bottom: 0, right: 0)
         self.tableView.allowsMultipleSelection = true
         print("INSIDE HERE")
-        let contacts = fetchContactsFromAddressBook()
+        _ = fetchContactsFromAddressBook()
 //        self.dataParse = fetchContactsFromParse(contacts)
        
         
