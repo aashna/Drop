@@ -4,33 +4,45 @@
 <array>
 	<dict>
 		<key>name</key>
-		<string>Gates</string>
-		<key>location</key>
-		<string>{37.4301566,-122.175685}</string>
+		<string>Gates Station</string>
+		<key>latitude</key>
+		<string>37.4301566</string>
+		<key>longitude</key>
+		<string>-122.175685</string>
 		<key>type</key>
 		<string>2</string>
 		<key>subtitle</key>
 		<string>Stanford</string>
+		<key>url</key>
+		<string>http://api.soundcloud.com/users/228307235/playlists?client_id=14802fecba08aa53d2daa7d16434d02c</string>
 	</dict>
 	<dict>
 		<key>name</key>
-		<string>Memorial Auditorium</string>
-		<key>location</key>
-		<string>{37.4289343,-122.1686884}</string>
+		<string>McFarland Station</string>
+		<key>latitude</key>
+		<string>37.4264022</string>
+		<key>longitude</key>
+		<string>-122.1600607</string>
 		<key>type</key>
 		<string>1</string>
 		<key>subtitle</key>
 		<string>Stanford</string>
+		<key>url</key>
+		<string>http://api.soundcloud.com/users/12061020/playlists?client_id=14802fecba08aa53d2daa7d16434d02c</string>
 	</dict>
 	<dict>
 		<key>name</key>
 		<string>Arrillaga Outdoor Education and Recreation Center</string>
-		<key>location</key>
-		<string>{37.4267583,-122.1796955}</string>
+		<key>latitude</key>
+		<string>37.4267583</string>
+		<key>longitude</key>
+		<string>-122.1796955</string>
 		<key>type</key>
 		<string>3</string>
 		<key>subtitle</key>
 		<string>Stanford</string>
+		<key>url</key>
+		<string>http://api.soundcloud.com/users/12061020/playlists?client_id=14802fecba08aa53d2daa7d16434d02c</string>
 	</dict>
 </array>
 </plist>

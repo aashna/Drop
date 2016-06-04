@@ -28,21 +28,27 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     
     var SoundCloud_CLIENT_ID = "14802fecba08aa53d2daa7d16434d02c"
-    var user_id1 = "228307235"
-    var user_id2 = "174400130"
-    var user_id3 = "12061020"
     var musicPlaylist = [SongDetailsModel]()
     var geonotifications = [Geonotification]()
+    
+    var myDict: NSArray?
+
+    
     var dictionary : [(String):String]=[
       "Gates Station": "http://api.soundcloud.com/users/228307235/playlists?client_id=14802fecba08aa53d2daa7d16434d02c",
        "McFarland Station":"http://api.soundcloud.com/users/12061020/playlists?client_id=14802fecba08aa53d2daa7d16434d02c"
     ]
-    var locationCoordinates =  [String: CLLocationCoordinate2D]()
     var locationName = ""
+    let regionRadius: CLLocationDistance = 500
 
     
     let locationManager = CLLocationManager()
     weak var delegate: MusicDataDelegate?
+    
+    var zones = NSArray(contentsOfFile: NSBundle.mainBundle().pathForResource("Zones", ofType: "plist")!)
+    
+  
+    
 //    let defaultSession = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration())
 //    var dataTask: NSURLSessionDataTask?
     
@@ -110,7 +116,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         }
          //AppDelegate.getAppDelegate().loaded = true
     }
-    
+
 
 
     
@@ -121,7 +127,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         
         setCurrentSong()
         setProfilePicture()
-        setCoordinates()
      //   addLoadingScreen()
      //   addLocations()
       //  loadAllGeonotifications()
@@ -129,8 +134,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         locationManager.requestAlwaysAuthorization()
         if CLLocationManager.locationServicesEnabled() {
             self.locationManager.delegate = self
-          //  self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
-           // self.locationManager.startUpdatingLocation()
+            self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            self.locationManager.startUpdatingLocation()
             self.mapView.showsUserLocation = true
         }
         addGeonotifications()
@@ -143,10 +148,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     //    fetchMusicDataIntoModel()
   
     }
-    
-    func setCoordinates() {
-        locationCoordinates["Gates Station"] = CLLocationCoordinate2D(latitude:37.4301566, longitude: -122.175685)
-        locationCoordinates["McFarland Station"] = CLLocationCoordinate2D(latitude:37.4264022, longitude:-122.1600607)
+
+    func centerMapOnLocation(location: CLLocation) {
+        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
+                                                                  regionRadius * 2.0, regionRadius * 2.0)
+        mapView.setRegion(coordinateRegion, animated: true)
     }
 //    func addLocations() {
 //        let huangFilePath = NSBundle.mainBundle().pathForResource("Huang", ofType: "plist")
@@ -285,33 +291,42 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
        // mapView.addOverlay(gates)
        // mapView.addOverlay(mcFarland)
         
-        let geonotification1 = Geonotification(coordinate: locationCoordinates["Gates Station"]!, radius: 500, identifier: NSUUID().UUIDString, note: "Gates Station", eventType: EventType.OnEntry)
-            let geonotification11 = Geonotification(coordinate: locationCoordinates["Gates Station"]!, radius: 500, identifier: NSUUID().UUIDString, note: "Gates Station", eventType: EventType.OnExit)
-//        let geonotification11 = Geonotification(coordinate: CLLocationCoordinate2D(latitude:37.43015659999997, longitude: -122.175685), radius: 500, identifier: NSUUID().UUIDString, note: "Gates Station", eventType: EventType.OnExit)
-        let geonotification2 = Geonotification(coordinate: locationCoordinates["McFarland Station"]!, radius: 500, identifier: NSUUID().UUIDString, note: "McFarland Station", eventType: EventType.OnEntry)
-        let geonotification22 = Geonotification(coordinate: locationCoordinates["McFarland Station"]!, radius: 500, identifier: NSUUID().UUIDString, note: "McFarland Station", eventType: EventType.OnExit)
+        for zone in zones!{
+            
+            let lat = ((zone.objectForKey("latitude") as? NSString)?.doubleValue)!
+            let long = ((zone.objectForKey("longitude") as? NSString)?.doubleValue)!
+            let location = CLLocationCoordinate2D(latitude : lat, longitude : long )
+            
         
-        addRadiusOverlayForgeonotification(geonotification1)
-        addRadiusOverlayForgeonotification(geonotification2)
-        geonotifications.append(geonotification1)
-        geonotifications.append(geonotification2)
+        let geonotification = Geonotification(coordinate: location , radius: 500, identifier: NSUUID().UUIDString, note: zone.objectForKey("name") as! String, eventType: EventType.OnEntry)
+//            let geonotification11 = Geonotification(coordinate: locationCoordinates["Gates Station"]!, radius: 500, identifier: NSUUID().UUIDString, note: "Gates Station", eventType: EventType.OnExit)
+////        let geonotification11 = Geonotification(coordinate: CLLocationCoordinate2D(latitude:37.43015659999997, longitude: -122.175685), radius: 500, identifier: NSUUID().UUIDString, note: "Gates Station", eventType: EventType.OnExit)
+//        let geonotification2 = Geonotification(coordinate: locationCoordinates["McFarland Station"]!, radius: 500, identifier: NSUUID().UUIDString, note: "McFarland Station", eventType: EventType.OnEntry)
+//        let geonotification22 = Geonotification(coordinate: locationCoordinates["McFarland Station"]!, radius: 500, identifier: NSUUID().UUIDString, note: "McFarland Station", eventType: EventType.OnExit)
+        
+        addRadiusOverlayForgeonotification(geonotification)
+     //   addRadiusOverlayForgeonotification(geonotification2)
+        geonotifications.append(geonotification)
+     //   geonotifications.append(geonotification2)
 
-        mapView.addAnnotation(geonotification1)
-        mapView.addAnnotation(geonotification2)
+        mapView.addAnnotation(geonotification)
+       // mapView.addAnnotation(geonotification2)
       //  addRadiusOverlayForgeonotification(geonotification)
-        startMonitoringgeonotification(geonotification1)
-        startMonitoringgeonotification(geonotification2)
+        startMonitoringgeonotification(geonotification)
+      //  startMonitoringgeonotification(geonotification2)
         
        // addRadiusOverlayForgeonotification(geonotification11)
        // addRadiusOverlayForgeonotification(geonotification22)
-        geonotifications.append(geonotification11)
-        geonotifications.append(geonotification22)
-        
-        mapView.addAnnotation(geonotification11)
-        mapView.addAnnotation(geonotification22)
-       // addRadiusOverlayForgeonotification(geonotification)
-        startMonitoringgeonotification(geonotification11)
-        startMonitoringgeonotification(geonotification22)
+//        geonotifications.append(geonotification11)
+//      //  geonotifications.append(geonotification22)
+//        
+//        mapView.addAnnotation(geonotification11)
+//        mapView.addAnnotation(geonotification22)
+//       // addRadiusOverlayForgeonotification(geonotification)
+//        startMonitoringgeonotification(geonotification11)
+//        startMonitoringgeonotification(geonotification22)
+            
+        }
         saveAllGeonotifications()
     }
     func saveAllGeonotifications() {
@@ -347,11 +362,13 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
 //
 //    
 //    
-//    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-//        let userLocation:CLLocation = locations[0]
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let userLocation:CLLocation = locations[0]
+        centerMapOnLocation(userLocation)
 //        if(locations[0] == CLLocation(latitude: geonotifications[0].coordinate.latitude,longitude: geonotifications[0].coordinate.longitude)){
 //           fetchMusicDataIntoModel("http://api.soundcloud.com/users/\(user_id2)/playlists?client_id=\(SoundCloud_CLIENT_ID)")
-//        }}
+//        }
+    }
     
     func notefromRegionIdentifier(identifier: String) -> String? {
         if let savedItems = NSUserDefaults.standardUserDefaults().arrayForKey("savedItems") {
@@ -389,33 +406,35 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
     func locationManager(manager: CLLocationManager, didEnterRegion region: CLRegion) {
         if region is CLCircularRegion {
-            print("REGION ENTERED \(region)")
-            //bombButton(true)
-//            let r = region as!  CLCircularRegion
-//            print(r.center)
-             heartButton.enabled = true
-            print("MUSIC LOADED")
             if let name = notefromRegionIdentifier(region.identifier){
                 print(name)
-                if let msg  = dictionary[name]{
-                    print(msg)
-                 fetchMusicDataIntoModel(msg)
+                for zone in zones!{
+                    print(zone.objectForKey("name"))
+                    if zone.objectForKey("name") as? String == String(name){
+                        if let msg  = zone.objectForKey("url")  as? String{
+                            print(msg)
+                            print("REGION ENTERED \(region)")
+                            heartButton.enabled = true
+                            print("MUSIC LOADED")
+                            fetchMusicDataIntoModel(msg)
+                         
+                        }
+                           handleRegionEvent(region)
+                    }
                 }
             }
-          
-//            fetchMusicDataIntoModel("http://api.soundcloud.com/users/\(user_id1)/playlists?client_id=\(SoundCloud_CLIENT_ID)")
-            handleRegionEvent(region)
+         
         }
     }
     
-    func locationManager(manager: CLLocationManager, didExitRegion region: CLRegion) {
-        if region is CLCircularRegion {
-            print("REGION EXITED \(region)")
-            handleRegionEvent(region)
-             heartButton.enabled = false
-            bombButton(false)
-        }
-    }
+//    func locationManager(manager: CLLocationManager, didExitRegion region: CLRegion) {
+//        if region is CLCircularRegion {
+//            print("REGION EXITED \(region)")
+//            handleRegionEvent(region)
+//             heartButton.enabled = false
+//            bombButton(false)
+//        }
+//    }
 
 
     

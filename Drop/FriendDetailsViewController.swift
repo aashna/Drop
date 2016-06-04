@@ -22,14 +22,26 @@ class FriendDetailsViewController: UIViewController {
         if let userEmail = PFUser.currentUser()!["email"] as? String {
             email.text = userEmail
         }
+        else{
+            email.text = "None"
+        }
         if let username = PFUser.currentUser()!["username"] as? String {
             userName.text = username
+        }
+        else{
+            userName.text = "None"
         }
         if let userDob = PFUser.currentUser()!["dob"] as? String {
             dob.text = userDob
         }
+        else{
+            dob.text = "None"
+        }
         if let userPhone = PFUser.currentUser()!["phone"] as? String {
             phone.text = userPhone
+        }
+        else{
+            phone.text = "None"
         }
         if let userJoined = PFUser.currentUser()!["createdAt"] as? String {
             joined.text = userJoined
