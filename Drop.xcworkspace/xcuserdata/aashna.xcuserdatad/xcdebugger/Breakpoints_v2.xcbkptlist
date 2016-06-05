@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Drop/MapViewController.swift"
-            timestampString = "486800363.488245"
+            timestampString = "486841491.663888"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "249"
-            endingLineNumber = "249"
+            startingLineNumber = "256"
+            endingLineNumber = "256"
             landmarkName = "handleRegionEvent(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -48,6 +48,115 @@
             startingLineNumber = "185"
             endingLineNumber = "185"
             landmarkName = "unwindAfterLogout(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Drop/MuisicPlayerTableViewController.swift"
+            timestampString = "486838015.469153"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
+            landmarkName = "MusicPlayerTableViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Drop.MusicPlayerTableViewController.musicPlayerView.getter : Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UITableView&gt;"
+                  moduleName = "Drop"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aashna/Developer/drop/Drop/MuisicPlayerTableViewController.swift"
+                  timestampString = "486841706.738185"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "70"
+                  endingLineNumber = "70"
+                  offsetFromSymbolStart = "35">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Drop.MusicPlayerTableViewController.musicPlayerView.setter : Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UITableView&gt;"
+                  moduleName = "Drop"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aashna/Developer/drop/Drop/MuisicPlayerTableViewController.swift"
+                  timestampString = "486841706.738678"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "70"
+                  endingLineNumber = "70"
+                  offsetFromSymbolStart = "65">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Drop.MusicPlayerTableViewController.init (style : __C.UITableViewStyle) -&gt; Drop.MusicPlayerTableViewController"
+                  moduleName = "Drop"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aashna/Developer/drop/Drop/MuisicPlayerTableViewController.swift"
+                  timestampString = "486841706.739116"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "70"
+                  endingLineNumber = "70"
+                  offsetFromSymbolStart = "160">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Drop.MusicPlayerTableViewController.init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.NSBundle&gt;) -&gt; Drop.MusicPlayerTableViewController"
+                  moduleName = "Drop"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aashna/Developer/drop/Drop/MuisicPlayerTableViewController.swift"
+                  timestampString = "486841706.739357"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "70"
+                  endingLineNumber = "70"
+                  offsetFromSymbolStart = "223">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Drop.MusicPlayerTableViewController.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;Drop.MusicPlayerTableViewController&gt;"
+                  moduleName = "Drop"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aashna/Developer/drop/Drop/MuisicPlayerTableViewController.swift"
+                  timestampString = "486841706.739507"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "70"
+                  endingLineNumber = "70"
+                  offsetFromSymbolStart = "160">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "UpdateProfileViewController.swift"
+            timestampString = "486841706.455918"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "213"
+            endingLineNumber = "213"
+            landmarkName = "saveProfile(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

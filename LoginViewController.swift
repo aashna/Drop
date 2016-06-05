@@ -185,11 +185,11 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignIn
          PFUser.logOut()
    showSimpleAlertWithTitle("Logged Out", message: "You have been successfully logged out of Drop", viewController: self)
     }
-    
-    @IBAction func addFriends(sender: AnyObject) {
-        self.performSegueWithIdentifier("addFriend", sender: self)
-    }
-    
+//    
+//    @IBAction func addFriends(sender: AnyObject) {
+//        self.performSegueWithIdentifier("addFriend", sender: self)
+//    }
+//    
     
     //http://www.appcoda.com/social-framework-introduction/
     @IBAction func shareButtonPressed(sender: AnyObject) {

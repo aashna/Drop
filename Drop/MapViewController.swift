@@ -46,6 +46,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     @IBAction func logout(sender: AnyObject) {
          PFUser.logOut()
     }
+    var activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.White)
 
     @IBOutlet weak var bombButton: UIButton!
     /* Satellite/Hybrid Map views   */
@@ -102,6 +103,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         return UIView()
          //AppDelegate.getAppDelegate().loaded = true
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        
+       activityIndicator.startAnimating()
+    }
 
 
     override func viewDidLoad() {
@@ -109,6 +115,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
        // addLoadingScreen()
         setCurrentSong()
         setProfilePicture()
+        activityIndicator.stopAnimating()
         
         locationManager.requestAlwaysAuthorization()
         if CLLocationManager.locationServicesEnabled() {

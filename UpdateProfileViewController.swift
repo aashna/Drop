@@ -209,7 +209,8 @@ class UpdateProfileViewController: UIViewController, UIImagePickerControllerDele
                     alert.addAction(UIAlertAction(title: "OK", style: .Default) { _ in })
                     self.presentViewController(alert, animated: true){}
                     AppDelegate.getAppDelegate().loaded = false
-                    self.performSegueWithIdentifier("mainVIew", sender: self)
+                    self.performSegueWithIdentifier("addFriend", sender: self)
+                    //self.performSegueWithIdentifier("mainVIew", sender: self)
                 }
             })
         }

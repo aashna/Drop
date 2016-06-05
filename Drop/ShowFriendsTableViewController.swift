@@ -14,6 +14,9 @@ class ShowFriendsTableViewController: UITableViewController, UIPopoverPresentati
     let popoverVc = FriendDetailsViewController()
     @IBOutlet weak var editButton: UIButton!
     
+    @IBAction func goToMain(sender: AnyObject) {
+           self.performSegueWithIdentifier("segueToMain", sender: self)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
