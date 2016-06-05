@@ -1,0 +1,8 @@
+1. You can sign in/sign up/reset password. If you type in wrong password or anything shorter than 8 characters, you can see animations. In SignUp, you can upload a picture too.
+2. You will see a map. If you press back, you see an empty table.
+3. Change the current location to  37.4301566,-122.175685 (Gates coordinates) . You will get a notification "Welcome to Gates Station"
+4. This will take some time to load, when you press back you will see a music playlist loaded. You can play/pause any song.
+5. When you go back to Mapview you can see the current song playing at the bottom and can play/pause from there too.
+6. When you go to another zone (another hardcoded coordinate set in MapViewController), a different playlist should load (this is not working right now, have to fix this).
+7. You will see a bomb button on the current playing view, which gets disabled when you are out of the zone and gets enabled when you enter the zone. Basically, the idea is people can't vote for any song when they are not in the zone.
+8. I'll be adding an "Add friends" screen which searches in my contact list and fetches out those people who are in the Parse database. (the AddFriendsVC is not complete yet)

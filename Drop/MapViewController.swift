@@ -28,9 +28,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     var SoundCloud_CLIENT_ID = "14802fecba08aa53d2daa7d16434d02c"
     var musicPlaylist = [SongDetailsModel]()
     var geonotifications = [Geonotification]()
-    
     var myDict: NSArray?
-
+    var loaderScreen = UIView()
     var locationName = ""
     let regionRadius: CLLocationDistance = 500
 
@@ -91,22 +90,23 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     }
     
-    func addLoadingScreen(){
+    func addLoadingScreen() -> UIView {
 //        if(AppDelegate.getAppDelegate().loaded == false){
             if let loaderView = NSBundle.mainBundle().loadNibNamed("LoaderView", owner: self, options: nil).first as? LoaderView {
                 loaderView.frame = UIScreen.mainScreen().bounds
                 loaderView.animateLoader()
-                loaderView.tag = 22
-                self.view.addSubview(loaderView)
+                return loaderView
+                
           //  }
         }
+        return UIView()
          //AppDelegate.getAppDelegate().loaded = true
     }
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+       // addLoadingScreen()
         setCurrentSong()
         setProfilePicture()
         
@@ -244,7 +244,14 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                 
                 alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default,handler: nil))
                 
-                self.presentViewController(alertController, animated: true, completion: nil)
+                self.presentViewController(alertController, animated: true, completion: {
+                    print(self.view.subviews)
+                    for view in self.view.subviews {
+                        if (view.isKindOfClass(LoaderView) ){
+                            view.removeFromSuperview()
+                        }
+                    }
+                })
             }
         } else {
             // Otherwise present a local notification
@@ -255,26 +262,32 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         }
     }
     func locationManager(manager: CLLocationManager, didEnterRegion region: CLRegion) {
+        loaderScreen = addLoadingScreen()
+        self.view.addSubview(loaderScreen)
         if region is CLCircularRegion {
             if let name = notefromRegionIdentifier(region.identifier){
                 print(name)
                 for zone in zones!{
                     print(zone.objectForKey("name"))
                     if zone.objectForKey("name") as? String == String(name){
+                        
                         if let msg  = zone.objectForKey("url")  as? String{
                             print(msg)
                             print("REGION ENTERED \(region)")
                             heartButton.enabled = true
                             print("MUSIC LOADED")
                             fetchMusicDataIntoModel(msg)
+                            
                          
                         }
+                       // self.view.viewWithTag(22)?.removeFromSuperview()
                            handleRegionEvent(region)
                     }
                 }
             }
          
         }
+ //
     }
     
 //    func locationManager(manager: CLLocationManager, didExitRegion region: CLRegion) {
@@ -332,7 +345,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
 
     func fetchMusicDataIntoModel(urlPath: String){
-        addLoadingScreen()
+       // addLoadingScreen()
         let url = NSURL(string: urlPath)
         
 //        dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED,0))

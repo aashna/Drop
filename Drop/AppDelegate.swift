@@ -30,16 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, CLLoca
     var user_id1 = "228307235"
     var user_id2 = "174400130"
     var user_id3 = "12061020"
-   
-    
 
-//    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-//        // Override point for customization after application launch.
-//        Fabric.with([Twitter.self])
-
-//        return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
-//    }
-    
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
         return FBSDKApplicationDelegate.sharedInstance().application(application, openURL: url, sourceApplication: sourceApplication, annotation: annotation)
     }
@@ -61,24 +52,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, CLLoca
     
     func application(application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Initialize Google sign-in
-        GIDSignIn.sharedInstance().clientID = "733867161078-fs7f41440j5sfccssep3jnvufk30b64u.apps.googleusercontent.com"
-        
-        GIDSignIn.sharedInstance().delegate = self
         
         Parse.enableLocalDatastore()
         
         // Initialize Parse.
         Parse.setApplicationId("W7Tyw7f6ISFxiU9yYu5NjXR0L58GCRLI8iWY8bXn", clientKey: "cOgN2acYpqgusYfNAADqgy3EMXyMLQpT8ozdjdcd")
-        
-        // [Optional] Track statistics around application opens.
-        PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
-        
-    
-//        
-//        PFTwitterUtils.initializeWithConsumerKey("xgtd5SUvYAHrvdVuk2H1KAh0c", consumerSecret:"jhxHZ3Ceo3qbBdigSfnvLlQHY4NrVWxUDnQIIc8dStwsN4rh9O")
-//        PFFacebookUtils.initializeFacebookWithApplicationLaunchOptions(launchOptions)
-        
+
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
         application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [.Sound, .Alert, .Badge], categories: nil))

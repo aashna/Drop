@@ -8,7 +8,6 @@
 
 import UIKit
 import Contacts
-import AddressBook
 import Parse
 
 
@@ -49,7 +48,12 @@ class AddFriendsTableViewController: UITableViewController {
     func backButtonPressed() {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
-    
+
+    /**
+     Referred from http://www.appcoda.com/ios-contacts-framework/
+   *
+   *
+   */
     func fetchContactsFromAddressBook() -> [CNContact] {
         var contacts: [CNContact]! = []
         AppDelegate.getAppDelegate().requestForAccess { (accessGranted) -> Void in

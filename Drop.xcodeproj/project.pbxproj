@@ -23,9 +23,6 @@
 		1B8EA2D81CE95BEA007699C6 /* AttractionAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8EA2D71CE95BEA007699C6 /* AttractionAnnotation.swift */; };
 		1B8EA2DA1CE95C10007699C6 /* AttractionAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8EA2D91CE95C10007699C6 /* AttractionAnnotationView.swift */; };
 		1B8EA2DC1CE95EC6007699C6 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8EA2DB1CE95EC6007699C6 /* Location.swift */; };
-		1B8EA2E61CE9608D007699C6 /* Huang.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1B8EA2E31CE9608D007699C6 /* Huang.plist */; };
-		1B8EA2E71CE9608D007699C6 /* Rays.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1B8EA2E41CE9608D007699C6 /* Rays.plist */; };
-		1B8EA2E81CE9608D007699C6 /* Oval.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1B8EA2E51CE9608D007699C6 /* Oval.plist */; };
 		1B8EA2F21CE9637E007699C6 /* Zones.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1B8EA2F11CE9637E007699C6 /* Zones.plist */; };
 		1BA365921CF1632E00248D11 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA365911CF1632E00248D11 /* ResetPasswordViewController.swift */; };
 		1BA747BE1CF4321D00BA3EAF /* GeoNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA747BD1CF4321D00BA3EAF /* GeoNotification.swift */; };
@@ -90,9 +87,6 @@
 		1B8EA2D71CE95BEA007699C6 /* AttractionAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttractionAnnotation.swift; sourceTree = "<group>"; };
 		1B8EA2D91CE95C10007699C6 /* AttractionAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttractionAnnotationView.swift; sourceTree = "<group>"; };
 		1B8EA2DB1CE95EC6007699C6 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
-		1B8EA2E31CE9608D007699C6 /* Huang.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Huang.plist; sourceTree = "<group>"; };
-		1B8EA2E41CE9608D007699C6 /* Rays.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Rays.plist; sourceTree = "<group>"; };
-		1B8EA2E51CE9608D007699C6 /* Oval.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Oval.plist; sourceTree = "<group>"; };
 		1B8EA2F11CE9637E007699C6 /* Zones.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Zones.plist; sourceTree = "<group>"; };
 		1BA365911CF1632E00248D11 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		1BA747BD1CF4321D00BA3EAF /* GeoNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoNotification.swift; sourceTree = "<group>"; };
@@ -266,10 +260,7 @@
 		1BA7E0B21CEA617000FAD3B9 /* Location coordinates */ = {
 			isa = PBXGroup;
 			children = (
-				1B8EA2E31CE9608D007699C6 /* Huang.plist */,
 				1B8EA2F11CE9637E007699C6 /* Zones.plist */,
-				1B8EA2E41CE9608D007699C6 /* Rays.plist */,
-				1B8EA2E51CE9608D007699C6 /* Oval.plist */,
 			);
 			name = "Location coordinates";
 			sourceTree = "<group>";
@@ -451,14 +442,11 @@
 			files = (
 				1B8EA2B41CE94D26007699C6 /* LaunchScreen.storyboard in Resources */,
 				1B8EA2B11CE94D26007699C6 /* Assets.xcassets in Resources */,
-				1B8EA2E81CE9608D007699C6 /* Oval.plist in Resources */,
-				1B8EA2E61CE9608D007699C6 /* Huang.plist in Resources */,
 				1B8EA2F21CE9637E007699C6 /* Zones.plist in Resources */,
 				C77CB93B1CF4D6320069CEAF /* LoaderView.xib in Resources */,
 				C75BB6891CEE498700C867FF /* Media.xcassets in Resources */,
 				1B05FA7D1CF009A900D746C9 /* Main.storyboard in Resources */,
 				1BA747C21CF4999F00BA3EAF /* TestLocations.gpx in Resources */,
-				1B8EA2E71CE9608D007699C6 /* Rays.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
