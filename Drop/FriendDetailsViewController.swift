@@ -10,17 +10,17 @@ import UIKit
 import Parse
 
 extension NSDate {
-        struct Date {
-            static let formatterShortDate = NSDateFormatter()
-        }
-        var shortDate: String {
-            return Date.formatterShortDate.stringFromDate(self)
-        }
+    struct Date {
+        static let formatterShortDate = NSDateFormatter()
+    }
+    var shortDate: String {
+        return Date.formatterShortDate.stringFromDate(self)
+    }
     
 }
 
 class FriendDetailsViewController: UIViewController {
-
+    
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var email: UILabel!
     @IBOutlet weak var dob: UILabel!
@@ -32,37 +32,51 @@ class FriendDetailsViewController: UIViewController {
         print(PFUser.currentUser()!["email"])
         
         if let userEmail = PFUser.currentUser()!["email"] as? String {
-            email.text = userEmail
+            if userEmail == "" {
+                email.text = "None"
+            }
+            else {
+                email.text = userEmail
+            }
         }
-        else{
-            email.text = "None"
-        }
+        
         if let username = PFUser.currentUser()!["username"] as? String {
-            userName.text = username
+            if username == ""{
+                userName.text = "None"
+            }
+            else{
+                userName.text = username
+                
+            }
         }
-        else{
-            userName.text = "None"
-        }
+        
         if let userDob = PFUser.currentUser()!["dob"] as? String {
-            dob.text = userDob
+            if userDob == ""{
+                dob.text = "None"
+            }
+            else{
+                dob.text = userDob
+                
+            }
         }
-        else{
-            dob.text = "None"
-        }
+        
         if let userPhone = PFUser.currentUser()!["phone"] as? String {
-            phone.text = userPhone
+            if userPhone == "" {
+                phone.text = "None"
+            }
+            else{
+                phone.text = userPhone
+            }
         }
-        else{
-            phone.text = "None"
-        }
+        
         print(PFUser.currentUser()?.createdAt)
         if let userJoined = PFUser.currentUser()?.createdAt {
             joined.text =  userJoined.shortDate
         }
-
+        
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
