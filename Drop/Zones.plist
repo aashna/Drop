@@ -32,7 +32,7 @@
 	</dict>
 	<dict>
 		<key>name</key>
-		<string>Arrillaga Outdoor Education and Recreation Center</string>
+		<string>Arrillaga Outdoor Education and Recreation Center Station</string>
 		<key>latitude</key>
 		<string>37.4267583</string>
 		<key>longitude</key>
@@ -42,7 +42,7 @@
 		<key>subtitle</key>
 		<string>Stanford</string>
 		<key>url</key>
-		<string>http://api.soundcloud.com/users/12061020/playlists?client_id=14802fecba08aa53d2daa7d16434d02c</string>
+		<string>http://api.soundcloud.com/users/174400130/playlists?client_id=14802fecba08aa53d2daa7d16434d02c</string>
 	</dict>
 </array>
 </plist>

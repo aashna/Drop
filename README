@@ -51,7 +51,7 @@ Map
 2. You will see "Started Monitoring <region name>" in the console [PLEASE NOTE: sometimes it shows "Monitoring failed", when this comes you should stop the app and delete it from simulator and run it again]
 2. When you press back button, you wil see an empty table (because there are no songs in this location)
 3. From Zones.plist, you enter any location in your simulator. These are the zones.
-4. When you enter a zone, a loading screen will come up and the songs will get loaded.
+4. When you enter a zone, a loading screen will come up and the songs will get loaded. You will see you have entered a pink region.
 5. You will get an alert that you have entered the region
 6. Now when you click Back button, you will see a playlist loaded up
 
@@ -67,11 +67,15 @@ Music Player
 6. When you go back to Map, you will see the current song playing at bottom
 7. When you are outside a zone, you cannot vote for a song, but when you are in the zone, the bomb button (at bottom) works
 
-
 -------
 Profile
 -------
 You can click on the Profile button on top of the Map to see your profile details
+
+------
+Logout
+------
+Logout button on Music Player and Map logs out the current user and takes him back to the Login page
 
 ----------------------
 My Project Evaluation
