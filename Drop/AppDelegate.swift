@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import FBSDKCoreKit
-import TwitterKit
 import Parse
 import ParseUI
 import ParseTwitterUtils
@@ -18,7 +16,7 @@ import AVFoundation
 
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, CLLocationManagerDelegate  {
+class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate  {
     var contactStore = CNContactStore()
     var window: UIWindow?
     var playList = [SongDetailsModel]()
@@ -27,9 +25,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, CLLoca
     var loaded = true
     var mapVC = MapViewController()
     var SoundCloud_CLIENT_ID = "14802fecba08aa53d2daa7d16434d02c"
-    var user_id1 = "228307235"
-    var user_id2 = "174400130"
-    var user_id3 = "12061020"
 
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
         return FBSDKApplicationDelegate.sharedInstance().application(application, openURL: url, sourceApplication: sourceApplication, annotation: annotation)
@@ -64,61 +59,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, CLLoca
         UIApplication.sharedApplication().cancelAllLocalNotifications()
         return true
 
-    }
-//    func handleRegionEvent(region: CLRegion!) {
-//            // Show an alert if application is active
-//            if UIApplication.sharedApplication().applicationState == .Active {
-//                if let message = notefromRegionIdentifier(region.identifier) {
-//                    var alert = UIAlertController(title: "Welcome to Station", message: message, preferredStyle: .Alert)
-//                    var topVC = UIApplication.sharedApplication().keyWindow?.rootViewController
-//                    while ((topVC!.presentedViewController) != nil) {
-//                        topVC = topVC!.presentedViewController;
-//                    }
-//                   // self.presentViewController(alert, animated: true, completion: nil)
-//                   // let importAlert: UIAlertController = UIAlertController(title: "Action Sheet", message: message, preferredStyle: .ActionSheet)
-//                    //self.window?.rootViewController?.presentViewController(alert, animated: true, completion: nil)
-////                    if let viewController = window?.rootViewController?.presentViewController {
-//                        showSimpleAlertWithTitle(nil, message: message, viewController: topVC!)
-////                    }
-//                }
-//            } else {
-//                // Otherwise present a local notification
-//                let notification = UILocalNotification()
-//                notification.alertBody = notefromRegionIdentifier(region.identifier)
-//                notification.soundName = "Default";
-//                UIApplication.sharedApplication().presentLocalNotificationNow(notification)
-//            }
-//    }
-//    func locationManager(manager: CLLocationManager, didEnterRegion region: CLRegion) {
-//        if region is CLCircularRegion {
-//            print("REGION ENTERED")
-//            mapVC.bombButton(true)
-//            handleRegionEvent(region)
-//        }
-//    }
-//    
-//    func locationManager(manager: CLLocationManager, didExitRegion region: CLRegion) {
-//        if region is CLCircularRegion {
-//            print("REGION EXITED")
-//            handleRegionEvent(region)
-//            mapVC.bombButton(false)
-//        }
-//    }
-    
-    func signIn(signIn: GIDSignIn!, didSignInForUser user: GIDGoogleUser!,
-                withError error: NSError!) {
-        if (error == nil) {
-            // Perform any operations on signed in user here.
-//            let userId = user.userID                  // For client-side use only!
-//            let idToken = user.authentication.idToken // Safe to send to the server
-//            let fullName = user.profile.name
-//            let givenName = user.profile.givenName
-//            let familyName = user.profile.familyName
-//            let email = user.profile.email
-            // ...
-        } else {
-            print("\(error.localizedDescription)")
-        }
     }
     
     func requestForAccess(completionHandler: (accessGranted: Bool) -> Void) {
@@ -179,23 +119,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, CLLoca
 
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-//    }
-//    func notefromRegionIdentifier(identifier: String) -> String? {
-//        if let savedItems = NSUserDefaults.standardUserDefaults().arrayForKey("savedItems") {
-//            for savedItem in savedItems {
-//                if let geonotification = NSKeyedUnarchiver.unarchiveObjectWithData(savedItem as! NSData) as? Geonotification {
-//                    if geonotification.identifier == identifier {
-//                    //    print("MUSIC LOADED")
-//                    //    mapVC.fetchMusicDataIntoModel("http://api.soundcloud.com/users/\(user_id1)/playlists?client_id=\(SoundCloud_CLIENT_ID)")
-//                        return geonotification.note
-//                    }
-//                }
-//            }
-//        }
-//        return nil
-//    }
-
-
     }
 }
 

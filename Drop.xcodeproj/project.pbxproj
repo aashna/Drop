@@ -20,8 +20,6 @@
 		1B8EA2B41CE94D26007699C6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B8EA2B21CE94D26007699C6 /* LaunchScreen.storyboard */; };
 		1B8EA2BF1CE94D27007699C6 /* DropTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8EA2BE1CE94D27007699C6 /* DropTests.swift */; };
 		1B8EA2CA1CE94D27007699C6 /* DropUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8EA2C91CE94D27007699C6 /* DropUITests.swift */; };
-		1B8EA2D81CE95BEA007699C6 /* AttractionAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8EA2D71CE95BEA007699C6 /* AttractionAnnotation.swift */; };
-		1B8EA2DA1CE95C10007699C6 /* AttractionAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8EA2D91CE95C10007699C6 /* AttractionAnnotationView.swift */; };
 		1B8EA2DC1CE95EC6007699C6 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8EA2DB1CE95EC6007699C6 /* Location.swift */; };
 		1B8EA2F21CE9637E007699C6 /* Zones.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1B8EA2F11CE9637E007699C6 /* Zones.plist */; };
 		1BA365921CF1632E00248D11 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA365911CF1632E00248D11 /* ResetPasswordViewController.swift */; };
@@ -84,8 +82,6 @@
 		1B8EA2C51CE94D27007699C6 /* DropUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DropUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B8EA2C91CE94D27007699C6 /* DropUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropUITests.swift; sourceTree = "<group>"; };
 		1B8EA2CB1CE94D27007699C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1B8EA2D71CE95BEA007699C6 /* AttractionAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttractionAnnotation.swift; sourceTree = "<group>"; };
-		1B8EA2D91CE95C10007699C6 /* AttractionAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttractionAnnotationView.swift; sourceTree = "<group>"; };
 		1B8EA2DB1CE95EC6007699C6 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		1B8EA2F11CE9637E007699C6 /* Zones.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Zones.plist; sourceTree = "<group>"; };
 		1BA365911CF1632E00248D11 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
@@ -100,8 +96,6 @@
 		1BB438B01CFAC03100B761D1 /* ShowFriendsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowFriendsTableViewController.swift; sourceTree = "<group>"; };
 		1BB438B21CFB5CCC00B761D1 /* ShowFriendsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowFriendsTableViewCell.swift; sourceTree = "<group>"; };
 		1BB438B41CFBA52400B761D1 /* FriendDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendDetailsViewController.swift; sourceTree = "<group>"; };
-		1BF962501CF2184800AF9B93 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
-		1BF962521CF2184E00AF9B93 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		1BF962541CF269C200AF9B93 /* AddFriendsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFriendsTableViewController.swift; sourceTree = "<group>"; };
 		1CA5EC1D64E03FBD70BCBF88 /* Pods-DropTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DropTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DropTests/Pods-DropTests.debug.xcconfig"; sourceTree = "<group>"; };
 		26423FD86CEF41E519B0AC1B /* Pods-Drop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Drop.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Drop/Pods-Drop.debug.xcconfig"; sourceTree = "<group>"; };
@@ -173,7 +167,6 @@
 			isa = PBXGroup;
 			children = (
 				1BA7E0B41CEA618F00FAD3B9 /* Supporting Files */,
-				1BA7E0B31CEA617F00FAD3B9 /* Annotation */,
 				1BA7E0B21CEA617000FAD3B9 /* Location coordinates */,
 				C74584A01CECF0C100D0E024 /* Views */,
 				1BA7E0B11CEA616700FAD3B9 /* Images */,
@@ -265,15 +258,6 @@
 			name = "Location coordinates";
 			sourceTree = "<group>";
 		};
-		1BA7E0B31CEA617F00FAD3B9 /* Annotation */ = {
-			isa = PBXGroup;
-			children = (
-				1B8EA2D71CE95BEA007699C6 /* AttractionAnnotation.swift */,
-				1B8EA2D91CE95C10007699C6 /* AttractionAnnotationView.swift */,
-			);
-			name = Annotation;
-			sourceTree = "<group>";
-		};
 		1BA7E0B41CEA618F00FAD3B9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -293,8 +277,6 @@
 				C77D6E4D1CFB0778007FC96D /* Social.framework */,
 				1B6E6E051CF611FE000E6390 /* CoreLocation.framework */,
 				1B6E6E031CF611F4000E6390 /* MapKit.framework */,
-				1BF962521CF2184E00AF9B93 /* FBSDKCoreKit.framework */,
-				1BF962501CF2184800AF9B93 /* FBSDKLoginKit.framework */,
 				54F5B4C8E4EB64ACCDFDCEFC /* Pods_Drop.framework */,
 				1202F5E8DF8FD655C0C52D73 /* Pods_DropTests.framework */,
 				3A92C659F95B259098A852AF /* Pods_DropUITests.framework */,
@@ -611,7 +593,6 @@
 				1B05FA761CEF724A00D746C9 /* MuisicPlayerTableViewController.swift in Sources */,
 				1BA747BE1CF4321D00BA3EAF /* GeoNotification.swift in Sources */,
 				1B8EA2AC1CE94D26007699C6 /* MapViewController.swift in Sources */,
-				1B8EA2DA1CE95C10007699C6 /* AttractionAnnotationView.swift in Sources */,
 				1BA7E0B61CEA652300FAD3B9 /* LoginViewController.swift in Sources */,
 				1B8EA2DC1CE95EC6007699C6 /* Location.swift in Sources */,
 				1BB438B11CFAC03100B761D1 /* ShowFriendsTableViewController.swift in Sources */,
@@ -621,7 +602,6 @@
 				1B05FA781CEF830F00D746C9 /* MusicPlayerTableViewCell.swift in Sources */,
 				1BA747C01CF4427800BA3EAF /* Utilities.swift in Sources */,
 				1BA747CE1CF538F300BA3EAF /* SplashScreenViewController.swift in Sources */,
-				1B8EA2D81CE95BEA007699C6 /* AttractionAnnotation.swift in Sources */,
 				1B05FA741CEE097500D746C9 /* UpdateProfileViewController.swift in Sources */,
 				1BB438B51CFBA52400B761D1 /* FriendDetailsViewController.swift in Sources */,
 				1B8EA2AA1CE94D26007699C6 /* AppDelegate.swift in Sources */,

@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import FBSDKLoginKit
-import FBSDKCoreKit
 import Parse
 import Social
 
@@ -28,7 +26,7 @@ extension UIView {
     }}
 
 
-class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDelegate //PFLogInViewControllerDelegate,PFSignUpViewControllerDelegate //
+class LoginViewController: UIViewController
 {
     let transitionManager = TransitionManager()
     
@@ -113,55 +111,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignIn
         AppDelegate.getAppDelegate().loaded = false
         self.performSegueWithIdentifier("segueToMain", sender: self)
     }
-    
-    func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!)
-    {
-        if error == nil
-        {
-            print("Login complete.")
-            performSegueToMainView()
-            //            if (result.grantedPermissions.contains("email")) {
-            //                setEmail()
-            //            }
-        }
-        else
-        {
-            print(error.localizedDescription)
-        }
-    }
-    
-    func setEmail() {
-        let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: ["fields":"email"])
-        graphRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
-            if ((error) != nil) {
-                // Process error
-                print("Error: \(error)")
-            } else {
-                if let email = result.valueForKey("email") {
-                    self.email = email as! String
-                }
-            }
-            self.performSegueToMainView()
-        })
-    }
-    
-    func loginButtonDidLogOut(loginButton: FBSDKLoginButton!)
-    {
-        print("User logged out...")
-    }
-    
-    func signIn(signIn: GIDSignIn!, didSignInForUser user: GIDGoogleUser!,
-                withError error: NSError!) {
-        if (error == nil) {
-            // Perform any operations on signed in user here.
-            // ...
-            self.performSegueWithIdentifier("segueToMain", sender: self)
-        } else {
-            print("\(error.localizedDescription)")
-            
-            
-        }
-    }
+
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if case let updateProfileVC as UpdateProfileViewController  = segue.destinationViewController

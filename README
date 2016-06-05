@@ -1,6 +1,6 @@
-----------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------
                                                        DROP APP
-----------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------
 
 -------------
 SPLASH SCREEN
@@ -37,7 +37,8 @@ Add Friends
 -----------
 
 1. After signing up, you will land on this page.
-2. This page shows all the contacts in your phone who have signed up for the app
+2. This page shows all the contacts in your phone who have signed up for the app (that is, who are present in Parse database)
+   [NOTE: I have made dummy contacts in this code and commented out the part where it extracts contacts from the phone, if this is tested on an iphone instead of simulator, with the same contacts, this will work]
 3. You can select multiple friends in this
 4. Selected friends will show on next page
 5. Here you can delete any friend (by swiping the table cell) and reorder the friend list by clicking on Reorder
@@ -50,35 +51,66 @@ Map
 2. You will see "Started Monitoring <region name>" in the console [PLEASE NOTE: sometimes it shows "Monitoring failed", when this comes you should stop the app and delete it from simulator and run it again]
 2. When you press back button, you wil see an empty table (because there are no songs in this location)
 3. From Zones.plist, you enter any location in your simulator. These are the zones.
-4. When you
+4. When you enter a zone, a loading screen will come up and the songs will get loaded.
+5. You will get an alert that you have entered the region
+6. Now when you click Back button, you will see a playlist loaded up
 
-1. You can sign in/sign up/reset password. If you type in wrong password or anything shorter than 8 characters, you can see animations. In SignUp, you can upload a picture too.
-2. You will see a map. If you press back, you see an empty table.
-3. Change the current location to  37.4301566,-122.175685 (Gates coordinates) . You will get a notification "Welcome to Gates Station"
-4. This will take some time to load, when you press back you will see a music playlist loaded. You can play/pause any song.
-5. When you go back to Mapview you can see the current song playing at the bottom and can play/pause from there too.
-6. When you go to another zone (another hardcoded coordinate set in MapViewController), a different playlist should load (this is not working right now, have to fix this).
-7. You will see a bomb button on the current playing view, which gets disabled when you are out of the zone and gets enabled when you enter the zone. Basically, the idea is people can't vote for any song when they are not in the zone.
-8. I'll be adding an "Add friends" screen which searches in my contact list and fetches out those people who are in the Parse database. (the AddFriendsVC is not complete yet)
+------------
+Music Player
+------------
+
+1. Reached on clicking back button from Map
+2. Shows up all songs tied to that particular location (Soundcloud playlist)
+3. You can play/pause any song
+4. You can search for a song
+5. You can favourite a song by clicking bomb button
+6. When you go back to Map, you will see the current song playing at bottom
+7. When you are outside a zone, you cannot vote for a song, but when you are in the zone, the bomb button (at bottom) works
+
+
+-------
+Profile
+-------
+You can click on the Profile button on top of the Map to see your profile details
+
+----------------------
+My Project Evaluation
+----------------------
 
 Table View - 3 points [Delete,Rearrange,MultiSelect,Dynamic]
 Core Location - 4 points 
-AVAudio - 3   - NCIL
-Parse, SoundCloud - 3
-Controls - 1 
-Animations - 2 
-DatePicker - 1 - NCIL
-Contacts- 2  - NCIL
-Segue - 2  [Show, show detail, modal, unwind]
-Popover API - 2
-AutoLayout - 2
-ImagePicker - 1
-Drawing API - 2
-Core Animation - 1 (or 2) point - NCIL
+AVAudioFoundation - 3 points   - (NCIL)
+Parse, SoundCloud - 4 points 
+Controls - 1 point
+Animations - 2 points 
+DatePicker - 1 point - (NCIL)
+Contacts- 2 points  - (NCIL)
+Segue - 2 points  [Show, show detail, modal, unwind]
+Popover API - 1 point
+AutoLayout - 2 points 
+ImagePicker - 2 points 
+Drawing API - 2 points 
+Core Animation - 1 (or 2) point - (NCIL)
 SplitView/ Navigation - 2 point
 Notification - 1 point (NCIL)
 MapKit - 2 points
 Social Framework - 1 point (NCIL)
+UISearchController - 2 points (NCIL)
+GestureRecognizer - 1 point
 Activity Indicator - 1 point
 NSDate - 1 point
 NSTimeInterval - 1 point
+NSJSONSerialization -  1 point
+UIViewContentMode - 1 point
+NSSearchPathForDirectoriesInDomains - 1 point
+CKAsset - 1 point
+NSFileManager - 1 point
+-------------------------
+NCIL - 4 points
+Depth - 4 points
+Miscellaneous - 4 points
+---------------------------
+Creativity - 3 points
+UI Design - 3 points
+Coding Style - 3 points
+Stability and Usability - 2 points

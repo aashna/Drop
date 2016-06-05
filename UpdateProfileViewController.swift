@@ -262,7 +262,7 @@ class UpdateProfileViewController: UIViewController, UIImagePickerControllerDele
             
             let profilePic = PFObject(className: "Profile_Image")
             //posts["imageText"] = imageText
-            profilePic["uploader"] = PFUser.currentUser()
+          //  profilePic["uploader"] = PFUser.currentUser()
             profilePic.saveInBackgroundWithBlock({
                 (success: Bool, error: NSError?) -> Void in
                 
@@ -298,7 +298,7 @@ class UpdateProfileViewController: UIViewController, UIImagePickerControllerDele
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         imageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
         
-        saveImageLocally()
+     //   saveImageLocally()
         saveImageInDatabase()
         
         dismissViewControllerAnimated(true, completion: nil)
