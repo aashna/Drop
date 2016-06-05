@@ -55,8 +55,24 @@ class MusicPlayerTableViewController: UITableViewController, MusicDataDelegate, 
     }
     
     @IBAction func logoutPressed(sender: UIButton) {
-        //Logout here
-        
+        PFUser.logOut()
+        let alertController = UIAlertController(title: "Logged out", message: "You have been successfully logged out of Drop", preferredStyle: .Alert)
+//        if let navController = self.navigationController {
+//                            navController.popViewControllerAnimated(true)
+//                        }
+//        let OKAction = UIAlertAction(title: "Ok", style: .Default) { (action) in
+//            // pop here
+//            if let navController = self.navigationController {
+//                navController.popViewControllerAnimated(true)
+//            }
+//        }
+//        alertController.addAction(OKAction)
+////        alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default,handler: nil))
+//        self.presentViewController(alertController, animated: true, completion: {
+//           self.performSegueWithIdentifier("showLogin", sender: self)
+//        })
+         self.performSegueWithIdentifier("showLogin", sender: self)
+       
     }
     override func viewWillAppear(animated: Bool) {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate

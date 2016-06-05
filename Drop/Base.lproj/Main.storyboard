@@ -160,12 +160,13 @@
                         <outlet property="mapView" destination="kWY-Nv-tDs" id="yfU-NS-upg"/>
                         <outlet property="profilePicture" destination="YGF-9r-Afo" id="Eub-gP-Sox"/>
                         <segue destination="Wkb-t3-8oR" kind="unwind" identifier="toMusicPlayer" unwindAction="unwindToMusicPlayerViewController:" id="zrg-l0-UCi"/>
+                        <segue destination="Qw8-NE-Wt3" kind="show" identifier="showLogin" id="nFF-4w-Xbj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <exit id="Wkb-t3-8oR" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-165" y="1281"/>
+            <point key="canvasLocation" x="-246" y="731"/>
         </scene>
         <!--Reset Password View Controller-->
         <scene sceneID="9Be-t9-Sc9">
@@ -859,6 +860,7 @@
                     <connections>
                         <outlet property="musicPlayerView" destination="8AY-vV-d2J" id="UKM-gm-1OY"/>
                         <segue destination="eKt-Z6-m7I" kind="showDetail" identifier="showMap" id="vp4-zH-xrt"/>
+                        <segue destination="Qw8-NE-Wt3" kind="show" identifier="showLogin" id="8Ay-Nv-qti"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N4T-Pi-9E0" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -887,7 +889,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0e6-AT-kjG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-983" y="1276"/>
+            <point key="canvasLocation" x="-983" y="736"/>
         </scene>
         <!--Add Friends Table View Controller-->
         <scene sceneID="QuZ-Oo-94r">
@@ -1106,7 +1108,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Na1-oV-tAv"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="X1B-UD-yMo">
-                        <rect key="frame" x="0.0" y="44" width="200" height="256"/>
+                        <rect key="frame" x="0.0" y="0.0" width="200" height="300"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RBx-qX-ifW">
@@ -1264,7 +1266,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j9x-b2-3Rf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="277" y="1131"/>
+            <point key="canvasLocation" x="385" y="763"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Jmd-Fx-nCW">
@@ -1312,9 +1314,10 @@
         <image name="user" width="135" height="135"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="afa-3o-wzc"/>
         <segue reference="pSX-wg-1AK"/>
+        <segue reference="8Ay-Nv-qti"/>
+        <segue reference="afa-3o-wzc"/>
         <segue reference="vp4-zH-xrt"/>
-        <segue reference="qat-Oh-aDM"/>
+        <segue reference="fTh-Y6-Sgn"/>
     </inferredMetricsTieBreakers>
 </document>
