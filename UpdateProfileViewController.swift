@@ -132,6 +132,10 @@ class UpdateProfileViewController: UIViewController, UIImagePickerControllerDele
             
             presentViewController(imagePicker, animated: true, completion: nil)
         }
+    }
+    
+    @IBAction func clickPhoto(sender: AnyObject) {
+        let imagePicker = UIImagePickerController()
         if UIImagePickerController.availableCaptureModesForCameraDevice(.Rear) != nil {
             imagePicker.allowsEditing = false
             imagePicker.cameraCaptureMode = .Photo

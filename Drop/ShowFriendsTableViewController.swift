@@ -15,7 +15,7 @@ class ShowFriendsTableViewController: UITableViewController, UIPopoverPresentati
     @IBOutlet weak var editButton: UIButton!
     
     @IBAction func goToMain(sender: AnyObject) {
-           self.performSegueWithIdentifier("segueToMain", sender: self)
+           self.performSegueWithIdentifier("splitViewSegue", sender: self)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
