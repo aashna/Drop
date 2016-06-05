@@ -9,6 +9,16 @@
 import UIKit
 import Parse
 
+extension NSDate {
+        struct Date {
+            static let formatterShortDate = NSDateFormatter()
+        }
+        var shortDate: String {
+            return Date.formatterShortDate.stringFromDate(self)
+        }
+    
+}
+
 class FriendDetailsViewController: UIViewController {
 
     @IBOutlet weak var userName: UILabel!
@@ -18,6 +28,8 @@ class FriendDetailsViewController: UIViewController {
     @IBOutlet weak var joined: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print(PFUser.currentUser()!["email"])
         
         if let userEmail = PFUser.currentUser()!["email"] as? String {
             email.text = userEmail
@@ -43,8 +55,9 @@ class FriendDetailsViewController: UIViewController {
         else{
             phone.text = "None"
         }
-        if let userJoined = PFUser.currentUser()!["createdAt"] as? String {
-            joined.text = userJoined
+        print(PFUser.currentUser()?.createdAt)
+        if let userJoined = PFUser.currentUser()?.createdAt {
+            joined.text =  userJoined.shortDate
         }
 
         // Do any additional setup after loading the view.
@@ -54,17 +67,4 @@ class FriendDetailsViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-   
-
 }

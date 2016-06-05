@@ -40,7 +40,6 @@
 		1BB438B31CFB5CCC00B761D1 /* ShowFriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB438B21CFB5CCC00B761D1 /* ShowFriendsTableViewCell.swift */; };
 		1BB438B51CFBA52400B761D1 /* FriendDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB438B41CFBA52400B761D1 /* FriendDetailsViewController.swift */; };
 		1BC360C901B8A1ED205571C4 /* Pods_DropUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A92C659F95B259098A852AF /* Pods_DropUITests.framework */; };
-		1BDE53931CEBD18000DC02BF /* AudioLocale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDE53921CEBD18000DC02BF /* AudioLocale.swift */; };
 		1BF962551CF269C200AF9B93 /* AddFriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF962541CF269C200AF9B93 /* AddFriendsTableViewController.swift */; };
 		A5E60193B1A82E6531F3D365 /* Pods_Drop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54F5B4C8E4EB64ACCDFDCEFC /* Pods_Drop.framework */; };
 		C75BB6891CEE498700C867FF /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C75BB6881CEE498700C867FF /* Media.xcassets */; };
@@ -107,7 +106,6 @@
 		1BB438B01CFAC03100B761D1 /* ShowFriendsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowFriendsTableViewController.swift; sourceTree = "<group>"; };
 		1BB438B21CFB5CCC00B761D1 /* ShowFriendsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowFriendsTableViewCell.swift; sourceTree = "<group>"; };
 		1BB438B41CFBA52400B761D1 /* FriendDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendDetailsViewController.swift; sourceTree = "<group>"; };
-		1BDE53921CEBD18000DC02BF /* AudioLocale.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioLocale.swift; sourceTree = "<group>"; };
 		1BF962501CF2184800AF9B93 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		1BF962521CF2184E00AF9B93 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		1BF962541CF269C200AF9B93 /* AddFriendsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFriendsTableViewController.swift; sourceTree = "<group>"; };
@@ -240,7 +238,6 @@
 			isa = PBXGroup;
 			children = (
 				1B05FA791CEF8EA900D746C9 /* SongDetailsModel.swift */,
-				1BDE53921CEBD18000DC02BF /* AudioLocale.swift */,
 				1BA747CD1CF538F300BA3EAF /* SplashScreenViewController.swift */,
 				1B05FA751CEF724A00D746C9 /* MuisicPlayerTableViewController.swift */,
 				1B05FA771CEF830F00D746C9 /* MusicPlayerTableViewCell.swift */,
@@ -637,7 +634,6 @@
 				1BA747C01CF4427800BA3EAF /* Utilities.swift in Sources */,
 				1BA747CE1CF538F300BA3EAF /* SplashScreenViewController.swift in Sources */,
 				1B8EA2D81CE95BEA007699C6 /* AttractionAnnotation.swift in Sources */,
-				1BDE53931CEBD18000DC02BF /* AudioLocale.swift in Sources */,
 				1B05FA741CEE097500D746C9 /* UpdateProfileViewController.swift in Sources */,
 				1BB438B51CFBA52400B761D1 /* FriendDetailsViewController.swift in Sources */,
 				1B8EA2AA1CE94D26007699C6 /* AppDelegate.swift in Sources */,

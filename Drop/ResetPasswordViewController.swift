@@ -17,7 +17,6 @@ extension UIView {
         
         let imageViewBackground = UIImageView(frame: CGRectMake(0, 0, width, height))
         imageViewBackground.image = UIImage(named: "drop-reset-screen.png")
-        // you can change the content mode:
         imageViewBackground.contentMode = UIViewContentMode.ScaleAspectFill
         
         self.addSubview(imageViewBackground)
@@ -31,7 +30,6 @@ class ResetPasswordViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.addBackgroundToReset()
-      //  self.view.backgroundColor = UIColor(patternImage: UIImage(named: "drop-reset-screen.png")!)
     }
     
      /* referred from http://www.appcoda.com/login-signup-parse-swift/ */

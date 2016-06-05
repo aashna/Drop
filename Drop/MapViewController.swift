@@ -25,38 +25,24 @@ enum MapType: Int {
 
 class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate,UIPopoverPresentationControllerDelegate {
     
-    
-    
     var SoundCloud_CLIENT_ID = "14802fecba08aa53d2daa7d16434d02c"
     var musicPlaylist = [SongDetailsModel]()
     var geonotifications = [Geonotification]()
     
     var myDict: NSArray?
 
-    
-    var dictionary : [(String):String]=[
-      "Gates Station": "http://api.soundcloud.com/users/228307235/playlists?client_id=14802fecba08aa53d2daa7d16434d02c",
-       "McFarland Station":"http://api.soundcloud.com/users/12061020/playlists?client_id=14802fecba08aa53d2daa7d16434d02c"
-    ]
     var locationName = ""
     let regionRadius: CLLocationDistance = 500
 
-    
     let locationManager = CLLocationManager()
     weak var delegate: MusicDataDelegate?
     
     var zones = NSArray(contentsOfFile: NSBundle.mainBundle().pathForResource("Zones", ofType: "plist")!)
     
-  
-    
-//    let defaultSession = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration())
-//    var dataTask: NSURLSessionDataTask?
-    
     @IBOutlet weak var currentSong: UILabel!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var mapTypeSegmentedControl: UISegmentedControl!
     @IBOutlet weak var heartButton: UIButton!
-    
     @IBOutlet weak var profilePicture: UIImageView!
     @IBAction func logout(sender: AnyObject) {
          PFUser.logOut()
@@ -118,18 +104,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
 
 
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-      //  heartButton.enabled = false
-  //      self.splitViewController!.preferredDisplayMode = UISplitViewControllerDisplayMode.AllVisible
         
         setCurrentSong()
         setProfilePicture()
-     //   addLoadingScreen()
-     //   addLocations()
-      //  loadAllGeonotifications()
         
         locationManager.requestAlwaysAuthorization()
         if CLLocationManager.locationServicesEnabled() {
@@ -139,13 +118,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             self.mapView.showsUserLocation = true
         }
         addGeonotifications()
-        
-//
         mapView.delegate = self
-//        self.mapView.showAnnotations(self.mapView.annotations, animated: true)
-
-//        addAttractionPins()
-    //    fetchMusicDataIntoModel()
   
     }
 
@@ -154,60 +127,13 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                                                                   regionRadius * 2.0, regionRadius * 2.0)
         mapView.setRegion(coordinateRegion, animated: true)
     }
-//    func addLocations() {
-//        let huangFilePath = NSBundle.mainBundle().pathForResource("Huang", ofType: "plist")
-//        let huangLocations = NSArray(contentsOfFile: huangFilePath!)
-//        let huangPoint = CGPointFromString(huangLocations![Int(rand()%4)] as! String)
-//        let huangCenterCoordinate = CLLocationCoordinate2DMake(CLLocationDegrees(huangPoint.x), CLLocationDegrees(huangPoint.y))
-//        let huangRadius = CLLocationDistance(max(5, Int(rand()%40)))
-//        let huang = Location(centerCoordinate:huangCenterCoordinate, radius:huangRadius)
-//        //   huang.color = UIColor.blueColor()
-//        
-//        let raysFilePath = NSBundle.mainBundle().pathForResource("Rays", ofType: "plist")
-//        let raysLocations = NSArray(contentsOfFile: raysFilePath!)
-//        let raysPoint = CGPointFromString(raysLocations![Int(rand()%4)] as! String)
-//        let raysCenterCoordinate = CLLocationCoordinate2DMake(CLLocationDegrees(raysPoint.x), CLLocationDegrees(raysPoint.y))
-//        let raysRadius = CLLocationDistance(max(5, Int(rand()%40)))
-//        let rays = Location(centerCoordinate:raysCenterCoordinate, radius:raysRadius)
-//        //     rays.color = UIColor.orangeColor()
-//        
-//        let ovalFilePath = NSBundle.mainBundle().pathForResource("Oval", ofType: "plist")
-//        let ovalLocations = NSArray(contentsOfFile: ovalFilePath!)
-//        let ovalPoint = CGPointFromString(ovalLocations![Int(rand()%4)] as! String)
-//        let ovalCenterCoordinate = CLLocationCoordinate2DMake(CLLocationDegrees(ovalPoint.x), CLLocationDegrees(ovalPoint.y))
-//        let ovalRadius = CLLocationDistance(max(5, Int(rand()%40)))
-//        let oval = Location(centerCoordinate:ovalCenterCoordinate, radius:ovalRadius)
-//        //   oval.color = UIColor.yellowColor()
-//        
-//        mapView.addOverlay(huang)
-//        mapView.addOverlay(rays)
-//        mapView.addOverlay(oval)
-//    }
-    
+
     func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
         let circleRenderer = MKCircleRenderer(overlay: overlay)
         circleRenderer.strokeColor = UIColor(hue: 0.9472, saturation: 0.78, brightness: 0.92, alpha: 1.0)
         circleRenderer.fillColor = UIColor(hue: 0.9472, saturation: 0.71, brightness: 0.92, alpha: 1.0)
         return circleRenderer
     }
-//
-//    // MARK: Loading and saving functions
-//    
-////    func loadAllGeonotifications() {
-////        geonotifications = []
-////        
-////        if let savedItems = NSUserDefaults.standardUserDefaults().arrayForKey(kSavedItemsKey) {
-////            for savedItem in savedItems {
-////                if let geonotification = NSKeyedUnarchiver.unarchiveObjectWithData(savedItem as! NSData) as? Geonotification {
-////                    addGeonotification(geonotification)
-////                }
-////            }
-////        }
-////    }
-    
-//    
-    
-    
     
     /* Referred from https://www.raywenderlich.com/95014/geofencing-ios-swift  */
     func regionWithgeonotification(geonotification: Geonotification) -> CLCircularRegion {
@@ -244,52 +170,19 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             }
         }
     }
-//    func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-//        // Delete geonotification
-//        let geonotification = view.annotation as! Geonotification
-//        stopMonitoringgeonotification(geonotification)   // Add this statement
-//        saveAllGeonotifications()
-//    }
+
     func locationManager(manager: CLLocationManager, monitoringDidFailForRegion region: CLRegion?, withError error: NSError) {
         print("Monitoring failed for region with identifier: \(region!.identifier)")
     }
-//
-//    
-//    let regionRadius: CLLocationDistance = 100
-//    
-//    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
-//        if status == .AuthorizedWhenInUse {
-//            manager.startUpdatingLocation()
-//        }
-//        mapView.showsUserLocation = (status == .AuthorizedAlways)
-//    }
-//    
+
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError)
     {
         print("Errors: " + error.localizedDescription)
         
     }
-//
-//    func removeGeonotification(geonotification: Geonotification) {
-//        if let indexInArray = geonotifications.indexOf(geonotification) {
-//            geonotifications.removeAtIndex(indexInArray)
-//        }
-//        
-//        mapView.removeAnnotation(geonotification)
-//        removeRadiusOverlayForgeonotification(geonotification)
-//    }
-//    
-    func addGeonotifications() {
-        
 
-//        let gatesCenterCoordinate = CLLocationCoordinate2DMake(37.43015659999997,-122.175685)
-//        let gatesRadius = CLLocationDistance(500)
-//        let gates = Location(centerCoordinate:gatesCenterCoordinate, radius:gatesRadius)
-//        let mcFarlandCenterCoordinate = CLLocationCoordinate2DMake(37.4264022,-122.1600607)
-//        let mcFarlandRadius = CLLocationDistance(500)
-//        let mcFarland = Location(centerCoordinate:mcFarlandCenterCoordinate, radius:mcFarlandRadius)
-       // mapView.addOverlay(gates)
-       // mapView.addOverlay(mcFarland)
+    
+    func addGeonotifications() {
         
         for zone in zones!{
             
@@ -297,35 +190,12 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             let long = ((zone.objectForKey("longitude") as? NSString)?.doubleValue)!
             let location = CLLocationCoordinate2D(latitude : lat, longitude : long )
             
-        
-        let geonotification = Geonotification(coordinate: location , radius: 500, identifier: NSUUID().UUIDString, note: zone.objectForKey("name") as! String, eventType: EventType.OnEntry)
-//            let geonotification11 = Geonotification(coordinate: locationCoordinates["Gates Station"]!, radius: 500, identifier: NSUUID().UUIDString, note: "Gates Station", eventType: EventType.OnExit)
-////        let geonotification11 = Geonotification(coordinate: CLLocationCoordinate2D(latitude:37.43015659999997, longitude: -122.175685), radius: 500, identifier: NSUUID().UUIDString, note: "Gates Station", eventType: EventType.OnExit)
-//        let geonotification2 = Geonotification(coordinate: locationCoordinates["McFarland Station"]!, radius: 500, identifier: NSUUID().UUIDString, note: "McFarland Station", eventType: EventType.OnEntry)
-//        let geonotification22 = Geonotification(coordinate: locationCoordinates["McFarland Station"]!, radius: 500, identifier: NSUUID().UUIDString, note: "McFarland Station", eventType: EventType.OnExit)
-        
-        addRadiusOverlayForgeonotification(geonotification)
-     //   addRadiusOverlayForgeonotification(geonotification2)
-        geonotifications.append(geonotification)
-     //   geonotifications.append(geonotification2)
-
-        mapView.addAnnotation(geonotification)
-       // mapView.addAnnotation(geonotification2)
-      //  addRadiusOverlayForgeonotification(geonotification)
-        startMonitoringgeonotification(geonotification)
-      //  startMonitoringgeonotification(geonotification2)
-        
-       // addRadiusOverlayForgeonotification(geonotification11)
-       // addRadiusOverlayForgeonotification(geonotification22)
-//        geonotifications.append(geonotification11)
-//      //  geonotifications.append(geonotification22)
-//        
-//        mapView.addAnnotation(geonotification11)
-//        mapView.addAnnotation(geonotification22)
-//       // addRadiusOverlayForgeonotification(geonotification)
-//        startMonitoringgeonotification(geonotification11)
-//        startMonitoringgeonotification(geonotification22)
+            let geonotification = Geonotification(coordinate: location , radius: 500, identifier: NSUUID().UUIDString, note: zone.objectForKey("name") as! String, eventType: EventType.OnEntry)
             
+            addRadiusOverlayForgeonotification(geonotification)
+            geonotifications.append(geonotification)
+            mapView.addAnnotation(geonotification)
+            startMonitoringgeonotification(geonotification)
         }
         saveAllGeonotifications()
     }
@@ -338,30 +208,12 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         NSUserDefaults.standardUserDefaults().setObject(items, forKey: kSavedItemsKey)
         NSUserDefaults.standardUserDefaults().synchronize()
     }
-//
+    
     func addRadiusOverlayForgeonotification(geonotification: Geonotification) {
       //  self.mapView?.removeOverlays(self..overlays)
         self.mapView?.addOverlay(MKCircle(centerCoordinate: geonotification.coordinate, radius: geonotification.radius))
     }
-//
-//    func removeRadiusOverlayForgeonotification(geonotification: Geonotification) {
-//        // Find exactly one overlay which has the same coordinates & radius to remove
-//        if let overlays = mapView?.overlays {
-//            for overlay in overlays {
-//                if let circleOverlay = overlay as? MKCircle {
-//                    let coord = circleOverlay.coordinate
-//                    if coord.latitude == geonotification.coordinate.latitude && coord.longitude == geonotification.coordinate.longitude && circleOverlay.radius == geonotification.radius {
-//                        mapView?.removeOverlay(circleOverlay)
-//                        break
-//                    }
-//                }
-//            }
-//        }
-//    }
-//    
-//
-//    
-//    
+
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let userLocation:CLLocation = locations[0]
         centerMapOnLocation(userLocation)
@@ -375,8 +227,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             for savedItem in savedItems {
                 if let geonotification = NSKeyedUnarchiver.unarchiveObjectWithData(savedItem as! NSData) as? Geonotification {
                     if geonotification.identifier == identifier {
-                        //    print("MUSIC LOADED")
-                        //    mapVC.fetchMusicDataIntoModel("http://api.soundcloud.com/users/\(user_id1)/playlists?client_id=\(SoundCloud_CLIENT_ID)")
                         return geonotification.note
                     }
                 }
@@ -437,7 +287,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
 //    }
 
 
-    
 
     
 //        func locationManager(manager: CLLocationManager, didExitRegion region: CLRegion) {
@@ -445,77 +294,24 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
 //        }
 //
         
-//        if let masterViewController = self.delegate as? MusicPlayerViewController {
-//            splitViewController?.showMa showDetailViewController(MapViewController, sender: nil)
-//        }
-//
-//        for audio in audioArr {
-//            audio.updateVolume(userLocation)
-//            if !audio.playing() {
-//                audio.play(userLocation)
-//            }
-//
-//        }
-    
-//
-    
-//
-//    func addAttractionPins() {
-//        let filePath = NSBundle.mainBundle().pathForResource("Zones", ofType: "plist")
-//        let attractions = NSArray(contentsOfFile: filePath!)
-//        for attraction in attractions! {
-//            let point = CGPointFromString((attraction.objectForKey("location") as? String)!)//attraction["location"] as! String)
-//            let coordinate = CLLocationCoordinate2DMake(CLLocationDegrees(point.x), CLLocationDegrees(point.y))
-//            let title = attraction.objectForKey("name") as! String//attraction["name"] as! String
-//            let typeRawValue = Int(attraction.objectForKey("type") as! String)! //Int((attraction["type"] as! String))!
-//            let type = AttractionType(rawValue: typeRawValue)!
-//            let subtitle = attraction.objectForKey("subtitle") as! String //attraction["subtitle"] as! String
-//            let annotation = AttractionAnnotation(coordinate: coordinate, title: title, subtitle: subtitle, type: type)
-//            mapView.addAnnotation(annotation)
-//        }
-////        mapView.setRegion(MKCoordinateRegion(center:CLLocationCoordinate2D(latitude: 37.7735546, longitude: -122.4234522), span: MKCoordinateSpanMake(0.01, 0.01)), animated: false)
-//        mapView.setUserTrackingMode(MKUserTrackingMode.FollowWithHeading, animated: false)
-//    }
-//    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
-//        let annotationView = AttractionAnnotationView(annotation: annotation, reuseIdentifier: "Attraction")
-//        annotationView.canShowCallout = true
-//        return annotationView
-//    }
     @IBAction func heartButtonPressed(sender: AnyObject) {
-        // the slider value returns a float (e.g. 10.4)
-        // to work in the loop we need to round down as an Int (e.g. 10)
         let numberOfHearts = 5
         
         for _ in 1...numberOfHearts  {
-            
-            // set up some constants for the animation
             let duration = 3.0
-            
             let options = UIViewAnimationOptions.CurveLinear
-            
-            // randomly assign a delay of 0.9 to 1s
             let delay = NSTimeInterval(200 + arc4random_uniform(100)) / 1000
-            
-            // set up some constants for the heart
             let size : CGFloat = CGFloat( arc4random_uniform(40))+20
             _ = CGFloat( arc4random_uniform(200))+20
-            
-            // create the heart
-            let heart = UIImageView()
+                        let heart = UIImageView()
             heart.image = UIImage(named: "bomb-icon")
             heart.frame = CGRectMake(UIScreen.mainScreen().bounds.width-2*size, UIScreen.mainScreen().bounds.height, size, size)
             self.view.addSubview(heart)
-            
-            // define the animation
             UIView.animateWithDuration(duration, delay: delay, options: options, animations: {
-                
-                // move the heart
                 heart.frame = CGRectMake(UIScreen.mainScreen().bounds.width-2*size, 0, size, size)
                 heart.transform = CGAffineTransformMakeScale(3, 3)
                 
                 }, completion: { animationFinished in
-                    
-                    // remove the heart
                     heart.removeFromSuperview()
             })
         }
@@ -534,14 +330,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             0.0
             }, completion: nil)
     }
-    
-    /**
-     Tells the label to stop blinking.
-     */
-    //    func stopBlinking() {
-    //        alpha = 1
-    //        layer.removeAllAnimations()
-    //    }
+
     func fetchMusicDataIntoModel(urlPath: String){
         addLoadingScreen()
         let url = NSURL(string: urlPath)

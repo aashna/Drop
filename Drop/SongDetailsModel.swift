@@ -14,7 +14,6 @@ class SongDetailsModel: NSObject {
     var duration: Int
     var streamURL: String
     let audio: AVAudioPlayer
-   //var streamable: Bool
     
     init(title: String, duration: Int, streamURL: String) {
         self.title = title
@@ -26,13 +25,8 @@ class SongDetailsModel: NSObject {
     }
     
     func play() {
-        //plays this audio file based on distance
-      //  self.audio.volume = self.volumeForCLLocation(location)
         self.audio.numberOfLoops = -1
-        
         self.audio.play()
-        
-        
     }
     
     func playing() -> Bool{
@@ -49,10 +43,4 @@ class SongDetailsModel: NSObject {
     {
         
     }
-  
-    
-//    func updateVolume(location:CLLocation) {
-//        //updates volume again based on distance
-//        self.audio.volume = self.volumeForCLLocation(location)
-//    }
 }

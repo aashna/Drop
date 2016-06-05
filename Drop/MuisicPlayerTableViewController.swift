@@ -21,16 +21,13 @@ class MusicPlayerTableViewController: UITableViewController, MusicDataDelegate, 
     let transitionManager = TransitionManager()
     let searchBarController = UISearchController(searchResultsController: nil)
     var searchedResults = [SongDetailsModel]()
-//    var musicPlayerCell: MusicPlayerTableViewCell = MusicPlayerTableViewCell()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         searchBarController.searchResultsUpdater = self
         searchBarController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
         tableView.tableHeaderView = searchBarController.searchBar
-
-//        musicPlayerCell.delegatePlay = self
-//        varicPlayerCell.delegateStop = self
     }
     
     // MARK: Constants
@@ -52,7 +49,7 @@ class MusicPlayerTableViewController: UITableViewController, MusicDataDelegate, 
     @IBAction func onPause(sender: AnyObject) {
         for index in 1...self.musicPlaylist.count-1{
             if self.musicPlaylist[index].playing() == true{
-               self.musicPlaylist[index].pause()
+                self.musicPlaylist[index].pause()
             }
         }
     }
@@ -66,7 +63,7 @@ class MusicPlayerTableViewController: UITableViewController, MusicDataDelegate, 
         self.musicPlaylist = appDelegate.playList
         self.tableView.reloadData()
     }
-
+    
     func showFilteredSongs(text : String, scope: String = "All") {
         searchedResults = musicPlaylist.filter { song in
             return song.title.lowercaseString.containsString(text.lowercaseString)
@@ -78,10 +75,10 @@ class MusicPlayerTableViewController: UITableViewController, MusicDataDelegate, 
     var tableData = [SongDetailsModel]()
     
     func getMusicData(results: NSArray){
-       // dispatch_async(dispatch_get_main_queue(), {
-            self.tableData = results as! [SongDetailsModel]
-            self.musicPlayerView!.reloadData()
-     //   })
+        // dispatch_async(dispatch_get_main_queue(), {
+        self.tableData = results as! [SongDetailsModel]
+        self.musicPlayerView!.reloadData()
+        //   })
         
     }
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -128,35 +125,32 @@ class MusicPlayerTableViewController: UITableViewController, MusicDataDelegate, 
     }
     
     func stopSong(cell: MusicPlayerTableViewCell){
-               if searchBarController.active && searchBarController.searchBar.text != "" {
+        if searchBarController.active && searchBarController.searchBar.text != "" {
             self.searchedResults[musicPlayerView.indexPathForCell(cell)!.row].stop()
         } else {
             self.musicPlaylist[musicPlayerView.indexPathForCell(cell)!.row].stop()
         }
     }
     
-
+    
     @IBAction func unwindToMusicPlayerViewController(sender: UIStoryboardSegue) {
     }
     
-//    @IBAction func heartButtonPressed(sender: AnyObject) {
-//    }
+    //    @IBAction func heartButtonPressed(sender: AnyObject) {
+    //    }
     
     override func prepareForSegue(segue: UIStoryboardSegue,
                                   sender: AnyObject?) {
         
         if segue.identifier == "showMap" {
-                
-                let dest = (segue.destinationViewController
-                    as! UINavigationController).topViewController
-                    as! MapViewController
+            
+            let dest = (segue.destinationViewController
+                as! UINavigationController).topViewController
+                as! MapViewController
             print("going to Map")
-                
-             //   controller.detailItem = urlString
-             //   controller.navigationItem.leftBarButtonItem =
-                    splitViewController?.displayModeButtonItem()
+            
+            splitViewController?.displayModeButtonItem()
             dest.transitioningDelegate = self.transitionManager
-              //  controller.navigationItem.leftItemsSupplementBackButton = true
             
         }
     }
@@ -175,38 +169,19 @@ class MusicPlayerTableViewController: UITableViewController, MusicDataDelegate, 
             // set up some constants for the animation
             let duration = 1.0
             let options = UIViewAnimationOptions.CurveLinear
-            
-            // randomly assign a delay of 0.9 to 1s
             let delay = NSTimeInterval(200 + arc4random_uniform(100)) / 1000
-            
-            // set up some constants for the heart
             let size : CGFloat = CGFloat( arc4random_uniform(40))+20
             _ = CGFloat( arc4random_uniform(200))+20
-            
-            // create the heart
             let heart = UIImageView()
             heart.image = UIImage(named: "bomb-icon")
             heart.frame = CGRectMake(UIScreen.mainScreen().bounds.width-size,0-size, size, size)
             self.view.addSubview(heart)
-            
-            // define the animation
             UIView.animateWithDuration(duration, delay: delay, options: options, animations: {
-                
-                // move the heart
                 heart.frame = CGRectMake(UIScreen.mainScreen().bounds.width-size, UIScreen.mainScreen().bounds.height, size, size)
-              //  heart.transform = CGAffineTransformMakeScale(3, 3)
-               // NSTimer.scheduledTimerWithTimeInterval(0.20, target: self, selector: "shake",userInfo: nil, repeats: false)
-               
-           
-                
-                
                 }, completion: { animationFinished in
-                    
-                    // remove the heart
-                 //   heart.removeFromSuperview()
             })
             
-          //   define the animation
+            //   define the animation
             UIView.animateWithDuration(0.5, delay: 0.5, options: options, animations: {
                 
                 // move the heart
@@ -215,36 +190,8 @@ class MusicPlayerTableViewController: UITableViewController, MusicDataDelegate, 
                 }, completion: { animationFinished in
                     
                     // remove the heart
-                heart.removeFromSuperview()
+                    heart.removeFromSuperview()
             })
-            // define the animation
-//            UIView.animateWithDuration(0.07, delay: 1.0, options: [.Autoreverse, .Repeat], animations: {
-//                
-//                // move the heart
-////                let animation = CABasicAnimation(keyPath: "position")
-////                animation.repeatCount = 4
-////                animation.autoreverses = true
-//                heart.transform = CGAffineTransformMakeScale(heart.center.x - 5, heart.center.y)
-//                heart.transform = CGAffineTransformMakeScale(heart.center.x + 5, heart.center.y)
-//
-//
-//          //      animation.fromValue = NSValue(CGPoint: CGPointMake(heart.center.x - 5, heart.center.y))
-//            //    animation.toValue = NSValue(CGPoint: CGPointMake(heart.center.x + 5, heart.center.y))
-//             //   heart.layer.addAnimation(animation, forKey: "position")
-//
-//                // NSTimer.scheduledTimerWithTimeInterval(0.20, target: self, selector: "shake",userInfo: nil, repeats: false)
-//                }, completion: { animationFinished in
-//                    
-//                    // remove the heart
-//                    heart.removeFromSuperview()
-//            })
-
-            
-            
-            
         }
     }
-
-    
-    
 }

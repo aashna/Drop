@@ -72,7 +72,7 @@ class UpdateProfileViewController: UIViewController, UIImagePickerControllerDele
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.addBackgroundtoSignUp()
-     //   self.view.backgroundColor = UIColor(patternImage: UIImage(named: "drop-sign-up-screen.png")!)
+        //   self.view.backgroundColor = UIColor(patternImage: UIImage(named: "drop-sign-up-screen.png")!)
         
         // Do any additional setup after loading the view.
         btnRemoveImage.hidden = true
@@ -118,7 +118,7 @@ class UpdateProfileViewController: UIViewController, UIImagePickerControllerDele
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     
     // MARK: IBAction method implementation
     
@@ -133,14 +133,14 @@ class UpdateProfileViewController: UIViewController, UIImagePickerControllerDele
             presentViewController(imagePicker, animated: true, completion: nil)
         }
         if UIImagePickerController.availableCaptureModesForCameraDevice(.Rear) != nil {
-        imagePicker.allowsEditing = false
-        imagePicker.cameraCaptureMode = .Photo
-        imagePicker.modalPresentationStyle = .FullScreen
-        presentViewController(imagePicker,
-                              animated: true,
-                              completion: nil)
+            imagePicker.allowsEditing = false
+            imagePicker.cameraCaptureMode = .Photo
+            imagePicker.modalPresentationStyle = .FullScreen
+            presentViewController(imagePicker,
+                                  animated: true,
+                                  completion: nil)
         }
-}
+    }
     
     @IBAction func unsetImage(sender: AnyObject) {
         imageView.image = UIImage(named: "user.png")
@@ -162,20 +162,20 @@ class UpdateProfileViewController: UIViewController, UIImagePickerControllerDele
         viewWait.hidden = false
         view.bringSubviewToFront(viewWait)
         navigationController?.setNavigationBarHidden(true, animated: true)
-
+        
         if(userName.text?.characters.count < 5) {
-
+            
             let alert = UIAlertController(title: "Invalid", message:"Username must be greater than 5 characters", preferredStyle: .Alert)
             alert.addAction(UIAlertAction(title: "OK", style: .Default) { _ in })
             self.presentViewController(alert, animated: true){}
-//            let alert = UIAlertView(title: "Invalid", message: "Username must be greater than 5 characters", delegate: self, cancelButtonTitle: "OK")
-          //  alert.show()
+            //            let alert = UIAlertView(title: "Invalid", message: "Username must be greater than 5 characters", delegate: self, cancelButtonTitle: "OK")
+            //  alert.show()
             
         } else if(userPassword.text?.characters.count < 8) {
             let alert = UIAlertController(title: "Invalid", message:"Password must be greater than 8 characters", preferredStyle: .Alert)
             alert.addAction(UIAlertAction(title: "OK", style: .Default) { _ in })
             self.presentViewController(alert, animated: true){}
-           // alert.show()
+            // alert.show()
             
         }
         else if(userPassword.text == confirmPassword.text) == false {
@@ -195,24 +195,24 @@ class UpdateProfileViewController: UIViewController, UIImagePickerControllerDele
             newUser.username = userName.text
             newUser.password = userPassword.text
             newUser["phone"] = phoneNumber.text
-        newUser.signUpInBackgroundWithBlock({ (succeed, error) -> Void in
-            
-            // Stop the spinner
-            self.spinner.stopAnimating()
-            if ((error) != nil) {
-                let alert = UIAlertController(title: "Error", message: "\(error)", preferredStyle: .Alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .Default) { _ in })
-                self.presentViewController(alert, animated: true){}
+            newUser.signUpInBackgroundWithBlock({ (succeed, error) -> Void in
                 
-            } else {
-                let alert = UIAlertController(title: "Success", message: "Signed Up", preferredStyle: .Alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .Default) { _ in })
-                self.presentViewController(alert, animated: true){}
-                AppDelegate.getAppDelegate().loaded = false
-                self.performSegueWithIdentifier("mainVIew", sender: self)
-            }
-        })
-      }
+                // Stop the spinner
+                self.spinner.stopAnimating()
+                if ((error) != nil) {
+                    let alert = UIAlertController(title: "Error", message: "\(error)", preferredStyle: .Alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .Default) { _ in })
+                    self.presentViewController(alert, animated: true){}
+                    
+                } else {
+                    let alert = UIAlertController(title: "Success", message: "Signed Up", preferredStyle: .Alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .Default) { _ in })
+                    self.presentViewController(alert, animated: true){}
+                    AppDelegate.getAppDelegate().loaded = false
+                    self.performSegueWithIdentifier("mainVIew", sender: self)
+                }
+            })
+        }
     }
     
     
@@ -253,12 +253,12 @@ class UpdateProfileViewController: UIViewController, UIImagePickerControllerDele
             //image is not included alert user
             print("Image not uploaded")
         }else {
-           // let newUser = PFUser.currentUser()
+            // let newUser = PFUser.currentUser()
             
-              let profilePic = PFObject(className: "Profile_Image")
-              //posts["imageText"] = imageText
-              profilePic["uploader"] = PFUser.currentUser()
-              profilePic.saveInBackgroundWithBlock({
+            let profilePic = PFObject(className: "Profile_Image")
+            //posts["imageText"] = imageText
+            profilePic["uploader"] = PFUser.currentUser()
+            profilePic.saveInBackgroundWithBlock({
                 (success: Bool, error: NSError?) -> Void in
                 
                 if error == nil {
@@ -275,7 +275,7 @@ class UpdateProfileViewController: UIViewController, UIImagePickerControllerDele
                         if error == nil {
                             //take user home
                             print("pic uploaded")
-                          //  self.performSegueWithIdentifier("goHomeFromUpload", sender: self)
+                            //  self.performSegueWithIdentifier("goHomeFromUpload", sender: self)
                         }else {
                             print(error)
                         }
@@ -286,7 +286,6 @@ class UpdateProfileViewController: UIViewController, UIImagePickerControllerDele
             })
         }
     }
-    
     
     
     // MARK: UIImagePickerControllerDelegate method implementation

@@ -32,86 +32,86 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignIn
 {
     let transitionManager = TransitionManager()
     
-//    override func viewWillAppear(animated: Bool) {
-//        if (PFUser.currentUser() == nil) {
-//            dispatch_async(dispatch_get_main_queue(), { () -> Void in
-//                
-//                let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Login") as! UIViewController
-//                self.presentViewController(viewController, animated: true, completion: nil)
-//            })
-//        }
-//    }
-//    override func viewDidAppear(animated: Bool) {
-//        super.viewDidAppear(animated)
-//        if (PFUser.currentUser() == nil) {
-//            let loginViewController = PFLogInViewController()
-//            loginViewController.delegate = self
-//            loginViewController.fields = .UsernameAndPassword | .LogInButton | .PasswordForgotten | .SignUpButton | .Facebook | .Twitter
-//            loginViewController.emailAsUsername = true
-//            loginViewController.signUpController?.delegate = self
-//            self.presentViewController(loginViewController, animated: false, completion: nil)
-//            
-//        }else {
-//            presentLoggedInAlert()
-//        }
-//        
-//    }
-
-
+    //    override func viewWillAppear(animated: Bool) {
+    //        if (PFUser.currentUser() == nil) {
+    //            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+    //
+    //                let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Login") as! UIViewController
+    //                self.presentViewController(viewController, animated: true, completion: nil)
+    //            })
+    //        }
+    //    }
+    //    override func viewDidAppear(animated: Bool) {
+    //        super.viewDidAppear(animated)
+    //        if (PFUser.currentUser() == nil) {
+    //            let loginViewController = PFLogInViewController()
+    //            loginViewController.delegate = self
+    //            loginViewController.fields = .UsernameAndPassword | .LogInButton | .PasswordForgotten | .SignUpButton | .Facebook | .Twitter
+    //            loginViewController.emailAsUsername = true
+    //            loginViewController.signUpController?.delegate = self
+    //            self.presentViewController(loginViewController, animated: false, completion: nil)
+    //
+    //        }else {
+    //            presentLoggedInAlert()
+    //        }
+    //
+    //    }
+    
+    
     @IBOutlet weak var userPassword: UITextField!
     
     @IBOutlet weak var userName: UITextField!
     
     @IBOutlet weak var googleLoginButton: GIDSignInButton!
-   
+    
     @IBOutlet weak var fbLoginButton: FBSDKLoginButton!
     
     var email: String = ""
     
-//    func presentLoggedInAlert() {
-//        let alertController = UIAlertController(title: "You're logged in", message: "Welcome to Vay.K", preferredStyle: .Alert)
-//        let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
-//            self.dismissViewControllerAnimated(true, completion: nil)
-//        }
-//        alertController.addAction(OKAction)
-//        self.presentViewController(alertController, animated: true, completion: nil)
-//    }
+    //    func presentLoggedInAlert() {
+    //        let alertController = UIAlertController(title: "You're logged in", message: "Welcome to Vay.K", preferredStyle: .Alert)
+    //        let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
+    //            self.dismissViewControllerAnimated(true, completion: nil)
+    //        }
+    //        alertController.addAction(OKAction)
+    //        self.presentViewController(alertController, animated: true, completion: nil)
+    //    }
     
-//    func logInViewController(logInController: PFLogInViewController, didLogInUser user: PFUser) {
-//        self.dismissViewControllerAnimated(true, completion: nil)
-//        presentLoggedInAlert()
-//    }
-//
-//    
-//    func signUpViewController(signUpController: PFSignUpViewController, didSignUpUser user: PFUser) {
-//        self.dismissViewControllerAnimated(true, completion: nil)
-//        presentLoggedInAlert()
-//    }
+    //    func logInViewController(logInController: PFLogInViewController, didLogInUser user: PFUser) {
+    //        self.dismissViewControllerAnimated(true, completion: nil)
+    //        presentLoggedInAlert()
+    //    }
+    //
+    //
+    //    func signUpViewController(signUpController: PFSignUpViewController, didSignUpUser user: PFUser) {
+    //        self.dismissViewControllerAnimated(true, completion: nil)
+    //        presentLoggedInAlert()
+    //    }
     
-  
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.addBackground()
         
-       
+        
         //self.view.backgroundColor = UIColor(patternImage: UIImage(named: "drop-login-screen.png")!)
         
-//        GIDSignIn.sharedInstance().uiDelegate = self
-//    
-//    
-//        if (FBSDKAccessToken.currentAccessToken() == nil)
-//        {
-//            print("Not logged in..")
-//        }
-//        else
-//        {
-//            print("Logged in..")
-//        }
-//        
-//   
-//        fbLoginButton.readPermissions = ["public_profile", "email", "user_friends"]
-//        fbLoginButton.delegate = self
+        //        GIDSignIn.sharedInstance().uiDelegate = self
+        //
+        //
+        //        if (FBSDKAccessToken.currentAccessToken() == nil)
+        //        {
+        //            print("Not logged in..")
+        //        }
+        //        else
+        //        {
+        //            print("Logged in..")
+        //        }
+        //
+        //
+        //        fbLoginButton.readPermissions = ["public_profile", "email", "user_friends"]
+        //        fbLoginButton.delegate = self
     }
     
     func vibrateForInvalidInput() -> CAKeyframeAnimation {
@@ -124,7 +124,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignIn
         return animation
     }
     
-     /* referred from http://www.appcoda.com/login-signup-parse-swift/ */
+    /* referred from http://www.appcoda.com/login-signup-parse-swift/ */
     @IBAction func signIn(sender: AnyObject) {
         
         let username = self.userName.text
@@ -173,43 +173,43 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignIn
         }
     }
     
-//        let logInButton = TWTRLogInButton { (session, error) in
-//            if let unwrappedSession = session {
-//                let alert = UIAlertController(title: "Logged In",
-//                    message: "User \(unwrappedSession.userName) has logged in",
-//                    preferredStyle: UIAlertControllerStyle.Alert
-//                )
-//                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-//                self.presentViewController(alert, animated: true, completion: nil)
-//            } else {
-//                NSLog("Login error: %@", error!.localizedDescription);
-//            }
-//        }
-//    }
-//
-//        // TODO: Change where the log in button is positioned in your view
-//        logInButton.center = CGPointMake(UIScreen.mainScreen().bounds.size.width/2, loginButton.center.y + 30)//self.view.center
-//        self.view.addSubview(logInButton)
-//        
-//        Twitter.sharedInstance().logInWithCompletion {
-//            (session, error) -> Void in
-//            if (session != nil) {
-//                
-//                print(session!.userID)
-//                print(session!.userName)
-//                print(session!.authToken)
-//                print(session!.authTokenSecret)
-//              
-//                
-//            }else {
-//                print("Not Login")
-//            }
-//            
-//        }
-//
-//        
-//    }
-
+    //        let logInButton = TWTRLogInButton { (session, error) in
+    //            if let unwrappedSession = session {
+    //                let alert = UIAlertController(title: "Logged In",
+    //                    message: "User \(unwrappedSession.userName) has logged in",
+    //                    preferredStyle: UIAlertControllerStyle.Alert
+    //                )
+    //                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+    //                self.presentViewController(alert, animated: true, completion: nil)
+    //            } else {
+    //                NSLog("Login error: %@", error!.localizedDescription);
+    //            }
+    //        }
+    //    }
+    //
+    //        // TODO: Change where the log in button is positioned in your view
+    //        logInButton.center = CGPointMake(UIScreen.mainScreen().bounds.size.width/2, loginButton.center.y + 30)//self.view.center
+    //        self.view.addSubview(logInButton)
+    //
+    //        Twitter.sharedInstance().logInWithCompletion {
+    //            (session, error) -> Void in
+    //            if (session != nil) {
+    //
+    //                print(session!.userID)
+    //                print(session!.userName)
+    //                print(session!.authToken)
+    //                print(session!.authTokenSecret)
+    //
+    //
+    //            }else {
+    //                print("Not Login")
+    //            }
+    //
+    //        }
+    //
+    //
+    //    }
+    
     func performSegueToMainView() {
         AppDelegate.getAppDelegate().loaded = false
         self.performSegueWithIdentifier("segueToMain", sender: self)
@@ -220,10 +220,10 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignIn
         if error == nil
         {
             print("Login complete.")
-             performSegueToMainView()
-//            if (result.grantedPermissions.contains("email")) {
-//                setEmail()
-//            }
+            performSegueToMainView()
+            //            if (result.grantedPermissions.contains("email")) {
+            //                setEmail()
+            //            }
         }
         else
         {
@@ -260,10 +260,10 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignIn
         } else {
             print("\(error.localizedDescription)")
             
-
+            
         }
     }
-
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if case let updateProfileVC as UpdateProfileViewController  = segue.destinationViewController
             where segue.identifier == "profileCompletion"
@@ -271,9 +271,9 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignIn
             updateProfileVC.email = email
             updateProfileVC.transitioningDelegate = self.transitionManager
         }
-
+        
     }
-
+    
     @IBAction func signUp(sender: AnyObject) {
         self.performSegueWithIdentifier("profileCompletion", sender: self)
     }
@@ -282,7 +282,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignIn
     }
     @IBAction func unwindToLogInScreen(segue:UIStoryboardSegue) {
     }
-
+    
     @IBAction func addFriends(sender: AnyObject) {
         self.performSegueWithIdentifier("addFriend", sender: self)
     }
@@ -305,7 +305,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignIn
                 self.showAlertMessage("You are not logged in to your Twitter account.")
             }
         }
-
+        
         let facebook = UIAlertAction(title: "Share on Facebook", style: UIAlertActionStyle.Default) { (action) -> Void in
             if SLComposeViewController.isAvailableForServiceType(SLServiceTypeFacebook) {
                 let facebookComposeVC = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
