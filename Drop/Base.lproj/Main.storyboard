@@ -847,9 +847,12 @@
                                     </attributedString>
                                 </state>
                                 <connections>
-                                    <action selector="logoutPressed:" destination="ysG-YK-dzz" eventType="touchUpInside" id="UiD-9I-6Gc"/>
+                                    <segue destination="CQb-LK-RIc" kind="unwind" unwindAction="unwindAfterLogout:" id="4h8-OB-4m9"/>
                                 </connections>
                             </button>
+                            <connections>
+                                <segue destination="CQb-LK-RIc" kind="unwind" unwindAction="unwindToLogInScreen:" id="cZB-mP-dn3"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Map -&gt;" id="gAr-qe-o4l">
                             <connections>
@@ -864,13 +867,14 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N4T-Pi-9E0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="CQb-LK-RIc" userLabel="Exit" sceneMemberID="exit"/>
                 <view contentMode="scaleToFill" id="UKY-F2-nRb">
                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
             </objects>
-            <point key="canvasLocation" x="-59" y="-97"/>
+            <point key="canvasLocation" x="-1477" y="-955"/>
         </scene>
         <!--Location-->
         <scene sceneID="KRT-pK-n8C">

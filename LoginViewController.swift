@@ -181,6 +181,10 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignIn
     }
     @IBAction func unwindToLogInScreen(segue:UIStoryboardSegue) {
     }
+    @IBAction func unwindAfterLogout(segue:UIStoryboardSegue) {
+         PFUser.logOut()
+   showSimpleAlertWithTitle("Logged Out", message: "You have been successfully logged out of Drop", viewController: self)
+    }
     
     @IBAction func addFriends(sender: AnyObject) {
         self.performSegueWithIdentifier("addFriend", sender: self)
