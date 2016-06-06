@@ -1,5 +1,4 @@
-//
-//  FbLoginViewController.swift
+
 //  Drop
 //
 //  Created by Aashna Garg on 5/16/16.
@@ -29,8 +28,6 @@ extension UIView {
 class LoginViewController: UIViewController
 {
     let transitionManager = TransitionManager()
-    
-    
     
     @IBOutlet weak var userPassword: UITextField!
     
@@ -111,7 +108,7 @@ class LoginViewController: UIViewController
         AppDelegate.getAppDelegate().loaded = false
         self.performSegueWithIdentifier("segueToMain", sender: self)
     }
-
+    
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if case let updateProfileVC as UpdateProfileViewController  = segue.destinationViewController
@@ -132,16 +129,14 @@ class LoginViewController: UIViewController
     @IBAction func unwindToLogInScreen(segue:UIStoryboardSegue) {
     }
     @IBAction func unwindAfterLogout(segue:UIStoryboardSegue) {
-         PFUser.logOut()
-   showSimpleAlertWithTitle("Logged Out", message: "You have been successfully logged out of Drop", viewController: self)
+        PFUser.logOut()
+        showSimpleAlertWithTitle("Logged Out", message: "You have been successfully logged out of Drop", viewController: self)
     }
-//    
-//    @IBAction func addFriends(sender: AnyObject) {
-//        self.performSegueWithIdentifier("addFriend", sender: self)
-//    }
-//    
     
-    //http://www.appcoda.com/social-framework-introduction/
+    /**
+     Referred from http://www.appcoda.com/social-framework-introduction/
+     *
+     **/
     @IBAction func shareButtonPressed(sender: AnyObject) {
         let shareAlert = UIAlertController(title: "", message: "Share Us", preferredStyle: UIAlertControllerStyle.ActionSheet)
         // Configure a new action for sharing the note in Twitter.
@@ -183,7 +178,6 @@ class LoginViewController: UIViewController
         let dismiss = UIAlertAction(title: "Close", style: UIAlertActionStyle.Cancel) { (action) -> Void in
             
         }
-        
         
         shareAlert.addAction(twitter)
         shareAlert.addAction(facebook)

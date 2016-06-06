@@ -35,9 +35,7 @@ class MusicPlayerTableViewController: UITableViewController, MusicDataDelegate, 
     private struct Storyboard {
         static let TrackCellIdentifier = "trackCellIdentifier"
     }
-    @IBAction func onResume(sender: AnyObject) {
-        
-    }
+
     
     @IBAction func onStop(sender: AnyObject) {
         for index in 1...self.musicPlaylist.count-1{
@@ -110,6 +108,8 @@ class MusicPlayerTableViewController: UITableViewController, MusicDataDelegate, 
         
     }
     
+    // Play and stop song delegate functions to play/stop a song
+    
     func playSong(cell: MusicPlayerTableViewCell){
         if searchBarController.active && searchBarController.searchBar.text != "" {
             self.searchedResults[musicPlayerView.indexPathForCell(cell)!.row].play()
@@ -128,12 +128,9 @@ class MusicPlayerTableViewController: UITableViewController, MusicDataDelegate, 
         }
     }
     
-    
     @IBAction func unwindToMusicPlayerViewController(sender: UIStoryboardSegue) {
     }
     
-    //    @IBAction func heartButtonPressed(sender: AnyObject) {
-    //    }
     
     override func prepareForSegue(segue: UIStoryboardSegue,
                                   sender: AnyObject?) {
@@ -153,6 +150,8 @@ class MusicPlayerTableViewController: UITableViewController, MusicDataDelegate, 
     @IBAction func goToMap(sender: AnyObject) {
         self.performSegueWithIdentifier("showMap", sender: self)
     }
+    
+    // Animation for bomb button
     
     /* Referred from http://mathewsanders.com/animations-in-swift-part-two/  */
     @IBAction func heartButtonPressed(sender: AnyObject) {

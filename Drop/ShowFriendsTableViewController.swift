@@ -15,7 +15,7 @@ class ShowFriendsTableViewController: UITableViewController, UIPopoverPresentati
     @IBOutlet weak var editButton: UIButton!
     
     @IBAction func goToMain(sender: AnyObject) {
-           self.performSegueWithIdentifier("splitViewSegue", sender: self)
+        self.performSegueWithIdentifier("splitViewSegue", sender: self)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,12 +23,12 @@ class ShowFriendsTableViewController: UITableViewController, UIPopoverPresentati
         popoverVc.modalPresentationStyle = .Popover
         popoverVc.preferredContentSize = CGSizeMake(50, 100)
     }
-
+    
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     
-
+    
     @IBAction func editButtonPressed(sender: AnyObject) {
         self.editing = !self.editing
         editButton.selected = !editButton.selected
@@ -40,7 +40,7 @@ class ShowFriendsTableViewController: UITableViewController, UIPopoverPresentati
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("friend", forIndexPath: indexPath) as! ShowFriendsTableViewCell
-
+        
         let cellDataParse: String = self.friends[indexPath.row]
         cell.friendName.text = cellDataParse
         return cell
@@ -51,6 +51,7 @@ class ShowFriendsTableViewController: UITableViewController, UIPopoverPresentati
         return true
     }
     
+    // Delete a friend on swiping a row
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if (editingStyle == UITableViewCellEditingStyle.Delete) {
             self.friends.removeAtIndex(indexPath.row)
@@ -62,24 +63,11 @@ class ShowFriendsTableViewController: UITableViewController, UIPopoverPresentati
         return true
     }
     
+    // Reorder friends in the list
+    
     override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
         let itemToMove = self.friends[fromIndexPath.row]
         self.friends.removeAtIndex(fromIndexPath.row)
         self.friends.insert(itemToMove, atIndex: toIndexPath.row)
     }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "friendDetails" {
-            let friendDetailsVC = segue.destinationViewController as! FriendDetailsViewController, _ = self.tableView.indexPathForSelectedRow
-            
-            friendDetailsVC.modalPresentationStyle = UIModalPresentationStyle.Popover
-            friendDetailsVC.popoverPresentationController!.delegate = self
-            }
-        }
-    }
-    
-    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
-        return UIModalPresentationStyle.None
-    }
-
-
+}

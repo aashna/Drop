@@ -7,7 +7,11 @@
 //
 
 
-/* Referred from http://mathewsanders.com/animated-transitions-in-swift/ */
+/** 
+ Referred from http://mathewsanders.com/animated-transitions-in-swift/
+ **
+ *
+ */
 
 
 import UIKit

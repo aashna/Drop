@@ -32,7 +32,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     var loaderScreen = UIView()
     var locationName = ""
     let regionRadius: CLLocationDistance = 500
-
+    
     let locationManager = CLLocationManager()
     weak var delegate: MusicDataDelegate?
     
@@ -44,10 +44,14 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     @IBOutlet weak var heartButton: UIButton!
     @IBOutlet weak var profilePicture: UIImageView!
     @IBAction func logout(sender: AnyObject) {
-         PFUser.logOut()
+        PFUser.logOut()
     }
     var activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.White)
-
+    
+    /*
+     Referred from https://www.raywenderlich.com/90971/introduction-mapkit-swift-tutorial
+     **/
+    
     @IBOutlet weak var bombButton: UIButton!
     /* Satellite/Hybrid Map views   */
     @IBAction func mapTypeChanged(sender: UISegmentedControl) {
@@ -64,22 +68,22 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     func bombButton(trueFalse:Bool){
         if let button = self.bombButton{
-          button.enabled = trueFalse
+            button.enabled = trueFalse
         }
     }
+    
+    // Sets current song playing on the bottom view
     
     func setCurrentSong(){
         if AppDelegate.getAppDelegate().currentSong == nil{
-          //  currentSong.text = "No song currently playing"
         }
         else{
             currentSong.text = AppDelegate.getAppDelegate().currentSong.title
-          //  startBlinking(currentSong)
         }
     }
     
+    // Sets profile picture of the user
     func setProfilePicture(){
-        // Do any additional setup after loading the view, typically from a nib.
         if let userPicture = PFUser.currentUser()?["imageFile"] as? PFFile {
             userPicture.getDataInBackgroundWithBlock { (imageData: NSData?, error: NSError?) -> Void in
                 if (error == nil) {
@@ -88,31 +92,27 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             }
             
         }
-    
+        
     }
     
+    // Loading screen comes up when it fetches music
+    
     func addLoadingScreen() -> UIView {
-//        if(AppDelegate.getAppDelegate().loaded == false){
-            if let loaderView = NSBundle.mainBundle().loadNibNamed("LoaderView", owner: self, options: nil).first as? LoaderView {
-                loaderView.frame = UIScreen.mainScreen().bounds
-                loaderView.animateLoader()
-                return loaderView
-                
-          //  }
+        if let loaderView = NSBundle.mainBundle().loadNibNamed("LoaderView", owner: self, options: nil).first as? LoaderView {
+            loaderView.frame = UIScreen.mainScreen().bounds
+            loaderView.animateLoader()
+            return loaderView
         }
         return UIView()
-         //AppDelegate.getAppDelegate().loaded = true
     }
     
     override func viewWillAppear(animated: Bool) {
-        
-       activityIndicator.startAnimating()
+        activityIndicator.startAnimating()
     }
-
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-       // addLoadingScreen()
         setCurrentSong()
         setProfilePicture()
         activityIndicator.stopAnimating()
@@ -126,15 +126,16 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         }
         addGeonotifications()
         mapView.delegate = self
-  
     }
-
+    
     func centerMapOnLocation(location: CLLocation) {
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
                                                                   regionRadius * 2.0, regionRadius * 2.0)
         mapView.setRegion(coordinateRegion, animated: true)
     }
-
+    
+    // Zones shown in pink overlays
+    
     func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
         let circleRenderer = MKCircleRenderer(overlay: overlay)
         circleRenderer.strokeColor = UIColor(hue: 0.9472, saturation: 0.78, brightness: 0.92, alpha: 1.0)
@@ -151,22 +152,22 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         region.notifyOnExit = !region.notifyOnEntry
         return region
     }
-
+    
     func startMonitoringgeonotification(geonotification: Geonotification) {
         if !CLLocationManager.isMonitoringAvailableForClass(CLCircularRegion) {
             showSimpleAlertWithTitle("Error", message: "Geofencing is not supported on this device!", viewController: self)
             return
         }
-
+        
         if CLLocationManager.authorizationStatus() != .AuthorizedAlways {
             showSimpleAlertWithTitle("Warning", message: "Your geonotification is saved but will only be activated once you grant Drop permission to access the device location.", viewController: self)
         }
-
+        
         let region = regionWithgeonotification(geonotification)
         print("STARTED MONITORING \(geonotification.note)")
         locationManager.startMonitoringForRegion(region)
     }
-
+    
     func stopMonitoringgeonotification(geonotification: Geonotification) {
         for region in locationManager.monitoredRegions {
             if let circularRegion = region as? CLCircularRegion {
@@ -177,18 +178,18 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             }
         }
     }
-
+    
     func locationManager(manager: CLLocationManager, monitoringDidFailForRegion region: CLRegion?, withError error: NSError) {
         print("Monitoring failed for region with identifier: \(region!.identifier)")
     }
-
+    
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError)
     {
         print("Errors: " + error.localizedDescription)
         
     }
-
     
+    // Adding Geonotification for each zone in Zones.plist
     func addGeonotifications() {
         
         for zone in zones!{
@@ -217,16 +218,12 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
     
     func addRadiusOverlayForgeonotification(geonotification: Geonotification) {
-      //  self.mapView?.removeOverlays(self..overlays)
         self.mapView?.addOverlay(MKCircle(centerCoordinate: geonotification.coordinate, radius: geonotification.radius))
     }
-
+    
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let userLocation:CLLocation = locations[0]
         centerMapOnLocation(userLocation)
-//        if(locations[0] == CLLocation(latitude: geonotifications[0].coordinate.latitude,longitude: geonotifications[0].coordinate.longitude)){
-//           fetchMusicDataIntoModel("http://api.soundcloud.com/users/\(user_id2)/playlists?client_id=\(SoundCloud_CLIENT_ID)")
-//        }
     }
     
     func notefromRegionIdentifier(identifier: String) -> String? {
@@ -273,10 +270,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         self.view.addSubview(loaderScreen)
         if region is CLCircularRegion {
             if let name = notefromRegionIdentifier(region.identifier){
-                print(name)
                 for zone in zones!{
-                    print(zone.objectForKey("name"))
                     if zone.objectForKey("name") as? String == String(name){
+                        
+                        // If we enter one of the zones, load the music playlist specific to that zone
                         
                         if let msg  = zone.objectForKey("url")  as? String{
                             print(msg)
@@ -284,36 +281,16 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                             heartButton.enabled = true
                             print("MUSIC LOADED")
                             fetchMusicDataIntoModel(msg)
-                            
-                         
                         }
-                       // self.view.viewWithTag(22)?.removeFromSuperview()
-                           handleRegionEvent(region)
+                        handleRegionEvent(region)
                     }
                 }
             }
-         
+            
         }
- //
     }
     
-//    func locationManager(manager: CLLocationManager, didExitRegion region: CLRegion) {
-//        if region is CLCircularRegion {
-//            print("REGION EXITED \(region)")
-//            handleRegionEvent(region)
-//             heartButton.enabled = false
-//            bombButton(false)
-//        }
-//    }
-
-
-
-    
-//        func locationManager(manager: CLLocationManager, didExitRegion region: CLRegion) {
-//            NSLog("Exit region")
-//        }
-//
-        
+    // Animation on pressing bomb button
     @IBAction func heartButtonPressed(sender: AnyObject) {
         let numberOfHearts = 5
         
@@ -323,7 +300,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             let delay = NSTimeInterval(200 + arc4random_uniform(100)) / 1000
             let size : CGFloat = CGFloat( arc4random_uniform(40))+20
             _ = CGFloat( arc4random_uniform(200))+20
-                        let heart = UIImageView()
+            let heart = UIImageView()
             heart.image = UIImage(named: "bomb-icon")
             heart.frame = CGRectMake(UIScreen.mainScreen().bounds.width-2*size, UIScreen.mainScreen().bounds.height, size, size)
             self.view.addSubview(heart)
@@ -336,7 +313,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             })
         }
     }
-
+    
     
     @IBAction func playSong(sender: AnyObject) {
         AppDelegate.getAppDelegate().currentSong.play()
@@ -350,45 +327,37 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             0.0
             }, completion: nil)
     }
-
-    func fetchMusicDataIntoModel(urlPath: String){
-       // addLoadingScreen()
-        let url = NSURL(string: urlPath)
-        
-//        dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED,0))
-//        {
-        
-            let data = NSData(contentsOfURL: url!)
-            
-//            dispatch_async(dispatch_get_main_queue()) {
-                var jsonResult: [NSDictionary]!
-                
-                // UIApplication.sharedApplication().networkActivityIndicatorVisible = true
-                
-                do{
-                    jsonResult = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! [NSDictionary]
-                }catch{
-                    print(error)
-                }
-                
-                if let tracks = jsonResult[0]["tracks"] as? [NSDictionary]{
-                    for track in tracks{
-                        if track["streamable"] as! Bool == true{
-                            print(track["title"])
-                            var streamUrl  = track["stream_url"]! as! String
-                            streamUrl += "?client_id=\(self.SoundCloud_CLIENT_ID)"
-                            
-                            self.musicPlaylist.append(SongDetailsModel(title: track["title"]! as! String, duration: track["duration"]! as! Int, streamURL: streamUrl ))
-                        }
-                    }
-                }
-                let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-                appDelegate.playList = self.musicPlaylist
-                self.view.viewWithTag(22)?.removeFromSuperview()
-            }
-//        }
-//    }
     
+    // Fetches playlist from SoundCloud specific to that location and fills the SongDetailsModel with it
+    
+    func fetchMusicDataIntoModel(urlPath: String){
+        let url = NSURL(string: urlPath)
+        let data = NSData(contentsOfURL: url!)
+        var jsonResult: [NSDictionary]!
+        
+        do{
+            jsonResult = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! [NSDictionary]
+        }catch{
+            print(error)
+        }
+        
+        if let tracks = jsonResult[0]["tracks"] as? [NSDictionary]{
+            for track in tracks{
+                if track["streamable"] as! Bool == true{
+                    print(track["title"])
+                    var streamUrl  = track["stream_url"]! as! String
+                    streamUrl += "?client_id=\(self.SoundCloud_CLIENT_ID)"
+                    
+                    self.musicPlaylist.append(SongDetailsModel(title: track["title"]! as! String, duration: track["duration"]! as! Int, streamURL: streamUrl ))
+                }
+            }
+        }
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appDelegate.playList = self.musicPlaylist
+        self.view.viewWithTag(22)?.removeFromSuperview()
+    }
+    
+    // Popover segue for show profile
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showProfile" {
             let friendDetailsVC = segue.destinationViewController as! FriendDetailsViewController

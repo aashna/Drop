@@ -2,6 +2,11 @@
                                                        DROP APP
 ---------------------------------------------------------------------------------------------------------------------------------
 
+ -----------------
+| Important Note:| The console will show Started Monitoring for the zones when you log into the app, at any point if it shows 
+ ----------------- "Monitoring failed", you should stop the app, delete it from the simulator and run it again. The app will not function accordingly if it fails monitoring
+
+
 -------------
 SPLASH SCREEN
 -------------

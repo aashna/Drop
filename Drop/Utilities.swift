@@ -6,6 +6,10 @@
 //  Copyright © 2016 Aashna Garg. All rights reserved.
 //
 
+/**
+ Referred from https://www.raywenderlich.com/95014/geofencing-ios-swift
+ **
+ */
 import UIKit
 import MapKit
 

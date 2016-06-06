@@ -119,9 +119,13 @@ class UpdateProfileViewController: UIViewController, UIImagePickerControllerDele
         // Dispose of any resources that can be recreated.
     }
     
+    /**
+     Referred from http://stackoverflow.com/questions/28797752/swift-take-a-picture-and-upload-to-parse-nsinternalconsistencyexception
+     **
+     */
     
-    // MARK: IBAction method implementation
     
+    // Allows user to upload profile picture by either uploading from photo album or clicking picture from camera
     @IBAction func pickPhoto(sender: AnyObject) {
         let imagePicker = UIImagePickerController()
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.SavedPhotosAlbum) {
@@ -235,12 +239,8 @@ class UpdateProfileViewController: UIViewController, UIImagePickerControllerDele
         navigationController?.popViewControllerAnimated(true)
     }
     
-    
-    // MARK: Custom method implementation
-    
     func handleSwipeDownGestureRecognizer(swipeGestureRecognizer: UISwipeGestureRecognizer) {
         txtProfileTitle.resignFirstResponder()
-        //      textView.resignFirstResponder()
     }
     
     
@@ -252,24 +252,19 @@ class UpdateProfileViewController: UIViewController, UIImagePickerControllerDele
         imageData.writeToURL(imageURL, atomically: true)
     }
     
+    // Uploads image in Parse Database
+    
     func saveImageInDatabase() {
         
         if imageView.image == nil {
             //image is not included alert user
             print("Image not uploaded")
         }else {
-            // let newUser = PFUser.currentUser()
-            
             let profilePic = PFObject(className: "Profile_Image")
-            //posts["imageText"] = imageText
-          //  profilePic["uploader"] = PFUser.currentUser()
             profilePic.saveInBackgroundWithBlock({
                 (success: Bool, error: NSError?) -> Void in
                 
                 if error == nil {
-                    /**success saving, Now save image.***/
-                    
-                    //create an image data
                     let imageData = UIImagePNGRepresentation(self.imageView.image!)
                     //create a parse file to store in cloud
                     let parseImageFile = PFFile(name: "uploaded_image.png", data: imageData!)
@@ -278,9 +273,7 @@ class UpdateProfileViewController: UIViewController, UIImagePickerControllerDele
                         (success: Bool, error: NSError?) -> Void in
                         
                         if error == nil {
-                            //take user home
                             print("pic uploaded")
-                            //  self.performSegueWithIdentifier("goHomeFromUpload", sender: self)
                         }else {
                             print(error)
                         }
@@ -298,7 +291,7 @@ class UpdateProfileViewController: UIViewController, UIImagePickerControllerDele
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         imageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
         
-     //   saveImageLocally()
+        //   saveImageLocally()
         saveImageInDatabase()
         
         dismissViewControllerAnimated(true, completion: nil)
