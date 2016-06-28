@@ -100,7 +100,10 @@ AutoLayout - 2 points
 ImagePicker - 2 points 
 Drawing API - 2 points 
 Core Animation - 1 (or 2) point - (NCIL)
+Alert API - 2 points
 SplitView/ Navigation - 2 point
+AppDelegate - 2 points
+NSTimer - 1 point
 Notification - 1 point (NCIL)
 MapKit - 2 points
 Social Framework - 1 point (NCIL)
